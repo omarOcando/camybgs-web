@@ -12,9 +12,9 @@ export const submitContact = async (req, res) => {
 
     await Contact.create({ nombre, email, profesion, mensaje });
     await createSystemeContact(nombre, email);
-    await notifyContactForm({ nombre, email, profesion, mensaje });
-
     res.status(200).json({ ok: true });
+
+    notifyContactForm({ nombre, email, profesion, mensaje });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
