@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 
 const createTransporter = () =>
   nodemailer.createTransport({
-    host: "smtp.ionos.de",
+    host: "smtp.ionos.es",
     port: 587,
     secure: false,
     auth: {
