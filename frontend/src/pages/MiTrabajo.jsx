@@ -67,8 +67,8 @@ function useVisible(threshold = 0.15) {
       ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
       { threshold }
     );
-    obs.observe(el);
-    return () => obs.disconnect();
+    const rafId = requestAnimationFrame(() => obs.observe(el));
+    return () => { cancelAnimationFrame(rafId); obs.disconnect(); };
   }, []);
   return { ref, visible };
 }

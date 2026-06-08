@@ -111,8 +111,8 @@ function useSection(threshold = 0.1) {
       ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
       { threshold }
     );
-    obs.observe(el);
-    return () => obs.disconnect();
+    const rafId = requestAnimationFrame(() => obs.observe(el));
+    return () => { cancelAnimationFrame(rafId); obs.disconnect(); };
   }, [threshold]);
   return [ref, visible];
 }

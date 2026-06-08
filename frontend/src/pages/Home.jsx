@@ -33,8 +33,8 @@ function useFadeIn(threshold = 0.2) {
       ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
       { threshold }
     );
-    obs.observe(el);
-    return () => obs.disconnect();
+    const rafId = requestAnimationFrame(() => obs.observe(el));
+    return () => { cancelAnimationFrame(rafId); obs.disconnect(); };
   }, []);
   return { ref, visible };
 }
@@ -121,8 +121,8 @@ function Home({ active = false }) {
       ([entry]) => { if (entry.isIntersecting) { setProblemCardsVisible(true); obs.disconnect(); } },
       { threshold: 0.15 }
     );
-    obs.observe(el);
-    return () => obs.disconnect();
+    const rafId = requestAnimationFrame(() => obs.observe(el));
+    return () => { cancelAnimationFrame(rafId); obs.disconnect(); };
   }, []);
 
   const servicesGridRef = useRef(null);
@@ -134,8 +134,8 @@ function Home({ active = false }) {
       ([entry]) => { if (entry.isIntersecting) { setServicesGridVisible(true); obs.disconnect(); } },
       { threshold: 0.15 }
     );
-    obs.observe(el);
-    return () => obs.disconnect();
+    const rafId = requestAnimationFrame(() => obs.observe(el));
+    return () => { cancelAnimationFrame(rafId); obs.disconnect(); };
   }, []);
 
   const processTimelineRef = useRef(null);
@@ -147,8 +147,8 @@ function Home({ active = false }) {
       ([entry]) => { if (entry.isIntersecting) { setProcessTimelineVisible(true); obs.disconnect(); } },
       { threshold: 0.1 }
     );
-    obs.observe(el);
-    return () => obs.disconnect();
+    const rafId = requestAnimationFrame(() => obs.observe(el));
+    return () => { cancelAnimationFrame(rafId); obs.disconnect(); };
   }, []);
 
   const aboutRef = useRef(null);
@@ -160,8 +160,8 @@ function Home({ active = false }) {
       ([entry]) => { if (entry.isIntersecting) { setAboutVisible(true); obs.disconnect(); } },
       { threshold: 0.15 }
     );
-    obs.observe(el);
-    return () => obs.disconnect();
+    const rafId = requestAnimationFrame(() => obs.observe(el));
+    return () => { cancelAnimationFrame(rafId); obs.disconnect(); };
   }, []);
 
   const testimonialsRef = useRef(null);
@@ -173,8 +173,8 @@ function Home({ active = false }) {
       ([entry]) => { if (entry.isIntersecting) { setTestimonialsVisible(true); obs.disconnect(); } },
       { threshold: 0.15 }
     );
-    obs.observe(el);
-    return () => obs.disconnect();
+    const rafId = requestAnimationFrame(() => obs.observe(el));
+    return () => { cancelAnimationFrame(rafId); obs.disconnect(); };
   }, []);
 
   const { ref: problemTitleRef,      visible: problemTitleVisible      } = useFadeIn();
