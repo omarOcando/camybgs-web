@@ -1,12 +1,15 @@
-$bg-clear-color: #F5E9D3;
-$bg-dark-color: #1A1A1A;
-$bg-transition-color: #3B0A28;
-$main-color-1: #D4AF37;
-$main-color-2: #AC0505;
+// ─── PALETA OFICIAL CAMY ──────────────────────────────────
+$color-arena:     #F5F0E8;   // Fondo principal
+$color-noche:     #1D1D2E;   // Textos, navbar, footer
+$color-fuego:     #F04E23;   // CTAs, botones principales
+$color-vinotinto: #6B1530;   // Acento secundario
 
-$spacing-md: 16px;
-$border-radius: 8px;
-
-$mobile: 480px;
-$tablet: 1024px;
-$laptop: 3480px;
+// ─── BREAKPOINTS ──────────────────────────────────────────
+$mobile-xs: 390px;
+$mobile-sm: 600px;
+$mobile:    768px;
+$tablet-sm: 900px;
+$tablet:    1024px;
+$laptop-sm: 1200px;
+$laptop:    1470px;
+$desktop:   1760px;

@@ -1,0 +1,464 @@
+@use "../abstracts/variables" as *;
+
+// ─── SHARED ──────────────────────────────────────────────────────────────────
+.ctc-section-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 100px 24px;
+}
+
+@keyframes ctc-fade-in {
+  from { opacity: 0; transform: scale(0.93); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes ctc-slide-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ctc-card-in {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ctc-zoom-in {
+  to { opacity: 1; transform: scale(1); }
+}
+
+// ─── 01 HERO ─────────────────────────────────────────────────────────────────
+.ctc-hero {
+  background: $color-arena;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 160px 24px 100px;
+  text-align: center;
+}
+
+.ctc-hero__inner {
+  max-width: 900px;
+}
+
+.ctc-hero__title {
+  font-size: clamp(36px, 5.8vw, 110px);
+  color: $color-noche;
+  line-height: 1;
+  margin-bottom: 48px;
+  animation: ctc-fade-in 2.8s ease 0.2s both;
+}
+
+.ctc-hero__sub {
+  font-size: clamp(18px, 2.2vw, 35px);
+  color: rgba($color-noche, 0.5);
+  animation: ctc-slide-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+}
+
+// ─── 02 FORMAS DE CONTACTO ───────────────────────────────────────────────────
+.ctc-forms {
+  background: $color-noche;
+}
+
+.ctc-forms__title {
+  font-size: clamp(28px, 3.5vw, 56px);
+  color: $color-arena;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.25;
+  opacity: 0;
+  transform: scale(0.93);
+
+  &--visible {
+    animation: ctc-fade-in 1.2s ease forwards;
+  }
+}
+
+.ctc-forms__sub {
+  font-size: clamp(15px, 1.6vw, 22px);
+  color: rgba($color-arena, 0.5);
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.ctc-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  opacity: 0;
+  transform: translateY(30px);
+
+  &--visible {
+    animation: ctc-slide-up 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+.ctc-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: $color-arena;
+  border: 1px solid rgba($color-noche, 0.1);
+  border-radius: 28px;
+  padding: 48px 40px;
+}
+
+.ctc-col--wa {
+  align-self: start;
+}
+
+.ctc-col__title {
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 800;
+  color: $color-noche;
+  line-height: 1.2;
+}
+
+// ─── FORMULARIO ──────────────────────────────────────────────────────────────
+.ctc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .button {
+    margin-top: 15px;
+  }
+}
+
+.ctc-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ctc-form__label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: rgba($color-noche, 0.45);
+}
+
+.ctc-form__input {
+  background: rgba($color-noche, 0.05);
+  border: 1.5px solid rgba($color-noche, 0.15);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(14px, 1.2vw, 16px);
+  color: $color-noche;
+  outline: none;
+  transition: border-color 0.25s ease, background 0.25s ease;
+  width: 100%;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: rgba($color-noche, 0.28);
+  }
+
+  &:focus {
+    border-color: $color-fuego;
+    background: rgba($color-noche, 0.08);
+  }
+
+  &--textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+  }
+}
+
+.ctc-form__error {
+  font-size: 13px;
+  color: $color-fuego;
+  font-weight: 500;
+  margin-top: -4px;
+}
+
+// ─── ESTADO DE CONFIRMACIÓN ──────────────────────────────────────────────────
+.ctc-success {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: ctc-slide-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.ctc-success__headline {
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 800;
+  color: $color-fuego;
+  line-height: 1.3;
+}
+
+.ctc-success__text {
+  font-size: clamp(14px, 1.3vw, 17px);
+  color: rgba($color-noche, 0.65);
+  line-height: 1.7;
+}
+
+// ─── WHATSAPP CARD ───────────────────────────────────────────────────────────
+.ctc-wa-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ctc-wa-icon {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+.ctc-wa-text {
+  font-size: clamp(14px, 1.3vw, 17px);
+  color: rgba($color-noche, 0.6);
+  line-height: 1.7;
+}
+
+.ctc-wa-btn {
+  align-self: flex-start;
+  display: inline-block;
+  padding: 10px 24px;
+  border: 2px solid rgba(#25D366, 0.6);
+  border-radius: 100px;
+  background: transparent;
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 700;
+  color: #25D366;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease;
+
+  &:hover {
+    border-color: #25D366;
+    background: rgba(#25D366, 0.2);
+  }
+}
+
+// ─── 03 QUÉ PASA DESPUÉS ─────────────────────────────────────────────────────
+.ctc-steps {
+  background: $color-vinotinto;
+  padding-bottom: 50px;
+}
+
+.ctc-steps__title {
+  font-size: clamp(36px, 5vw, 72px);
+  color: $color-arena;
+  text-align: center;
+  margin-bottom: 64px;
+  opacity: 0;
+  transform: scale(0.94);
+
+  &--visible {
+    animation: ctc-zoom-in 1.1s ease forwards;
+  }
+}
+
+.ctc-steps__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.ctc-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 40px 20px;
+  border-radius: 20px;
+  background: rgba($color-arena, 0.75);
+  border: 1px solid rgba($color-arena, 0.15);
+  opacity: 0;
+  transform: translateY(30px);
+  box-shadow: 0 14px 44px rgba($color-noche, 0.3);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 14px 44px rgba($color-arena, 0.5);
+  }
+}
+
+.ctc-steps__grid--visible {
+  .ctc-step:nth-child(1) { animation: ctc-card-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0s    forwards; }
+  .ctc-step:nth-child(2) { animation: ctc-card-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.12s forwards; }
+  .ctc-step:nth-child(3) { animation: ctc-card-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.24s forwards; }
+  .ctc-step:nth-child(4) { animation: ctc-card-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.36s forwards; }
+}
+
+.ctc-step__num {
+  font-size: clamp(36px, 3.6vw, 60px);
+  font-family: "DM Serif Display", serif;
+  color: $color-fuego;
+  line-height: 1;
+}
+
+.ctc-step__desc {
+  font-size: clamp(12px, 1vw, 18px);
+  color: rgba($color-noche, 0.7);
+  line-height: 1.7;
+}
+
+// ─── 04 DATOS DIRECTOS ───────────────────────────────────────────────────────
+.ctc-data {
+  background: $color-arena;
+  padding: 30px 0;
+}
+
+.ctc-data__inner {
+  opacity: 0;
+  transform: translateY(30px);
+
+  &--visible {
+    animation: ctc-slide-up 3.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+.ctc-data__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.ctc-data-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 32px 24px;
+  border-radius: 20px;
+  background: rgba($color-noche, 0.05);
+  border: 1px solid rgba($color-noche, 0.1);
+}
+
+.ctc-data-item__label {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-fuego;
+}
+
+.ctc-data-item__value {
+  font-size: clamp(14px, 1.4vw, 18px);
+  color: $color-noche;
+  line-height: 1.5;
+  font-weight: 500;
+
+  &--link {
+    text-decoration: none;
+    color: $color-noche;
+    font-weight: 600;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-fuego;
+    }
+  }
+}
+
+// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
+
+// ── Tablet (≤ 1024px) ────────────────────────────────────────────────────────
+@media (max-width: $tablet) {
+
+  .ctc-hero__title {
+    font-size: clamp(48px, 7.5vw, 110px);
+  }
+
+  .ctc-steps__title {
+    font-size: clamp(40px, 5.8vw, 72px);
+  }
+}
+
+// ── Tablet SM (≤ 900px) ──────────────────────────────────────────────────────
+@media (max-width: $tablet-sm) {
+
+  .ctc-section-inner {
+    padding: 70px 100px;
+  }
+
+  .ctc-steps__title {
+    font-size: clamp(44px, 7.5vw, 66px);
+  }
+
+  .ctc-cols {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .ctc-forms {
+    margin-bottom: 30px;
+  }
+
+  .ctc-forms__sub {
+    margin-bottom: 50px;
+  }
+
+  .ctc-steps__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ctc-data__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// ── Móvil (≤ 768px) ──────────────────────────────────────────────────────────
+@media (max-width: $mobile) {
+
+  .ctc-section-inner {
+    padding: 45px 35px;
+  }
+
+  .ctc-hero {
+    padding-top: 100px;
+  }
+
+  .ctc-hero__title {
+    font-size: clamp(50px, 13vw, 110px);
+    line-height: 1.15;
+  }
+
+  .ctc-steps__title {
+    font-size: clamp(42px, 9.5vw, 64px);
+    line-height: 1.14;
+  }
+
+  .ctc-col {
+    padding: 36px 24px;
+  }
+
+  .ctc-forms {
+    margin-bottom: 30px;
+  }
+
+  .ctc-forms__sub {
+    margin-bottom: 50px;
+  }
+}
+
+// ── Móvil SM (≤ 600px) ───────────────────────────────────────────────────────
+@media (max-width: $mobile-sm) {
+
+  .ctc-forms {
+    margin-bottom: 30px;
+  }
+
+  .ctc-forms__sub {
+    margin-bottom: 50px;
+  }
+
+  .ctc-steps__grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .ctc-data__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,53 @@
+@use "../abstracts/variables" as *;
+
+// ─── SCROLL TO TOP BUTTON ─────────────────────────────────────────────────────
+.scroll-top-btn {
+  position: fixed;
+  bottom: 70px;
+  right: 180px;
+  z-index: 998;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: $color-noche;
+  color: $color-arena;
+  font-size: 22px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  &:hover {
+    background: $color-fuego;
+    box-shadow: 0 8 18px rgba($color-fuego, 0.8), 0 4px 16px $color-fuego(0, 0, 0, 0.8);
+    transform: translateY(-3px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: $mobile) {
+  .scroll-top-btn {
+    width: 44px;
+    height: 44px;
+    bottom: 100px;
+    right: 31px;
+    font-size: 18px;
+  }
+}

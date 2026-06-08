@@ -5,35 +5,35 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer__socials">
-        <a
+        {/* <a
           href="https://www.instagram.com/ramses.beziehungscoach"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
         >
           <FaInstagram />
-        </a>
+        </a> */}
 
-        <a
+        {/* <a
           href="https://www.facebook.com/ramsesviloria.beziehungscoach"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Facebook"
         >
           <FaFacebookF />
-        </a>
+        </a> */}
 
-        <a
+        {/* <a
           href="https://www.tiktok.com/@ramses.beziehungscoach"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="TikTok"
         >
           <FaTiktok />
-        </a>
+        </a> */}
 
         <a
-          href="https://www.linkedin.com/in/ramsesviloria/"
+          href="https://www.linkedin.com/in/omar-ocando-mederos/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
@@ -53,7 +53,7 @@ function Footer() {
       </div>
 
       <div className="footer__copyright">
-        © Ramses Viloria {new Date().getFullYear()}
+        © CAMY | Business Growth Solutions {new Date().getFullYear()}
       </div>
 
     </footer>

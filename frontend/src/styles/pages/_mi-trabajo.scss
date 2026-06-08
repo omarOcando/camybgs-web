@@ -1,0 +1,469 @@
+@use "../abstracts/variables" as *;
+
+// ─── SHARED ──────────────────────────────────────────────────────────────────
+.mt-section-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 100px 24px;
+}
+
+// ─── 01 HERO ─────────────────────────────────────────────────────────────────
+.mt-hero {
+  background: $color-noche;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 160px 24px 100px;
+  text-align: center;
+}
+
+.mt-hero__inner {
+  max-width: 1200px;
+}
+
+.mt-hero__title {
+  font-size: clamp(36px, 5.8vw, 110px);
+  color: $color-arena;
+  line-height: 1.1;
+  margin-bottom: 60px;
+  animation: mt-fade-in 2.8s ease 0.2s both;
+}
+
+.mt-hero__sub {
+  font-size: clamp(18px, 2.2vw, 35px);
+  color: rgba($color-arena, 0.55);
+  animation: mt-slide-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+}
+
+@keyframes mt-fade-in {
+  from { opacity: 0; transform: scale(0.93); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes mt-slide-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// ─── 02 FILTROS ──────────────────────────────────────────────────────────────
+.mt-portfolio {
+  background: $color-arena;
+  padding-bottom: 30px;
+}
+
+.mt-filters__title {
+  font-size: clamp(28px, 3.5vw, 52px);
+  color: $color-noche;
+  text-align: center;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(24px);
+
+  &--visible {
+    animation: mt-slide-up 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+.mt-filters__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 72px;
+  opacity: 0;
+  transform: translateY(20px);
+
+  &--visible {
+    animation: mt-slide-up 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s forwards;
+  }
+}
+
+.mt-filter-btn {
+  padding: 10px 26px;
+  border: 2px solid rgba($color-noche, 0.22);
+  border-radius: 100px;
+  background: transparent;
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 500;
+  color: rgba($color-noche, 0.6);
+  cursor: pointer;
+  transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+
+  &:hover {
+    border-color: $color-fuego;
+    color: $color-fuego;
+  }
+
+  &--active {
+    background: $color-fuego;
+    border-color: $color-fuego;
+    color: $color-arena;
+    font-weight: 700;
+  }
+}
+
+// ─── 03 GRID DE PROYECTOS ────────────────────────────────────────────────────
+.mt-projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.mt-project-card {
+  background: rgba($color-noche, 0.07);
+  border: 1px solid rgba($color-noche, 0.1);
+  border-radius: 24px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  opacity: 0;
+  transform: translateY(30px);
+  box-shadow: none;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 32px rgba($color-noche, 0.12);
+  }
+}
+
+.mt-card__preview {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  background: $color-noche;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.mt-card__preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mt-card__preview-placeholder {
+  color: rgba($color-arena, 0.25);
+}
+
+.mt-card__visit-btn {
+  align-self: flex-start;
+  display: inline-block;
+  padding: 10px 24px;
+  border: 2px solid rgba($color-noche, 0.35);
+  border-radius: 100px;
+  background: transparent;
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 500;
+  color: rgba($color-noche, 0.65);
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+  margin: 15px 0;
+
+  &:hover {
+    border-color: $color-fuego;
+    color: $color-fuego;
+    background: rgba($color-fuego, 0.07);
+  }
+
+  &:disabled {
+    opacity: 0.38;
+    cursor: not-allowed;
+  }
+}
+
+.mt-projects--visible {
+  .mt-project-card:nth-child(1) { animation: mt-card-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0s    forwards; }
+  .mt-project-card:nth-child(2) { animation: mt-card-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards; }
+  .mt-project-card:nth-child(3) { animation: mt-card-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s  forwards; }
+  .mt-project-card:nth-child(4) { animation: mt-card-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards; }
+  .mt-project-card:nth-child(5) { animation: mt-card-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.6s  forwards; }
+}
+
+@keyframes mt-card-in {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mt-card__type {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-fuego;
+  background: rgba($color-fuego, 0.08);
+  border-radius: 100px;
+  padding: 4px 14px;
+  align-self: flex-start;
+}
+
+.mt-card__name {
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 800;
+  color: $color-noche;
+  line-height: 1.2;
+}
+
+.mt-card__client {
+  font-size: clamp(12px, 1vw, 13px);
+  color: rgba($color-noche, 0.4);
+  font-style: italic;
+  margin-top: -4px;
+}
+
+.mt-card__label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba($color-noche, 0.35);
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+.mt-card__text {
+  font-size: clamp(14px, 1.2vw, 16px);
+  color: rgba($color-noche, 0.65);
+  line-height: 1.5;
+}
+
+.mt-card__result {
+  font-size: clamp(14px, 1.2vw, 16px);
+  color: $color-fuego;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.mt-card__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.mt-card__tech-tag {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: rgba($color-noche, 0.13);
+  color: rgba($color-noche, 0.55);
+  font-weight: 500;
+}
+
+// ─── 04 CÓMO TRABAJO ─────────────────────────────────────────────────────────
+.mt-process {
+  background: $color-vinotinto;
+  padding-bottom: 50px;
+}
+
+.mt-process__title {
+  font-size: clamp(28px, 3.5vw, 56px);
+  color: $color-arena;
+  text-align: center;
+  margin-bottom: 72px;
+  line-height: 1.25;
+  opacity: 0;
+  transform: scale(0.94);
+
+  &--visible {
+    animation: mt-zoom-in 1.1s ease forwards;
+  }
+}
+
+@keyframes mt-zoom-in {
+  to { opacity: 1; transform: scale(1); }
+}
+
+.mt-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.mt-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 40px 20px;
+  border-radius: 20px;
+  background: rgba($color-arena, 0.75);
+  border: 1px solid rgba($color-arena, 0.15);
+  opacity: 0;
+  transform: translateY(30px);
+  box-shadow: 0 14px 44px rgba($color-noche, 0.3);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 14px 44px rgba($color-arena, 0.5);
+  }
+}
+
+.mt-steps--visible {
+  .mt-step:nth-child(1) { animation: mt-card-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0s    forwards; }
+  .mt-step:nth-child(2) { animation: mt-card-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.12s forwards; }
+  .mt-step:nth-child(3) { animation: mt-card-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.24s forwards; }
+  .mt-step:nth-child(4) { animation: mt-card-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.36s forwards; }
+  .mt-step:nth-child(5) { animation: mt-card-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.48s forwards; }
+}
+
+.mt-step__num {
+  font-size: clamp(36px, 3.6vw, 60px);
+  font-family: "DM Serif Display", serif;
+  color: $color-fuego;
+  line-height: 1;
+}
+
+.mt-step__title {
+  font-size: clamp(14px, 1.3vw, 20px);
+  font-weight: 700;
+  color: $color-vinotinto;
+  line-height: 1.3;
+}
+
+.mt-step__desc {
+  font-size: clamp(12px, 1vw, 15px);
+  color: rgba($color-noche, 0.6);
+  line-height: 1.7;
+}
+
+// ─── 05 CTA FINAL ────────────────────────────────────────────────────────────
+.mt-cta {
+  background: $color-noche;
+}
+
+.mt-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+
+  &--visible {
+    animation: mt-slide-up 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+.mt-cta__title {
+  font-size: clamp(32px, 4.5vw, 72px);
+  color: $color-arena;
+  margin-bottom: 24px;
+  font-family: "DM Serif Display", serif;
+  opacity: 0;
+  transform: scale(0.93);
+
+  &--visible {
+    animation: mt-fade-in 1.2s ease 0.1s forwards;
+  }
+}
+
+.mt-cta__sub {
+  font-size: clamp(16px, 1.6vw, 22px);
+  color: rgba($color-arena, 0.6);
+  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+}
+
+// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
+
+// ── Tablet (≤ 1024px) ────────────────────────────────────────────────────────
+@media (max-width: $tablet) {
+
+  .mt-hero__title {
+    font-size: clamp(48px, 7.5vw, 110px);
+  }
+
+  .mt-cta__title {
+    font-size: clamp(40px, 5.8vw, 72px);
+  }
+
+  .mt-steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// ── Tablet SM (≤ 900px) ──────────────────────────────────────────────────────
+@media (max-width: $tablet-sm) {
+
+  .mt-section-inner {
+    padding: 70px 100px;
+  }
+
+  .mt-cta__title {
+    font-size: clamp(44px, 7.5vw, 66px);
+  }
+
+  .mt-projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// ── Móvil (≤ 768px) ──────────────────────────────────────────────────────────
+@media (max-width: $mobile) {
+
+  .mt-section-inner {
+    padding: 45px 35px;
+  }
+
+  .mt-hero {
+    padding-top: 100px;
+  }
+
+  .mt-hero__title {
+    font-size: clamp(50px, 13vw, 110px);
+    line-height: 1.15;
+  }
+
+  .mt-cta__title {
+    font-size: clamp(42px, 9.5vw, 64px);
+    line-height: 1.14;
+  }
+
+  .mt-cta__sub {
+    font-size: clamp(16px, 4.5vw, 22px);
+  }
+
+  .mt-projects {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .mt-project-card {
+    padding: 28px 20px;
+  }
+}
+
+// ── Móvil SM (≤ 600px) ───────────────────────────────────────────────────────
+@media (max-width: $mobile-sm) {
+
+  .mt-steps {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .mt-filters__buttons {
+    margin-bottom: 50px;
+  }
+
+  .mt-projects {
+    gap: 50px;
+  }
+
+  .mt-step__title {
+    font-size: clamp(18px, 1.4vw, 20px);
+  }
+}

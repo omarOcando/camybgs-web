@@ -6,8 +6,11 @@
 @use "./base/typography";
 
 /* COMPONENTS */
-@use "./components/calendar";
 @use "./components/button";
+@use "./components/notification";
+@use "./components/loader";
+@use "./components/whatsapp";
+@use "./components/scroll-top";
 
 /* LAYOUT */
 @use "./components/layout/header";
@@ -16,13 +19,29 @@
 
 /* PAGES */
 @use "./pages/home";
-@use "./pages/my-story";
-@use "./pages/do-you-feel-this";
-@use "./pages/the-way-to-transformation";
-@use "./pages/what-couples-say";
-@use "./pages/take-the-first-step";
-@use "./pages/inside-the-room";
-@use "./pages/login";
-@use "./pages/dashboard";
-@use "./pages/my-appointments";
-@use "./pages/impressum";
+@use "./pages/servicios";
+@use "./pages/resultados";
+@use "./pages/sobre-mi";
+@use "./pages/mi-trabajo";
+@use "./pages/contacto";
+@use "./pages/legal";
+
+.appFade {
+  animation: appFadeIn 0.8s ease;
+
+  &--hidden {
+    visibility: hidden;
+    overflow: hidden;
+  }
+}
+
+@keyframes appFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

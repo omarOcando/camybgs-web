@@ -1,40 +1,164 @@
 @use "../abstracts/variables" as *;
 
+// ─── BASE ─────────────────────────────────────────────────────────────────────
 .button {
-    padding: 8px 16px;
-    border-radius: $border-radius;
-    cursor: pointer;
-    border: none;
-    font-weight: 600;
-    transition: all 0.25s ease;
+  display: inline-block;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+
+  &:hover   { transform: translateY(-2px); }
+  &:active  { transform: translateY(0); }
 }
 
-.button:hover {
-    box-shadow: 0 10px 24px rgba(0,0,0,0.35);
-    filter: brightness(1.2);
+// ─── SIZES ────────────────────────────────────────────────────────────────────
+.button--sm {
+  padding: 8px 20px;
+  font-size: 14px;
 }
-  
-/* Variants */
+
+.button--md {
+  padding: 12px 28px;
+  font-size: 16px;
+}
+
+.button--lg {
+  padding: 10px 35px;
+  font-size: clamp(18px, 1.8vw, 26px);
+  letter-spacing: 0.06em;
+}
+
+.button--xl {
+  padding: 20px 56px;
+  font-size: clamp(17px, 1.8vw, 22px);
+  font-weight: 700;
+}
+
+// ─── VARIANTS ─────────────────────────────────────────────────────────────────
 .button--primary {
-    background: $main-color-1;
-    color: $bg-dark-color;
-    font-size: 16px;
-}
-  
-.button--secondary {
-    background: $main-color-2;
-    color: $bg-clear-color;
-    font-size: 16px;
+  background: linear-gradient(
+    to right,
+    #FF8C00   0%,
+    $color-fuego 50%,
+    $color-fuego 100%
+  );
+  background-size: 200% 100%;
+  background-position: right center;
+  color: #fff;
+  box-shadow:
+    0 4px 14px rgba(240, 78, 35, 0.40),
+    0 2px 6px  rgba(0, 0, 0, 0.10);
+  transition:
+    background-position 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    background-position: left center;
+    box-shadow:
+      0 0 18px rgba(255, 140, 0, 0.90),
+      0 0 45px rgba(255, 140, 0, 0.55),
+      0 0 80px rgba(255, 140, 0, 0.25),
+      0 8px 20px rgba(0, 0, 0, 0.20);
+  }
 }
 
-.button--book {
-    background: $main-color-1;
-    color: $bg-dark-color;
+// ─── ARROW RE-ENTRY ───────────────────────────────────────────────────────────
+.btn-arrow {
+  display: inline-block;
+  font-size: 1.45em;
+  // line-height: 1;
+  vertical-align: middle;
+  padding-left: 8px;
 }
-  
-.button--booked {
-    background: #c94c4c;
-    color: white;
-    cursor: not-allowed;
-    opacity: 0.85;
+
+.button:hover .btn-arrow {
+  animation: arrowReenter 0.5s ease forwards;
+}
+
+@keyframes arrowReenter {
+  0%   { transform: translateX(0);     opacity: 1; }
+  35%  { transform: translateX(10px);  opacity: 0; }
+  36%  { transform: translateX(-10px); opacity: 0; }
+  100% { transform: translateX(0);     opacity: 1; }
+}
+
+.button--secondary {
+  background: $color-vinotinto;
+  color: $color-arena;
+  box-shadow:
+    0 4px 14px rgba(107, 21, 48, 0.40),
+    0 2px 6px  rgba(0, 0, 0, 0.10);
+
+  &:hover {
+    box-shadow:
+      0 8px 40px rgba(107, 21, 48, 0.70),
+      0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.button--ghost {
+  background: transparent;
+  color: $color-fuego;
+  box-shadow: none;
+  font-weight: 700;
+  border: 1.5px solid transparent;
+
+  &:hover {
+    background: rgba($color-fuego, 0.10);
+    border-color: rgba($color-fuego, 0.45);
+    box-shadow: 0 0 22px rgba($color-fuego, 0.18);
+    transform: translateY(-2px);
+  }
+}
+
+.button--ghost-light {
+  background: transparent;
+  color: $color-arena;
+  box-shadow: none;
+  font-weight: 700;
+  border: 1.5px solid transparent;
+
+  &:hover {
+    color: $color-arena;
+    background: rgba($color-fuego, 0.10);
+    border-color: rgba($color-fuego, 0.45);
+    box-shadow: 0 0 22px rgba($color-fuego, 0.18);
+    transform: translateY(-2px);
+  }
+}
+
+// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
+
+// ── Tablet (≤ 1024px) ────────────────────────────────────────────────────────
+@media (max-width: $tablet) {
+
+  .button--lg {
+    padding: 12px 40px;
+    font-size: 20px;
+  }
+
+  .button--xl {
+    padding: 22px 62px;
+    font-size: 20px;
+  }
+}
+
+// ── Móvil (≤ 768px) ──────────────────────────────────────────────────────────
+@media (max-width: $mobile) {
+
+  .button--lg {
+    padding: 8px 28px;
+    font-size: 16px;
+  }
+
+  .button--xl {
+    padding: 15px 40px;
+    font-size: 16px;
+  }
 }

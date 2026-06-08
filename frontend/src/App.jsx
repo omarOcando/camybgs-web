@@ -1,65 +1,49 @@
+import { useState, useCallback, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import MainLayout from "./components/layout/MainLayout";
+import ScrollToTop from "./components/ScrollToTop";
+import { NotificationProvider } from "./context/NotificationContext";
+import Loader from "./components/Loader";
 import Home from "./pages/Home";
-import MyStory from "./pages/MyStory";
-import DoYouFeelThis from "./pages/DoYouFeelThis";
-import TheWayToTransformation from "./pages/TheWayToTransformation";
-import WhatCouplesSay from "./pages/WhatCouplesSay";
-import TakeTheFirstStep from "./pages/TakeTheFirstStep";
-import InsideTheRoom from "./pages/InsideTheRoom";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-import PrivateRoute from "./routes/PrivateRoute";
-import MyAppointments from "./pages/MyAppointments";
-import AdminAppointments from "./pages/AdminAppointments";
+import Servicios from "./pages/Servicios";
+import Resultados from "./pages/Resultados";
+import SobreMi from "./pages/SobreMi";
+import MiTrabajo from "./pages/MiTrabajo";
+import Contacto from "./pages/Contacto";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
+import WhatsAppButton from "./components/WhatsAppButton";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const handleFinish = useCallback(() => setLoading(false), []);
+
+  useEffect(() => {
+    document.body.style.overflow = loading ? "hidden" : "";
+  }, [loading]);
+
   return (
-    <MainLayout>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/my-story" element={<MyStory />} />
-        <Route path="/do-you-feel-this" element={<DoYouFeelThis />} />
-        <Route path="/the-way-to-transformation" element={<TheWayToTransformation />} />
-        <Route path="/take-the-first-step" element={<TakeTheFirstStep />} />
-        <Route path="/inside-the-room"
-          element={
-            <PrivateRoute>
-              <InsideTheRoom />
-            </PrivateRoute>
-          }
-        />
-        <Route path="/what-couples-say" element={<WhatCouplesSay />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/impressum" element={<Impressum />} />
-        <Route path="/datenschutz" element={<Datenschutz />} />
-        <Route path="/dashboard"
-          element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          }
-        />
-        <Route path="/my-appointments"
-          element={
-            <PrivateRoute>
-              <MyAppointments />
-            </PrivateRoute>
-          }
-        />
-        <Route path="/admin/appointments"
-          element={
-            <PrivateRoute>
-              <AdminAppointments />
-            </PrivateRoute>
-          }
-        />
-      </Routes>
-    </MainLayout>
+    <NotificationProvider>
+      {loading && <Loader onFinish={handleFinish} />}
+      <div className={`appFade${loading ? " appFade--hidden" : ""}`}>
+        <ScrollToTop />
+        <WhatsAppButton />
+        <ScrollToTopButton />
+        <MainLayout>
+          <Routes>
+            <Route path="/"           element={<Home active={!loading} />} />
+            <Route path="/servicios"  element={<Servicios />} />
+            <Route path="/resultados" element={<Resultados />} />
+            <Route path="/sobre-mi"   element={<SobreMi />} />
+            <Route path="/mi-trabajo"  element={<MiTrabajo />} />
+            <Route path="/contacto"   element={<Contacto />} />
+            <Route path="/impressum"  element={<Impressum />} />
+            <Route path="/datenschutz" element={<Datenschutz />} />
+          </Routes>
+        </MainLayout>
+      </div>
+    </NotificationProvider>
   );
 }
 
