@@ -13,9 +13,9 @@ const createTransporter = () =>
   });
 
 export const notifyContactForm = async ({ nombre, email, profesion, mensaje }) => {
+  console.log("[EMAIL] Attempting to send notification. USER:", process.env.EMAIL_USER);
   try {
     const transporter = createTransporter();
-
     await transporter.sendMail({
       from: `"CAMY Web" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
@@ -29,7 +29,8 @@ export const notifyContactForm = async ({ nombre, email, profesion, mensaje }) =
         <p>${mensaje}</p>
       `,
     });
+    console.log("[EMAIL] Notification sent successfully.");
   } catch (error) {
-    console.error("Error sending contact notification email:", error.message);
+    console.error("[EMAIL] Failed:", error.code, error.message);
   }
 };
