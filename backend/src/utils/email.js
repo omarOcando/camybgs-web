@@ -1,26 +1,12 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
-const createTransporter = () =>
-  nodemailer.createTransport({
-    host: "smtp.ionos.es",
-    port: 587,
-    secure: false,
-    requireTLS: true,
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-    connectionTimeout: 10000,
-    greetingTimeout: 10000,
-    socketTimeout: 10000,
-  });
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const notifyContactForm = async ({ nombre, email, profesion, mensaje }) => {
-  console.log("[EMAIL] Attempting to send notification. USER:", process.env.EMAIL_USER);
+  console.log("[EMAIL] Attempting to send notification to:", process.env.EMAIL_USER);
   try {
-    const transporter = createTransporter();
-    await transporter.sendMail({
-      from: `"CAMY Web" <${process.env.EMAIL_USER}>`,
+    await resend.emails.send({
+      from: "CAMY Web <info@camybgs.com>",
       to: process.env.EMAIL_USER,
       subject: `Nuevo mensaje de contacto — ${nombre}`,
       html: `
@@ -34,6 +20,6 @@ export const notifyContactForm = async ({ nombre, email, profesion, mensaje }) =
     });
     console.log("[EMAIL] Notification sent successfully.");
   } catch (error) {
-    console.error("[EMAIL] Failed:", error.code, error.message);
+    console.error("[EMAIL] Failed:", error.message);
   }
 };
