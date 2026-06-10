@@ -318,7 +318,7 @@ function Home({ active = false }) {
             {TESTIMONIALS.map((t, i) => (
               <article key={i} className="home-testimonials__card">
                 <div className="home-testimonials__card-video" aria-label="Video testimonio">
-                  <video src={testimonialRamses} preload="metadata" controls playsInline />
+                  <video src={testimonialRamses} preload="metadata" controls playsInline onLoadedMetadata={(e) => { e.target.currentTime = 0.01; }} />
                 </div>
                 <div className="home-testimonials__card-info">
                   <span className="home-testimonials__card-name">{t.name}</span>

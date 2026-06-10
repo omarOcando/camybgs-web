@@ -140,7 +140,7 @@ function Resultados() {
                   </div>
 
                   <div className="res-case__testimonial">
-                    <video className="res-case__testimonial-video" src={testimonialRamses} preload="metadata" controls playsInline />
+                    <video className="res-case__testimonial-video" src={testimonialRamses} preload="metadata" controls playsInline onLoadedMetadata={(e) => { e.target.currentTime = 0.01; }} />
                   </div>
                 </div>
               </article>
