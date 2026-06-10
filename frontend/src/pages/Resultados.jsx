@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Button from "../components/Button";
+import testimonialRamses from "../assets/videos/clients-testimonials/testimonio-ramses.mp4";
 
 // ─── HOOKS ───────────────────────────────────────────────────────────────────
 
@@ -138,14 +139,8 @@ function Resultados() {
                     </div>
                   </div>
 
-                  <div className="res-case__testimonial" aria-label="Video testimonio">
-                    <div className="res-case__testimonial-placeholder" aria-hidden="true">
-                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                        <circle cx="20" cy="20" r="19" stroke="currentColor" strokeWidth="1.5" opacity="0.3"/>
-                        <polygon points="16,13 30,20 16,27" fill="currentColor" opacity="0.5"/>
-                      </svg>
-                      <p className="res-case__testimonial-soon">Próximamente — los resultados hablan solos.</p>
-                    </div>
+                  <div className="res-case__testimonial">
+                    <video className="res-case__testimonial-video" src={testimonialRamses} preload="metadata" controls playsInline />
                   </div>
                 </div>
               </article>

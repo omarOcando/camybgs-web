@@ -266,6 +266,15 @@
   gap: 14px;
 }
 
+.res-case__testimonial-video {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 20px;
+  background: $color-noche;
+  display: block;
+  object-fit: cover;
+}
+
 .res-case__testimonial-placeholder {
   width: 100%;
   aspect-ratio: 9 / 16;

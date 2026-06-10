@@ -298,8 +298,8 @@
   gap: 12px;
   padding: 40px 20px;
   border-radius: 20px;
-  background: rgba($color-arena, 0.75);
-  border: 1px solid rgba($color-arena, 0.15);
+  background: $color-arena;
+  border: 1px solid rgba($color-noche, 0.1);
   opacity: 0;
   transform: translateY(30px);
   box-shadow: 0 14px 44px rgba($color-noche, 0.3);

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Button from "../components/Button";
 import videoBg from "../assets/videos/HomeVideoBG1.mp4";
+import testimonialRamses from "../assets/videos/clients-testimonials/testimonio-ramses.mp4";
 import aboutPhoto from "../assets/images/home/Omar.jpg";
 import aboutPhotoMovil from "../assets/images/home/OmarMovil.jpg";
 
@@ -317,13 +318,7 @@ function Home({ active = false }) {
             {TESTIMONIALS.map((t, i) => (
               <article key={i} className="home-testimonials__card">
                 <div className="home-testimonials__card-video" aria-label="Video testimonio">
-                  <div className="home-testimonials__card-video-placeholder" aria-hidden="true">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                      <circle cx="20" cy="20" r="19" stroke="currentColor" strokeWidth="1.5" opacity="0.3"/>
-                      <polygon points="16,13 30,20 16,27" fill="currentColor" opacity="0.5"/>
-                    </svg>
-                    <p className="home-testimonials__card-video-soon">Próximamente — los resultados hablan solos.</p>
-                  </div>
+                  <video src={testimonialRamses} preload="metadata" controls playsInline />
                 </div>
                 <div className="home-testimonials__card-info">
                   <span className="home-testimonials__card-name">{t.name}</span>

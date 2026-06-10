@@ -174,11 +174,12 @@
 }
 
 .home-problem__card {
-  background: rgba($color-arena, 0.16);
-  border: 1px solid rgba($color-arena, 0.30);
+  background: $color-arena;
+  border: 1px solid rgba($color-noche, 0.1);
   border-radius: 30px;
   padding: 48px 36px;
-  transition: border-color 0.5s ease, background 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 14px 44px rgba($color-noche, 0.3);
   opacity: 0;
 
   p {
@@ -186,8 +187,7 @@
   }
 
   &:hover {
-    background: rgba($color-arena, 0.11);
-    border: 1px solid rgba($color-arena, 0.7);
+    box-shadow: 0 14px 44px rgba($color-arena, 0.5);
   }
 }
 
@@ -203,7 +203,7 @@
 .home-problem__card-text {
   font-size: clamp(14px, 1.2vw, 16px);
   line-height: 1.7;
-  color: rgba($color-arena, 0.8);
+  color: rgba($color-noche, 0.65);
   text-align: center;
 }
 
@@ -624,6 +624,11 @@
     height: 100%;
     object-fit: cover;
     display: block;
+
+    &:fullscreen,
+    &:-webkit-full-screen {
+      object-fit: contain;
+    }
   }
 }
 

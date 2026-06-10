@@ -8,3 +8,8 @@ body {
     background-color: #1D1D2E;
     color: #ffffff;
 }
+
+video:fullscreen,
+video:-webkit-full-screen {
+    object-fit: contain;
+}

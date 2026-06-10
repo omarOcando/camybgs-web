@@ -132,12 +132,12 @@
   }
 
   &--dark {
-    background: rgba($color-arena, 0.08);
-    border-color: rgba($color-arena, 0.3);
-    box-shadow: 0 14px 44px rgba(black, 0.3);
+    background: $color-arena;
+    border-color: rgba($color-noche, 0.1);
+    box-shadow: 0 14px 44px rgba($color-noche, 0.3);
 
     &:hover {
-      box-shadow: 0 14px 44px rgba($color-arena, 0.14);
+      box-shadow: 0 14px 44px rgba($color-arena, 0.5);
     }
   }
 }
@@ -149,7 +149,7 @@
   color: $color-noche;
   margin-bottom: 15px;
 
-  .srv-card--dark & { color: $color-arena; }
+  .srv-card--dark & { color: $color-fuego; }
 }
 
 .srv-card__for {
@@ -168,7 +168,7 @@
   margin-bottom: 20px;
   flex: 1;
 
-  .srv-card--dark & { color: rgba($color-arena, 0.65); }
+  .srv-card--dark & { color: rgba($color-noche, 0.65); }
 }
 
 .srv-card__includes-label {
@@ -180,7 +180,7 @@
   margin-top: 12px;
   margin-bottom: 12px;
 
-  .srv-card--dark & { color: rgba($color-arena, 0.4); }
+  .srv-card--dark & { color: rgba($color-noche, 0.4); }
 }
 
 .srv-card__list {
@@ -208,7 +208,7 @@
       line-height: 1;
     }
 
-    .srv-card--dark & { color: rgba($color-arena, 0.6); }
+    .srv-card--dark & { color: rgba($color-noche, 0.6); }
   }
 }
 
