@@ -27,7 +27,7 @@ Sitio web oficial de CAMY Business Growth Solutions. Plataforma de marketing dig
 * Node.js
 * Express
 * MongoDB + Mongoose
-* Nodemailer
+* Resend (email transaccional)
 * Systeme.io API
 
 ---
@@ -104,10 +104,24 @@ Crear un archivo `.env` dentro de la carpeta `backend/`:
 ```env
 MONGO_URI=
 PORT=3000
-EMAIL_USER=
-EMAIL_PASS=
+RESEND_API_KEY=
 SYSTEME_API_KEY=
 ```
+
+---
+
+## 🌐 Infraestructura de producción
+
+| Capa | Servicio | Detalle |
+|---|---|---|
+| Dominio | `camybgs.com` | DNS apuntando a Vercel |
+| Frontend | Vercel | Auto-deploy desde `master` en GitHub |
+| Backend | Railway | Auto-deploy desde `master` en GitHub |
+| Base de datos | MongoDB Atlas | Conectada al backend vía `MONGO_URI` |
+| Email | Resend | Notificaciones del formulario de contacto |
+| CRM | Systeme.io | Integración para captación de leads |
+
+> Cada push a `master` redeploya automáticamente tanto el frontend (Vercel) como el backend (Railway).
 
 ---
 
