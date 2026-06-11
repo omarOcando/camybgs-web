@@ -1,4 +1,4 @@
-import { createSystemeContact } from "../../utils/systeme.js";
+import { createSystemeContact, addTagToSystemeContactByEmail } from "../../utils/systeme.js";
 import { notifyContactForm } from "../../utils/email.js";
 import Contact from "../models/Contact.js";
 
@@ -12,6 +12,7 @@ export const submitContact = async (req, res) => {
 
     await Contact.create({ nombre, email, profesion, mensaje });
     await createSystemeContact(nombre, email);
+    await addTagToSystemeContactByEmail(email, 2049193);
     res.status(200).json({ ok: true });
 
     notifyContactForm({ nombre, email, profesion, mensaje });
