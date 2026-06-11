@@ -10,7 +10,12 @@ export const submitContact = async (req, res) => {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    await Contact.create({ nombre, email, profesion, mensaje });
+    try {
+      await Contact.create({ nombre, email, profesion, mensaje });
+    } catch (dbError) {
+      if (dbError.code !== 11000) throw dbError;
+    }
+
     await createSystemeContact(nombre, email);
     await addTagToSystemeContactByEmail(email, 2049193);
     res.status(200).json({ ok: true });
