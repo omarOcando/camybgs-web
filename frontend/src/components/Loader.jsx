@@ -7,7 +7,7 @@ function Loader({ onFinish }) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const DURATION    = 3000;
+    const DURATION    = 2250;
     const INTERVAL_MS = 30;
     const steps       = DURATION / INTERVAL_MS;
     let current       = 0;

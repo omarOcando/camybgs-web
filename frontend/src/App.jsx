@@ -14,6 +14,8 @@ import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTopButton from "./components/ScrollToTopButton";
+import AuditPopup from "./components/AuditPopup";
+import AuditFloatBtn from "./components/AuditFloatBtn";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -28,6 +30,8 @@ function App() {
       {loading && <Loader onFinish={handleFinish} />}
       <div className={`appFade${loading ? " appFade--hidden" : ""}`}>
         <ScrollToTop />
+        <AuditPopup />
+        <AuditFloatBtn />
         <WhatsAppButton />
         <ScrollToTopButton />
         <MainLayout>
