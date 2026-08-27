@@ -1,4 +1,4 @@
-const API_URL = `${import.meta.env.VITE_API_URL}/api/contact`;
+const API_URL = "/api/contact";
 
 export async function submitContact({ nombre, email, profesion, mensaje }) {
   const res = await fetch(API_URL, {
