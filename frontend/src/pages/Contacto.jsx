@@ -20,7 +20,6 @@ const DATA_ITEMS = [
   { label: "Email",      value: "info@camybgs.com",                             href: "mailto:info@camybgs.com" },
   { label: "WhatsApp",   value: "+49 177 858 7715",                            href: WA_URL },
   { label: "Ubicación",  value: "Colonia, Alemania — Toda Europa y Latinoamérica", href: null },
-  { label: "LinkedIn",   value: "linkedin.com/in/omar-ocando-mederos",         href: "https://www.linkedin.com/in/omar-ocando-mederos/" },
 ];
 
 // ─── HOOK ────────────────────────────────────────────────────────────────────

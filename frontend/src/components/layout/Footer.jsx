@@ -32,14 +32,14 @@ function Footer() {
           <FaTiktok />
         </a> */}
 
-        <a
+        {/* <a
           href="https://www.linkedin.com/in/omar-ocando-mederos/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
         >
           <FaLinkedinIn />
-        </a>
+        </a> */}
       </div>
 
       <div className="footer__legal">
