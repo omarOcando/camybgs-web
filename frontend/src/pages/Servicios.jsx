@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Button from "../components/Button";
+import Seo from "../components/Seo";
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
@@ -135,6 +136,11 @@ function Servicios() {
 
   return (
     <div className="servicios">
+      <Seo
+        title="Servicios | Desarrollo Web y Marketing Digital — CAMY"
+        description="Landing pages, portafolios, sitios corporativos, ecommerce y sistemas a medida. Desarrollo web y marketing digital pensados para conseguirte clientes."
+        path="/servicios"
+      />
 
       {/* 01 — HERO */}
       <section className="srv-hero">

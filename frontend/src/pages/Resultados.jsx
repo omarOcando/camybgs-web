@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Button from "../components/Button";
+import Seo from "../components/Seo";
 import testimonialRamses from "../assets/videos/clients-testimonials/testimonio-ramses.mp4";
 
 // ─── HOOKS ───────────────────────────────────────────────────────────────────
@@ -80,6 +81,11 @@ function Resultados() {
 
   return (
     <div className="resultados">
+      <Seo
+        title="Resultados | Casos de éxito — CAMY"
+        description="Números y casos reales de clientes que consiguieron más clientes con sus webs y campañas. Mira los resultados antes de decidir."
+        path="/resultados"
+      />
 
       {/* 01 — HERO */}
       <section className="res-hero">

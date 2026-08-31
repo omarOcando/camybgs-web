@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Button from "../components/Button";
+import Seo from "../components/Seo";
 import videoBg from "../assets/videos/HomeVideoBG1.mp4";
 import testimonialRamses from "../assets/videos/clients-testimonials/testimonio-ramses.mp4";
 import aboutPhoto from "../assets/images/home/Omar.jpg";
@@ -187,6 +188,11 @@ function Home({ active = false }) {
 
   return (
     <div className={`home${active ? " home--active" : ""}`}>
+      <Seo
+        title="CAMY | Marketing Digital y Desarrollo Web para profesionales"
+        description="Hay miles buscándote ahora mismo. Te pongo frente a ellos. Marketing Digital y Desarrollo Web para profesionales que quieren más clientes."
+        path="/"
+      />
 
       {/* 01 — HERO */}
       <section className="home-hero">

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Button from "../components/Button";
+import Seo from "../components/Seo";
 import ramsesImg from "../assets/images/mi-trabajo/ramsesImg.png";
 import pinterestImg from "../assets/images/mi-trabajo/pinterestImg.png";
 import mercedesImg from "../assets/images/mi-trabajo/mercedesImg.png";
@@ -92,6 +93,11 @@ function MiTrabajo() {
 
   return (
     <div className="mi-trabajo">
+      <Seo
+        title="Mi Trabajo | Proyectos y casos de clientes — CAMY"
+        description="Portafolio de proyectos: landing pages, sistemas a medida, ecommerce y sitios corporativos desarrollados para clientes reales."
+        path="/mi-trabajo"
+      />
 
       {/* 01 — HERO */}
       <section className="mt-hero">

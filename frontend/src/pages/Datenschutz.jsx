@@ -1,6 +1,13 @@
+import Seo from "../components/Seo";
+
 function Datenschutz() {
   return (
     <main className="legal">
+      <Seo
+        title="Datenschutzerklärung — CAMY Business Growth Solutions"
+        description="Informationen zum Datenschutz und zur Verarbeitung personenbezogener Daten auf der Website von CAMY Business Growth Solutions."
+        path="/datenschutz"
+      />
       <div className="legal__inner">
 
         <h1 className="legal__title">Datenschutzerklärung</h1>

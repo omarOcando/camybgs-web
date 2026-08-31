@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Button from "../components/Button";
+import Seo from "../components/Seo";
 import { submitContact } from "../services/contactService";
 
 // ─── CONSTANTS ───────────────────────────────────────────────────────────────
@@ -78,6 +79,11 @@ function Contacto() {
 
   return (
     <div className="contacto">
+      <Seo
+        title="Contacto | Hablemos de tu proyecto — CAMY"
+        description="Cuéntame sobre tu negocio y te respondo en menos de 24 horas. Sin robots, sin plantillas. Agenda una llamada corta sin costo ni compromiso."
+        path="/contacto"
+      />
 
       {/* 01 — HERO */}
       <section className="ctc-hero">

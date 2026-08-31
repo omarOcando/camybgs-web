@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Button from "../components/Button";
+import Seo from "../components/Seo";
 import OmarFoto from "../assets/images/sobre-mi/OmarFotoCompleta.jpg";
 
 function useVisible(threshold = 0.15) {
@@ -26,6 +27,11 @@ function SobreMi() {
 
   return (
     <div className="sobre-mi">
+      <Seo
+        title="Sobre mí | Omar Ocando — CAMY Business Growth Solutions"
+        description="Conoce la historia detrás de CAMY: quién soy, por qué hago esto y cómo puedo ayudarte a conseguir más clientes con marketing digital y desarrollo web."
+        path="/sobre-mi"
+      />
 
       {/* 01 — HERO */}
       <section className="sob-hero">

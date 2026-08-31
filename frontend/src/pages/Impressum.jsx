@@ -1,6 +1,13 @@
+import Seo from "../components/Seo";
+
 function Impressum() {
   return (
     <main className="legal">
+      <Seo
+        title="Impressum — CAMY Business Growth Solutions"
+        description="Angaben gemäß § 5 TMG von CAMY Business Growth Solutions, Omar Jose Ocando Mederos."
+        path="/impressum"
+      />
       <div className="legal__inner">
 
         <h1 className="legal__title">Impressum</h1>
