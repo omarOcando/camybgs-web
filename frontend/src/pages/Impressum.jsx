@@ -30,6 +30,11 @@ function Impressum() {
             <strong>E-Mail:</strong>{" "}
             <a className="legal__link" href="mailto:info@camybgs.com">info@camybgs.com</a>
           </p>
+          <p className="legal__p">
+            <strong>Steuernummer:</strong> 224/5025/4841
+            <br />
+            <strong>Umsatzsteuer-Identifikationsnummer (USt-IdNr.):</strong> DE460427719
+          </p>
         </section>
 
         <hr className="legal__divider" />
@@ -154,6 +159,11 @@ function Impressum() {
             <br />
             <strong>Correo electrónico:</strong>{" "}
             <a className="legal__link" href="mailto:info@camybgs.com">info@camybgs.com</a>
+          </p>
+          <p className="legal__p">
+            <strong>Número de identificación fiscal:</strong> 224/5025/4841
+            <br />
+            <strong>Número de IVA intracomunitario:</strong> DE460427719
           </p>
         </section>
 
