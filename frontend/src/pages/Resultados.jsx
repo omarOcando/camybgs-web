@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Button from "../components/Button";
 import Seo from "../components/Seo";
-import testimonialRamses from "../assets/videos/clients-testimonials/testimonio-ramses.mp4";
+import { PROJECTS } from "../data/projects";
 
 // ─── HOOKS ───────────────────────────────────────────────────────────────────
 
@@ -52,22 +52,13 @@ function StatItem({ value, suffix = "", label, enabled, delay = 0 }) {
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
 const STATS = [
-  { value: 6,  suffix: "",  label: "Proyectos completados", delay: 0   },
-  { value: 3,  suffix: "",  label: "Clientes beneficiados",  delay: 150 },
+  { value: 7,  suffix: "",  label: "Proyectos completados", delay: 0   },
+  { value: 4,  suffix: "",  label: "Clientes beneficiados",  delay: 150 },
   { value: 2,  suffix: "",  label: "Países",                 delay: 300 },
   { value: 2,  suffix: "+", label: "Años de experiencia",    delay: 450 },
 ];
 
-const CASES = [
-  {
-    client:   "Ramsés Viloria",
-    sector:   "Coach de relaciones de pareja",
-    location: "Frankfurt, Alemania",
-    problem:  "5 años de experiencia como coach dependiendo 100% de referidos. Presencia digital pobre y sin un sistema de organización ni captación de clientes.",
-    solution: "Sistema completo premium de gestión de clientes, con foco en su modelo de negocios. Creación de identidad de marca, integración de harramientas de Marketing, campaña de Meta Ads segmentada a su cliente ideal.",
-    result:   "4 clientes nuevos en los primeros 45 días. ROI positivo desde el segundo mes.",
-  },
-];
+const CASES = PROJECTS.filter((p) => p.caseStudy);
 
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
@@ -120,16 +111,28 @@ function Resultados() {
               <article key={i} className="res-case">
                 <div className="res-case__header">
                   <div className="res-case__avatar">
-                    <span>{c.client.charAt(0)}</span>
+                    <span>{c.caseClient.charAt(0)}</span>
                   </div>
                   <div className="res-case__identity">
                     <span className="res-case__sector">{c.sector}</span>
-                    <p className="res-case__client">{c.client}</p>
+                    <p className="res-case__client">{c.caseClient}</p>
                     <p className="res-case__location">{c.location}</p>
                   </div>
                 </div>
 
-                <div className="res-case__content">
+                <div className={`res-case__content${c.videoAspect ? " res-case__content--wide-video" : ""}`}>
+                  <div className="res-case__testimonial">
+                    <video
+                      className="res-case__testimonial-video"
+                      src={c.video}
+                      preload="metadata"
+                      controls
+                      playsInline
+                      style={c.videoAspect ? { "--card-video-ratio": c.videoAspect } : undefined}
+                      onLoadedMetadata={(e) => { e.target.currentTime = 0.01; }}
+                    />
+                  </div>
+
                   <div className="res-case__body">
                     <div className="res-case__block">
                       <span className="res-case__block-label">Problema</span>
@@ -143,10 +146,6 @@ function Resultados() {
                       <span className="res-case__block-label">→ Resultado</span>
                       <p>{c.result}</p>
                     </div>
-                  </div>
-
-                  <div className="res-case__testimonial">
-                    <video className="res-case__testimonial-video" src={testimonialRamses} preload="metadata" controls playsInline onLoadedMetadata={(e) => { e.target.currentTime = 0.01; }} />
                   </div>
                 </div>
               </article>

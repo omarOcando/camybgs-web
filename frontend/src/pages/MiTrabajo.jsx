@@ -1,52 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import Button from "../components/Button";
 import Seo from "../components/Seo";
-import ramsesImg from "../assets/images/mi-trabajo/ramsesImg.png";
-import pinterestImg from "../assets/images/mi-trabajo/pinterestImg.png";
-import mercedesImg from "../assets/images/mi-trabajo/mercedesImg.png";
+import { PROJECTS } from "../data/projects";
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
 const FILTERS = ["Todos", "Landing pages", "Portafolios", "Corporativos", "Corporativos + reservas", "Ecommerce", "Sistemas a medida", "Marketing digital"];
-
-const PROJECTS = [
-  {
-    name: "Coach de relaciones de pareja",
-    category: ["Sistemas a medida", "Corporativos", "Corporativos + reservas", "Marketing digital"],
-    type: "Sistema de gestión de clientes",
-    client: "Ramsés Viloria - Frankfurt, Alemania",
-    challenge: "Necesitaba un sistema propio con enfoque en su modelo de negocio, para gestionar clientes, reservas y pagos, sin depender de herramientas genéricas.",
-    work: "Desarrollo de plataforma completa premium personalizada con panel de administración, gestión de citas, clientes y lógica de negocio específica.",
-    result: "4 clientes nuevos en los primeros 45 días. ROI positivo desde el segundo mes.",
-    tech: ["React", "Node.js", "MongoDB", "Express", "Systeme.io"],
-    link: null,
-    image: ramsesImg,
-  },
-  {
-    name: "Réplica de Pinterest",
-    category: ["Portafolios"],
-    type: "Aplicación web interactiva",
-    client: "Pinterest — Julio 2025",
-    challenge: "Integración de APIs externas y programación asíncrona en JavaScript.",
-    work: "Desarrollo de una aplicación interactiva de búsqueda de imágenes que replica la funcionalidad principal de Pinterest: el usuario introduce una búsqueda y la app obtiene y muestra imágenes en tiempo real.",
-    result: "Dominio de consumo de APIs, JavaScript asíncrono y maquetación dinámica.",
-    tech: ["HTML", "SCSS", "JavaScript"],
-    link: "https://omarocando.github.io/pinterestRep/",
-    image: pinterestImg,
-  },
-  {
-    name: "Réplica de Mercedes-Benz",
-    category: ["Landing pages", "Corporativos"],
-    type: "Sitio web corporativo",
-    client: "Mercedes-Benz — Abril 2025",
-    challenge: "CSS avanzado, diseño responsivo y técnicas de desarrollo front-end mediante la recreación de una landing page de referencia de alto nivel.",
-    work: "Desarrollo de landing page responsiva con elementos de diseño modernos y componentes interactivos, replicando la estética premium de Mercedes-Benz.",
-    result: "Dominio de CSS avanzado, diseño responsivo y maquetación de páginas de alto impacto visual.",
-    tech: ["HTML", "CSS"],
-    link: "https://omarocando.github.io/landing_page/",
-    image: mercedesImg,
-  },
-];
 
 const STEPS = [
   { num: "01", title: "Escucho",             desc: "Antes de tocar una sola línea de código, entiendo tu negocio, tu cliente y tu objetivo." },
@@ -157,14 +116,14 @@ function MiTrabajo() {
                 <p className="mt-card__label">→ Resultado</p>
                 <p className="mt-card__result">{p.result}</p>
 
+                <div className="mt-card__tech">
+                  {p.tech.map(t => <span key={t} className="mt-card__tech-tag">{t}</span>)}
+                </div>
+
                 {p.link
                   ? <a href={p.link} className="mt-card__visit-btn" target="_blank" rel="noopener noreferrer">Ver proyecto →</a>
                   : <button className="mt-card__visit-btn" disabled>Ver proyecto →</button>
                 }
-
-                <div className="mt-card__tech">
-                  {p.tech.map(t => <span key={t} className="mt-card__tech-tag">{t}</span>)}
-                </div>
               </article>
             ))}
           </div>

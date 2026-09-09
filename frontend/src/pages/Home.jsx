@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import Button from "../components/Button";
 import Seo from "../components/Seo";
 import videoBg from "../assets/videos/HomeVideoBG1.mp4";
-import testimonialRamses from "../assets/videos/clients-testimonials/testimonio-ramses.mp4";
 import aboutPhoto from "../assets/images/home/Omar.jpg";
 import aboutPhotoMovil from "../assets/images/home/OmarMovil.jpg";
+import { PROJECTS } from "../data/projects";
 
 // ─── HOOKS ───────────────────────────────────────────────────────────────────
 
@@ -103,9 +103,7 @@ const PROCESS_STEPS = [
   "Atraigo esos clientes a ti y observo los resultados",
 ];
 
-const TESTIMONIALS = [
-  { name: "Ramsés Viloria", profession: "Coach de relaciones de pareja", text: "Próximamente — los resultados hablan solos." },
-];
+const TESTIMONIALS = PROJECTS.filter((p) => p.testimonial);
 
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
@@ -323,11 +321,15 @@ function Home({ active = false }) {
           <div ref={testimonialsRef} className={`home-testimonials__grid${testimonialsVisible ? " home-testimonials__grid--visible" : ""}`}>
             {TESTIMONIALS.map((t, i) => (
               <article key={i} className="home-testimonials__card">
-                <div className="home-testimonials__card-video" aria-label="Video testimonio">
-                  <video src={testimonialRamses} preload="metadata" controls playsInline onLoadedMetadata={(e) => { e.target.currentTime = 0.01; }} />
+                <div
+                  className={`home-testimonials__card-video${t.videoAspect ? " home-testimonials__card-video--native" : ""}`}
+                  aria-label="Video testimonio"
+                  style={t.videoAspect ? { "--card-video-ratio": t.videoAspect } : undefined}
+                >
+                  <video src={t.video} preload="metadata" controls playsInline onLoadedMetadata={(e) => { e.target.currentTime = 0.01; }} />
                 </div>
                 <div className="home-testimonials__card-info">
-                  <span className="home-testimonials__card-name">{t.name}</span>
+                  <span className="home-testimonials__card-name">{t.testimonialName}</span>
                   <span className="home-testimonials__card-profession">{t.profession}</span>
                 </div>
               </article>
