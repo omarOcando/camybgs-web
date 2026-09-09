@@ -222,6 +222,227 @@ function Datenschutz() {
           </p>
         </section>
 
+        {/* ── ES ── */}
+        <div className="legal__lang-divider">
+          <span>Versión en español / Spanish version</span>
+        </div>
+
+        <h1 className="legal__title">Política de Privacidad</h1>
+        <p className="legal__meta">Última actualización: junio de 2026</p>
+
+        {/* ── 1 ES ── */}
+        <hr className="legal__divider" />
+        <section className="legal__section">
+          <h2 className="legal__h2">1. Protección de datos de un vistazo</h2>
+
+          <h3 className="legal__h3">Información general</h3>
+          <p className="legal__p">
+            Los siguientes avisos ofrecen un resumen sencillo de lo que ocurre con sus datos
+            personales cuando visita este sitio web. Datos personales son todos aquellos datos
+            con los que se le puede identificar personalmente. Encontrará información detallada
+            sobre la protección de datos en la política de privacidad que figura a continuación
+            de este texto.
+          </p>
+
+          <h3 className="legal__h3">Recopilación de datos en este sitio web</h3>
+          <p className="legal__p">
+            <strong>¿Quién es responsable de la recopilación de datos en este sitio web?</strong><br />
+            El tratamiento de datos en este sitio web lo realiza el operador del sitio. Puede
+            encontrar sus datos de contacto en el apartado "Aviso sobre el responsable" de esta
+            política de privacidad.
+          </p>
+          <p className="legal__p">
+            <strong>¿Cómo recopilamos sus datos?</strong><br />
+            Sus datos se recopilan, por un lado, porque usted nos los proporciona. Puede
+            tratarse, por ejemplo, de datos que introduce en un formulario de contacto.
+            Otros datos se recopilan de forma automática o, previo su consentimiento, al visitar
+            el sitio web, a través de nuestros sistemas informáticos. Se trata principalmente de
+            datos técnicos (p. ej., navegador de internet, sistema operativo u hora de acceso a
+            la página). Estos datos se recopilan automáticamente en cuanto usted accede a este
+            sitio web.
+          </p>
+          <p className="legal__p">
+            <strong>¿Para qué utilizamos sus datos?</strong><br />
+            Una parte de los datos se recopila para garantizar un funcionamiento correcto del
+            sitio web. Otros datos se utilizan para gestionar sus solicitudes de contacto.
+          </p>
+          <p className="legal__p">
+            <strong>¿Qué derechos tiene con respecto a sus datos?</strong><br />
+            Tiene usted derecho, en todo momento y de forma gratuita, a solicitar información
+            sobre el origen, el destinatario y la finalidad de sus datos personales almacenados.
+            Además, tiene derecho a solicitar la rectificación o supresión de dichos datos. Si ha
+            otorgado su consentimiento para el tratamiento de datos, puede revocarlo en cualquier
+            momento con efectos futuros. Asimismo, tiene derecho a solicitar, en determinadas
+            circunstancias, la limitación del tratamiento de sus datos personales. También tiene
+            derecho a presentar una reclamación ante la autoridad de control competente. Para
+            cualquier duda sobre estos u otros temas relacionados con la protección de datos,
+            puede ponerse en contacto con nosotros en cualquier momento.
+          </p>
+        </section>
+
+        {/* ── 2 ES ── */}
+        <hr className="legal__divider" />
+        <section className="legal__section">
+          <h2 className="legal__h2">2. Hosting</h2>
+
+          <h3 className="legal__h3">Hosting externo</h3>
+          <p className="legal__p">
+            Este sitio web está alojado en un proveedor externo (hosting). Los datos personales
+            recopilados en este sitio web se almacenan en los servidores del proveedor de
+            hosting. Esto puede incluir, entre otros, direcciones IP, solicitudes de contacto,
+            datos de meta y comunicación, datos contractuales, datos de contacto, nombres,
+            accesos al sitio web y otros datos generados a través de un sitio web.
+          </p>
+          <p className="legal__p">
+            El uso del proveedor de hosting se realiza con el fin de cumplir el contrato frente a
+            nuestros clientes potenciales y existentes (art. 6, apartado 1, letra b) del RGPD) y
+            en interés de una puesta a disposición segura, rápida y eficiente de nuestra oferta
+            en línea por parte de un proveedor profesional (art. 6, apartado 1, letra f) del
+            RGPD). En la medida en que se haya solicitado el consentimiento correspondiente, el
+            tratamiento se realiza exclusivamente sobre la base del art. 6, apartado 1, letra a)
+            del RGPD y el § 25, apartado 1, de la TTDSG (Ley alemana de Telecomunicaciones y
+            Telemedios de Protección de Datos). Para garantizar un tratamiento conforme a la
+            protección de datos, hemos celebrado un contrato de encargo de tratamiento con
+            nuestro proveedor de hosting.
+          </p>
+        </section>
+
+        {/* ── 3 ES ── */}
+        <hr className="legal__divider" />
+        <section className="legal__section">
+          <h2 className="legal__h2">3. Información general y obligaciones legales</h2>
+
+          <h3 className="legal__h3">Protección de datos</h3>
+          <p className="legal__p">
+            Los responsables de este sitio web se toman muy en serio la protección de sus datos
+            personales. Tratamos sus datos personales de forma confidencial y conforme a las
+            disposiciones legales de protección de datos, así como a esta política de
+            privacidad.
+          </p>
+          <p className="legal__p">
+            Cuando utiliza este sitio web, se recopilan diversos datos personales. Los datos
+            personales son aquellos datos con los que se le puede identificar personalmente.
+            Esta política de privacidad explica qué datos recopilamos y para qué los utilizamos.
+          </p>
+
+          <h3 className="legal__h3">Aviso sobre el responsable</h3>
+          <p className="legal__p">
+            El responsable del tratamiento de datos en este sitio web es:
+          </p>
+          <address className="legal__address">
+            Omar Jose Ocando Mederos<br />
+            CAMY | Business Growth Solutions<br />
+            Von-Klespe-Straße 17<br />
+            50226 Frechen<br />
+            Alemania<br />
+            <br />
+            Teléfono:{" "}
+            <a className="legal__link" href="tel:+4917785877715">+49 177 858 7715</a><br />
+            Correo electrónico:{" "}
+            <a className="legal__link" href="mailto:info@camybgs.com">info@camybgs.com</a>
+          </address>
+
+          <h3 className="legal__h3">Duración del almacenamiento</h3>
+          <p className="legal__p">
+            Salvo que en esta política de privacidad se indique una duración de almacenamiento
+            más específica, sus datos personales permanecerán con nosotros hasta que desaparezca
+            la finalidad del tratamiento. Si ejerce una solicitud de supresión legítima o revoca
+            su consentimiento al tratamiento de datos, sus datos serán eliminados, salvo que
+            existan obligaciones legales de conservación que lo impidan.
+          </p>
+
+          <h3 className="legal__h3">Cifrado SSL/TLS</h3>
+          <p className="legal__p">
+            Por motivos de seguridad y para proteger la transmisión de contenidos
+            confidenciales, este sitio utiliza cifrado SSL o TLS. Puede reconocer una conexión
+            cifrada porque la barra de direcciones del navegador cambia de "http://" a
+            "https://" y por el símbolo del candado en la barra de su navegador.
+          </p>
+        </section>
+
+        {/* ── 4 ES ── */}
+        <hr className="legal__divider" />
+        <section className="legal__section">
+          <h2 className="legal__h2">4. Recopilación de datos en este sitio web</h2>
+
+          <h3 className="legal__h3">Cookies</h3>
+          <p className="legal__p">
+            Este sitio web no utiliza cookies. No se emplean ni cookies técnicamente necesarias
+            ni cookies de seguimiento o publicitarias.
+          </p>
+          <p className="legal__p">
+            Para una única función —mostrar, con retraso, un aviso sobre nuestra mini auditoría
+            gratuita— utilizamos el llamado "almacenamiento de sesión" (session storage) de su
+            navegador. No se trata de una cookie: la información se almacena exclusivamente de
+            forma local en su navegador, no se transmite a nuestros servidores y se elimina
+            automáticamente al cerrar la pestaña del navegador. No se requiere consentimiento
+            para ello.
+          </p>
+
+          <h3 className="legal__h3">Formulario de contacto</h3>
+          <p className="legal__p">
+            Cuando nos envía solicitudes a través del formulario de contacto, recopilamos los
+            datos que usted introduce en él: nombre, dirección de correo electrónico,
+            profesión/actividad, así como el contenido de su mensaje. Utilizamos estos datos
+            exclusivamente para responder a su solicitud, para ponernos en contacto con usted y
+            para posibles preguntas adicionales. No cedemos estos datos a terceros sin su
+            consentimiento, salvo a los encargados del tratamiento indicados a continuación.
+          </p>
+          <p className="legal__p">
+            El tratamiento de estos datos se basa en el art. 6, apartado 1, letra b) del RGPD,
+            siempre que su solicitud esté relacionada con la ejecución de un contrato o sea
+            necesaria para llevar a cabo medidas precontractuales. En todos los demás casos, el
+            tratamiento se basa en nuestro interés legítimo en la gestión eficaz de las
+            solicitudes dirigidas a nosotros (art. 6, apartado 1, letra f) del RGPD) o en su
+            consentimiento (art. 6, apartado 1, letra a) del RGPD), siempre que este haya sido
+            solicitado; el consentimiento puede revocarse en cualquier momento.
+          </p>
+          <p className="legal__p">
+            Los datos que usted introduce en el formulario de contacto permanecerán con nosotros
+            hasta que nos solicite su eliminación, revoque su consentimiento para el
+            almacenamiento o desaparezca la finalidad del almacenamiento de los datos (p. ej.,
+            una vez finalizada la gestión de su solicitud). Las disposiciones legales
+            obligatorias —en particular los plazos de conservación— permanecen inalteradas.
+          </p>
+
+          <h3 className="legal__h3">Proveedores de servicios (encargados del tratamiento)</h3>
+          <p className="legal__p">
+            Para gestionar su solicitud de contacto empleamos los siguientes proveedores de
+            servicios, con los que, en la medida legalmente necesaria, hemos celebrado contratos
+            de encargo de tratamiento conforme al art. 28 del RGPD:
+          </p>
+          <ul className="legal__list">
+            <li>
+              <strong>MongoDB Atlas</strong> (MongoDB, Inc.) – almacena los datos que usted envía
+              a través del formulario de contacto en nuestra base de datos.
+            </li>
+            <li>
+              <strong>Systeme.io</strong> (Systeme.io SAS) – gestiona su nombre y dirección de
+              correo electrónico en nuestro CRM con fines de atención al cliente y, si usted lo
+              ha consentido, con fines de marketing.
+            </li>
+            <li>
+              <strong>Resend</strong> (Resend, Inc.) – envía el correo electrónico interno de
+              notificación sobre su solicitud.
+            </li>
+          </ul>
+
+          <h3 className="legal__h3">Contacto por correo electrónico o teléfono</h3>
+          <p className="legal__p">
+            Si nos contacta por correo electrónico o teléfono, almacenamos y tratamos su
+            solicitud, incluidos todos los datos personales derivados de ella (nombre,
+            consulta), con el fin de gestionar su petición. No cedemos estos datos a terceros
+            sin su consentimiento.
+          </p>
+          <p className="legal__p">
+            El tratamiento de estos datos se basa en el art. 6, apartado 1, letra b) del RGPD,
+            siempre que su solicitud esté relacionada con la ejecución de un contrato o sea
+            necesaria para llevar a cabo medidas precontractuales. En todos los demás casos, el
+            tratamiento se basa en nuestro interés legítimo en la gestión eficaz de las
+            solicitudes dirigidas a nosotros (art. 6, apartado 1, letra f) del RGPD).
+          </p>
+        </section>
+
       </div>
     </main>
   );
