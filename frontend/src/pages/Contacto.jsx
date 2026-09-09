@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Seo from "../components/Seo";
 import { submitContact } from "../services/contactService";
@@ -183,6 +184,14 @@ function Contacto() {
                   </div>
 
                   {error && <p className="ctc-form__error">{error}</p>}
+
+                  <p className="ctc-form__privacy">
+                    Al enviar este formulario, aceptas que tratemos tus datos para responder tu
+                    consulta, según nuestra{" "}
+                    <Link to="/datenschutz" className="ctc-form__privacy-link">
+                      Política de Privacidad
+                    </Link>.
+                  </p>
 
                   <Button type="submit" variant="primary" size="lg" disabled={sending}>
                     {sending ? "Enviando…" : <>Enviar mensaje <span className="btn-arrow">→</span></>}

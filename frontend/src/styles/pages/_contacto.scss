@@ -176,6 +176,23 @@
   margin-top: -4px;
 }
 
+.ctc-form__privacy {
+  font-size: 12px;
+  color: rgba($color-noche, 0.45);
+  line-height: 1.6;
+  margin-top: -8px;
+}
+
+.ctc-form__privacy-link {
+  color: $color-fuego;
+  text-decoration: underline;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
 // ─── ESTADO DE CONFIRMACIÓN ──────────────────────────────────────────────────
 .ctc-success {
   display: flex;

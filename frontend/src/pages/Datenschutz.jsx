@@ -146,25 +146,26 @@ function Datenschutz() {
 
           <h3 className="legal__h3">Cookies</h3>
           <p className="legal__p">
-            Unsere Internetseiten verwenden sogenannte „Cookies". Cookies sind kleine Datenpakete
-            und richten auf Ihrem Endgerät keinen Schaden an. Sie werden entweder vorübergehend
-            für die Dauer einer Sitzung (Session-Cookies) oder dauerhaft (permanente Cookies) auf
-            Ihrem Endgerät gespeichert. Session-Cookies werden nach Ende Ihres Besuchs automatisch
-            gelöscht. Permanente Cookies bleiben auf Ihrem Endgerät gespeichert, bis Sie diese
-            selbst löschen oder eine automatische Lösung durch Ihren Webbrowser erfolgt.
+            Diese Website verwendet keine Cookies. Es werden weder technisch notwendige noch
+            Tracking- oder Werbe-Cookies eingesetzt.
           </p>
           <p className="legal__p">
-            Diese Website verwendet ausschließlich technisch notwendige Cookies, die für den
-            Betrieb der Website erforderlich sind. Es werden keine Tracking- oder
-            Werbe-Cookies eingesetzt.
+            Für eine einzelne Funktion – das zeitverzögerte Einblenden eines Hinweises auf unsere
+            kostenlose Mini-Auditoría – nutzen wir den sogenannten „Session Storage" Ihres
+            Browsers. Dabei handelt es sich nicht um ein Cookie: Die Information wird
+            ausschließlich lokal in Ihrem Browser gespeichert, nicht an unsere Server übertragen
+            und automatisch gelöscht, sobald Sie den Browser-Tab schließen. Eine Einwilligung ist
+            hierfür nicht erforderlich.
           </p>
 
           <h3 className="legal__h3">Kontaktformular</h3>
           <p className="legal__p">
-            Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem
-            Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung
-            der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben
-            wir nicht ohne Ihre Einwilligung weiter.
+            Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, erheben wir die von Ihnen
+            dort eingegebenen Daten: Name, E-Mail-Adresse, Beruf/Tätigkeit sowie den Inhalt Ihrer
+            Nachricht. Diese Angaben nutzen wir ausschließlich zur Beantwortung Ihrer Anfrage,
+            zur Kontaktaufnahme mit Ihnen und für den Fall von Anschlussfragen. Diese Daten geben
+            wir nicht ohne Ihre Einwilligung weiter, mit Ausnahme der nachfolgend genannten
+            Auftragsverarbeiter.
           </p>
           <p className="legal__p">
             Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO,
@@ -182,6 +183,28 @@ function Datenschutz() {
             Anfrage). Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen –
             bleiben unberührt.
           </p>
+
+          <h3 className="legal__h3">Eingesetzte Auftragsverarbeiter</h3>
+          <p className="legal__p">
+            Zur Bearbeitung Ihrer Kontaktanfrage setzen wir folgende Dienstleister ein, mit denen
+            wir, soweit gesetzlich erforderlich, Verträge über Auftragsverarbeitung gemäß Art. 28
+            DSGVO geschlossen haben:
+          </p>
+          <ul className="legal__list">
+            <li>
+              <strong>MongoDB Atlas</strong> (MongoDB, Inc.) – speichert die von Ihnen im
+              Kontaktformular übermittelten Daten in unserer Datenbank.
+            </li>
+            <li>
+              <strong>Systeme.io</strong> (Systeme.io SAS) – verwaltet Ihren Namen und Ihre
+              E-Mail-Adresse in unserem CRM zum Zweck der Kundenbetreuung sowie, sofern Sie dem
+              zugestimmt haben, für Marketingzwecke.
+            </li>
+            <li>
+              <strong>Resend</strong> (Resend, Inc.) – versendet die interne
+              Benachrichtigungs-E-Mail über Ihre Anfrage an uns.
+            </li>
+          </ul>
 
           <h3 className="legal__h3">Kontaktaufnahme per E-Mail oder Telefon</h3>
           <p className="legal__p">
