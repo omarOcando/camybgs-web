@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 function ScrollToTopButton() {
+  const { pathname } = useLocation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -12,10 +14,12 @@ function ScrollToTopButton() {
 
   const handleClick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
+  const isContacto = pathname === "/contacto";
+
   return (
     <button
       onClick={handleClick}
-      className={`scroll-top-btn${visible ? " scroll-top-btn--visible" : ""}`}
+      className={`scroll-top-btn${visible ? " scroll-top-btn--visible" : ""}${isContacto ? " scroll-top-btn--solo" : ""}`}
       aria-label="Volver al inicio"
     >
       △

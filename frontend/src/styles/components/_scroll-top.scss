@@ -40,6 +40,13 @@
   &:active {
     transform: translateY(0);
   }
+
+  // En Contacto no hay botón de WhatsApp: este toma su lugar, centrado
+  // en el espacio que ocupaba el ícono (150x150, bottom/right: 25px).
+  &--solo {
+    right: 70.25px;
+    bottom: 70.25px;
+  }
 }
 
 @media (max-width: $mobile) {
@@ -49,5 +56,11 @@
     bottom: 100px;
     right: 32px;
     font-size: 18px;
+
+    // Espacio del ícono de WhatsApp en mobile: 108x108, bottom: 5px, right: 0.
+    &--solo {
+      right: 32px;
+      bottom: 37px;
+    }
   }
 }
