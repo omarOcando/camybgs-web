@@ -1,10 +1,7 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaInstagram, FaFacebookF, FaTiktok, FaLinkedinIn } from "react-icons/fa";
 
 function Footer() {
-  const { pathname } = useLocation();
-  const isContacto = pathname === "/contacto";
-
   return (
     <footer className="footer">
       <div className="footer__socials">
@@ -55,7 +52,7 @@ function Footer() {
         
       </div>
 
-      <div className={`footer__copyright${isContacto ? " footer__copyright--contacto" : ""}`}>
+      <div className="footer__copyright">
         © CAMY | Business Growth Solutions {new Date().getFullYear()}
       </div>
 
