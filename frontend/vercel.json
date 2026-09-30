@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/tarjeta",
+      "destination": "/servicios?utm_source=tarjeta&utm_medium=qr&utm_campaign=tarjeta-visita",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
