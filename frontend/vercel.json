@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/tarjeta",
-      "destination": "/servicios?utm_source=tarjeta&utm_medium=qr&utm_campaign=tarjeta-visita",
+      "destination": "https://wa.me/491778587715?text=Hi%20Omar%2C%20I%20got%20your%20business%20card.%20I%27d%20like%20to%20talk%20about%20a%20website%20for%20my%20business.",
       "permanent": false
     }
   ],
