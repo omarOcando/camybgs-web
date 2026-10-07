@@ -770,13 +770,16 @@
     padding: 110px 24px 120px;
   }
 
+  // "Tienes algo que decir." mide ~9,56em: el tamaño se ajusta al ancho útil
+  // (100vw − 48px de padding) para que quepa en una línea desde 320px
   .home-hero__title {
-    font-size: clamp(38px, 10.5vw, 56px);
+    font-size: clamp(28px, calc((100vw - 48px) / 9.8), 44px);
     margin-bottom: 22px;
   }
 
   .home-hero__title-line {
     white-space: normal;
+    text-wrap: balance;
   }
 
   .home-hero__subtitle {
