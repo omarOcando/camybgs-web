@@ -1,29 +1,14 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import Button from "../components/Button";
 import Seo from "../components/Seo";
-import videoBg from "../assets/videos/HomeVideoBG1.mp4";
+import AuroraMandala from "../components/AuroraMandala";
+import ContactRadial from "../components/ContactRadial";
 import aboutPhoto from "../assets/images/home/Omar.jpg";
 import aboutPhotoMovil from "../assets/images/home/OmarMovil.jpg";
 import { PROJECTS } from "../data/projects";
 
 // ─── HOOKS ───────────────────────────────────────────────────────────────────
-
-function useCounter() {
-  const [count, setCount] = useState(
-    () => Math.floor(Math.random() * 40000) + 10000
-  );
-  useEffect(() => {
-    const STEPS = [1, 1, 2, 2, 3, 3, 5, 5, 8, 10, 12];
-    let id;
-    const tick = () => {
-      setCount(c => c + STEPS[Math.floor(Math.random() * STEPS.length)]);
-      id = setTimeout(tick, Math.random() * 1800 + 300);
-    };
-    id = setTimeout(tick, 700);
-    return () => clearTimeout(id);
-  }, []);
-  return count;
-}
 
 function useFadeIn(threshold = 0.2) {
   const ref = useRef(null);
@@ -39,26 +24,6 @@ function useFadeIn(threshold = 0.2) {
     return () => { cancelAnimationFrame(rafId); obs.disconnect(); };
   }, []);
   return { ref, visible };
-}
-
-function useTypewriter(text, startDelay = 0, speed = 55, enabled = true) {
-  const [chars, setChars] = useState("");
-  const [done, setDone] = useState(false);
-  useEffect(() => {
-    if (!enabled) return;
-    setChars("");
-    setDone(false);
-    let i = 0, ivId;
-    const toId = setTimeout(() => {
-      ivId = setInterval(() => {
-        i++;
-        setChars(text.slice(0, i));
-        if (i >= text.length) { clearInterval(ivId); setDone(true); }
-      }, speed);
-    }, startDelay);
-    return () => { clearTimeout(toId); clearInterval(ivId); };
-  }, [text, startDelay, speed, enabled]);
-  return { chars, done };
 }
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
@@ -108,9 +73,7 @@ const TESTIMONIALS = PROJECTS.filter((p) => p.testimonial);
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
 function Home({ active = false }) {
-  const count = useCounter();
-  const { chars: leftChars, done: leftDone } = useTypewriter("Mientras lees esto, hay", 400, 55, active);
-  const { chars: rightChars, done: rightDone } = useTypewriter("que te están buscando...", 400, 55, active);
+  const { t } = useTranslation();
 
   const problemCardsRef = useRef(null);
   const [problemCardsVisible, setProblemCardsVisible] = useState(false);
@@ -192,36 +155,17 @@ function Home({ active = false }) {
         path="/"
       />
 
+      {/* Fondo fijo de toda la Home: se monta al terminar el Loader */}
+      {active && <AuroraMandala />}
+
       {/* 01 — HERO */}
       <section className="home-hero">
-        <video className="home-hero__video" autoPlay muted loop playsInline>
-          <source src={videoBg} type="video/mp4" />
-        </video>
-        <div className="home-hero__overlay" />
-
         <div className="home-hero__content">
-          <div className="home-hero__counter-row">
-            <span className="home-hero__tagline">
-              {leftChars}
-              {!leftDone && <span className="home-hero__cursor" aria-hidden="true">|</span>}
-            </span>
-
-            <span className="home-hero__counter">
-              {count.toLocaleString("de-DE")}
-            </span>
-
-            <span className="home-hero__tagline">
-              {rightChars}
-              {!rightDone && <span className="home-hero__cursor" aria-hidden="true">|</span>}
-            </span>
-          </div>
-
-          <p className="home-hero__remate serif">Te pongo frente a ellos</p>
+          <h1 className="home-hero__title">{t("home.hero.title")}</h1>
+          <p className="home-hero__subtitle">{t("home.hero.subtitle")}</p>
 
           <div className="home-hero__cta-wrapper">
-            <Button to="/contacto" variant="primary" size="lg">
-              Hablemos <span className="btn-arrow">→</span>
-            </Button>
+            <ContactRadial />
           </div>
         </div>
       </section>

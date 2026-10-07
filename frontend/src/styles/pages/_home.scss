@@ -17,89 +17,53 @@
   to   { opacity: 1; transform: scale(1); }
 }
 
+// ─── FONDO AURORA ────────────────────────────────────────────────────────────
+// AuroraMandala es un canvas fijo (z-index 0) detrás de toda la Home: las
+// secciones son transparentes y van por encima.
+.home > section {
+  position: relative;
+  z-index: 1;
+}
+
 // ─── 01 HERO ─────────────────────────────────────────────────────────────────
 .home-hero {
-  position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100svh;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.home-hero__video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.home-hero__overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(29, 29, 46, 0.62);
-}
-
 .home-hero__content {
-  position: relative;
-  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 5% 32px 0 32px;
+  padding: 120px 32px 80px;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
 }
 
-.home-hero__counter-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(16px, 2.5vw, 40px);
-  flex-wrap: wrap;
-  margin-bottom: 15px;
-}
-
-.home-hero__tagline {
-  font-size: clamp(18px, 2.5vw, 40px);
+.home-hero__title {
+  font-size: clamp(40px, 6vw, 96px);
+  line-height: 1.1;
   color: $color-arena;
-  white-space: nowrap;
-  min-height: 1.3em;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.home-hero__cursor {
-  animation: cursorBlink 1s step-end infinite;
-  color: $color-fuego;
-  font-weight: 300;
-}
-
-@keyframes cursorBlink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
-}
-
-.home-hero__counter {
-  font-size: clamp(56px, 9vw, 96px);
-  font-weight: 600;
-  color: $color-fuego;
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
-  opacity: 0;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
-}
-
-.home-hero__remate {
-  font-size: clamp(36px, 5.8vw, 110px);
-  font-weight: 800;
-  color: $color-fuego;
-  margin-bottom: 60px;
+  max-width: 16ch;
+  margin-bottom: 28px;
   opacity: 0;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+
+.home-hero__subtitle {
+  font-size: clamp(18px, 1.9vw, 28px);
+  line-height: 1.5;
+  color: rgba($color-arena, 0.85);
+  max-width: 34ch;
+  margin-bottom: 110px;
+  opacity: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .home-hero__cta-wrapper {
@@ -109,9 +73,9 @@
 
 // Animaciones del hero — solo arrancan cuando el Loader termina
 .home--active {
-  .home-hero__counter    { animation: heroFadeIn  0.8s ease 0.4s forwards; }
-  .home-hero__remate     { animation: heroFadeIn  0.7s ease 1.0s forwards; }
-  .home-hero__cta-wrapper { animation: heroSlideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1.6s forwards; }
+  .home-hero__title       { animation: heroFadeIn  1s   ease 0.6s forwards; }
+  .home-hero__subtitle    { animation: heroFadeIn  0.9s ease 1.3s forwards; }
+  .home-hero__cta-wrapper { animation: heroSlideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1.9s forwards; }
 }
 
 @keyframes heroFadeIn {
@@ -124,7 +88,7 @@
 
 // ─── 02 EL PROBLEMA ──────────────────────────────────────────────────────────
 .home-problem {
-  background: $color-noche;
+  background: transparent;
   color: $color-arena;
 }
 
@@ -226,7 +190,7 @@
 
 // ─── 03 SERVICIOS ────────────────────────────────────────────────────────────
 .home-services {
-  background: $color-arena;
+  background: transparent;
 
   .home-link-cta { opacity: 0; }
 }
@@ -237,7 +201,7 @@
 
 .home-services__title {
   font-size: clamp(36px, 5vw, 72px);
-  color: $color-noche;
+  color: $color-arena;
   text-align: center;
   margin-bottom: 56px;
   opacity: 0;
@@ -359,7 +323,7 @@
 
 // ─── 04 CÓMO TRABAJO ─────────────────────────────────────────────────────────
 .home-process {
-  background: #fff;
+  background: transparent;
 
   .home-link-cta { opacity: 0; }
 }
@@ -370,7 +334,7 @@
 
 .home-process__title {
   font-size: clamp(36px, 5vw, 72px);
-  color: $color-noche;
+  color: $color-arena;
   text-align: center;
   margin-bottom: 64px;
   opacity: 0;
@@ -442,7 +406,7 @@
     left: 28px;
     width: 2px;
     height: calc(100% + 48px - 56px);
-    background: rgba($color-vinotinto, 0.25);
+    background: rgba($color-arena, 0.3);
     transform: scaleY(0);
     transform-origin: top center;
   }
@@ -483,7 +447,7 @@
 
 // ─── 05 DETRÁS DE CAMY ───────────────────────────────────────────────────────
 .home-about {
-  background: $color-vinotinto;
+  background: transparent;
 }
 
 .home-about__title {
@@ -564,7 +528,7 @@
 
 // ─── 06 TESTIMONIOS ──────────────────────────────────────────────────────────
 .home-testimonials {
-  background: $color-arena;
+  background: transparent;
 
   .home-link-cta { opacity: 0; }
 }
@@ -575,7 +539,7 @@
 
 .home-testimonials__title {
   font-size: clamp(36px, 5vw, 72px);
-  color: $color-noche;
+  color: $color-arena;
   text-align: center;
   margin-bottom: 56px;
   font-family: "DM Serif Display", serif;
@@ -667,12 +631,12 @@
 .home-testimonials__card-name {
   font-size: clamp(16px, 1.5vw, 24px);
   font-weight: 700;
-  color: $color-noche;
+  color: $color-arena;
 }
 
 .home-testimonials__card-profession {
   font-size: clamp(13px, 1.1vw, 15px);
-  color: rgba($color-noche, 0.45);
+  color: rgba($color-arena, 0.6);
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -681,7 +645,7 @@
 
 .home-testimonials__card-text {
   font-size: clamp(14px, 1.2vw, 18px);
-  color: rgba($color-noche, 0.75);
+  color: rgba($color-arena, 0.8);
   line-height: 1.7;
   font-style: italic;
   margin: 0;
@@ -689,7 +653,7 @@
 
 // ─── 07 CTA FINAL ────────────────────────────────────────────────────────────
 .home-final-cta {
-  background: $color-noche;
+  background: transparent;
 }
 
 .home-final-cta__inner {
@@ -727,14 +691,6 @@
 
 // ── Tablet (≤ 1024px) ────────────────────────────────────────────────────────
 @media (max-width: $tablet) {
-
-  .home-hero__video {
-    object-position: 20% center;
-  }
-
-  .home-hero__remate {
-    font-size: clamp(48px, 7.5vw, 110px);
-  }
 
   .home-problem__title,
   .home-services__title,
@@ -804,31 +760,18 @@
     padding: 45px 35px;
   }
 
-  .home-hero__video {
-    object-position: 25% center;
+  .home-hero__content {
+    padding: 110px 24px 120px;
   }
 
-  .home-hero__counter {
-    font-size: clamp(72px, 18vw, 96px);
+  .home-hero__title {
+    font-size: clamp(38px, 10.5vw, 56px);
+    margin-bottom: 22px;
   }
 
-  .home-hero__remate {
-    font-size: clamp(50px, 13vw, 110px);
-    line-height: 1.15;
-    margin-top: 6%;
-  }
-
-  .home-hero__counter-row {
-    flex-direction: column;
-    gap: 0;
-    align-items: stretch;
-  }
-
-  .home-hero__tagline {
-    white-space: normal;
-    font-size: clamp(22px, 5.2vw, 26px);
-    text-align: center;
-    min-height: 0;
+  .home-hero__subtitle {
+    font-size: clamp(17px, 4.6vw, 20px);
+    margin-bottom: 90px;
   }
 
   .home-problem__title,

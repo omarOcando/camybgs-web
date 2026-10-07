@@ -3,7 +3,20 @@
   "nav": {},
   "footer": {},
   "seo": {},
-  "home": {},
+  "home": {
+    "hero": {
+      "title": "Tienes algo que decir. Haz que tu web lo haga sentir.",
+      "subtitle": "Webs donde cada palabra, color, forma y movimiento expresan lo que es tu negocio.",
+      "cta": "Hablemos de tu web",
+      "ctaMenuLabel": "¿Cómo prefieres que hablemos?",
+      "contactOptions": {
+        "whatsapp": "WhatsApp",
+        "phone": "Llamada",
+        "telegram": "Telegram",
+        "signal": "Signal"
+      }
+    }
+  },
   "servicios": {},
   "bond": {},
   "proyectos": {},

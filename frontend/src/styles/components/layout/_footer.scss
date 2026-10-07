@@ -1,6 +1,8 @@
 @use "../../abstracts/variables" as *;
 
 .footer {
+  position: relative;
+  z-index: 1; // por encima del fondo fijo AuroraMandala de la Home
   width: 100%;
   background-color: $color-noche;
   color: $color-arena;

@@ -1,0 +1,190 @@
+@use "../abstracts/variables" as *;
+
+// ─── MENÚ RADIAL DE CONTACTO ─────────────────────────────────────────────────
+// Los iconos salen del centro del botón en espiral (rotate → translateX →
+// rotate inverso: al interpolar, el ángulo y el radio cambian a la vez) y se
+// colocan alrededor del botón. Ya abiertos, flotan con un vaivén suave.
+
+.contact-radial {
+  --r: 128px;           // distancia del centro del botón a cada icono
+  --size: 58px;         // diámetro de cada icono
+  --spin: 160deg;       // giro extra del recorrido de salida
+
+  position: relative;
+  display: inline-block;
+}
+
+.contact-radial__trigger {
+  position: relative;
+  z-index: 1;
+  transition:
+    opacity 0.4s ease,
+    background-position 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease,
+    transform 0.2s ease;
+
+  .contact-radial--open & { opacity: 0.35; }
+}
+
+.contact-radial__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Cada slot nace en el centro del botón. --deg y --i llegan desde el JSX.
+.contact-radial__slot {
+  --angle: calc(var(--deg) * 1deg);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--size);
+  height: var(--size);
+  margin: calc(var(--size) / -2) 0 0 calc(var(--size) / -2);
+  z-index: 2;
+
+  // Cerrado: en el centro, pequeño, girado y oculto
+  opacity: 0;
+  visibility: hidden;
+  transform:
+    rotate(calc(var(--angle) - var(--spin)))
+    translateX(0)
+    rotate(calc(var(--spin) - var(--angle)))
+    scale(0.2);
+  transition:
+    transform 0.55s cubic-bezier(0.55, 0, 0.75, 0.2),
+    opacity 0.35s ease,
+    visibility 0s linear 0.6s;
+  transition-delay: calc((3 - var(--i)) * 60ms), calc((3 - var(--i)) * 60ms + 0.15s), calc((3 - var(--i)) * 60ms + 0.55s);
+
+  .contact-radial--open & {
+    opacity: 1;
+    visibility: visible;
+    transform:
+      rotate(var(--angle))
+      translateX(var(--r))
+      rotate(calc(-1 * var(--angle)))
+      scale(1);
+    transition:
+      transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.3s ease,
+      visibility 0s;
+    transition-delay: calc(var(--i) * 90ms), calc(var(--i) * 90ms), 0s;
+  }
+}
+
+.contact-radial__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  color: #fff;
+  font-size: calc(var(--size) * 0.46);
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  transition: box-shadow 0.25s ease, filter 0.25s ease;
+
+  &:hover,
+  &:focus-visible {
+    filter: brightness(1.08);
+    box-shadow: 0 0 0 3px rgba($color-arena, 0.85), 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  &:focus-visible { outline: none; }
+
+  // Vaivén: arranca cuando el icono ya está colocado
+  .contact-radial--open & {
+    animation: radial-float 3.2s ease-in-out calc(0.8s + var(--i) * 0.35s) infinite;
+  }
+
+  &--whatsapp { background: #25D366; }
+  &--phone    { background: #34C759; }
+  &--telegram { background: #26A5E4; }
+  &--signal   { background: #3A76F0; }
+}
+
+// El icono gira sobre sí mismo mientras sale
+.contact-radial__icon {
+  transform: rotate(-180deg);
+  transition: transform 0.55s ease;
+
+  .contact-radial--open & {
+    transform: rotate(0deg);
+    transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 90ms);
+  }
+}
+
+@keyframes radial-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+// ─── TOOLTIP ─────────────────────────────────────────────────────────────────
+.contact-radial__tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translate(-50%, 4px);
+  padding: 5px 12px;
+  border-radius: 50px;
+  background: $color-noche;
+  color: $color-arena;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+
+  .contact-radial__slot--below & {
+    bottom: auto;
+    top: calc(100% + 10px);
+    transform: translate(-50%, -4px);
+  }
+
+  .contact-radial__item:hover &,
+  .contact-radial__item:focus-visible & {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+// ─── MÓVIL ───────────────────────────────────────────────────────────────────
+@media (max-width: $mobile) {
+  .contact-radial {
+    --r: 100px;
+    --size: 50px;
+  }
+
+  // En pantallas táctiles no hay hover: el nombre no se muestra fijo
+  .contact-radial__tooltip { display: none; }
+}
+
+// ─── REDUCIR MOVIMIENTO: solo fundido ────────────────────────────────────────
+@media (prefers-reduced-motion: reduce) {
+  .contact-radial__slot,
+  .contact-radial--open .contact-radial__slot {
+    transform:
+      rotate(var(--angle))
+      translateX(var(--r))
+      rotate(calc(-1 * var(--angle)));
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  }
+
+  .contact-radial--open .contact-radial__slot {
+    transition: opacity 0.3s ease, visibility 0s;
+  }
+
+  .contact-radial__icon,
+  .contact-radial--open .contact-radial__icon {
+    transform: none;
+    transition: none;
+  }
+
+  .contact-radial--open .contact-radial__item { animation: none; }
+}
