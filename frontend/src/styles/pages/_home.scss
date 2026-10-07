@@ -47,13 +47,19 @@
 }
 
 .home-hero__title {
-  font-size: clamp(40px, 6vw, 96px);
+  font-size: clamp(40px, 5vw, 80px);
   line-height: 1.1;
   color: $color-arena;
-  max-width: 16ch;
   margin-bottom: 28px;
   opacity: 0;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+
+// Una frase por línea. En móvil cada frase puede partirse, pero el salto
+// entre las dos se mantiene.
+.home-hero__title-line {
+  display: block;
+  white-space: nowrap;
 }
 
 .home-hero__subtitle {
@@ -767,6 +773,10 @@
   .home-hero__title {
     font-size: clamp(38px, 10.5vw, 56px);
     margin-bottom: 22px;
+  }
+
+  .home-hero__title-line {
+    white-space: normal;
   }
 
   .home-hero__subtitle {

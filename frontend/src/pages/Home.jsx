@@ -161,7 +161,10 @@ function Home({ active = false }) {
       {/* 01 — HERO */}
       <section className="home-hero">
         <div className="home-hero__content">
-          <h1 className="home-hero__title">{t("home.hero.title")}</h1>
+          <h1 className="home-hero__title">
+            <span className="home-hero__title-line">{t("home.hero.titleLine1")}</span>{" "}
+            <span className="home-hero__title-line">{t("home.hero.titleLine2")}</span>
+          </h1>
           <p className="home-hero__subtitle">{t("home.hero.subtitle")}</p>
 
           <div className="home-hero__cta-wrapper">
