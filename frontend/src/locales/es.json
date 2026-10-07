@@ -1,0 +1,25 @@
+{
+  "common": {},
+  "nav": {},
+  "footer": {},
+  "seo": {},
+  "home": {},
+  "servicios": {},
+  "bond": {},
+  "proyectos": {},
+  "sobreMi": {},
+  "contacto": {},
+  "leadMagnet": {
+    "popup": {
+      "close": "Cerrar",
+      "title": "¿Sabes cómo te ve internet?",
+      "taglineLine1": "Solicita tu mini auditoría gratuita",
+      "taglineLine2": "de tu presencia digital",
+      "mockupAlt": "Mini Auditoría CAMY",
+      "cta": "Quiero mi auditoría gratis"
+    },
+    "floatBtn": {
+      "label": "Auditoría gratis"
+    }
+  }
+}

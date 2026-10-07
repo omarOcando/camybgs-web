@@ -16,6 +16,7 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import AuditPopup from "./components/AuditPopup";
 import AuditFloatBtn from "./components/AuditFloatBtn";
+import { SHOW_LEAD_POPUP, SHOW_LEAD_FLOAT_BTN } from "./config/site";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -30,8 +31,8 @@ function App() {
       {loading && <Loader onFinish={handleFinish} />}
       <div className={`appFade${loading ? " appFade--hidden" : ""}`}>
         <ScrollToTop />
-        <AuditPopup />
-        <AuditFloatBtn />
+        {SHOW_LEAD_POPUP && <AuditPopup />}
+        {SHOW_LEAD_FLOAT_BTN && <AuditFloatBtn />}
         <WhatsAppButton />
         <ScrollToTopButton />
         <MainLayout>

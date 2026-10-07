@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { TbFileCheck } from "react-icons/tb";
+import { LEAD_MAGNET_URL } from "../config/site";
 
 function AuditFloatBtn() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -12,14 +15,14 @@ function AuditFloatBtn() {
 
   return (
     <a
-      href="https://omar-ocando.systeme.io/mini-auditoria"
+      href={LEAD_MAGNET_URL}
       target="_blank"
       rel="noopener noreferrer"
       className={`audit-float-btn${visible ? " audit-float-btn--visible" : ""}`}
-      aria-label="Auditoría gratis"
+      aria-label={t("leadMagnet.floatBtn.label")}
     >
       <TbFileCheck />
-      <span className="audit-float-btn__tooltip">Auditoría gratis</span>
+      <span className="audit-float-btn__tooltip">{t("leadMagnet.floatBtn.label")}</span>
     </a>
   );
 }

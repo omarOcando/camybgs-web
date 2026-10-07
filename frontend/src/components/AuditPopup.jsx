@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import mockupSrc from "../assets/images/mockupMiniAuditoria.png";
+import { LEAD_MAGNET_URL } from "../config/site";
 
 const DELAY_MS   = 20000;
 const SESSION_KEY = "auditPopupSeen";
 
 function AuditPopup() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const [animate, setAnimate] = useState(false);
 
@@ -34,22 +37,22 @@ function AuditPopup() {
       <div
         className={`audit-popup${animate ? " audit-popup--in" : ""}`}
       >
-        <button className="audit-popup__close" onClick={close} aria-label="Cerrar">✕</button>
+        <button className="audit-popup__close" onClick={close} aria-label={t("leadMagnet.popup.close")}>✕</button>
 
-        <p className="audit-popup__title serif">¿Sabes cómo te ve internet?</p>
+        <p className="audit-popup__title serif">{t("leadMagnet.popup.title")}</p>
         <p className="audit-popup__tagline">
-          Solicita tu mini auditoría gratuita<br />de tu presencia digital
+          {t("leadMagnet.popup.taglineLine1")}<br />{t("leadMagnet.popup.taglineLine2")}
         </p>
 
-        <img src={mockupSrc} alt="Mini Auditoría CAMY" className="audit-popup__mockup" />
+        <img src={mockupSrc} alt={t("leadMagnet.popup.mockupAlt")} className="audit-popup__mockup" />
 
         <a
-          href="https://omar-ocando.systeme.io/mini-auditoria"
+          href={LEAD_MAGNET_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="button button--primary button--lg"
         >
-          Quiero mi auditoría gratis <span className="btn-arrow">→</span>
+          {t("leadMagnet.popup.cta")} <span className="btn-arrow">→</span>
         </a>
       </div>
     </div>
