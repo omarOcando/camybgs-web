@@ -2,12 +2,12 @@
 
 > Documento de trabajo para continuar el rediseño en una conversación nueva.
 > Complementa a `BRIEF-REDISENO.md`, que tiene el alcance y los textos definitivos (Anexo).
-> Última actualización: 8 de octubre de 2026, tras la Fase 3 (commits `6685369` y `5e0cdb0`).
+> Última actualización: 8 de octubre de 2026, tras la Fase 4 (commits `bc39322` y `0377e5d`).
 
 ## Cómo retomar
 1. Leer `BRIEF-REDISENO.md` completo (incluido el Anexo) y este documento.
 2. Confirmar la rama: `git branch --show-current` → `rediseno-2026`.
-3. Empezar por la **siguiente fase pendiente** (ahora la **Fase 4**), solo cuando Omar haya dado el visto bueno a la anterior.
+3. Empezar por la **siguiente fase pendiente** (ahora la **Fase 5**), solo cuando Omar haya dado el visto bueno a la anterior.
 
 ---
 
@@ -123,6 +123,11 @@
 3. **`sitemap.xml`:** se actualiza en la Fase 7.
 4. **Imágenes pesadas de las tarjetas:** se comprimen en la Fase 7 (ver Fase 7 y §5).
 
+### Preguntas de la Fase 4
+1. **Logo del footer:** la versión que solo dice "CAMY" (`LogoCamySoloDarkBG.png`) hasta que Omar pase el logo nuevo. ✅
+2. **Redes sociales:** sin redes en el footer. Se quitó el bloque comentado (eran las redes de Ramsés y el LinkedIn de Omar). ✅
+3. **Precio de Bond:** en dos líneas, con las etiquetas destacadas: "**Montaje:** 999 € (o en cuotas desde 96 €/mes)" y "**Suscripción:** 99 €/mes". ✅ Actualizado en el Anexo. **Mismo formato en el bloque de Bond de Servicios** (Fase 5).
+
 ---
 
 ## 4. Fases
@@ -174,10 +179,13 @@ Commits `6685369` y `5e0cdb0`.
 - Borrados `Resultados.jsx`, `MiTrabajo.jsx`, su SCSS y las imágenes de Pinterest y Mercedes.
 - Lint: baja a **12 problemas previos** (9 errores y 3 advertencias).
 
-### ⏳ Fase 4 — Bond + menú + footer
-- Nueva `pages/Bond.jsx` + `_bond.scss`. Los botones externos se abren en pestaña nueva con `BOND_SALES_URL` y `BOND_DEMO_URL`.
-- `NAV_LINKS`: Inicio · Servicios · Bond · Proyectos · Sobre mí · Contacto. El diseño del menú no cambia.
-- Footer: logo + slogan "Tu web, reflejo de tu mensaje." + menú + Impressum · Datenschutz + email + "© CAMY | Business Growth Solutions".
+### ✅ Fase 4 — Bond + menú + footer (hecha, visto bueno de Omar)
+Commits `bc39322` y `0377e5d`.
+- `pages/Bond.jsx` + `styles/pages/_bond.scss` (prefijo `bond-`): hero (Noche), "Para quién es" (Arena), "Qué hace Bond" con dos tarjetas Arena sobre Noche y la línea del RGPD, precio y cierre (Vinotinto). Textos en `es.json` → `bond` y `seo.bond`.
+- Botones externos (`ExternalButtons`): `BOND_SALES_URL` y `BOND_DEMO_URL` en pestaña nueva, con aviso para lectores de pantalla (`common.newTab` + clase global `.visually-hidden` en `_typography.scss`).
+- Precio en `bond.pricing.price` como lista `{ label, value }`: una línea por importe.
+- `NAV_LINKS` en `config/site.js` (`{ to, key, end }`), compartido por `Header.jsx` y `Footer.jsx`; textos en `nav.links.<key>`. También pasaron a `es.json` los `aria-label` de la cabecera y el `alt` del logo. El diseño del menú no cambia.
+- Footer: logo solo "CAMY" + slogan + menú + Impressum · Datenschutz + email (`CONTACT.email`) + "© CAMY | Business Growth Solutions {{year}}" (`footer.copyright`).
 
 ### ⏳ Fase 5 — Servicios (página nueva completa)
 - Tarjetas One/Multi/Custom: para quién, qué incluye, duración y valor.

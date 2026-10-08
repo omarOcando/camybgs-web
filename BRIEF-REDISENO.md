@@ -326,7 +326,10 @@ Valor: desde 1.999 € · o desde 192 €/mes
 
 **Texto:** Bond es la plataforma de gestión de CAMY para coaches, terapeutas, nutricionistas y otros profesionales que trabajan por sesiones o programas. Gestiona tu negocio y cuida a tus clientes desde un solo lugar, con tu marca y tu mensaje.
 
-**Precio:** Montaje 999 € (o desde 96 €/mes) + 99 €/mes
+**Precio** (en dos líneas, con "Montaje:" y "Suscripción:" destacados, igual que en la página Bond):
+
+- **Montaje:** 999 € (o en cuotas desde 96 €/mes)
+- **Suscripción:** 99 €/mes
 
 **Botón:** Conoce los detalles de Bond →
 
