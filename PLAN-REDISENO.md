@@ -2,12 +2,12 @@
 
 > Documento de trabajo para continuar el rediseño en una conversación nueva.
 > Complementa a `BRIEF-REDISENO.md`, que tiene el alcance y los textos definitivos (Anexo).
-> Última actualización: 8 de octubre de 2026, tras la Fase 2 (commits `bf568ee` y `5db79da`).
+> Última actualización: 8 de octubre de 2026, tras la Fase 3 (commits `6685369` y `5e0cdb0`).
 
 ## Cómo retomar
 1. Leer `BRIEF-REDISENO.md` completo (incluido el Anexo) y este documento.
 2. Confirmar la rama: `git branch --show-current` → `rediseno-2026`.
-3. Empezar por la **siguiente fase pendiente** (ahora la **Fase 3**), solo cuando Omar haya dado el visto bueno a la anterior.
+3. Empezar por la **siguiente fase pendiente** (ahora la **Fase 4**), solo cuando Omar haya dado el visto bueno a la anterior.
 
 ---
 
@@ -15,7 +15,7 @@
 - **Rama:** todo se hace en `rediseno-2026`. No tocar `master` ni hacer merge hasta que Omar lo apruebe. Existe la etiqueta `v1-antes-rediseno` para volver a la versión anterior.
 - **Una fase cada vez.**
 - **Al terminar cada fase o ajuste:**
-  1. `cd frontend && npm run lint && npm run build`. El lint debe seguir en los **14 problemas previos** y ninguno nuevo (ver §5).
+  1. `cd frontend && npm run lint && npm run build`. El lint debe seguir en los **12 problemas previos** y ninguno nuevo (ver §5).
   2. Commit en `rediseno-2026`, con el mensaje terminado en la línea `Co-Authored-By` de Claude.
   3. **Pedir confirmación a Omar antes del push.**
   4. Después del push, **esperar el visto bueno de Omar en la vista previa de Vercel** antes de empezar la siguiente fase.
@@ -160,19 +160,19 @@ Commits `bf568ee` y `5db79da`.
 - `prefers-reduced-motion`: sin entradas animadas en las secciones 2–9.
 - **Ojo:** las reglas móviles del hero están en el bloque `@media (max-width: $mobile)` del final de `_home.scss`. Si se reescribe ese bloque, conservarlas.
 
-### ⏳ Fase 3 — Proyectos + redirecciones
-- `data/projects.js`:
-  - se quedan Ramsés (`category: "Custom"`) y Viva México (`"Multi"`), con su etiqueta (`tag`);
-  - los textos van a `es.json` por `id`;
-  - se borran Pinterest y Mercedes, también sus imágenes.
-- Nueva `pages/Proyectos.jsx`:
-  - filtro calculado a partir de los datos: Todos + solo las categorías con proyectos, en el orden One · Multi · Custom · Bond;
-  - tarjetas con el diseño actual de `mt-project-card`;
-  - testimonios con vídeo + nombre;
+### ✅ Fase 3 — Proyectos + redirecciones (hecha, visto bueno de Omar)
+Commits `6685369` y `5e0cdb0`.
+- `data/projects.js`: solo Ramsés (`category: "Custom"`) y Viva México (`"Multi"`), con los datos que no dependen del idioma (`tech`, `link`, `image`, `video`, `videoAspect`, `testimonial`) y `CATEGORIES` (orden del filtro: One · Multi · Custom · Bond).
+- Textos de cada proyecto en `es.json` → `proyectos.items.<id>` (`name`, `tag`, `client`, `challenge`, `work`, `result`). Título y descripción SEO en `seo.proyectos`.
+- `pages/Proyectos.jsx` + `styles/pages/_proyectos.scss` (prefijo `proj-`, basado en el antiguo `mt-`):
+  - filtro calculado con los datos (hoy: Todos · Multi · Custom), con `aria-pressed`;
+  - tarjetas con el diseño de `mt-project-card`, en 2 columnas (1 en ≤ 900 px); Ramsés con "Ver proyecto" desactivado;
+  - testimonios "En sus propias palabras": vídeo + nombre;
   - cierre con botón a `/contacto`.
-- Redirecciones 301 en `vercel.json` + `<Navigate replace>`.
-- Borrar `Resultados.jsx`, `MiTrabajo.jsx` y su SCSS.
-- Actualizar los enlaces internos, entre ellos el botón de éxito de Contacto que hoy apunta a `/mi-trabajo`.
+- `/resultados` y `/mi-trabajo`: 301 en `frontend/vercel.json` + `<Navigate replace>` en `App.jsx`.
+- Menú: "Resultados" y "Mi Trabajo" sustituidos por una sola entrada "Proyectos" (el orden definitivo llega en la Fase 4). Botón de éxito de Contacto: "Ver proyectos →" a `/proyectos`.
+- Borrados `Resultados.jsx`, `MiTrabajo.jsx`, su SCSS y las imágenes de Pinterest y Mercedes.
+- Lint: baja a **12 problemas previos** (9 errores y 3 advertencias).
 
 ### ⏳ Fase 4 — Bond + menú + footer
 - Nueva `pages/Bond.jsx` + `_bond.scss`. Los botones externos se abren en pestaña nueva con `BOND_SALES_URL` y `BOND_DEMO_URL`.
@@ -240,12 +240,12 @@ Commits `bf568ee` y `5db79da`.
 **Avisos técnicos:**
 - ~~Desbordamiento de 3 px de la tarjeta de vídeo de Viva México~~: corregido en la Fase 2.
 - **Imágenes pesadas (Fase 7):** las capturas de las tarjetas de `/proyectos` pesan ≈ 3 MB (Ramsés) y ≈ 7,7 MB (Viva México). Comprimirlas en la Fase 7.
-- **Los 14 problemas de lint previos** (9 errores y 5 advertencias, ya estaban antes del rediseño):
+- **Los 12 problemas de lint previos** (9 errores y 3 advertencias, ya estaban antes del rediseño; eran 14 hasta la Fase 3):
   - `process` no definido en `frontend/lib/*.js` (código de Node que se lintea como navegador);
   - `react-refresh/only-export-components` en `NotificationContext.jsx`;
   - `exhaustive-deps` (falta `threshold`) en los hooks `useVisible` y `useFadeIn` de varias páginas.
 
-  No son de este rediseño. La regla es que no aparezca ninguno nuevo. El número puede bajar al borrar `Resultados.jsx` y `MiTrabajo.jsx`.
+  No son de este rediseño. La regla es que no aparezca ninguno nuevo.
 - **Dependencias:** `npm install` avisa de 20 vulnerabilidades en las dependencias del proyecto. Quedan fuera de esta fase.
 - **Legibilidad sobre el aurora:** revisarla sección por sección después de la Fase 2, sin velo salvo que Omar lo pida. Incluye la tarjeta Multi (fondo Noche).
 - **Fuera de esta fase:** migración a Render (justo después, como tarea aparte), versión en inglés, test "¿Tu web dice lo que eres?" y reescritura de los legales. El texto de Datenschutz menciona Systeme.io "für Marketingzwecke".
