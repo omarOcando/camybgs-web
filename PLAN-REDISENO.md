@@ -2,12 +2,12 @@
 
 > Documento de trabajo para continuar el rediseño en una conversación nueva.
 > Complementa a `BRIEF-REDISENO.md`, que tiene el alcance y los textos definitivos (Anexo).
-> Última actualización: 8 de octubre de 2026, tras la Fase 1 (commit `961ca6f`).
+> Última actualización: 8 de octubre de 2026, tras la Fase 2 (commits `bf568ee` y `5db79da`).
 
 ## Cómo retomar
 1. Leer `BRIEF-REDISENO.md` completo (incluido el Anexo) y este documento.
 2. Confirmar la rama: `git branch --show-current` → `rediseno-2026`.
-3. Empezar por la **siguiente fase pendiente** (ahora la **Fase 2**), solo cuando Omar haya dado el visto bueno a la anterior.
+3. Empezar por la **siguiente fase pendiente** (ahora la **Fase 3**), solo cuando Omar haya dado el visto bueno a la anterior.
 
 ---
 
@@ -111,6 +111,12 @@
      - "Tienes algo que decir." en **una sola línea entre 320 y 767 px**;
      - sin palabra sola en la última línea de la segunda frase.
 
+### Preguntas de la Fase 2
+1. **Tarjeta Multi** (fondo Noche, apenas se distingue del fondo oscuro): se ve en la revisión de legibilidad.
+2. **Errata del Anexo:** "…ni por qué deberías ayudarlo" → "…ni por qué debería elegirte." ✅ Corregida en `es.json` y en el brief.
+3. **Título y descripción SEO de la Home:** se cambian en la Fase 7.
+4. **Proyectos en la Home:** nombre, profesión · ciudad, texto del Anexo y "Resultado:" destacado (Ramsés). ✅ La regla "solo vídeo + nombre" (D8) es para `/proyectos`.
+
 ---
 
 ## 4. Fases
@@ -121,7 +127,7 @@ Commit `a1f2fe8`.
 - Creado `src/config/site.js` con interruptores, URL del lead magnet, datos de contacto y URL de Bond (con marcadores).
 - `AuditPopup` y `AuditFloatBtn` toman la URL de la config y sus textos de `es.json`. Están **ocultos** por configuración, sin borrarlos.
 
-### ✅ Fase 1 — Hero + AuroraMandala + menú radial (hecha)
+### ✅ Fase 1 — Hero + AuroraMandala + menú radial (hecha, visto bueno de Omar)
 Commits `eaadf25`, `260caf8`, `b82c280` y `961ca6f`.
 - `<AuroraMandala />` sin cambios, montado en `Home.jsx` cuando `active` es `true`. Es fijo, con z-index 0.
 - Por encima del canvas van `.home > section` (`position: relative; z-index: 1`) y `.footer` (`position: relative; z-index: 1`).
@@ -136,14 +142,17 @@ Commits `eaadf25`, `260caf8`, `b82c280` y `961ca6f`.
   - espiral con `rotate → translateX → rotate inverso`;
   - ángulos 215°, 325°, 35° y 145°;
   - `--r` de 128 px en escritorio y 100 px en móvil.
-- **Pendiente:** el visto bueno de Omar al último ajuste (`961ca6f`) en la vista previa.
-
-### ⏳ Fase 2 — Resto de la Home (secciones 2–9 del Anexo)
-- Secciones: El problema · Cómo lo hago (4 pilares) · Oferta One/Multi/Custom · Bond destacado · Proyectos y testimonios en vídeo (título de la D6, botón "Ver proyectos →" a `/proyectos`) · Proceso de 5 pasos · La persona detrás de CAMY · Cierre.
-- Todos los textos van en `es.json`.
-- Reutilizar `useFadeIn`, las tarjetas y el timeline actuales, sobre fondo transparente.
-- Botones a `/servicios`, `/bond`, `/proyectos`, `/sobre-mi` y `/contacto`.
-- **Corregir el desbordamiento de 3 px de la tarjeta de vídeo de Viva México** (ver §5).
+### ✅ Fase 2 — Resto de la Home (hecha, visto bueno de Omar)
+Commits `bf568ee` y `5db79da`.
+- Secciones 2–9 en el orden del brief, con todos los textos en `es.json` (`home.problem`, `how`, `offer`, `bond`, `projects`, `process`, `about`, `closing`; las listas se leen con `returnObjects`).
+- Piezas compartidas en `_home.scss`: `.home-section-title` (+ `--visible`), `.home-section-intro`, `.home-section-closing`, `.home-card` (tarjeta arena de El problema y Cómo lo hago) y `.home-reveal-cta`.
+- Todos los observadores usan `useFadeIn` desestructurado (`{ ref: xRef, visible: xVisible }`): la regla `react-hooks/refs` no admite leer `.visible` de un objeto que contiene un ref.
+- Oferta: tarjetas giratorias (`.home-offer__card`) que también giran con el toque o el foco (`tabIndex={0}`).
+- Proyectos de la Home: textos en `home.projects.items.<id>` según el `id` de `data/projects.js`.
+- Proceso: `<ol>` con 5 pasos; la línea entre pasos va en `.home-process__step::before`.
+- Rejilla de testimonios con `minmax(0, 340fr) minmax(0, 560fr)`: corregido el desbordamiento de 3 px.
+- `prefers-reduced-motion`: sin entradas animadas en las secciones 2–9.
+- **Ojo:** las reglas móviles del hero están en el bloque `@media (max-width: $mobile)` del final de `_home.scss`. Si se reescribe ese bloque, conservarlas.
 
 ### ⏳ Fase 3 — Proyectos + redirecciones
 - `data/projects.js`:
@@ -222,7 +231,7 @@ Commits `eaadf25`, `260caf8`, `b82c280` y `961ca6f`.
 - Borrar el índice único `email_1` en Atlas (Fase 6).
 
 **Avisos técnicos:**
-- **Desbordamiento de 3 px (Fase 2):** con barra de scroll clásica y entre ~1000 y 1024 px de ancho, la tarjeta de vídeo de Viva México (`.home-testimonials__card-video--native`, `videoAspect` "640 / 466") sobresale 3 px y aparece scroll horizontal. Ya pasaba antes del rediseño. Se corrige al rehacer esa sección.
+- ~~Desbordamiento de 3 px de la tarjeta de vídeo de Viva México~~: corregido en la Fase 2.
 - **Los 14 problemas de lint previos** (9 errores y 5 advertencias, ya estaban antes del rediseño):
   - `process` no definido en `frontend/lib/*.js` (código de Node que se lintea como navegador);
   - `react-refresh/only-export-components` en `NotificationContext.jsx`;
@@ -230,5 +239,5 @@ Commits `eaadf25`, `260caf8`, `b82c280` y `961ca6f`.
 
   No son de este rediseño. La regla es que no aparezca ninguno nuevo. El número puede bajar al borrar `Resultados.jsx` y `MiTrabajo.jsx`.
 - **Dependencias:** `npm install` avisa de 20 vulnerabilidades en las dependencias del proyecto. Quedan fuera de esta fase.
-- **Legibilidad sobre el aurora:** revisarla sección por sección después de la Fase 2, sin velo salvo que Omar lo pida.
+- **Legibilidad sobre el aurora:** revisarla sección por sección después de la Fase 2, sin velo salvo que Omar lo pida. Incluye la tarjeta Multi (fondo Noche).
 - **Fuera de esta fase:** migración a Render (justo después, como tarea aparte), versión en inglés, test "¿Tu web dice lo que eres?" y reescritura de los legales. El texto de Datenschutz menciona Systeme.io "für Marketingzwecke".
