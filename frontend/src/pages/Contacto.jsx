@@ -121,8 +121,8 @@ function Contacto() {
                   <p className="ctc-success__text">
                     Mientras tanto, si quieres conocer mejor cómo trabajo, echa un vistazo a mis proyectos.
                   </p>
-                  <Button to="/mi-trabajo" variant="primary" size="md">
-                    Ver mi trabajo →
+                  <Button to="/proyectos" variant="primary" size="md">
+                    Ver proyectos →
                   </Button>
                 </div>
               ) : (

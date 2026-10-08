@@ -7,9 +7,8 @@ import audioSrc from "../../assets/audios/leberch-ambient-electronics-524300.mp3
 const NAV_LINKS = [
   { to: "/",           label: "Home",      end: true },
   { to: "/servicios",  label: "Servicios"  },
-  { to: "/resultados", label: "Resultados" },
+  { to: "/proyectos",  label: "Proyectos"  },
   { to: "/sobre-mi",   label: "Sobre Mí"   },
-  { to: "/mi-trabajo", label: "Mi Trabajo" },
   { to: "/contacto",   label: "Contacto"   },
 ];
 

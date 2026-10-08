@@ -2,7 +2,12 @@
   "common": {},
   "nav": {},
   "footer": {},
-  "seo": {},
+  "seo": {
+    "proyectos": {
+      "title": "Proyectos · CAMY",
+      "description": "Proyectos reales de diseño web y plataformas a medida."
+    }
+  },
   "home": {
     "hero": {
       "titleLine1": "Tienes algo que decir.",
@@ -151,7 +156,51 @@
   },
   "servicios": {},
   "bond": {},
-  "proyectos": {},
+  "proyectos": {
+    "hero": {
+      "title": "Proyectos reales. Resultados reales",
+      "subtitle": "Cada proyecto tiene su historia y empieza igual: entender qué quiere transmitir el negocio antes de diseñar nada."
+    },
+    "filters": {
+      "label": "Filtrar proyectos por tipo",
+      "all": "Todos"
+    },
+    "card": {
+      "challenge": "El reto",
+      "work": "Lo que hice",
+      "result": "→ Resultado",
+      "imageAlt": "Vista previa del proyecto {{name}}",
+      "visit": "Ver proyecto",
+      "visitLabel": "Ver el proyecto {{name}} (se abre en una pestaña nueva)"
+    },
+    "items": {
+      "ramses": {
+        "name": "Ramsés Viloria",
+        "tag": "Plataforma de gestión de clientes · Custom",
+        "client": "Ramsés Viloria · Coach de relaciones de pareja · Frankfurt",
+        "challenge": "Cinco años de experiencia, pero todos sus clientes llegaban por recomendación. Su presencia digital no reflejaba la calidad de su trabajo y no tenía un sistema para organizar clientes, citas y pagos.",
+        "work": "Una identidad de marca que transmite lo que él es: cercanía, confianza y compromiso. Y una plataforma propia para gestionar clientes, reservas y pagos, pensada para su forma de trabajar.",
+        "result": "4 clientes nuevos en los primeros 45 días."
+      },
+      "vivamexico": {
+        "name": "Viva México",
+        "tag": "Web corporativa bilingüe · Multi",
+        "client": "Javier Reyes · Banda de mariachi profesional desde 1992 · NRW",
+        "challenge": "Su web era un WordPress desactualizado que no transmitía la energía de su música. Necesitaba renovarla sin perder lo ganado en Google y hablar a la vez con su público alemán y con la comunidad latina.",
+        "work": "Una web bilingüe (alemán y español) donde la música se ve y se escucha: galería de fotos y vídeos, repertorio con muestras de audio y sus formatos (dúo, trío o mariachi completo). Con la migración cuidada para conservar su posicionamiento y el consentimiento de cookies conforme a la normativa alemana.",
+        "result": "Web nueva en marcha, sin perder posicionamiento en Google."
+      }
+    },
+    "testimonials": {
+      "title": "En sus propias palabras",
+      "videoLabel": "Vídeo testimonio de {{name}}"
+    },
+    "closing": {
+      "title": "¿El próximo es el tuyo?",
+      "text": "Cuéntame qué haces y qué quieres transmitir. En una llamada corta te digo cómo lo haría.",
+      "cta": "Hablemos"
+    }
+  },
   "sobreMi": {},
   "contacto": {},
   "leadMagnet": {

@@ -1,0 +1,452 @@
+@use "../abstracts/variables" as *;
+
+// ─── SHARED ──────────────────────────────────────────────────────────────────
+.proj-section-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 100px 24px;
+}
+
+@keyframes proj-fade-in {
+  from { opacity: 0; transform: scale(0.93); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes proj-slide-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes proj-card-in {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// ─── 01 HERO ─────────────────────────────────────────────────────────────────
+.proj-hero {
+  background: $color-noche;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 160px 24px 100px;
+  text-align: center;
+}
+
+.proj-hero__inner {
+  max-width: 1200px;
+}
+
+.proj-hero__title {
+  font-size: clamp(36px, 5.8vw, 110px);
+  color: $color-arena;
+  line-height: 1.1;
+  margin-bottom: 60px;
+  text-wrap: balance;
+  animation: proj-fade-in 2.8s ease 0.2s both;
+}
+
+.proj-hero__sub {
+  max-width: 820px;
+  margin: 0 auto;
+  font-size: clamp(18px, 2vw, 30px);
+  line-height: 1.5;
+  color: rgba($color-arena, 0.6);
+  text-wrap: pretty;
+  animation: proj-slide-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+}
+
+// ─── 02 FILTRO ───────────────────────────────────────────────────────────────
+.proj-portfolio {
+  background: $color-arena;
+  padding-bottom: 30px;
+}
+
+.proj-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 72px;
+  opacity: 0;
+  transform: translateY(20px);
+
+  &--visible {
+    animation: proj-slide-up 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s forwards;
+  }
+}
+
+.proj-filter-btn {
+  padding: 10px 26px;
+  border: 2px solid rgba($color-noche, 0.22);
+  border-radius: 100px;
+  background: transparent;
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 500;
+  color: rgba($color-noche, 0.6);
+  cursor: pointer;
+  transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+
+  &:hover {
+    border-color: $color-fuego;
+    color: $color-fuego;
+  }
+
+  &--active,
+  &--active:hover {
+    background: $color-fuego;
+    border-color: $color-fuego;
+    color: $color-arena;
+    font-weight: 700;
+  }
+}
+
+// ─── 03 TARJETAS DE PROYECTO ─────────────────────────────────────────────────
+.proj-projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.proj-card {
+  background: rgba($color-noche, 0.07);
+  border: 1px solid rgba($color-noche, 0.1);
+  border-radius: 24px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 32px rgba($color-noche, 0.12);
+  }
+}
+
+.proj-projects--visible .proj-card {
+  @for $i from 1 through 6 {
+    &:nth-child(#{$i}) { animation: proj-card-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) #{($i - 1) * 0.15}s forwards; }
+  }
+}
+
+.proj-card__type {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-fuego;
+  background: rgba($color-fuego, 0.08);
+  border-radius: 100px;
+  padding: 4px 14px;
+  align-self: flex-start;
+}
+
+.proj-card__preview {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  background: $color-noche;
+  margin-bottom: 4px;
+}
+
+.proj-card__preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.proj-card__name {
+  font-size: clamp(22px, 2vw, 30px);
+  color: $color-noche;
+  line-height: 1.2;
+}
+
+.proj-card__client {
+  font-size: clamp(12px, 1vw, 14px);
+  color: rgba($color-noche, 0.5);
+  font-style: italic;
+  margin-top: -4px;
+}
+
+.proj-card__label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba($color-noche, 0.4);
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+.proj-card__text {
+  font-size: clamp(14px, 1.2vw, 16px);
+  color: rgba($color-noche, 0.7);
+  line-height: 1.5;
+}
+
+.proj-card__result {
+  font-size: clamp(14px, 1.2vw, 16px);
+  color: $color-fuego;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.proj-card__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.proj-card__tech-tag {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: rgba($color-noche, 0.13);
+  color: rgba($color-noche, 0.6);
+  font-weight: 500;
+}
+
+.proj-card__visit-btn {
+  align-self: flex-start;
+  display: inline-block;
+  padding: 10px 24px;
+  border: 2px solid rgba($color-noche, 0.35);
+  border-radius: 100px;
+  background: transparent;
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 500;
+  line-height: 24px;
+  color: rgba($color-noche, 0.7);
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+  margin-top: auto; // abajo del todo aunque la tarjeta vecina sea más alta
+
+  &:hover {
+    border-color: $color-fuego;
+    color: $color-fuego;
+    background: rgba($color-fuego, 0.07);
+  }
+
+  &:disabled {
+    opacity: 0.38;
+    cursor: not-allowed;
+
+    &:hover {
+      border-color: rgba($color-noche, 0.35);
+      color: rgba($color-noche, 0.7);
+      background: transparent;
+    }
+  }
+}
+
+// ─── 04 TESTIMONIOS ──────────────────────────────────────────────────────────
+.proj-testimonials {
+  background: $color-noche;
+}
+
+.proj-testimonials__title {
+  font-size: clamp(32px, 4.5vw, 64px);
+  color: $color-arena;
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+// Columnas proporcionales al vídeo vertical (340) y al horizontal (560)
+.proj-testimonials__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 340fr) minmax(0, 560fr);
+  align-items: center;
+  gap: clamp(40px, 6vw, 88px);
+  max-width: 988px;
+  margin: 0 auto;
+
+  &--visible .proj-testimonials__card {
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) { animation: proj-card-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) #{($i - 1) * 0.15}s forwards; }
+    }
+  }
+}
+
+.proj-testimonials__card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+  opacity: 0;
+}
+
+.proj-testimonials__video {
+  width: 100%;
+  aspect-ratio: var(--card-video-ratio, 9 / 16);
+  border-radius: 30px;
+  background: #000;
+  overflow: hidden;
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    &:fullscreen,
+    &:-webkit-full-screen {
+      object-fit: contain;
+    }
+  }
+}
+
+.proj-testimonials__name {
+  padding: 0 4px;
+  font-size: clamp(18px, 1.6vw, 24px);
+  font-weight: 700;
+  color: $color-arena;
+}
+
+// ─── 05 CIERRE ───────────────────────────────────────────────────────────────
+.proj-cta {
+  background: $color-noche;
+  border-top: 1px solid rgba($color-arena, 0.07);
+}
+
+.proj-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+
+  &--visible {
+    animation: proj-slide-up 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+.proj-cta__title {
+  font-size: clamp(32px, 4.5vw, 72px);
+  color: $color-arena;
+  margin-bottom: 24px;
+}
+
+.proj-cta__sub {
+  font-size: clamp(16px, 1.6vw, 22px);
+  color: rgba($color-arena, 0.7);
+  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+}
+
+// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
+
+// ── Tablet (≤ 1024px) ────────────────────────────────────────────────────────
+@media (max-width: $tablet) {
+
+  .proj-hero__title {
+    font-size: clamp(48px, 7.5vw, 110px);
+  }
+
+  .proj-cta__title {
+    font-size: clamp(40px, 5.8vw, 72px);
+  }
+
+  .proj-projects {
+    gap: 28px;
+  }
+
+  .proj-card {
+    padding: 32px 24px;
+  }
+}
+
+// ── Tablet SM (≤ 900px) ──────────────────────────────────────────────────────
+@media (max-width: $tablet-sm) {
+
+  .proj-section-inner {
+    padding: 70px 100px;
+  }
+
+  .proj-cta__title {
+    font-size: clamp(44px, 7.5vw, 66px);
+  }
+
+  .proj-projects {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    gap: 40px;
+  }
+
+  .proj-testimonials__grid {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+  }
+}
+
+// ── Móvil (≤ 768px) ──────────────────────────────────────────────────────────
+@media (max-width: $mobile) {
+
+  .proj-section-inner {
+    padding: 45px 35px;
+  }
+
+  .proj-hero {
+    padding-top: 100px;
+  }
+
+  .proj-hero__title {
+    font-size: clamp(40px, 11vw, 110px);
+    line-height: 1.15;
+    margin-bottom: 36px;
+  }
+
+  .proj-hero__sub {
+    font-size: clamp(17px, 4.6vw, 22px);
+  }
+
+  .proj-filters {
+    margin-bottom: 48px;
+  }
+
+  .proj-card {
+    padding: 28px 20px;
+  }
+
+  .proj-testimonials__title {
+    margin-bottom: 36px;
+  }
+
+  .proj-cta__title {
+    font-size: clamp(38px, 9.5vw, 64px);
+    line-height: 1.14;
+  }
+
+  .proj-cta__sub {
+    font-size: clamp(16px, 4.5vw, 22px);
+  }
+}
+
+// ─── MOVIMIENTO REDUCIDO ─────────────────────────────────────────────────────
+@media (prefers-reduced-motion: reduce) {
+
+  .proj-hero__title,
+  .proj-hero__sub,
+  .proj-filters,
+  .proj-card,
+  .proj-testimonials__card,
+  .proj-cta__inner {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
