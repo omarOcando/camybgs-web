@@ -123,7 +123,13 @@ function Bond() {
           className={`bond-section-inner bond-pricing__inner${pricingVisible ? " bond-pricing__inner--visible" : ""}`}
         >
           <h2 className="bond-section-title bond-section-title--light">{t("bond.pricing.title")}</h2>
-          <p className="bond-pricing__price">{t("bond.pricing.price")}</p>
+          <ul className="bond-pricing__price">
+            {list("bond.pricing.price").map((line) => (
+              <li key={line.label}>
+                <strong>{line.label}</strong> {line.value}
+              </li>
+            ))}
+          </ul>
           <p className="bond-pricing__text">{t("bond.pricing.text")}</p>
           <ExternalButtons
             sales={t("bond.pricing.ctaSales")}

@@ -401,7 +401,10 @@ Valor: desde 1.999 € · o desde 192 €/mes
 
 **Título:** Empieza con Bond
 
-**Precio:** Montaje 999 € (o desde 96 €/mes) + suscripción de 99 €/mes
+**Precio** (en dos líneas, con "Montaje:" y "Suscripción:" destacados):
+
+- **Montaje:** 999 € (o en cuotas desde 96 €/mes)
+- **Suscripción:** 99 €/mes
 
 **Texto:** Configuro Bond con tu marca, tus servicios y tus idiomas. Tú solo empiezas a usarlo.
 

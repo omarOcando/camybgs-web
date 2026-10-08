@@ -228,13 +228,26 @@
   .bond-section-title { margin-bottom: 28px; }
 }
 
+// Una línea por importe: "Montaje:" y "Suscripción:" destacados
 .bond-pricing__price {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   font-family: "DM Serif Display", serif;
   font-size: clamp(22px, 2.6vw, 34px);
   line-height: 1.35;
-  color: $color-arena;
-  margin-bottom: 20px;
+  color: rgba($color-arena, 0.85);
   text-wrap: balance;
+
+  strong {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: $color-arena;
+  }
 }
 
 .bond-pricing__text {

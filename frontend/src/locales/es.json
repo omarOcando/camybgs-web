@@ -217,7 +217,10 @@
     },
     "pricing": {
       "title": "Empieza con Bond",
-      "price": "Montaje 999 € (o desde 96 €/mes) + suscripción de 99 €/mes",
+      "price": [
+        { "label": "Montaje:", "value": "999 € (o en cuotas desde 96 €/mes)" },
+        { "label": "Suscripción:", "value": "99 €/mes" }
+      ],
       "text": "Configuro Bond con tu marca, tus servicios y tus idiomas. Tú solo empiezas a usarlo.",
       "ctaSales": "Ver Bond en detalle",
       "ctaDemo": "Reservar una demo de 30 minutos"
