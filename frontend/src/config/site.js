@@ -16,5 +16,16 @@ export const CONTACT = {
   email:    "info@camybgs.com",
 };
 
+// Menú principal (cabecera y footer). El texto de cada enlace está en
+// es.json → nav.links.<key>
+export const NAV_LINKS = [
+  { to: "/",          key: "home",      end: true },
+  { to: "/servicios", key: "servicios" },
+  { to: "/bond",      key: "bond"      },
+  { to: "/proyectos", key: "proyectos" },
+  { to: "/sobre-mi",  key: "sobreMi"   },
+  { to: "/contacto",  key: "contacto"  },
+];
+
 export const BOND_SALES_URL = "#PENDIENTE-bond-venta";
 export const BOND_DEMO_URL  = "#PENDIENTE-bond-demo";

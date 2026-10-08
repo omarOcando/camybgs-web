@@ -1,8 +1,33 @@
 {
-  "common": {},
-  "nav": {},
-  "footer": {},
+  "common": {
+    "newTab": "(se abre en una pestaña nueva)"
+  },
+  "nav": {
+    "links": {
+      "home": "Inicio",
+      "servicios": "Servicios",
+      "bond": "Bond",
+      "proyectos": "Proyectos",
+      "sobreMi": "Sobre mí",
+      "contacto": "Contacto"
+    },
+    "logoAlt": "CAMY, ir al inicio",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "playMusic": "Reproducir música",
+    "pauseMusic": "Pausar música"
+  },
+  "footer": {
+    "logoAlt": "CAMY",
+    "slogan": "Tu web, reflejo de tu mensaje.",
+    "navLabel": "Menú del pie de página",
+    "copyright": "© CAMY | Business Growth Solutions {{year}}"
+  },
   "seo": {
+    "bond": {
+      "title": "Bond · Gestiona tu negocio, cuida a tus clientes",
+      "description": "La plataforma de CAMY para coaches, terapeutas y profesionales que acompañan a sus clientes: reservas, agenda, portal y pagos."
+    },
     "proyectos": {
       "title": "Proyectos · CAMY",
       "description": "Proyectos reales de diseño web y plataformas a medida."
@@ -155,7 +180,49 @@
     }
   },
   "servicios": {},
-  "bond": {},
+  "bond": {
+    "hero": {
+      "tag": "Producto estrella de CAMY",
+      "title": "Bond.",
+      "subtitle": "Gestiona tu negocio, cuida a tus clientes.",
+      "text": "La plataforma para profesionales que acompañan a sus clientes en sus procesos. Reservas, agenda, seguimiento y pagos en un solo lugar, con tu marca.",
+      "ctaSales": "Ver Bond en detalle",
+      "ctaDemo": "Reservar una demo"
+    },
+    "audience": {
+      "title": "Pensado para quien acompaña a sus clientes",
+      "text": "Coaches, terapeutas, psicólogos, nutricionistas, profesores, fisioterapeutas, etc… Si trabajas por sesiones o programas y tus clientes recorren un camino contigo, Bond está hecho para ti.",
+      "pain": "Deja de saltar entre la agenda, el WhatsApp, las notas en papel y las transferencias pendientes."
+    },
+    "features": {
+      "title": "Todo tu negocio, en un solo lugar y sencillo.",
+      "forYou": {
+        "title": "Para ti:",
+        "items": [
+          { "lead": "Reservas online", "text": "desde tu web, con tu horario, tus tipos de sesión y tus huecos libres." },
+          { "lead": "Tu agenda del día y de la semana,", "text": "con la próxima sesión y tus notas a mano." },
+          { "lead": "Avisos de lo que requiere tu atención:", "text": "pagos pendientes, clientes sin próxima cita, notas por completar." },
+          { "lead": "Pagos", "text": "online o registrados a mano, siempre a la vista." }
+        ]
+      },
+      "forClients": {
+        "title": "Para tus clientes:",
+        "items": [
+          { "lead": "Su propio portal,", "text": "con su próxima sesión, sus tareas y su camino recorrido." },
+          { "lead": "Recordatorios automáticos", "text": "antes de cada sesión, en su idioma." },
+          { "lead": "Mensajes contigo,", "text": "sin perderse entre chats." }
+        ]
+      },
+      "trust": "Datos protegidos y alojados en Europa, preparado para el RGPD."
+    },
+    "pricing": {
+      "title": "Empieza con Bond",
+      "price": "Montaje 999 € (o desde 96 €/mes) + suscripción de 99 €/mes",
+      "text": "Configuro Bond con tu marca, tus servicios y tus idiomas. Tú solo empiezas a usarlo.",
+      "ctaSales": "Ver Bond en detalle",
+      "ctaDemo": "Reservar una demo de 30 minutos"
+    }
+  },
   "proyectos": {
     "hero": {
       "title": "Proyectos reales. Resultados reales",

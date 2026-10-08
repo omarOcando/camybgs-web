@@ -1,61 +1,36 @@
 import { Link } from "react-router-dom";
-import { FaInstagram, FaFacebookF, FaTiktok, FaLinkedinIn } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
+import logoSrc from "../../assets/images/LogoCamySoloDarkBG.png";
+import { NAV_LINKS, CONTACT } from "../../config/site";
 
 function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="footer">
-      <div className="footer__socials">
-        {/* <a
-          href="https://www.instagram.com/ramses.beziehungscoach"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-        >
-          <FaInstagram />
-        </a> */}
+      <Link to="/" className="footer__logo">
+        <img src={logoSrc} alt={t("footer.logoAlt")} className="footer__logo-img" />
+      </Link>
 
-        {/* <a
-          href="https://www.facebook.com/ramsesviloria.beziehungscoach"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Facebook"
-        >
-          <FaFacebookF />
-        </a> */}
+      <p className="footer__tagline">{t("footer.slogan")}</p>
 
-        {/* <a
-          href="https://www.tiktok.com/@ramses.beziehungscoach"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="TikTok"
-        >
-          <FaTiktok />
-        </a> */}
-
-        {/* <a
-          href="https://www.linkedin.com/in/omar-ocando-mederos/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-        >
-          <FaLinkedinIn />
-        </a> */}
-      </div>
+      <nav className="footer__nav" aria-label={t("footer.navLabel")}>
+        {NAV_LINKS.map(({ to, key }) => (
+          <Link key={to} to={to}>{t(`nav.links.${key}`)}</Link>
+        ))}
+      </nav>
 
       <div className="footer__legal">
-
         <Link to="/impressum">Impressum</Link>
-
-        <span className="footer__dot">•</span>
-
+        <span className="footer__dot" aria-hidden="true">•</span>
         <Link to="/datenschutz">Datenschutz</Link>
-        
       </div>
+
+      <a href={`mailto:${CONTACT.email}`} className="footer__email">{CONTACT.email}</a>
 
       <div className="footer__copyright">
-        © CAMY | Business Growth Solutions {new Date().getFullYear()}
+        {t("footer.copyright", { year: new Date().getFullYear() })}
       </div>
-
     </footer>
   );
 }

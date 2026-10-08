@@ -1,16 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { useState, useEffect, useRef, Fragment } from "react";
+import { useTranslation } from "react-i18next";
 import logoSrc       from "../../assets/images/LogoCamyDarkBG.png";
 import logoMobileSrc from "../../assets/images/LogoCamySoloDarkBG.png";
 import audioSrc from "../../assets/audios/leberch-ambient-electronics-524300.mp3";
-
-const NAV_LINKS = [
-  { to: "/",           label: "Home",      end: true },
-  { to: "/servicios",  label: "Servicios"  },
-  { to: "/proyectos",  label: "Proyectos"  },
-  { to: "/sobre-mi",   label: "Sobre Mí"   },
-  { to: "/contacto",   label: "Contacto"   },
-];
+import { NAV_LINKS } from "../../config/site";
 
 // Gotas irregulares — parte inferior, clusters y tamaños muy variados
 const DROPS = [
@@ -120,6 +114,7 @@ function buildWavePath(t, scale) {
 }
 
 function Header() {
+  const { t } = useTranslation();
   const [menuState, setMenuState] = useState("closed");
   const [isPlaying, setIsPlaying] = useState(false);
   const isOpen = menuState === "open";
@@ -254,14 +249,14 @@ function Header() {
             className="header__logo"
             onClick={menuState !== "closed" ? closeMenu : undefined}
           >
-            <img src={logoSrc}       alt="CAMY" className="header__logo-img header__logo-img--desktop" />
-            <img src={logoMobileSrc} alt="CAMY" className="header__logo-img header__logo-img--mobile" />
+            <img src={logoSrc}       alt={t("nav.logoAlt")} className="header__logo-img header__logo-img--desktop" />
+            <img src={logoMobileSrc} alt={t("nav.logoAlt")} className="header__logo-img header__logo-img--mobile" />
           </NavLink>
 
           <button
             className={`header__music-btn${isPlaying ? " header__music-btn--playing" : ""}`}
             onClick={togglePlay}
-            aria-label={isPlaying ? "Pausar música" : "Reproducir música"}
+            aria-label={isPlaying ? t("nav.pauseMusic") : t("nav.playMusic")}
           >
             <svg width="28" height="30" viewBox="0 0 28 30" aria-hidden="true">
               <path
@@ -281,7 +276,7 @@ function Header() {
           ref={burgerRef}
           className={`header__burger${isOpen ? " header__burger--open" : ""}`}
           onClick={isOpen ? closeMenu : openMenu}
-          aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-label={isOpen ? t("nav.closeMenu") : t("nav.openMenu")}
           aria-expanded={isOpen}
         >
           <span />
@@ -301,7 +296,7 @@ function Header() {
           <div className="nav-panel__stripe-rough-b" aria-hidden="true" />
 
           <ul className="nav-panel__list">
-            {NAV_LINKS.map(({ to, label, end }, i) => (
+            {NAV_LINKS.map(({ to, key, end }, i) => (
               <Fragment key={to}>
                 <li
                   className="nav-panel__item"
@@ -313,7 +308,7 @@ function Header() {
                     className="nav-panel__link"
                     onClick={closeMenu}
                   >
-                    {label}
+                    {t(`nav.links.${key}`)}
                   </NavLink>
                 </li>
                 {i < NAV_LINKS.length - 1 && (

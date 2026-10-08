@@ -7,6 +7,7 @@ import Loader from "./components/Loader";
 import Home from "./pages/Home";
 import Servicios from "./pages/Servicios";
 import SobreMi from "./pages/SobreMi";
+import Bond from "./pages/Bond";
 import Proyectos from "./pages/Proyectos";
 import Contacto from "./pages/Contacto";
 import Impressum from "./pages/Impressum";
@@ -38,6 +39,7 @@ function App() {
           <Routes>
             <Route path="/"           element={<Home active={!loading} />} />
             <Route path="/servicios"  element={<Servicios />} />
+            <Route path="/bond"       element={<Bond />} />
             <Route path="/proyectos"  element={<Proyectos />} />
             <Route path="/sobre-mi"   element={<SobreMi />} />
             <Route path="/contacto"   element={<Contacto />} />
