@@ -7,78 +7,39 @@
   padding: 100px 24px;
 }
 
-.srv-section__category {
-  font-size: clamp(36px, 5vw, 72px);
-  color: rgba($color-arena, 0.55);
-  text-align: center;
-  margin-bottom: 16px;
-  opacity: 0;
-  transform: scale(0.92);
-
-  &--light   { color: $color-arena; }
-  &--visible { animation: srv-fade-in 1.2s ease forwards; }
-}
-
+// Títulos claros por defecto (secciones oscuras); --dark sobre Arena
 .srv-section__title {
   font-size: clamp(36px, 5vw, 72px);
   color: $color-arena;
   text-align: center;
-  margin-bottom: 16px;
-  opacity: 0;
-  transform: scale(0.92);
+  line-height: 1.15;
+  margin-bottom: 56px;
+  text-wrap: balance;
 
-  &--light   { color: $color-arena; }
-  &--visible { animation: srv-fade-in 1.2s ease forwards; }
+  &--dark { color: $color-noche; }
 }
 
 .srv-section__sub {
-  font-size: clamp(16px, 1.7vw, 25px);
-  color: rgba($color-arena, 0.55);
+  font-size: clamp(16px, 1.7vw, 24px);
+  color: rgba($color-arena, 0.7);
   text-align: center;
   max-width: 750px;
-  margin: 0 auto 64px;
+  margin: -32px auto 56px;
   line-height: 1.6;
+  text-wrap: pretty;
 
-  &--light  { color: rgba($color-arena, 0.6); }
-  &--nowrap {
-    max-width: none;
-    white-space: nowrap;
-  }
+  &--dark { color: rgba($color-noche, 0.7); }
 }
 
-.srv-section__footnote {
+// Nota pequeña al pie de un bloque
+.srv-section__note {
   text-align: center;
   font-size: clamp(13px, 1.2vw, 16px);
-  color: rgba($color-arena, 0.5);
+  color: rgba($color-arena, 0.6);
   font-style: italic;
-  margin-top: 48px;
+  margin-top: 40px;
 
-  &--light { color: rgba($color-arena, 0.4); }
-}
-
-// ─── 01 HERO ─────────────────────────────────────────────────────────────────
-.srv-hero {
-  background: $color-arena;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 160px 24px 100px;
-  text-align: center;
-}
-
-.srv-hero__title {
-  font-size: clamp(36px, 5.8vw, 110px);
-  color: $color-noche;
-  line-height: 1.1;
-  margin-bottom: 60px;
-  animation: srv-fade-in 2.8s ease 0.2s both;
-}
-
-.srv-hero__sub {
-  font-size: clamp(18px, 2.2vw, 35px);
-  color: rgba($color-noche, 0.55);
-  animation: srv-slide-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+  &--dark { color: rgba($color-noche, 0.6); }
 }
 
 @keyframes srv-fade-in {
@@ -91,306 +52,519 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-// ─── 02 WEB ──────────────────────────────────────────────────────────────────
-.srv-web {
-  background: $color-vinotinto;
-}
-
-// ─── 03 MARKETING ────────────────────────────────────────────────────────────
-.srv-marketing {
-  background: $color-noche;
-}
-
-// ─── CARDS GRID ──────────────────────────────────────────────────────────────
-.srv-section__cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-  justify-content: center;
-
-  &--2col .srv-card {
-    flex: 0 1 calc((100% - 32px) / 2);
-  }
-}
-
-.srv-card {
-  flex: 0 1 calc((100% - 64px) / 3);
-  min-width: 260px;
-  background: $color-arena;
-  border: 1px solid rgba($color-noche, 0.1);
-  border-radius: 30px;
-  padding: 40px 36px;
-  opacity: 0;
-  transform: translateY(30px);
-  display: flex;
-  flex-direction: column;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 14px 44px rgba($color-noche, 0.3);
-
-  &:hover {
-    box-shadow: 0 14px 44px rgba($color-arena, 0.5);
-  }
-
-  &--dark {
-    background: $color-arena;
-    border-color: rgba($color-noche, 0.1);
-    box-shadow: 0 14px 44px rgba($color-noche, 0.3);
-
-    &:hover {
-      box-shadow: 0 14px 44px rgba($color-arena, 0.5);
-    }
-  }
-}
-
-.srv-card__title {
-  font-size: clamp(18px, 2.2vw, 35px);
-  text-align: center;
-  font-weight: 800;
-  color: $color-noche;
-  margin-bottom: 15px;
-
-  .srv-card--dark & { color: $color-fuego; }
-}
-
-.srv-card__for {
-  font-size: clamp(13px, 1.1vw, 15px);
-  color: $color-fuego;
-  font-style: italic;
-  font-weight: 500;
-  margin-bottom: 16px;
-  line-height: 1.5;
-}
-
-.srv-card__desc {
-  font-size: clamp(14px, 1.4vw, 18px);
-  color: rgba($color-noche, 0.65);
-  line-height: 1.7;
-  margin-bottom: 20px;
-  flex: 1;
-
-  .srv-card--dark & { color: rgba($color-noche, 0.65); }
-}
-
-.srv-card__includes-label {
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: rgba($color-noche, 0.4);
-  margin-top: 12px;
-  margin-bottom: 12px;
-
-  .srv-card--dark & { color: rgba($color-noche, 0.4); }
-}
-
-.srv-card__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-
-  li {
-    font-size: clamp(13px, 1.4vw, 18px);
-    color: rgba($color-noche, 0.6);
-    padding-left: 16px;
-    position: relative;
-    line-height: 1.5;
-
-    &::before {
-      content: "·";
-      position: absolute;
-      left: 4px;
-      color: $color-fuego;
-      font-weight: 900;
-      font-size: 1.2em;
-      line-height: 1;
-    }
-
-    .srv-card--dark & { color: rgba($color-noche, 0.6); }
-  }
-}
-
-// Card entrance
-.srv-section__cards--visible {
-  .srv-card:nth-child(1) { animation: srv-card-in 2s cubic-bezier(0.22, 1, 0.36, 1) 0s    forwards; }
-  .srv-card:nth-child(2) { animation: srv-card-in 2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s  forwards; }
-  .srv-card:nth-child(3) { animation: srv-card-in 2s cubic-bezier(0.22, 1, 0.36, 1) 0.6s  forwards; }
-  .srv-card:nth-child(4) { animation: srv-card-in 2s cubic-bezier(0.22, 1, 0.36, 1) 0.9s  forwards; }
-  .srv-card:nth-child(5) { animation: srv-card-in 2s cubic-bezier(0.22, 1, 0.36, 1) 1.2s  forwards; }
-  .srv-card:nth-child(6) { animation: srv-card-in 2s cubic-bezier(0.22, 1, 0.36, 1) 1.5s  forwards; }
-}
-
 @keyframes srv-card-in {
   from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-// ─── 04 PAQUETES ─────────────────────────────────────────────────────────────
-.srv-packages {
-  background: $color-fuego;
-  padding-bottom: 50px;
+// Bloques que entran deslizándose hacia arriba cuando se ven
+.srv-included__inner,
+.srv-payment__inner,
+.srv-faq__inner,
+.srv-bond__panel {
+  opacity: 0;
+
+  &--visible { animation: srv-slide-up 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
 }
 
-.srv-packages__grid {
-  display: grid;
-  grid-template-columns: 1fr 1.12fr 1fr;
-  gap: 32px;
-  align-items: stretch;
+// ─── 01 HERO ─────────────────────────────────────────────────────────────────
+.srv-hero {
+  background: $color-arena;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 160px 24px 100px;
+  text-align: center;
 }
 
-.srv-pkg-card {
+.srv-hero__title {
+  font-size: clamp(36px, 5.8vw, 110px);
+  color: $color-noche;
+  line-height: 1.1;
+  margin-bottom: 60px;
+  text-wrap: balance;
+  animation: srv-fade-in 2.8s ease 0.2s both;
+}
+
+.srv-hero__sub {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: clamp(18px, 2.2vw, 35px);
+  line-height: 1.45;
+  color: rgba($color-noche, 0.6);
+  text-wrap: balance;
+  animation: srv-slide-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+}
+
+// ─── TARJETA ARENA (webs y planes) ───────────────────────────────────────────
+.srv-card {
+  background: $color-arena;
+  border: 1px solid rgba($color-noche, 0.1);
+  border-radius: 30px;
   padding: 40px 36px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
   opacity: 0;
-  background: $color-arena;
-  border: 1px solid rgba($color-noche, 0.1);
-  border-radius: 30px;  
   transform: translateY(30px);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 14px 44px rgba($color-noche, 0.5);
+  box-shadow: 0 14px 44px rgba($color-noche, 0.3);
+  transition: box-shadow 0.3s ease;
 
   &:hover {
     box-shadow: 0 14px 44px rgba($color-arena, 0.5);
   }
+}
 
-  &--recommended {
-    background: rgba($color-arena, 0.92);
-    border: 4px solid rgba($color-noche, 0.7);
-    box-shadow: 0 45px 80px rgba(black, 0.55);
-    margin-block: -20px;
+.srv-card__title {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(26px, 2.4vw, 38px);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  color: $color-noche;
+  margin-bottom: 20px;
+}
 
-    &:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 45px 80px rgba($color-arena, 0.65);
+.srv-card__for {
+  font-size: clamp(14px, 1.2vw, 16px);
+  color: $color-fuego;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 20px;
+
+  strong { font-style: normal; font-weight: 700; }
+}
+
+.srv-card__label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba($color-noche, 0.45);
+  margin-bottom: 6px;
+}
+
+.srv-card__desc {
+  font-size: clamp(15px, 1.3vw, 18px);
+  color: rgba($color-noche, 0.72);
+  line-height: 1.65;
+  flex: 1;
+}
+
+// Duración y valor, al pie de la tarjeta
+.srv-card__facts {
+  margin: 28px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba($color-noche, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  dt {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: rgba($color-noche, 0.45);
+  }
+
+  dd {
+    margin: 2px 0 0;
+    font-size: clamp(15px, 1.3vw, 18px);
+    color: $color-noche;
+  }
+}
+
+.srv-card__price {
+  display: block;
+  font-size: clamp(22px, 2vw, 28px);
+  font-weight: 800;
+  color: $color-vinotinto;
+}
+
+.srv-card__price-monthly {
+  color: rgba($color-noche, 0.7);
+}
+
+// ─── 02 TU WEB ───────────────────────────────────────────────────────────────
+.srv-webs {
+  background: $color-vinotinto;
+}
+
+.srv-webs__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+
+  &--visible .srv-card {
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}) { animation: srv-card-in 1.6s cubic-bezier(0.22, 1, 0.36, 1) #{($i - 1) * 0.25}s forwards; }
     }
   }
 }
 
-.srv-packages__grid--visible {
-  .srv-pkg-card:nth-child(1) { animation: srv-pkg-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0s    forwards; }
-  .srv-pkg-card:nth-child(2) { animation: srv-pkg-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards; }
-  .srv-pkg-card:nth-child(3) { animation: srv-pkg-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s  forwards; }
+// ─── 03 INCLUIDO EN TODAS ────────────────────────────────────────────────────
+.srv-included {
+  background: $color-noche;
 }
 
-@keyframes srv-pkg-in {
-  from { opacity: 0; transform: translateY(40px) scale(0.97); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
+.srv-included__inner {
+  max-width: 1100px;
 }
 
-.srv-pkg-card__badge {
-  display: block;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: $color-fuego;
-  text-transform: uppercase;
-}
-
-.srv-pkg-card__name {
-  font-size: clamp(28px, 3vw, 42px);
-  font-weight: 800;
-  color: $color-noche;
-  line-height: 1;
-}
-
-.srv-pkg-card__tagline {
-  font-size: clamp(14px, 1.3vw, 17px);
-  color: $color-fuego;
-  font-style: italic;
-  font-weight: 500;
-}
-
-.srv-pkg-card__list {
+.srv-included__list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 56px;
 
   li {
-    font-size: clamp(14px, 1.2vw, 16px);
-    color: rgba(black, 0.55);
-    padding-left: 20px;
     position: relative;
-    line-height: 1.5;
+    padding-left: 36px;
+    font-size: clamp(16px, 1.4vw, 19px);
+    line-height: 1.55;
+    color: rgba($color-arena, 0.88);
 
     &::before {
       content: "✓";
       position: absolute;
       left: 0;
-      color: $color-fuego;
-      font-weight: 700;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: $color-fuego;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 24px;
+      text-align: center;
     }
   }
 }
 
-.srv-pkg-card__ideal {
-  flex: 1;
-  padding-top: 16px;
-  border-top: 1px solid rgba($color-arena, 0.12);
-  margin: 20px 0;
+.srv-included__extra {
+  margin: 56px auto 0;
+  max-width: 760px;
+  padding: 20px 28px;
+  border: 1.5px solid rgba($color-fuego, 0.6);
+  border-radius: 20px;
+  text-align: center;
+  font-size: clamp(15px, 1.4vw, 19px);
+  line-height: 1.55;
+  color: $color-arena;
+
+  strong { color: $color-fuego; }
 }
 
-.srv-pkg-card__ideal-label {
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: rgba($color-noche, 0.4);
-  margin-bottom: 8px;
+// ─── 04 PAGA COMO PREFIERAS ──────────────────────────────────────────────────
+.srv-payment {
+  background: $color-arena;
 }
 
-.srv-pkg-card__ideal p {
-  font-size: clamp(13px, 1.1vw, 15px);
-  color: rgba($color-noche, 0.6);
-  font-style: italic;
-  line-height: 1.6;
+.srv-payment__inner {
+  max-width: 900px;
 }
 
-// ─── 05 CTA FINAL ────────────────────────────────────────────────────────────
-.srv-cta {
+.srv-payment__table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 14px 44px rgba($color-noche, 0.12);
+  font-size: clamp(16px, 1.5vw, 20px);
+
+  th,
+  td {
+    padding: 22px 28px;
+    text-align: left;
+  }
+
+  thead th {
+    background: $color-noche;
+    color: $color-arena;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  tbody tr + tr > * {
+    border-top: 1px solid rgba($color-noche, 0.1);
+  }
+
+  tbody th {
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $color-vinotinto;
+  }
+
+  td { color: $color-noche; }
+}
+
+// ─── 05 BASIC · PLUS ─────────────────────────────────────────────────────────
+.srv-plans {
+  background: $color-vinotinto;
+}
+
+.srv-plans__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  &--visible .srv-card {
+    @for $i from 1 through 2 {
+      &:nth-child(#{$i}) { animation: srv-card-in 1.6s cubic-bezier(0.22, 1, 0.36, 1) #{($i - 1) * 0.25}s forwards; }
+    }
+  }
+}
+
+.srv-plan .srv-card__title {
+  margin-bottom: 6px;
+}
+
+.srv-plan__price {
+  text-align: center;
+  font-size: clamp(22px, 2vw, 28px);
+  font-weight: 800;
+  color: $color-fuego;
+  margin-bottom: 20px;
+}
+
+// ─── 06 BOND ─────────────────────────────────────────────────────────────────
+.srv-bond {
   background: $color-noche;
 }
 
-.srv-cta__inner {
+.srv-bond__panel {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 64px 56px;
+  border: 1.5px solid rgba($color-fuego, 0.6);
+  border-radius: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  opacity: 0;
-  transform: translateY(40px);
+}
 
-  &--visible {
-    animation: srv-slide-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards;
+.srv-bond__tag {
+  display: inline-block;
+  padding: 6px 18px;
+  margin-bottom: 28px;
+  border-radius: 50px;
+  background: $color-fuego;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.srv-bond__title {
+  font-size: clamp(30px, 3.8vw, 52px);
+  color: $color-arena;
+  margin-bottom: 24px;
+  text-wrap: balance;
+}
+
+.srv-bond__text {
+  max-width: 680px;
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.7;
+  color: rgba($color-arena, 0.8);
+  margin-bottom: 32px;
+}
+
+// Una línea por importe: "Montaje:" y "Suscripción:" destacados (igual que /bond)
+.srv-bond__price {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(20px, 2.2vw, 30px);
+  line-height: 1.35;
+  color: rgba($color-arena, 0.85);
+  text-wrap: balance;
+
+  strong {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: $color-arena;
   }
 }
 
-.srv-cta__title {
-  font-size: clamp(36px, 5vw, 72px);
-  color: $color-arena;
-  margin-bottom: 24px;
+// ─── 07 PREGUNTAS FRECUENTES ─────────────────────────────────────────────────
+.srv-faq {
+  background: $color-arena;
+}
+
+.srv-faq__inner {
+  max-width: 900px;
+}
+
+.srv-faq__list {
+  border-top: 1px solid rgba($color-noche, 0.15);
+}
+
+.srv-faq__item {
+  border-bottom: 1px solid rgba($color-noche, 0.15);
+}
+
+.srv-faq__question {
+  margin: 0;
+  font-size: inherit;
+
+  button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 26px 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(17px, 1.6vw, 21px);
+    font-weight: 700;
+    line-height: 1.4;
+    color: $color-noche;
+    transition: color 0.2s ease;
+
+    &:hover { color: $color-fuego; }
+
+    &:focus-visible {
+      outline: 2px solid $color-fuego;
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
+  }
+}
+
+// Signo + que gira hasta ser −
+.srv-faq__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: $color-fuego;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 2px;
+    margin: -1px 0 0 -6px;
+    background: #fff;
+    border-radius: 1px;
+    transition: transform 0.3s ease;
+  }
+
+  &::after { transform: rotate(90deg); }
+
+  .srv-faq__item--open &::after { transform: rotate(0deg); }
+}
+
+// Altura animada con grid-template-rows (0fr → 1fr)
+.srv-faq__answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+
+  .srv-faq__item--open & { grid-template-rows: 1fr; }
+}
+
+.srv-faq__answer-inner {
+  overflow: hidden;
+
+  p {
+    padding: 0 52px 26px 4px;
+    font-size: clamp(15px, 1.4vw, 18px);
+    line-height: 1.7;
+    color: rgba($color-noche, 0.75);
+  }
+}
+
+// ─── 08 ASÍ EMPEZAMOS ────────────────────────────────────────────────────────
+.srv-start {
+  background: $color-noche;
+}
+
+.srv-start__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.srv-start__steps {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 56px;
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+
+  &--visible .srv-start__step {
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}) { animation: srv-card-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) #{($i - 1) * 0.15}s forwards; }
+    }
+  }
+}
+
+.srv-start__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 40px 28px;
+  border-radius: 20px;
+  background: $color-arena;
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.srv-start__num {
   font-family: "DM Serif Display", serif;
-  transform: scale(0.92);
-
-  &--visible { animation: srv-cta-zoom 1.2s ease forwards; }
+  font-size: clamp(40px, 3.6vw, 60px);
+  line-height: 1;
+  color: $color-fuego;
 }
 
-@keyframes srv-cta-zoom {
-  to { transform: scale(1); }
+.srv-start__title {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(18px, 1.6vw, 22px);
+  font-weight: 700;
+  color: $color-vinotinto;
 }
 
-.srv-cta__text {
-  font-size: clamp(16px, 1.6vw, 22px);
-  color: rgba($color-arena, 0.6);
-  max-width: 600px;
-  line-height: 1.7;
-  margin-bottom: 48px;
+.srv-start__text {
+  font-size: clamp(15px, 1.3vw, 17px);
+  line-height: 1.65;
+  color: rgba($color-noche, 0.7);
 }
 
 // ─── RESPONSIVE ──────────────────────────────────────────────────────────────
@@ -402,18 +576,16 @@
     font-size: clamp(48px, 7.5vw, 110px);
   }
 
-  .srv-section__category,
-  .srv-section__title,
-  .srv-cta__title {
+  .srv-section__title {
     font-size: clamp(40px, 5.8vw, 72px);
   }
 
-  .srv-card {
-    padding: 30px 30px;
+  .srv-webs__grid {
+    gap: 20px;
   }
 
-  .srv-card__title {
-    font-size: clamp(23px, 2.2vw, 35px);
+  .srv-card {
+    padding: 32px 26px;
   }
 }
 
@@ -424,32 +596,25 @@
     padding: 70px 100px;
   }
 
-  .srv-section__category,
-  .srv-section__title,
-  .srv-cta__title {
-    font-size: clamp(44px, 7.5vw, 66px);
+  .srv-section__title {
+    font-size: clamp(40px, 7vw, 60px);
   }
 
-  .srv-card {
-    flex: 0 1 100%;
-  }
-
-  .srv-packages__grid {
+  .srv-webs__grid,
+  .srv-plans__grid,
+  .srv-start__steps {
     grid-template-columns: 1fr;
-    max-width: 480px;
-    margin: 0 auto;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .srv-card {
-    padding: 30px 30px;
+  .srv-start__steps {
+    margin-bottom: 48px;
   }
 
-  .srv-card__title {
-    font-size: clamp(24px, 2.2vw, 35px);
-  }
-
-  .srv-packages__grid {
-    gap: 50px;
+  .srv-included__list {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -457,7 +622,7 @@
 @media (max-width: $mobile) {
 
   .srv-section-inner {
-    padding: 45px 35px;
+    padding: 50px 28px;
   }
 
   .srv-hero {
@@ -465,39 +630,127 @@
   }
 
   .srv-hero__title {
-    font-size: clamp(50px, 13vw, 110px);
+    font-size: clamp(40px, 11vw, 110px);
     line-height: 1.15;
+    margin-bottom: 36px;
   }
 
-  .srv-section__category,
-  .srv-section__title,
-  .srv-cta__title {
-    font-size: clamp(42px, 9.5vw, 64px);
-    line-height: 1.14;
+  .srv-section__title {
+    font-size: clamp(32px, 9vw, 56px);
+    margin-bottom: 36px;
   }
 
   .srv-section__sub {
-    font-size: clamp(16px, 4.5vw, 22px);
-    margin-bottom: 50px;
-  }
-
-  .srv-section__sub--nowrap {
-    white-space: normal;
-  }
-
-  .srv-section__cards--2col .srv-card {
-    flex: 0 1 100%;
+    margin: -16px auto 40px;
   }
 
   .srv-card {
-    padding: 30px 30px;
+    padding: 30px 24px;
   }
 
-  .srv-card__title {
-    font-size: clamp(24px, 2.2vw, 35px);
+  .srv-included__extra {
+    margin-top: 40px;
+    padding: 18px 20px;
   }
 
-  .srv-packages__grid {
-    gap: 50px;
+  .srv-bond__panel {
+    padding: 44px 22px;
+  }
+
+  .srv-faq__question button {
+    padding: 22px 0;
+  }
+
+  .srv-faq__answer-inner p {
+    padding: 0 0 22px;
+  }
+}
+
+// ── Móvil SM (≤ 600px): la tabla de pago pasa a tarjetas ─────────────────────
+@media (max-width: $mobile-sm) {
+
+  .srv-payment__table {
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    overflow: visible;
+
+    thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+    }
+
+    tbody,
+    tr,
+    th,
+    td {
+      display: block;
+    }
+
+    tbody {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    tr {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba($color-noche, 0.1);
+      overflow: hidden;
+    }
+
+    tbody tr + tr > * { border-top: none; }
+
+    tbody th {
+      padding: 16px 22px;
+      background: $color-noche;
+      color: $color-arena;
+    }
+
+    td {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 22px;
+
+      &::before {
+        content: attr(data-label);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba($color-noche, 0.5);
+      }
+    }
+
+    // Más específico que "tr + tr > *" para que la línea salga en todas las tarjetas
+    tbody tr td + td { border-top: 1px solid rgba($color-noche, 0.1); }
+  }
+}
+
+// ─── MOVIMIENTO REDUCIDO ─────────────────────────────────────────────────────
+@media (prefers-reduced-motion: reduce) {
+
+  .srv-hero__title,
+  .srv-hero__sub,
+  .srv-card,
+  .srv-included__inner,
+  .srv-payment__inner,
+  .srv-faq__inner,
+  .srv-bond__panel,
+  .srv-start__step {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .srv-faq__answer,
+  .srv-faq__icon::before,
+  .srv-faq__icon::after {
+    transition: none;
   }
 }

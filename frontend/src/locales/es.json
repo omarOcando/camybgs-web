@@ -24,6 +24,10 @@
     "copyright": "© CAMY | Business Growth Solutions {{year}}"
   },
   "seo": {
+    "servicios": {
+      "title": "Servicios y precios · CAMY",
+      "description": "Webs One, Multi y Custom, planes de mantenimiento y pago en cuotas. Diseño a medida, SEO básico y páginas legales incluidas."
+    },
     "bond": {
       "title": "Bond · Gestiona tu negocio, cuida a tus clientes",
       "description": "La plataforma de CAMY para coaches, terapeutas y profesionales que acompañan a sus clientes: reservas, agenda, portal y pagos."
@@ -179,7 +183,151 @@
       "cta": "Hablemos"
     }
   },
-  "servicios": {},
+  "servicios": {
+    "hero": {
+      "title": "Lo que puedo hacer por ti",
+      "subtitle": "Eliges la web que necesitas. Yo me encargo de que diga lo que eres."
+    },
+    "webs": {
+      "title": "Tu web",
+      "labels": {
+        "for": "Para quién:",
+        "includes": "Qué incluye:",
+        "duration": "Duración:",
+        "price": "Valor:"
+      },
+      "items": [
+        {
+          "name": "One",
+          "for": "profesionales y negocios que quieren presentarse con claridad, sin complicarse.",
+          "includes": "una sola página con varias secciones: quién eres, qué haces, por qué elegirte y cómo contactarte. Todo lo esencial, en un recorrido directo.",
+          "duration": "1–2 semanas",
+          "priceOnce": "desde 799 €",
+          "priceMonthly": "o desde 77 €/mes"
+        },
+        {
+          "name": "Multi",
+          "for": "negocios con varios servicios, proyectos o un equipo que mostrar.",
+          "includes": "varias páginas para contar tu negocio completo: inicio, servicios, proyectos, sobre ti, contacto… Cada una con su propósito.",
+          "duration": "3–4 semanas",
+          "priceOnce": "desde 1.199 €",
+          "priceMonthly": "o desde 115 €/mes"
+        },
+        {
+          "name": "Custom",
+          "for": "negocios que necesitan algo más que mostrar: reservar, agendar o vender.",
+          "includes": "tu web con funciones a medida: reservas, calendario, tienda online o lo que tu negocio necesite.",
+          "duration": "según el proyecto",
+          "priceOnce": "desde 1.999 €",
+          "priceMonthly": "o desde 192 €/mes"
+        }
+      ]
+    },
+    "included": {
+      "title": "Incluido en todas tus webs:",
+      "items": [
+        "Diseño a medida, pensado para tu mensaje. Nada de plantillas.",
+        "Textos claros y eficientes que explican qué haces y por qué elegirte.",
+        "Adaptada a móvil, tablet (vertical y horizontal) y ordenador (Full Responsive).",
+        "SEO básico para que Google te encuentre efectivamente.",
+        "Formulario de contacto y botón de WhatsApp (si deseas).",
+        "Páginas legales (Impressum y Datenschutzerklärung) incluidas. Tú aportas el contenido.",
+        "Cambios ilimitados sobre el diseño aprobado."
+      ],
+      "extraLabel": "Extra:",
+      "extra": "¿Tu web en más de un idioma? +15 % por idioma, con los textos traducidos aportados por ti."
+    },
+    "payment": {
+      "title": "Paga como mejor te parezca",
+      "text": "Puedes pagar tu web de una vez o repartirla en cuotas mensuales. Así empiezas ya, sin esperar a tenerlo todo.",
+      "caption": "Precios de cada web al contado o en cuotas",
+      "columns": {
+        "web": "Web",
+        "once": "Al contado",
+        "monthly": "Cuotas"
+      },
+      "rows": [
+        { "name": "One", "once": "desde 799 €", "monthly": "desde 77 €/mes" },
+        { "name": "Multi", "once": "desde 1.199 €", "monthly": "desde 115 €/mes" },
+        { "name": "Custom", "once": "desde 1.999 €", "monthly": "desde 192 €/mes" }
+      ],
+      "note": "Con la primera cuota reservas tu fecha de inicio."
+    },
+    "plans": {
+      "title": "Tu web, siempre al día",
+      "subtitle": "Una web no termina el día que se publica. Elige cómo quieres que siga.",
+      "items": [
+        {
+          "name": "Basic",
+          "price": "59 €/mes",
+          "text": "Tu web segura, actualizada y funcionando. Alojamiento, actualizaciones, copias de seguridad y pequeños cambios cada mes (textos, fotos, horarios)."
+        },
+        {
+          "name": "Plus",
+          "price": "89 €/mes",
+          "text": "Todo lo de Basic, y además cuidamos a tus clientes: emails de bienvenida y seguimiento, peticiones de reseñas en Google y automatizaciones para que vuelvan."
+        }
+      ],
+      "note": "Los pequeños cambios no incluyen cambios estructurales. Lo que vaya más allá se presupuesta aparte."
+    },
+    "bond": {
+      "tag": "Producto estrella",
+      "title": "¿Acompañas a tus clientes en sus procesos?",
+      "text": "Bond es la plataforma de gestión de CAMY para coaches, terapeutas, nutricionistas y otros profesionales que trabajan por sesiones o programas. Gestiona tu negocio y cuida a tus clientes desde un solo lugar, con tu marca y tu mensaje.",
+      "price": [
+        { "label": "Montaje:", "value": "999 € (o en cuotas desde 96 €/mes)" },
+        { "label": "Suscripción:", "value": "99 €/mes" }
+      ],
+      "cta": "Conoce los detalles de Bond"
+    },
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "items": [
+        {
+          "q": "¿Cuánto tarda mi web?",
+          "a": "One, entre 1 y 2 semanas. Multi, entre 3 y 4. Custom depende del proyecto. El plazo empieza en la fecha de inicio acordada, cuando tengo todo el material."
+        },
+        {
+          "q": "¿Qué necesitas de mí?",
+          "a": "Tus textos o la información para escribirlos, fotos, logo y el acceso a tu dominio. Te envío una lista clara al empezar."
+        },
+        {
+          "q": "¿El dominio es mío?",
+          "a": "Sí. Lo compras a tu nombre y yo me encargo de conectarlo a tu web."
+        },
+        {
+          "q": "¿Qué significa “cambios ilimitados sobre el diseño aprobado”?",
+          "a": "Primero acordamos el diseño. A partir de ahí, ajustamos todo lo que necesites hasta que quede como quieres. Un cambio de concepto completo se presupuesta aparte."
+        },
+        {
+          "q": "¿En qué idioma trabajamos?",
+          "a": "En español o en inglés, como te resulte más cómodo."
+        },
+        {
+          "q": "¿Cuándo es mi web completamente mía?",
+          "a": "Cuando completas el pago. Si pagas en cuotas, el diseño y el código pasan a ser tuyos con la última cuota."
+        }
+      ]
+    },
+    "start": {
+      "title": "Así empezamos",
+      "steps": [
+        {
+          "title": "Hablamos.",
+          "text": "Una llamada corta, por teléfono, videollamada o WhatsApp. Me cuentas tu negocio y lo que quieres transmitir."
+        },
+        {
+          "title": "Te envío una propuesta.",
+          "text": "Con el precio final, el plazo y una fecha de inicio reservada para ti."
+        },
+        {
+          "title": "Empezamos.",
+          "text": "Con el primer pago, tu fecha queda confirmada y te envío la lista de lo que necesito."
+        }
+      ],
+      "cta": "Hablemos de tu web"
+    }
+  },
   "bond": {
     "hero": {
       "tag": "Producto estrella de CAMY",
