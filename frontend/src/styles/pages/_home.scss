@@ -44,6 +44,7 @@
   padding: 120px 32px 80px;
   width: 100%;
   max-width: 1200px;
+  container-type: inline-size; // el titular móvil se mide con su ancho real (cqi)
 }
 
 .home-hero__title {
@@ -771,9 +772,13 @@
   }
 
   // "Tienes algo que decir." mide ~9,56em: el tamaño se ajusta al ancho útil
-  // (100vw − 48px de padding) para que quepa en una línea desde 320px
+  // del hero para que quepa en una línea en todo el rango móvil.
+  // 100cqi = ancho del contenido de .home-hero__content (sin padding ni barra
+  // de scroll). La línea con vw es el respaldo para navegadores sin container
+  // queries: descuenta también una posible barra de scroll de escritorio.
   .home-hero__title {
-    font-size: clamp(28px, calc((100vw - 48px) / 9.8), 44px);
+    font-size: clamp(24px, calc((100vw - 68px) / 9.8), 44px);
+    font-size: clamp(24px, calc(100cqi / 9.8), 44px);
     margin-bottom: 22px;
   }
 
