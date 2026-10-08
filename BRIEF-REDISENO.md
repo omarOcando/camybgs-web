@@ -144,7 +144,7 @@ Mientras tanto, usar marcadores claros (por ejemplo `#PENDIENTE-telegram`) y lis
 
 **Título:** ¿Te suena?
 
-**“Mi web no expresa mi negocio.”** Tienes una web, pero quien entra no entiende a la primera qué haces ni por qué deberías ayudarlo. Y se va sin escribirte.
+**“Mi web no expresa mi negocio.”** Tienes una web, pero quien entra no entiende a la primera qué haces ni por qué debería elegirte. Y se va sin escribirte.
 
 **“Se ve igual que todas.”** Plantillas, fotos de stock, textos genéricos… Pero nada de eso que te hace especial aparece.
 
