@@ -93,40 +93,71 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-// ─── 02 EL PROBLEMA ──────────────────────────────────────────────────────────
-.home-problem {
-  background: transparent;
-  color: $color-arena;
-}
-
-.home-problem__title {
+// ─── SECCIONES 02–09: PIEZAS COMUNES ─────────────────────────────────────────
+.home-section-title {
   font-size: clamp(36px, 5vw, 72px);
   color: $color-arena;
-  margin-bottom: 56px;
   text-align: center;
+  margin-bottom: 56px;
   opacity: 0;
   transform: scale(0.92);
 
   &--visible { animation: title-fade-zoom 1.2s ease forwards; }
 }
 
-.home-problem__cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 70px;
-  margin-bottom: 80px;
+.home-section-intro {
+  max-width: 760px;
+  margin: -16px auto 56px;
+  text-align: center;
+  font-size: clamp(17px, 1.7vw, 22px);
+  line-height: 1.6;
+  color: rgba($color-arena, 0.85);
+}
 
-  &--visible {
-    .home-problem__card:nth-child(1) {
-      animation: problem-from-left  2s cubic-bezier(0.22, 1, 0.36, 1) 0s    forwards;
-    }
-    .home-problem__card:nth-child(2) {
-      animation: problem-fade-in    2s ease                           0.15s  forwards;
-    }
-    .home-problem__card:nth-child(3) {
-      animation: problem-from-right 2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s  forwards;
-    }
+.home-section-closing {
+  margin-top: 80px;
+  text-align: center;
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(22px, 2.6vw, 34px);
+  line-height: 1.4;
+  color: $color-arena;
+}
+
+// Tarjeta arena (El problema y Cómo lo hago)
+.home-card {
+  background: $color-arena;
+  border: 1px solid rgba($color-noche, 0.1);
+  border-radius: 30px;
+  padding: 48px 36px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 14px 44px rgba($color-noche, 0.3);
+  opacity: 0;
+
+  &:hover {
+    box-shadow: 0 14px 44px rgba($color-arena, 0.5);
   }
+}
+
+.home-card__title {
+  font-size: clamp(19px, 1.7vw, 26px);
+  color: $color-fuego;
+  margin-bottom: 18px;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.home-card__text {
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.7;
+  color: rgba($color-noche, 0.7);
+  text-align: center;
+}
+
+// CTA de texto que entra deslizándose cuando su bloque se ve
+.home-reveal-cta {
+  opacity: 0;
+
+  &--visible { animation: problem-from-left 3s cubic-bezier(0.22, 1, 0.36, 1) 1s forwards; }
 }
 
 @keyframes problem-from-left {
@@ -144,238 +175,347 @@
   to   { opacity: 1; transform: translateX(0); }
 }
 
-.home-problem__card {
-  background: $color-arena;
-  border: 1px solid rgba($color-noche, 0.1);
-  border-radius: 30px;
-  padding: 48px 36px;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 14px 44px rgba($color-noche, 0.3);
-  opacity: 0;
-
-  p {
-    font-size: clamp(14px, 1.2vw, 18px);
-  }
-
-  &:hover {
-    box-shadow: 0 14px 44px rgba($color-arena, 0.5);
-  }
+@keyframes home-rise {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.home-problem__card-title {
-  font-size: clamp(17px, 1.6vw, 25px);
-  font-weight: 700;
-  color: $color-fuego;
-  margin-bottom: 20px;
-  line-height: 1.3;
-  text-align: center;
-}
-
-.home-problem__card-text {
-  font-size: clamp(14px, 1.2vw, 16px);
-  line-height: 1.7;
-  color: rgba($color-noche, 0.65);
-  text-align: center;
-}
-
-.home-problem__remate {
-  text-align: center;
-
-  h3 {
-    font-size: clamp(20px, 2.4vw, 32px);
-    font-weight: 600;
-    color: $color-arena;
-    line-height: 1.4;
-  }
-}
-
-.home-problem__remate-sub {
-  color: $color-fuego !important;
-  font-weight: 800 !important;
-  margin-top: 12px;
-}
-
-// ─── 03 SERVICIOS ────────────────────────────────────────────────────────────
-.home-services {
-  background: transparent;
-
-  .home-link-cta { opacity: 0; }
-}
-
-.home-services__cta--visible {
-  animation: problem-from-left 3s cubic-bezier(0.22, 1, 0.36, 1) 1s forwards;
-}
-
-.home-services__title {
-  font-size: clamp(36px, 5vw, 72px);
-  color: $color-arena;
-  text-align: center;
-  margin-bottom: 56px;
-  opacity: 0;
-  transform: scale(0.92);
-
-  &--visible { animation: title-fade-zoom 1.2s ease forwards; }
-}
-
-.home-services__grid {
+// ─── 02 EL PROBLEMA ──────────────────────────────────────────────────────────
+.home-problem__cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 60px;
-  margin-bottom: 16px;
+  gap: 70px;
 
   &--visible {
-    .home-services__card:nth-child(1) {
+    .home-problem__card:nth-child(1) {
       animation: problem-from-left  2s cubic-bezier(0.22, 1, 0.36, 1) 0s    forwards;
     }
-    .home-services__card:nth-child(2) {
-      animation: problem-fade-in    2s ease                           0.15s  forwards;
+    .home-problem__card:nth-child(2) {
+      animation: problem-fade-in    2s ease                           0.15s forwards;
     }
-    .home-services__card:nth-child(3) {
+    .home-problem__card:nth-child(3) {
       animation: problem-from-right 2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s  forwards;
     }
   }
 }
 
-// 3D flip card
-.home-services__card {
+// ─── 03 CÓMO LO HAGO ─────────────────────────────────────────────────────────
+.home-how__pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+
+  &--visible {
+    @for $i from 1 through 4 {
+      .home-how__pillar:nth-child(#{$i}) {
+        animation: home-rise 1.2s cubic-bezier(0.22, 1, 0.36, 1) #{($i - 1) * 0.18}s forwards;
+      }
+    }
+  }
+}
+
+.home-how__pillar {
+  padding: 40px 28px;
+}
+
+// ─── 04 OFERTA RESUMIDA ──────────────────────────────────────────────────────
+.home-offer__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+
+  &--visible {
+    .home-offer__card:nth-child(1) {
+      animation: problem-from-left  2s cubic-bezier(0.22, 1, 0.36, 1) 0s    forwards;
+    }
+    .home-offer__card:nth-child(2) {
+      animation: problem-fade-in    2s ease                           0.15s forwards;
+    }
+    .home-offer__card:nth-child(3) {
+      animation: problem-from-right 2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s  forwards;
+    }
+  }
+}
+
+// Tarjeta giratoria 3D: se gira al pasar el ratón, al tocarla o con el foco
+.home-offer__card {
   perspective: 700px;
   height: 400px;
   cursor: pointer;
   opacity: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 30px;
+  outline: none;
+  transition: transform 0.3s ease;
 
-  &:hover {
-    transform: scale(1.04);
+  &:hover { transform: scale(1.04); }
+
+  &:focus-visible {
+    outline: 2px solid $color-arena;
+    outline-offset: 6px;
   }
 }
 
-.home-services__card-inner {
+.home-offer__card-inner {
   position: relative;
   width: 100%;
   height: 100%;
   transition: transform 0.75s cubic-bezier(0.4, 0.2, 0.2, 1);
   transform-style: preserve-3d;
 
-  .home-services__card:hover & {
+  .home-offer__card:hover &,
+  .home-offer__card:focus & {
     transform: rotateY(180deg);
   }
 }
 
-.home-services__card-front,
-.home-services__card-back {
+.home-offer__card-front,
+.home-offer__card-back {
   position: absolute;
   inset: 0;
   border-radius: 30px;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: box-shadow 0.4s ease;
 }
 
-.home-services__card:hover .home-services__card-front,
-.home-services__card:hover .home-services__card-back {
+.home-offer__card:hover .home-offer__card-front,
+.home-offer__card:hover .home-offer__card-back {
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
 }
 
-.home-services__card-name {
-  font-size: clamp(28px, 4vw, 45px);
-  font-weight: 800;
-  color: rgba(#fff, 0.9);
-  letter-spacing: 0.08em;
-}
-
-.home-services__card-back {
-  transform: rotateY(180deg);
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 36px 40px;
-  background: rgba(0, 0, 0, 0.15);
-}
-
-.home-services__card-back-title {
+.home-offer__card-name {
   font-family: "Outfit", sans-serif;
-  font-size: 38px;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  color: rgba(#fff, 0.92);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-offer__card-from {
+  margin-top: 10px;
+  font-size: clamp(15px, 1.3vw, 18px);
+  font-weight: 600;
+  color: rgba(#fff, 0.7);
+  letter-spacing: 0.04em;
+}
+
+.home-offer__card-back {
+  transform: rotateY(180deg);
+  align-items: flex-start;
+  padding: 36px 40px;
+  gap: 18px;
+}
+
+.home-offer__card-back-title {
+  font-size: 34px;
   font-weight: 800;
   color: rgba(#fff, 0.5);
   letter-spacing: 0.08em;
-  margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
-.home-services__card-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.home-offer__card-text {
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.5;
+  color: #fff;
+  font-weight: 500;
+}
+
+.home-offer__card-price {
+  font-size: clamp(15px, 1.2vw, 17px);
+  color: rgba(#fff, 0.8);
+
+  strong {
+    display: block;
+    font-size: clamp(19px, 1.7vw, 24px);
+    color: #fff;
+  }
+}
+
+.home-offer__notes {
+  max-width: 760px;
+  margin: 64px auto 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  opacity: 0;
 
-  li {
-    font-size: clamp(14px, 1.3vw, 18px);
-    color: #fff;
-    font-weight: 500;
-    padding-left: 16px;
-    position: relative;
+  &--visible { animation: home-rise 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.8s forwards; }
 
-    &::before {
-      content: "—";
-      position: absolute;
-      left: 0;
-      color: rgba(#fff, 0.45);
+  .home-link-cta { margin-top: 20px; }
+}
+
+.home-offer__included {
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.6;
+  color: rgba($color-arena, 0.85);
+}
+
+.home-offer__plans-line {
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.6;
+  color: $color-arena;
+  font-weight: 600;
+}
+
+// ─── 05 BOND DESTACADO ───────────────────────────────────────────────────────
+.home-bond__panel {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 64px 56px;
+  border: 1.5px solid rgba($color-fuego, 0.6);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+
+  &--visible { animation: home-rise 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+}
+
+.home-bond__tag {
+  display: inline-block;
+  padding: 6px 18px;
+  margin-bottom: 28px;
+  border-radius: 50px;
+  background: $color-fuego;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.home-bond__title {
+  font-size: clamp(32px, 4vw, 56px);
+  color: $color-arena;
+  margin-bottom: 28px;
+}
+
+.home-bond__text {
+  max-width: 680px;
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.7;
+  color: rgba($color-arena, 0.85);
+  margin-bottom: 40px;
+}
+
+// ─── 06 PROYECTOS Y TESTIMONIOS ──────────────────────────────────────────────
+// Columnas proporcionales (340 : 560) en vez de fijas: así la rejilla nunca
+// es más ancha que su contenedor (antes desbordaba 3px entre ~1000 y 1024px
+// con barra de scroll clásica).
+.home-testimonials__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 340fr) minmax(0, 560fr);
+  align-items: center;
+  gap: clamp(40px, 6vw, 88px);
+  max-width: 988px;
+  margin: 0 auto 16px;
+
+  &--visible {
+    .home-testimonials__card:nth-child(1) {
+      animation: testimonial-card-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards;
+    }
+    .home-testimonials__card:nth-child(2) {
+      animation: testimonial-card-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
     }
   }
 }
 
-// ─── 04 CÓMO TRABAJO ─────────────────────────────────────────────────────────
-.home-process {
-  background: transparent;
-
-  .home-link-cta { opacity: 0; }
+@keyframes testimonial-card-in {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
-.home-process__cta--visible {
-  animation: problem-from-left 3s cubic-bezier(0.22, 1, 0.36, 1) 3s forwards;
-}
-
-.home-process__title {
-  font-size: clamp(36px, 5vw, 72px);
-  color: $color-arena;
-  text-align: center;
-  margin-bottom: 64px;
-  opacity: 0;
-  transform: scale(0.92);
-
-  &--visible { animation: title-fade-zoom 1.2s ease forwards; }
-}
-
-.home-process__timeline {
-  max-width: 720px;
-  margin: 0 auto 16px;
+.home-testimonials__card {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 20px;
+  min-width: 0;
+  opacity: 0;
+}
+
+.home-testimonials__card-video {
+  width: 100%;
+  aspect-ratio: var(--card-video-ratio, 9 / 16);
+  border-radius: 30px;
+  background: $color-noche;
+  overflow: hidden;
+  position: relative;
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    &:fullscreen,
+    &:-webkit-full-screen {
+      object-fit: contain;
+    }
+  }
+}
+
+.home-testimonials__card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 4px;
+}
+
+.home-testimonials__card-name {
+  font-size: clamp(18px, 1.6vw, 24px);
+  font-weight: 700;
+  color: $color-arena;
+}
+
+.home-testimonials__card-profession {
+  font-size: clamp(13px, 1.1vw, 15px);
+  color: rgba($color-arena, 0.6);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.home-testimonials__card-text,
+.home-testimonials__card-result {
+  font-size: clamp(15px, 1.2vw, 17px);
+  color: rgba($color-arena, 0.85);
+  line-height: 1.6;
+}
+
+.home-testimonials__card-result {
+  margin-top: 6px;
+
+  strong { color: $color-fuego; }
+}
+
+// ─── 07 PROCESO ──────────────────────────────────────────────────────────────
+.home-process__timeline {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
 
   &--visible {
-    .home-process__step:nth-child(1) {
-      .home-process__step-number { animation: process-zoom-in  0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0s    forwards; }
-      .home-process__step-card   { animation: process-swipe    0.6s cubic-bezier(0.22, 1, 0.36, 1)    0.1s  forwards; }
-      .home-process__step-number::after { animation: process-line-draw 0.5s ease 0.3s forwards; }
-    }
-    .home-process__step:nth-child(2) {
-      .home-process__step-number { animation: process-zoom-in  0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.65s forwards; }
-      .home-process__step-card   { animation: process-swipe    0.6s cubic-bezier(0.22, 1, 0.36, 1)    0.75s forwards; }
-      .home-process__step-number::after { animation: process-line-draw 0.5s ease 0.9s forwards; }
-    }
-    .home-process__step:nth-child(3) {
-      .home-process__step-number { animation: process-zoom-in  0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1.3s  forwards; }
-      .home-process__step-card   { animation: process-swipe    0.6s cubic-bezier(0.22, 1, 0.36, 1)    1.4s  forwards; }
-      .home-process__step-number::after { animation: process-line-draw 0.5s ease 1.55s forwards; }
-    }
-    .home-process__step:nth-child(4) {
-      .home-process__step-number { animation: process-zoom-in  0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1.95s forwards; }
-      .home-process__step-card   { animation: process-swipe    0.6s cubic-bezier(0.22, 1, 0.36, 1)    2.05s forwards; }
+    @for $i from 1 through 5 {
+      $d: ($i - 1) * 0.65;
+      .home-process__step:nth-child(#{$i}) {
+        &::before                  { animation: process-line-draw 0.5s ease                              #{$d + 0.25}s forwards; }
+        .home-process__step-number { animation: process-zoom-in   0.5s cubic-bezier(0.34, 1.56, 0.64, 1) #{$d}s forwards; }
+        .home-process__step-card   { animation: process-swipe     0.6s cubic-bezier(0.22, 1, 0.36, 1)    #{$d + 0.1}s forwards; }
+      }
     }
   }
 }
@@ -401,18 +541,19 @@
   gap: 0 28px;
   align-items: flex-start;
   position: relative;
-  padding-bottom: 48px;
+  padding-bottom: 40px;
 
   &:last-child { padding-bottom: 0; }
 
-  // vertical connecting line
-  &:not(:last-child) .home-process__step-number::after {
+  // Línea vertical que une los pasos: va del número hasta el siguiente paso,
+  // mida lo que mida la tarjeta
+  &:not(:last-child)::before {
     content: "";
     position: absolute;
     top: 56px;
-    left: 28px;
+    bottom: 0;
+    left: 27px;
     width: 2px;
-    height: calc(100% + 48px - 56px);
     background: rgba($color-arena, 0.3);
     transform: scaleY(0);
     transform-origin: top center;
@@ -430,7 +571,6 @@
   justify-content: center;
   font-size: 20px;
   font-weight: 800;
-  flex-shrink: 0;
   position: relative;
   opacity: 0;
   transform: scale(0);
@@ -440,34 +580,24 @@
   background: $color-arena;
   border-radius: 10px;
   padding: 18px 24px;
-  margin-top: 8px;
+  margin-top: 4px;
   clip-path: inset(0 100% 0 0);
 
   p {
-    font-size: clamp(15px, 1.5vw, 19px);
-    color: $color-noche;
-    line-height: 1.5;
-    font-weight: 500;
+    font-size: clamp(15px, 1.3vw, 18px);
+    color: rgba($color-noche, 0.8);
+    line-height: 1.55;
     margin: 0;
   }
 }
 
-// ─── 05 DETRÁS DE CAMY ───────────────────────────────────────────────────────
-.home-about {
-  background: transparent;
+.home-process__step-title {
+  font-size: clamp(19px, 1.7vw, 24px);
+  color: $color-vinotinto;
+  margin-bottom: 6px;
 }
 
-.home-about__title {
-  font-size: clamp(36px, 5vw, 72px);
-  color: $color-arena;
-  text-align: center;
-  margin-bottom: 56px;
-  opacity: 0;
-  transform: scale(0.92);
-
-  &--visible { animation: title-fade-zoom 1.2s ease forwards; }
-}
-
+// ─── 08 LA PERSONA DETRÁS DE CAMY ────────────────────────────────────────────
 .home-about__inner {
   display: flex;
   align-items: center;
@@ -505,27 +635,20 @@
     font-style: italic;
     clip-path: inset(0 100% 0 0);
   }
-}
 
-.home-about {
-  .home-link-cta {
-    opacity: 0;
-    align-self: flex-start;
-  }
+  .home-link-cta { align-self: flex-start; }
 }
 
 .home-about__inner--visible {
   .home-about__photo {
     animation: about-fade-in 4.5s ease 0s forwards;
   }
-  .home-about__text p:nth-child(1) { animation: process-swipe 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s  forwards; }
-  .home-about__text p:nth-child(2) { animation: process-swipe 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.7s  forwards; }
-  .home-about__text p:nth-child(3) { animation: process-swipe 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.1s  forwards; }
-  .home-about__text p:nth-child(4) { animation: process-swipe 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.5s  forwards; }
-}
 
-.home-about__cta--visible {
-  animation: problem-from-left 3s cubic-bezier(0.22, 1, 0.36, 1) 1s forwards;
+  @for $i from 1 through 4 {
+    .home-about__text p:nth-child(#{$i}) {
+      animation: process-swipe 0.8s cubic-bezier(0.22, 1, 0.36, 1) #{0.3 + ($i - 1) * 0.4}s forwards;
+    }
+  }
 }
 
 @keyframes about-fade-in {
@@ -533,219 +656,78 @@
   to   { opacity: 1; }
 }
 
-// ─── 06 TESTIMONIOS ──────────────────────────────────────────────────────────
-.home-testimonials {
-  background: transparent;
-
-  .home-link-cta { opacity: 0; }
-}
-
-.home-testimonials__cta--visible {
-  animation: problem-from-left 3s cubic-bezier(0.22, 1, 0.36, 1) 1s forwards;
-}
-
-.home-testimonials__title {
-  font-size: clamp(36px, 5vw, 72px);
-  color: $color-arena;
-  text-align: center;
-  margin-bottom: 56px;
-  font-family: "DM Serif Display", serif;
-  opacity: 0;
-  transform: scale(0.92);
-
-  &--visible { animation: title-fade-zoom 1.2s ease forwards; }
-}
-
-.home-testimonials__grid {
-  display: grid;
-  grid-template-columns: 340px 560px;
-  align-items: center;
-  gap: 88px;
-  max-width: 988px;
-  margin: 0 auto 16px;
-
-  &--visible {
-    .home-testimonials__card:nth-child(1) {
-      animation: testimonial-card-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards;
-    }
-    .home-testimonials__card:nth-child(2) {
-      animation: testimonial-card-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
-    }
-  }
-}
-
-@keyframes testimonial-card-in {
-  from { opacity: 0; transform: scale(0.88); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
-.home-testimonials__card {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  opacity: 0;
-}
-
-.home-testimonials__card-video {
-  width: 100%;
-  aspect-ratio: var(--card-video-ratio, 9 / 16);
-  border-radius: 30px;
-  background: $color-noche;
-  overflow: hidden;
-  position: relative;
-
-  video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-
-    &:fullscreen,
-    &:-webkit-full-screen {
-      object-fit: contain;
-    }
-  }
-}
-
-.home-testimonials__card-video-placeholder {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 20px;
-  color: $color-arena;
-}
-
-.home-testimonials__card-video-soon {
-  font-size: clamp(13px, 1.1vw, 15px);
-  font-style: italic;
-  text-align: center;
-  color: rgba($color-arena, 0.6);
-  line-height: 1.5;
-  margin: 0;
-}
-
-.home-testimonials__card-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 0 4px;
-}
-
-.home-testimonials__card-name {
-  font-size: clamp(16px, 1.5vw, 24px);
-  font-weight: 700;
-  color: $color-arena;
-}
-
-.home-testimonials__card-profession {
-  font-size: clamp(13px, 1.1vw, 15px);
-  color: rgba($color-arena, 0.6);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.home-testimonials__card-text {
-  font-size: clamp(14px, 1.2vw, 18px);
-  color: rgba($color-arena, 0.8);
-  line-height: 1.7;
-  font-style: italic;
-  margin: 0;
-}
-
-// ─── 07 CTA FINAL ────────────────────────────────────────────────────────────
-.home-final-cta {
-  background: transparent;
-}
-
+// ─── 09 CIERRE ───────────────────────────────────────────────────────────────
 .home-final-cta__inner {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
 
-.home-final-cta__title {
-  font-size: clamp(36px, 5vw, 72px);
-  color: $color-arena;
-  margin-bottom: 56px;
-  max-width: 870px;
-  line-height: 1.2;
-  opacity: 0;
-  transform: scale(0.92);
-
-  &--visible { animation: title-fade-zoom 1.2s ease forwards; }
+  .home-section-title {
+    max-width: 870px;
+    margin-bottom: 32px;
+  }
 }
 
 .home-final-cta__sub {
-  font-size: clamp(16px, 1.8vw, 25px);
-  color: rgba($color-arena, 0.7);
+  font-size: clamp(17px, 1.8vw, 24px);
+  line-height: 1.6;
+  color: rgba($color-arena, 0.85);
   margin-bottom: 48px;
   max-width: 680px;
-
-  strong {
-    color: $color-fuego;
-    font-weight: 800;
-  }
 }
 
 // ─── RESPONSIVE ──────────────────────────────────────────────────────────────
 
-// ── Tablet (≤ 1024px) ────────────────────────────────────────────────────────
-@media (max-width: $tablet) {
+// ── Laptop SM (≤ 1200px) ─────────────────────────────────────────────────────
+@media (max-width: $laptop-sm) {
 
-  .home-problem__title,
-  .home-services__title,
-  .home-process__title,
-  .home-about__title,
-  .home-testimonials__title,
-  .home-final-cta__title {
-    font-size: clamp(40px, 5.8vw, 72px);
+  .home-how__pillars {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-// ── Tablet SM (≤ 900px) ───────────────────────────────────────────────────────
+// ── Tablet (≤ 1024px) ────────────────────────────────────────────────────────
+@media (max-width: $tablet) {
+
+  .home-section-title {
+    font-size: clamp(40px, 5.8vw, 72px);
+  }
+
+  .home-problem__cards,
+  .home-offer__grid {
+    gap: 32px;
+  }
+
+  .home-offer__card-back {
+    padding: 28px 28px;
+  }
+}
+
+// ── Tablet SM (≤ 900px) ──────────────────────────────────────────────────────
 @media (max-width: $tablet-sm) {
 
   .home-section-inner {
     padding: 70px 100px;
   }
 
-  .home-problem__title,
-  .home-services__title,
-  .home-process__title,
-  .home-about__title,
-  .home-testimonials__title,
-  .home-final-cta__title {
+  .home-section-title {
     font-size: clamp(44px, 7.5vw, 66px);
   }
 
-  .home-problem__cards {
+  .home-problem__cards,
+  .home-offer__grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
-  .home-services__grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .home-services__card {
+  .home-offer__card {
     height: 320px;
   }
 
   .home-testimonials__grid {
     grid-template-columns: 1fr;
     max-width: 340px;
-  }
-
-  .home-testimonials__card-video:not(.home-testimonials__card-video--native) {
-    aspect-ratio: 9 / 16;
   }
 
   .home-about__inner {
@@ -757,10 +739,9 @@
     width: 100%;
     height: 380px;
   }
-
 }
 
-// ── Móvil (≤ 768px) ───────────────────────────────────────────────────────────
+// ── Móvil (≤ 768px) ──────────────────────────────────────────────────────────
 @media (max-width: $mobile) {
 
   .home-section-inner {
@@ -792,38 +773,100 @@
     margin-bottom: 90px;
   }
 
-  .home-problem__title,
-  .home-services__title,
-  .home-process__title,
-  .home-about__title,
-  .home-testimonials__title,
-  .home-final-cta__title {
-    font-size: clamp(42px, 9.5vw, 64px);
+  .home-section-title {
+    font-size: clamp(38px, 9.5vw, 64px);
     margin-bottom: 30px;
     line-height: 1.14;
   }
 
-  .home-problem__cards {
-    margin-bottom: 60px;
+  .home-section-intro {
+    margin: 0 auto 36px;
   }
 
-  .home-problem__card {
+  .home-section-closing {
+    margin-top: 48px;
+  }
+
+  .home-card {
     padding: 30px 30px;
   }
 
-  .home-services__card {
+  .home-offer__card {
     height: 300px;
   }
 
-  .home-about__text {
+  .home-offer__notes {
+    margin-top: 40px;
+  }
 
-    p {
-      line-height: 1.6;
+  .home-bond__panel {
+    padding: 44px 24px;
+  }
+
+  .home-process__step {
+    grid-template-columns: 44px 1fr;
+    gap: 0 16px;
+
+    &:not(:last-child)::before {
+      top: 44px;
+      left: 21px;
     }
   }
 
+  .home-process__step-number {
+    width: 44px;
+    height: 44px;
+    font-size: 17px;
+  }
+
+  .home-process__step-card {
+    padding: 16px 18px;
+  }
+
+  .home-about__text p {
+    line-height: 1.6;
+  }
+
   .home-link-cta {
-      margin-top: 20px;
+    margin-top: 20px;
   }
 }
 
+// ── Móvil SM (≤ 600px) ───────────────────────────────────────────────────────
+@media (max-width: $mobile-sm) {
+
+  .home-how__pillars {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+// ─── MOVIMIENTO REDUCIDO ─────────────────────────────────────────────────────
+// Sin entradas animadas: todo aparece en su sitio desde el principio.
+@media (prefers-reduced-motion: reduce) {
+
+  .home-section-title,
+  .home-card,
+  .home-offer__card,
+  .home-offer__notes,
+  .home-bond__panel,
+  .home-testimonials__card,
+  .home-reveal-cta,
+  .home-process__step::before,
+  .home-process__step-number,
+  .home-about__photo {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .home-process__step-card,
+  .home-about__text p {
+    animation: none !important;
+    clip-path: none;
+  }
+
+  .home-offer__card-inner {
+    transition: none;
+  }
+}

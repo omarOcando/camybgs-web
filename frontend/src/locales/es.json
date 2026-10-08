@@ -16,6 +16,137 @@
         "telegram": "Telegram",
         "signal": "Signal"
       }
+    },
+    "problem": {
+      "title": "¿Te suena?",
+      "pains": [
+        {
+          "title": "“Mi web no expresa mi negocio.”",
+          "text": "Tienes una web, pero quien entra no entiende a la primera qué haces ni por qué deberías ayudarlo. Y se va sin escribirte."
+        },
+        {
+          "title": "“Se ve igual que todas.”",
+          "text": "Plantillas, fotos de stock, textos genéricos… Pero nada de eso que te hace especial aparece."
+        },
+        {
+          "title": "“Me da cosa mandar el enlace.”",
+          "text": "Sabes que tu trabajo vale más de lo que muestra tu web. Y eso te frena cada vez que alguien te pide verla."
+        }
+      ],
+      "closing": "No te falta talento. Te falta mensaje..."
+    },
+    "how": {
+      "title": "Nada aparece por casualidad",
+      "intro": "Una web comunica, incluso antes de que alguien lea una palabra... Por eso implemento cada detalle con atención e intención.",
+      "pillars": [
+        {
+          "title": "Palabras",
+          "text": "Las palabras son nuestra herramienta principal para entendernos. Cómo se interconectan, llevan a lugares muy específicos."
+        },
+        {
+          "title": "Color",
+          "text": "Cada tono y combinación transmite algo: confianza, energía, calma, etc. Es muy útil apoyarse en ellos para decir eficientemente lo que quieres."
+        },
+        {
+          "title": "Forma",
+          "text": "Tipografías, espacios y composición que ordenan tu mensaje y guían la mirada."
+        },
+        {
+          "title": "Movimiento",
+          "text": "Animaciones con sentido, que introducen y acompañan a quien experimenta tu mensaje y no lo distrae."
+        }
+      ],
+      "closing": "El resultado es una web que es un reflejo de tu mensaje."
+    },
+    "offer": {
+      "title": "Elige cómo empezar",
+      "plans": [
+        {
+          "name": "One",
+          "text": "Una página con todo lo esencial, para presentarte con claridad.",
+          "priceOnce": "Desde 799 €",
+          "priceMonthly": "o desde 77 €/mes"
+        },
+        {
+          "name": "Multi",
+          "text": "Varias páginas para contar todo tu negocio: servicios, proyectos, equipo…",
+          "priceOnce": "Desde 1.199 €",
+          "priceMonthly": "o desde 115 €/mes"
+        },
+        {
+          "name": "Custom",
+          "text": "Funciones a tu medida: reservas, calendario, tienda online…",
+          "priceOnce": "Desde 1.999 €",
+          "priceMonthly": "o desde 192 €/mes"
+        }
+      ],
+      "included": "Todas incluyen diseño a medida, SEO básico, páginas legales y cambios ilimitados sobre el diseño aprobado. Paga de una vez o en cuotas.",
+      "plansLine": "¿Y después? Con los planes Basic y Plus tu web sigue al día, y tus clientes, bien cuidados.",
+      "cta": "Ver todos los detalles"
+    },
+    "bond": {
+      "tag": "Producto estrella",
+      "title": "Bond. Gestiona tu negocio, cuida a tus clientes.",
+      "text": "Plataforma digital para coaches, terapeutas, nutricionistas y cualquier profesional que acompaña a sus clientes en sus procesos. Reservas, recordatorios, un portal para tus clientes, notas, pagos… Todo en un solo lugar y con tu marca y mensaje.",
+      "cta": "Conoce Bond"
+    },
+    "projects": {
+      "title": "Me alegra mucho compartir sus logros…",
+      "videoLabel": "Vídeo testimonio de {{name}}",
+      "resultLabel": "Resultado:",
+      "items": {
+        "ramses": {
+          "name": "Ramsés Viloria",
+          "meta": "Coach de relaciones de pareja · Frankfurt",
+          "text": "Una plataforma propia para gestionar clientes, reservas y pagos, pensada para su forma de trabajar.",
+          "result": "4 clientes nuevos en los primeros 45 días."
+        },
+        "vivamexico": {
+          "name": "Viva México",
+          "meta": "Banda de mariachi · NRW",
+          "text": "Una web bilingüe (alemán y español) que sustituyó su antiguo WordPress sin perder su posicionamiento en Google."
+        }
+      },
+      "cta": "Ver proyectos"
+    },
+    "process": {
+      "title": "Entender es lo principal...",
+      "steps": [
+        {
+          "title": "Comprensión",
+          "text": "Antes de tocar una sola línea de código, escucho, pienso y entiendo tu negocio, tu cliente y lo que deseas transmitir."
+        },
+        {
+          "title": "Investigación",
+          "text": "Estudio qué busca tu cliente, qué le preocupa y qué lo mueve a tomar sus decisiones."
+        },
+        {
+          "title": "Implementación",
+          "text": "El diseño es un resultado creativo que viene del entendimiento y sigue a lo que quieres expresar. No al revés."
+        },
+        {
+          "title": "Desarrollo",
+          "text": "Construcción limpia, rápida, efectiva y preparada para crecer contigo."
+        },
+        {
+          "title": "Entrega y acompañamiento",
+          "text": "No desaparezco al entregar: me aseguro de que todo funcione. No te quedas solo."
+        }
+      ]
+    },
+    "about": {
+      "title": "La persona detrás de CAMY",
+      "photoAlt": "Omar Ocando",
+      "paragraphs": [
+        "Me llamo Omar Ocando. Soy venezolano y vivo en Colonia, Alemania. CAMY lleva el nombre de mi hija, Camila, y nació para ayudar a profesionales como tú a mostrar lo que son de verdad.",
+        "Trabajo de forma directa, sin rodeos y contigo en cada paso. Hablamos en español o en inglés, como te resulte más cómodo."
+      ],
+      "cta": "Conoce mi historia"
+    },
+    "closing": {
+      "title": "¿Hablamos de tu web?",
+      "text": "Cuéntame qué haces y qué quieres transmitir. Te respondo en menos de 24 horas.",
+      "cta": "Hablemos"
     }
   },
   "servicios": {},

@@ -28,124 +28,34 @@ function useFadeIn(threshold = 0.2) {
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
-const PAINS = [
-  {
-    title: "Nadie ve lo bueno que eres",
-    text: "Eres excelente en lo que haces, tienes resultados, tienes experiencia…, pero afuera nadie lo aprecia porque no saben que estás. Eres el mejor secreto de tu sector...",
-  },
-  {
-    title: "No sabes de dónde vendrá tu próximo cliente",
-    text: "Dependes del boca a boca, de la suerte, de que alguien te recomiende. No hay sistema, no hay predecibilidad. Esa incertidumbre agota…",
-  },
-  {
-    title: "Tienes likes, pero ningún cliente",
-    text: "Publicas, te esfuerzas, consigues reacciones…, pero a fin de mes los likes no pagan las facturas. Algo no está funcionando y no tienes claro qué...",
-  },
-];
-
-const SERVICES = [
-  {
-    title: "WEB",
-    color: "#6B1530",
-    items: ["Landing page", "Portafolio", "Corporativo", "Corporativo + reservas", "Ecommerce", "Sistema a medida"],
-  },
-  {
-    title: "MARKETING",
-    color: "#1D1D2E",
-    items: ["Mantenimiento web", "SEO básico + reportes", "Gestión Meta Ads", "Marketing completo (Systeme.io)"],
-  },
-  {
-    title: "PAQUETES",
-    color: "#F04E23",
-    items: ["Starter", "Growth", "Premium"],
-  },
-];
-
-const PROCESS_STEPS = [
-  "Pienso y entiendo tu negocio y tu cliente",
-  "Diseño tu mensaje a su medida",
-  "Construyo tu presencia digital para que te puedan ver",
-  "Atraigo esos clientes a ti y observo los resultados",
-];
+// Color de la tarjeta de cada web (mismo orden que home.offer.plans)
+const OFFER_COLORS = ["#6B1530", "#1D1D2E", "#F04E23"];
 
 const TESTIMONIALS = PROJECTS.filter((p) => p.testimonial);
+
+// Añade el modificador --visible a una clase cuando el bloque ya se ve
+const reveal = (base, visible) => `${base}${visible ? ` ${base}--visible` : ""}`;
 
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
 function Home({ active = false }) {
   const { t } = useTranslation();
+  const list = (key) => t(key, { returnObjects: true });
 
-  const problemCardsRef = useRef(null);
-  const [problemCardsVisible, setProblemCardsVisible] = useState(false);
-  useEffect(() => {
-    const el = problemCardsRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setProblemCardsVisible(true); obs.disconnect(); } },
-      { threshold: 0.15 }
-    );
-    const rafId = requestAnimationFrame(() => obs.observe(el));
-    return () => { cancelAnimationFrame(rafId); obs.disconnect(); };
-  }, []);
-
-  const servicesGridRef = useRef(null);
-  const [servicesGridVisible, setServicesGridVisible] = useState(false);
-  useEffect(() => {
-    const el = servicesGridRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setServicesGridVisible(true); obs.disconnect(); } },
-      { threshold: 0.15 }
-    );
-    const rafId = requestAnimationFrame(() => obs.observe(el));
-    return () => { cancelAnimationFrame(rafId); obs.disconnect(); };
-  }, []);
-
-  const processTimelineRef = useRef(null);
-  const [processTimelineVisible, setProcessTimelineVisible] = useState(false);
-  useEffect(() => {
-    const el = processTimelineRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setProcessTimelineVisible(true); obs.disconnect(); } },
-      { threshold: 0.1 }
-    );
-    const rafId = requestAnimationFrame(() => obs.observe(el));
-    return () => { cancelAnimationFrame(rafId); obs.disconnect(); };
-  }, []);
-
-  const aboutRef = useRef(null);
-  const [aboutVisible, setAboutVisible] = useState(false);
-  useEffect(() => {
-    const el = aboutRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setAboutVisible(true); obs.disconnect(); } },
-      { threshold: 0.15 }
-    );
-    const rafId = requestAnimationFrame(() => obs.observe(el));
-    return () => { cancelAnimationFrame(rafId); obs.disconnect(); };
-  }, []);
-
-  const testimonialsRef = useRef(null);
-  const [testimonialsVisible, setTestimonialsVisible] = useState(false);
-  useEffect(() => {
-    const el = testimonialsRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setTestimonialsVisible(true); obs.disconnect(); } },
-      { threshold: 0.15 }
-    );
-    const rafId = requestAnimationFrame(() => obs.observe(el));
-    return () => { cancelAnimationFrame(rafId); obs.disconnect(); };
-  }, []);
-
-  const { ref: problemTitleRef,      visible: problemTitleVisible      } = useFadeIn();
-  const { ref: servicesTitleRef,     visible: servicesTitleVisible     } = useFadeIn();
-  const { ref: processTitleRef,      visible: processTitleVisible      } = useFadeIn();
-  const { ref: aboutTitleRef,        visible: aboutTitleVisible        } = useFadeIn();
-  const { ref: testimonialsTitleRef, visible: testimonialsTitleVisible } = useFadeIn();
-  const { ref: finalCtaTitleRef,     visible: finalCtaTitleVisible     } = useFadeIn();
+  const { ref: problemTitleRef,  visible: problemTitleVisible  } = useFadeIn();
+  const { ref: problemCardsRef,  visible: problemCardsVisible  } = useFadeIn(0.15);
+  const { ref: howTitleRef,      visible: howTitleVisible      } = useFadeIn();
+  const { ref: howPillarsRef,    visible: howPillarsVisible    } = useFadeIn(0.15);
+  const { ref: offerTitleRef,    visible: offerTitleVisible    } = useFadeIn();
+  const { ref: offerGridRef,     visible: offerGridVisible     } = useFadeIn(0.15);
+  const { ref: bondRef,          visible: bondVisible          } = useFadeIn(0.2);
+  const { ref: projectsTitleRef, visible: projectsTitleVisible } = useFadeIn();
+  const { ref: projectsGridRef,  visible: projectsGridVisible  } = useFadeIn(0.15);
+  const { ref: processTitleRef,  visible: processTitleVisible  } = useFadeIn();
+  const { ref: processStepsRef,  visible: processStepsVisible  } = useFadeIn(0.1);
+  const { ref: aboutTitleRef,    visible: aboutTitleVisible    } = useFadeIn();
+  const { ref: aboutRef,         visible: aboutVisible         } = useFadeIn(0.15);
+  const { ref: closingTitleRef,  visible: closingTitleVisible  } = useFadeIn();
 
   return (
     <div className={`home${active ? " home--active" : ""}`}>
@@ -176,129 +86,186 @@ function Home({ active = false }) {
       {/* 02 — EL PROBLEMA */}
       <section className="home-problem">
         <div className="home-section-inner">
-          <h2 ref={problemTitleRef} className={`home-problem__title${problemTitleVisible ? " home-problem__title--visible" : ""}`}>¿Te suena?</h2>
-          <div ref={problemCardsRef} className={`home-problem__cards${problemCardsVisible ? " home-problem__cards--visible" : ""}`}>
-            {PAINS.map((p, i) => (
-              <article key={i} className="home-problem__card">
-                <h3 className="home-problem__card-title">"{p.title}"</h3>
-                <p className="home-problem__card-text">{p.text}</p>
+          <h2 ref={problemTitleRef} className={reveal("home-section-title", problemTitleVisible)}>
+            {t("home.problem.title")}
+          </h2>
+          <div ref={problemCardsRef} className={reveal("home-problem__cards", problemCardsVisible)}>
+            {list("home.problem.pains").map((p) => (
+              <article key={p.title} className="home-card home-problem__card">
+                <h3 className="home-card__title">{p.title}</h3>
+                <p className="home-card__text">{p.text}</p>
               </article>
             ))}
           </div>
-          <div className="home-problem__remate">
-            <h3>El problema no eres tú, es que no te dejas ver...</h3>
-            <h3 className="home-problem__remate-sub">Hay una clara solución!</h3>
+          <p className="home-section-closing">{t("home.problem.closing")}</p>
+        </div>
+      </section>
+
+      {/* 03 — CÓMO LO HAGO */}
+      <section className="home-how">
+        <div className="home-section-inner">
+          <h2 ref={howTitleRef} className={reveal("home-section-title", howTitleVisible)}>
+            {t("home.how.title")}
+          </h2>
+          <p className="home-section-intro">{t("home.how.intro")}</p>
+          <div ref={howPillarsRef} className={reveal("home-how__pillars", howPillarsVisible)}>
+            {list("home.how.pillars").map((p) => (
+              <article key={p.title} className="home-card home-how__pillar">
+                <h3 className="home-card__title">{p.title}</h3>
+                <p className="home-card__text">{p.text}</p>
+              </article>
+            ))}
+          </div>
+          <p className="home-section-closing">{t("home.how.closing")}</p>
+        </div>
+      </section>
+
+      {/* 04 — OFERTA RESUMIDA */}
+      <section className="home-offer">
+        <div className="home-section-inner">
+          <h2 ref={offerTitleRef} className={reveal("home-section-title", offerTitleVisible)}>
+            {t("home.offer.title")}
+          </h2>
+          <div ref={offerGridRef} className={reveal("home-offer__grid", offerGridVisible)}>
+            {list("home.offer.plans").map((plan, i) => (
+              // Tarjeta giratoria: se da la vuelta al pasar el ratón, al tocarla o con el foco
+              <article key={plan.name} className="home-offer__card" tabIndex={0}>
+                <div className="home-offer__card-inner">
+                  <div className="home-offer__card-front" style={{ background: OFFER_COLORS[i] }}>
+                    <h3 className="home-offer__card-name">{plan.name}</h3>
+                    <span className="home-offer__card-from">{plan.priceOnce}</span>
+                  </div>
+                  <div className="home-offer__card-back" style={{ background: OFFER_COLORS[i] }}>
+                    <span className="home-offer__card-back-title" aria-hidden="true">{plan.name}</span>
+                    <p className="home-offer__card-text">{plan.text}</p>
+                    <p className="home-offer__card-price">
+                      <strong>{plan.priceOnce}</strong> {plan.priceMonthly}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className={reveal("home-offer__notes", offerGridVisible)}>
+            <p className="home-offer__included">{t("home.offer.included")}</p>
+            <p className="home-offer__plans-line">{t("home.offer.plansLine")}</p>
+            <Button to="/servicios" variant="ghost" size="lg" className="home-link-cta">
+              {t("home.offer.cta")} <span className="btn-arrow">→</span>
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* 03 — SERVICIOS */}
-      <section className="home-services">
+      {/* 05 — BOND DESTACADO */}
+      <section className="home-bond">
         <div className="home-section-inner">
-          <h2 ref={servicesTitleRef} className={`home-services__title${servicesTitleVisible ? " home-services__title--visible" : ""}`}>Lo que puedo hacer por ti</h2>
-          <div ref={servicesGridRef} className={`home-services__grid${servicesGridVisible ? " home-services__grid--visible" : ""}`}>
-            {SERVICES.map((s) => (
-              <div key={s.title} className="home-services__card">
-                <div className="home-services__card-inner">
-                  <div className="home-services__card-front" style={{ background: s.color }}>
-                    <span className="home-services__card-name">{s.title}</span>
-                  </div>
-                  <div className="home-services__card-back" style={{ background: s.color }}>
-                    <h3 className="home-services__card-back-title">{s.title}</h3>
-                    <ul className="home-services__card-list">
-                      {s.items.map(item => <li key={item}>{item}</li>)}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div ref={bondRef} className={reveal("home-bond__panel", bondVisible)}>
+            <span className="home-bond__tag">{t("home.bond.tag")}</span>
+            <h2 className="home-bond__title">{t("home.bond.title")}</h2>
+            <p className="home-bond__text">{t("home.bond.text")}</p>
+            <Button to="/bond" variant="primary" size="lg">
+              {t("home.bond.cta")} <span className="btn-arrow">→</span>
+            </Button>
           </div>
-          <Button to="/servicios" variant="ghost" size="lg" className={`home-link-cta${servicesGridVisible ? " home-services__cta--visible" : ""}`}>
-            Ver los detalles de mis servicios <span className="btn-arrow">→</span>
+        </div>
+      </section>
+
+      {/* 06 — PROYECTOS Y TESTIMONIOS */}
+      <section className="home-testimonials">
+        <div className="home-section-inner">
+          <h2 ref={projectsTitleRef} className={reveal("home-section-title", projectsTitleVisible)}>
+            {t("home.projects.title")}
+          </h2>
+          <div ref={projectsGridRef} className={reveal("home-testimonials__grid", projectsGridVisible)}>
+            {TESTIMONIALS.map((p) => {
+              const item = list(`home.projects.items.${p.id}`);
+              return (
+                <article key={p.id} className="home-testimonials__card">
+                  <div
+                    className={`home-testimonials__card-video${p.videoAspect ? " home-testimonials__card-video--native" : ""}`}
+                    style={p.videoAspect ? { "--card-video-ratio": p.videoAspect } : undefined}
+                  >
+                    <video
+                      src={p.video}
+                      preload="metadata"
+                      controls
+                      playsInline
+                      aria-label={t("home.projects.videoLabel", { name: item.name })}
+                      onLoadedMetadata={(e) => { e.target.currentTime = 0.01; }}
+                    />
+                  </div>
+                  <div className="home-testimonials__card-info">
+                    <span className="home-testimonials__card-name">{item.name}</span>
+                    <span className="home-testimonials__card-profession">{item.meta}</span>
+                    <p className="home-testimonials__card-text">{item.text}</p>
+                    {item.result && (
+                      <p className="home-testimonials__card-result">
+                        <strong>{t("home.projects.resultLabel")}</strong> {item.result}
+                      </p>
+                    )}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+          <Button to="/proyectos" variant="ghost" size="lg" className={`home-link-cta home-reveal-cta${projectsGridVisible ? " home-reveal-cta--visible" : ""}`}>
+            {t("home.projects.cta")} <span className="btn-arrow">→</span>
           </Button>
         </div>
       </section>
 
-      {/* 04 — CÓMO TRABAJO */}
+      {/* 07 — PROCESO */}
       <section className="home-process">
         <div className="home-section-inner">
-          <h2 ref={processTitleRef} className={`home-process__title${processTitleVisible ? " home-process__title--visible" : ""}`}>Así es como lo hago</h2>
-          <div ref={processTimelineRef} className={`home-process__timeline${processTimelineVisible ? " home-process__timeline--visible" : ""}`}>
-            {PROCESS_STEPS.map((step, i) => (
-              <div key={i} className="home-process__step">
-                <div className="home-process__step-number">{i + 1}</div>
+          <h2 ref={processTitleRef} className={reveal("home-section-title", processTitleVisible)}>
+            {t("home.process.title")}
+          </h2>
+          <ol ref={processStepsRef} className={reveal("home-process__timeline", processStepsVisible)}>
+            {list("home.process.steps").map((step, i) => (
+              <li key={step.title} className="home-process__step">
+                <div className="home-process__step-number" aria-hidden="true">{i + 1}</div>
                 <div className="home-process__step-card">
-                  <p>{step}</p>
+                  <h3 className="home-process__step-title">{step.title}</h3>
+                  <p>{step.text}</p>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
-          <Button to="/servicios" variant="ghost" size="lg" className={`home-link-cta${processTimelineVisible ? " home-process__cta--visible" : ""}`}>
-            ¿Quieres saber más? <span className="btn-arrow">→</span>
-          </Button>
+          </ol>
         </div>
       </section>
 
-      {/* 05 — DETRÁS DE CAMY */}
+      {/* 08 — LA PERSONA DETRÁS DE CAMY */}
       <section className="home-about">
         <div className="home-section-inner">
-          <h2 ref={aboutTitleRef} className={`home-about__title${aboutTitleVisible ? " home-about__title--visible" : ""}`}>La persona detrás de CAMY</h2>
-          <div ref={aboutRef} className={`home-about__inner${aboutVisible ? " home-about__inner--visible" : ""}`}>
+          <h2 ref={aboutTitleRef} className={reveal("home-section-title", aboutTitleVisible)}>
+            {t("home.about.title")}
+          </h2>
+          <div ref={aboutRef} className={reveal("home-about__inner", aboutVisible)}>
             <picture className="home-about__photo">
-                <source media="(max-width: 900px)" srcSet={aboutPhotoMovil} />
-                <img src={aboutPhoto} alt="Omar Ocando" />
-              </picture>
+              <source media="(max-width: 900px)" srcSet={aboutPhotoMovil} />
+              <img src={aboutPhoto} alt={t("home.about.photoAlt")} />
+            </picture>
             <div className="home-about__text">
-              <p>Me llamo Omar Ocando, soy venezolano y vivo en Colonia, Alemania.</p>
-              <p>Creé CAMY con un propósito muy claro: ayudar a profesionales como tú a conseguir los clientes que quieren y se merecen. Yo estuve ahí…</p>
-              <p>Trabajo diferente…, hablo diferente…, porque no me importa la aprobación de nadie. Me importa que tu negocio crezca. Así es como yo gano…</p>
-              <p>Hay una historia ruda y hermosa detrás del nombre que me gustaría contarte…</p>
-              <Button to="/sobre-mi" variant="ghost-light" size="lg" className={`home-link-cta${aboutVisible ? " home-about__cta--visible" : ""}`}>
-                Conoce más sobre CAMY <span className="btn-arrow">→</span>
+              {list("home.about.paragraphs").map((text) => (
+                <p key={text}>{text}</p>
+              ))}
+              <Button to="/sobre-mi" variant="ghost-light" size="lg" className={`home-link-cta home-reveal-cta${aboutVisible ? " home-reveal-cta--visible" : ""}`}>
+                {t("home.about.cta")} <span className="btn-arrow">→</span>
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 06 — TESTIMONIOS */}
-      <section className="home-testimonials">
-        <div className="home-section-inner">
-          <h2 ref={testimonialsTitleRef} className={`home-testimonials__title${testimonialsTitleVisible ? " home-testimonials__title--visible" : ""}`}>Me alegra tanto compartir sus logros…</h2>
-          <div ref={testimonialsRef} className={`home-testimonials__grid${testimonialsVisible ? " home-testimonials__grid--visible" : ""}`}>
-            {TESTIMONIALS.map((t, i) => (
-              <article key={i} className="home-testimonials__card">
-                <div
-                  className={`home-testimonials__card-video${t.videoAspect ? " home-testimonials__card-video--native" : ""}`}
-                  aria-label="Video testimonio"
-                  style={t.videoAspect ? { "--card-video-ratio": t.videoAspect } : undefined}
-                >
-                  <video src={t.video} preload="metadata" controls playsInline onLoadedMetadata={(e) => { e.target.currentTime = 0.01; }} />
-                </div>
-                <div className="home-testimonials__card-info">
-                  <span className="home-testimonials__card-name">{t.testimonialName}</span>
-                  <span className="home-testimonials__card-profession">{t.profession}</span>
-                </div>
-              </article>
-            ))}
-          </div>
-          <Button to="/resultados" variant="ghost" size="lg" className={`home-link-cta${testimonialsVisible ? " home-testimonials__cta--visible" : ""}`}>
-            Ver más opiniones… <span className="btn-arrow">→</span>
-          </Button>
-        </div>
-      </section>
-
-      {/* 07 — CTA FINAL */}
+      {/* 09 — CIERRE */}
       <section className="home-final-cta">
         <div className="home-section-inner home-final-cta__inner">
-          <h2 ref={finalCtaTitleRef} className={`home-final-cta__title serif${finalCtaTitleVisible ? " home-final-cta__title--visible" : ""}`}>
-            Tu próximo cliente está por donde vamos a pasar…
+          <h2 ref={closingTitleRef} className={reveal("home-section-title", closingTitleVisible)}>
+            {t("home.closing.title")}
           </h2>
-          <p className="home-final-cta__sub">
-            Sin pagos ciegos por clics, likes, o leads… <strong>VENTAS REALES.</strong>
-          </p>
+          <p className="home-final-cta__sub">{t("home.closing.text")}</p>
           <Button to="/contacto" variant="primary" size="xl">
-            Hagámoslo ahora
+            {t("home.closing.cta")} <span className="btn-arrow">→</span>
           </Button>
         </div>
       </section>
