@@ -117,6 +117,12 @@
 3. **Título y descripción SEO de la Home:** se cambian en la Fase 7.
 4. **Proyectos en la Home:** nombre, profesión · ciudad, texto del Anexo y "Resultado:" destacado (Ramsés). ✅ La regla "solo vídeo + nombre" (D8) es para `/proyectos`.
 
+### Preguntas de la Fase 3
+1. **Título de los testimonios en `/proyectos`:** "En sus propias palabras". ✅
+2. **Línea de cliente de las tarjetas:** si el título de la tarjeta es el nombre del cliente, no se repite en la línea de cliente. Ramsés queda "Coach de relaciones de pareja · Frankfurt". ✅ Aplicar la misma regla a las tarjetas futuras.
+3. **`sitemap.xml`:** se actualiza en la Fase 7.
+4. **Imágenes pesadas de las tarjetas:** se comprimen en la Fase 7 (ver Fase 7 y §5).
+
 ---
 
 ## 4. Fases
@@ -206,6 +212,7 @@ Commits `bf568ee` y `5db79da`.
   - se mantienen el nombre y la imagen OG;
   - en el JSON-LD, actualizar `description` y `serviceType`.
 - `sitemap.xml`: quitar `/resultados` y `/mi-trabajo`, añadir `/bond` y `/proyectos`, actualizar `lastmod`.
+- **Comprimir las imágenes de las tarjetas de proyecto** (`assets/images/mi-trabajo/ramsesImg.png` ≈ 3 MB y `vivamexicoImg.png` ≈ 7,7 MB), por ejemplo a WebP/JPG del tamaño en que se muestran.
 - Grep de restos de marketing, leads, ventas, captación y mini-audit fuera de los legales. Revisar los `alt` y `aria-label`.
 - Revisión responsive completa y criterios de terminado (§9 del brief).
 - Resumen final con todos los `#PENDIENTE-*`.
@@ -232,6 +239,7 @@ Commits `bf568ee` y `5db79da`.
 
 **Avisos técnicos:**
 - ~~Desbordamiento de 3 px de la tarjeta de vídeo de Viva México~~: corregido en la Fase 2.
+- **Imágenes pesadas (Fase 7):** las capturas de las tarjetas de `/proyectos` pesan ≈ 3 MB (Ramsés) y ≈ 7,7 MB (Viva México). Comprimirlas en la Fase 7.
 - **Los 14 problemas de lint previos** (9 errores y 5 advertencias, ya estaban antes del rediseño):
   - `process` no definido en `frontend/lib/*.js` (código de Node que se lintea como navegador);
   - `react-refresh/only-export-components` en `NotificationContext.jsx`;
