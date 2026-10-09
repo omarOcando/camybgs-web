@@ -222,7 +222,7 @@ Commits `f6ff283`, `e25fe04`, `13d157c` y `07f8dd5`.
 ### ⏳ Fase 7 — SEO, limpieza y revisión final
 > **En curso (9 oct 2026).** Hecho en código (sin push), pendiente del visto bueno de Omar:
 - **SEO:** `seo.home` en `es.json` (la Home usa `t()`); las 6 páginas tienen ya el título y la descripción de la tabla §7 del brief.
-- **`index.html`:** description, OG y Twitter con el título y la descripción de la Home ("CAMY · Diseño web que comunica"); imagen OG sin cambios. JSON-LD: `name` sin cambios (D3), `description` y `serviceType` nuevos (Diseño web, Desarrollo web, SEO básico, Mantenimiento web, Plataforma de gestión de clientes).
+- **`index.html`:** description, OG y Twitter con el título y la descripción de la Home ("CAMY · Diseño web que comunica", aprobado por Omar ✅); imagen OG sin cambios. JSON-LD: `name` sin cambios (D3), `description` y `serviceType` nuevos (Diseño web, Desarrollo web, SEO básico, Mantenimiento web, Plataforma de gestión de clientes).
 - **Metas duplicadas (ya pasaba antes del rediseño):** con React 19, react-helmet-async v3 no sustituye las metas de `index.html`, así que cada página tenía dos `description`, dos `canonical`, etc. Ahora las metas fijas llevan `data-seo-static` (para las previsualizaciones sin JavaScript) y `main.jsx` las quita al arrancar. Comprobado: una de cada por página.
 - **`sitemap.xml`:** fuera `/resultados` y `/mi-trabajo`; dentro `/bond` y `/proyectos`; `lastmod` 2026-10-09 (los legales mantienen 2026-06-10, no han cambiado).
 - **Imágenes de las tarjetas:** WebP de 1400 px de ancho (se muestran a ≈ 600 px) → `ramsesImg.webp` 57 KB (antes 3 MB) y `vivamexicoImg.webp` 79 KB (antes 7,7 MB). Borrados los PNG.
