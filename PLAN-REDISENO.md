@@ -266,6 +266,7 @@ Commit `892f0ba`.
   - `exhaustive-deps` (falta `threshold`) en los hooks `useVisible` y `useFadeIn` de varias páginas.
 
   No son de este rediseño. La regla es que no aparezca ninguno nuevo.
+- **`VITE_API_URL`:** ya no la usa el código (el formulario llama a `/api/contact`, relativa, desde la migración a funciones de Vercel). Se puede borrar de Vercel y del `.env` local en la Fase 7.
 - **Dependencias:** `npm install` avisa de 20 vulnerabilidades en las dependencias del proyecto. Quedan fuera de esta fase.
 - **Legibilidad sobre el aurora:** revisarla sección por sección después de la Fase 2, sin velo salvo que Omar lo pida. Incluye la tarjeta Multi (fondo Noche).
 - **Fuera de esta fase:** migración a Render (justo después, como tarea aparte), versión en inglés, test "¿Tu web dice lo que eres?" y reescritura de los legales. El texto de Datenschutz menciona Systeme.io "für Marketingzwecke".
