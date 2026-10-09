@@ -132,6 +132,14 @@
 1. **FAQ:** título visible "Preguntas frecuentes". ✅
 2. **Tabla de pago:** la primera columna no lleva título visible (solo un texto para lectores de pantalla). ✅
 
+### Preguntas de la Fase 6 (textos D10)
+1. **Loader:** se queda "Preparando tu experiencia...". ✅
+2. **Placeholders de Contacto:** "Julia Smith", "julia@tunegocio.com", "Coach, panadería, estudio de yoga…" y "Qué haces y qué quieres que tu web transmita". ✅
+3. **Pantalla de éxito:** "…si quieres ver cómo trabajo, echa un vistazo a mis proyectos." ✅
+4. **Mensaje de WhatsApp en Contacto:** "Hola Omar, me gustaría hablar contigo sobre una web para mi negocio." ✅
+5. **`/tarjeta`:** se queda en inglés, sin cambios. ✅
+6. **Base de datos de Preview:** una aparte en el mismo cluster (`MONGO_URI` de Preview con otro nombre de base de datos). El índice `email_1` de la colección real se borra al publicar y se comprueba después del merge (el código antiguo puede volver a crearlo).
+
 ---
 
 ## 4. Fases
@@ -200,8 +208,7 @@ Commit `892f0ba`.
 - Entradas animadas desactivadas con `prefers-reduced-motion`.
 
 ### ⏳ Fase 6 — Sobre mí + Contacto (formulario de punta a punta)
-> **En curso (9 oct 2026).** Hecho en código (sin push): Sobre mí y Contacto con textos en `es.json`, `<select>` obligatorio, `interes` en todo el backend, `lib/interests.js` (valores, texto del email y `tagId` de Systeme con marcador `null`), emails repetidos permitidos, `prefers-reduced-motion` en las dos páginas y propuesta de textos D10 (pendiente de aprobar). **Falta:** IDs de etiquetas, borrar `email_1`, variables de entorno de Preview y la prueba real (avisar a Omar antes de cualquier escritura en Mongo, Systeme o Resend). `/tarjeta` (`vercel.json`) sin tocar hasta que Omar decida.
-- **Sobre mí:** los cambios del Anexo (párrafo NUEVO sin la etiqueta, la frase "cada cliente al que ayudo a mostrarse tal como es" y la cita nueva). Los textos van a `es.json`.
+> **En curso (9 oct 2026).** Hecho en código (sin push): Sobre mí y Contacto con textos en `es.json`, `<select>` obligatorio, `interes` en todo el backend, `lib/interests.js` (valores, texto del email y `tagId` de Systeme con marcador `null`), emails repetidos permitidos, `prefers-reduced-motion` en las dos páginas y textos D10 aprobados (ver "Preguntas de la Fase 6"). **Falta:** IDs de etiquetas, borrar `email_1`, variables de entorno de Preview y la prueba real (avisar a Omar antes de cualquier escritura en Mongo, Systeme o Resend). - **Sobre mí:** los cambios del Anexo (párrafo NUEVO sin la etiqueta, la frase "cada cliente al que ayudo a mostrarse tal como es" y la cita nueva). Los textos van a `es.json`.
 - **Contacto:**
   - textos nuevos;
   - "Profesión o negocio" y "Cuéntame tu proyecto";

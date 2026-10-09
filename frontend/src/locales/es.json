@@ -1,7 +1,7 @@
 {
   "common": {
     "newTab": "(se abre en una pestaña nueva)",
-    "loader": "Tu web, reflejo de tu mensaje."
+    "loader": "Preparando tu experiencia..."
   },
   "nav": {
     "links": {
@@ -469,8 +469,8 @@
     "form": {
       "title": "Escríbeme aquí",
       "fields": {
-        "nombre":    { "label": "Nombre",               "placeholder": "Julián Manrique" },
-        "email":     { "label": "Email",                "placeholder": "julianm@gmail.com" },
+        "nombre":    { "label": "Nombre",               "placeholder": "Julia Smith" },
+        "email":     { "label": "Email",                "placeholder": "julia@tunegocio.com" },
         "profesion": { "label": "Profesión o negocio",  "placeholder": "Coach, panadería, estudio de yoga…" },
         "interes":   { "label": "¿Qué te interesa?",    "placeholder": "Selecciona una opción" },
         "mensaje":   { "label": "Cuéntame tu proyecto", "placeholder": "Qué haces y qué quieres que tu web transmita" }
@@ -500,7 +500,7 @@
       "title": "O escríbeme directo",
       "text": "Si prefieres algo más directo, escríbeme por WhatsApp. Sin filtros, sin secretarias, sin formularios.",
       "cta": "Abrir WhatsApp",
-      "message": "Hola Omar, vi tu web y me gustaría hablar contigo sobre la web de mi negocio."
+      "message": "Hola Omar, me gustaría hablar contigo sobre una web para mi negocio."
     },
     "steps": {
       "title": "¿Y después qué?",
