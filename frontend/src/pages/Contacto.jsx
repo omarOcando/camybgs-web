@@ -1,27 +1,22 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Seo from "../components/Seo";
 import { submitContact } from "../services/contactService";
+import { CONTACT } from "../config/site";
+import { INTEREST_VALUES } from "../../lib/interests.js";
 
 // ─── CONSTANTS ───────────────────────────────────────────────────────────────
 
-const WA_NUMBER  = "491778587715";
-const WA_MESSAGE = "Hola Omar, vi tu web y me gustaría saber cómo puedes ayudarme con mi negocio.";
-const WA_URL     = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MESSAGE)}`;
-
-const STEPS = [
-  { num: "01", desc: "Recibo tu mensaje y lo leo con atención. No hay robots, no hay plantillas." },
-  { num: "02", desc: "Te respondo en menos de 24 horas con mis primeras impresiones." },
-  { num: "03", desc: "Si encajamos, agendamos una llamada corta sin costo ni compromiso." },
-  { num: "04", desc: "En esa llamada te digo exactamente qué haría por tu negocio y cómo." },
+// Campos de texto del formulario (el desplegable "interes" va aparte)
+const TEXT_FIELDS = [
+  { name: "nombre",    type: "text"  },
+  { name: "email",     type: "email" },
+  { name: "profesion", type: "text"  },
 ];
 
-const DATA_ITEMS = [
-  { label: "Email",      value: "info@camybgs.com",                             href: "mailto:info@camybgs.com" },
-  { label: "WhatsApp",   value: "+49 177 858 7715",                            href: WA_URL },
-  { label: "Ubicación",  value: "Colonia, Alemania — Toda Europa y Latinoamérica", href: null },
-];
+const EMPTY_FORM = { nombre: "", email: "", profesion: "", interes: "", mensaje: "" };
 
 // ─── HOOK ────────────────────────────────────────────────────────────────────
 
@@ -44,7 +39,8 @@ function useVisible(threshold = 0.15) {
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
 function Contacto() {
-  const [form, setForm]     = useState({ nombre: "", email: "", profesion: "", mensaje: "" });
+  const { t } = useTranslation();
+  const [form, setForm]     = useState(EMPTY_FORM);
   const [sending, setSending] = useState(false);
   const [sent, setSent]     = useState(false);
   const [error, setError]   = useState("");
@@ -55,6 +51,14 @@ function Contacto() {
   const { ref: stepsRef,      visible: stepsVisible      } = useVisible(0.1);
   const { ref: dataRef,       visible: dataVisible       } = useVisible(0.15);
 
+  const waUrl = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(t("contacto.whatsapp.message"))}`;
+  const steps = t("contacto.steps.items", { returnObjects: true });
+  const dataItems = [
+    { key: "email",    value: CONTACT.email,             href: `mailto:${CONTACT.email}` },
+    { key: "whatsapp", value: "+49 177 858 7715",        href: waUrl },
+    { key: "location", value: t("contacto.data.locationValue"), href: null },
+  ];
+
   function handleChange(e) {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
     setError("");
@@ -62,8 +66,8 @@ function Contacto() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (!form.nombre.trim() || !form.email.trim() || !form.profesion.trim() || !form.mensaje.trim()) {
-      setError("Por favor rellena todos los campos.");
+    if (Object.values(form).some(v => !v.trim())) {
+      setError(t("contacto.form.errorRequired"));
       return;
     }
     setSending(true);
@@ -71,7 +75,7 @@ function Contacto() {
       await submitContact(form);
       setSent(true);
     } catch {
-      setError("Algo falló. Inténtalo de nuevo o escríbeme por WhatsApp.");
+      setError(t("contacto.form.errorSend"));
     } finally {
       setSending(false);
     }
@@ -80,16 +84,16 @@ function Contacto() {
   return (
     <div className="contacto">
       <Seo
-        title="Contacto | Hablemos de tu proyecto — CAMY"
-        description="Cuéntame sobre tu negocio y te respondo en menos de 24 horas. Sin robots, sin plantillas. Agenda una llamada corta sin costo ni compromiso."
+        title={t("seo.contacto.title")}
+        description={t("seo.contacto.description")}
         path="/contacto"
       />
 
       {/* 01 — HERO */}
       <section className="ctc-hero">
         <div className="ctc-hero__inner">
-          <h1 className="ctc-hero__title">Contáctame.</h1>
-          <p className="ctc-hero__sub">Sin formularios interminables. Sin esperas. Solo hablemos.</p>
+          <h1 className="ctc-hero__title">{t("contacto.hero.title")}</h1>
+          <p className="ctc-hero__sub">{t("contacto.hero.subtitle")}</p>
         </div>
       </section>
 
@@ -100,82 +104,73 @@ function Contacto() {
             ref={formsTitleRef}
             className={`ctc-forms__title${formsTitleVisible ? " ctc-forms__title--visible" : ""}`}
           >
-            Si tienes un negocio y quieres más clientes,<br />ya tenemos algo de qué hablar.
+            {t("contacto.intro.title")}
           </h2>
-          <p className="ctc-forms__sub">
-            Escríbeme por el medio que prefieras. Respondo en menos de 24 horas.
-          </p>
+          <p className="ctc-forms__sub">{t("contacto.intro.subtitle")}</p>
 
           <div ref={colsRef} className={`ctc-cols${colsVisible ? " ctc-cols--visible" : ""}`}>
 
             {/* ── Columna izquierda — Formulario ── */}
             <div className="ctc-col">
-              <h3 className="ctc-col__title">Escríbeme aquí</h3>
+              <h3 className="ctc-col__title">{t("contacto.form.title")}</h3>
 
               {sent ? (
                 <div className="ctc-success">
-                  <p className="ctc-success__headline">¡Recibido! Ya estoy leyendo tu mensaje.</p>
-                  <p className="ctc-success__text">
-                    Gracias por escribirme. En menos de 24 horas tienes mi respuesta.
-                  </p>
-                  <p className="ctc-success__text">
-                    Mientras tanto, si quieres conocer mejor cómo trabajo, echa un vistazo a mis proyectos.
-                  </p>
+                  <p className="ctc-success__headline">{t("contacto.success.headline")}</p>
+                  <p className="ctc-success__text">{t("contacto.success.text1")}</p>
+                  <p className="ctc-success__text">{t("contacto.success.text2")}</p>
                   <Button to="/proyectos" variant="primary" size="md">
-                    Ver proyectos →
+                    {t("contacto.success.cta")} <span className="btn-arrow" aria-hidden="true">→</span>
                   </Button>
                 </div>
               ) : (
                 <form className="ctc-form" onSubmit={handleSubmit} noValidate>
+                  {TEXT_FIELDS.map(f => (
+                    <div key={f.name} className="ctc-form__field">
+                      <label className="ctc-form__label" htmlFor={`ctc-${f.name}`}>
+                        {t(`contacto.form.fields.${f.name}.label`)}
+                      </label>
+                      <input
+                        className="ctc-form__input"
+                        id={`ctc-${f.name}`}
+                        name={f.name}
+                        type={f.type}
+                        placeholder={t(`contacto.form.fields.${f.name}.placeholder`)}
+                        value={form[f.name]}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                  ))}
+
                   <div className="ctc-form__field">
-                    <label className="ctc-form__label" htmlFor="ctc-nombre">Nombre</label>
-                    <input
-                      className="ctc-form__input"
-                      id="ctc-nombre"
-                      name="nombre"
-                      type="text"
-                      placeholder="Julián Manrique"
-                      value={form.nombre}
+                    <label className="ctc-form__label" htmlFor="ctc-interes">
+                      {t("contacto.form.fields.interes.label")}
+                    </label>
+                    <select
+                      className="ctc-form__input ctc-form__input--select"
+                      id="ctc-interes"
+                      name="interes"
+                      value={form.interes}
                       onChange={handleChange}
                       required
-                    />
+                    >
+                      <option value="" disabled>{t("contacto.form.fields.interes.placeholder")}</option>
+                      {INTEREST_VALUES.map(v => (
+                        <option key={v} value={v}>{t(`contacto.form.interestOptions.${v}`)}</option>
+                      ))}
+                    </select>
                   </div>
 
                   <div className="ctc-form__field">
-                    <label className="ctc-form__label" htmlFor="ctc-email">Email</label>
-                    <input
-                      className="ctc-form__input"
-                      id="ctc-email"
-                      name="email"
-                      type="email"
-                      placeholder="julianm@gmail.com"
-                      value={form.email}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-
-                  <div className="ctc-form__field">
-                    <label className="ctc-form__label" htmlFor="ctc-profesion">Profesión</label>
-                    <input
-                      className="ctc-form__input"
-                      id="ctc-profesion"
-                      name="profesion"
-                      type="text"
-                      placeholder="Astronauta"
-                      value={form.profesion}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-
-                  <div className="ctc-form__field">
-                    <label className="ctc-form__label" htmlFor="ctc-mensaje">¿Qué necesitas?</label>
+                    <label className="ctc-form__label" htmlFor="ctc-mensaje">
+                      {t("contacto.form.fields.mensaje.label")}
+                    </label>
                     <textarea
                       className="ctc-form__input ctc-form__input--textarea"
                       id="ctc-mensaje"
                       name="mensaje"
-                      placeholder="Un sistema completo hecho a mi medida"
+                      placeholder={t("contacto.form.fields.mensaje.placeholder")}
                       rows={4}
                       value={form.mensaje}
                       onChange={handleChange}
@@ -183,18 +178,19 @@ function Contacto() {
                     />
                   </div>
 
-                  {error && <p className="ctc-form__error">{error}</p>}
+                  {error && <p className="ctc-form__error" role="alert">{error}</p>}
 
                   <p className="ctc-form__privacy">
-                    Al enviar este formulario, aceptas que tratemos tus datos para responder tu
-                    consulta, según nuestra{" "}
+                    {t("contacto.form.privacy")}{" "}
                     <Link to="/datenschutz" className="ctc-form__privacy-link">
-                      Política de Privacidad
+                      {t("contacto.form.privacyLink")}
                     </Link>.
                   </p>
 
                   <Button type="submit" variant="primary" size="lg" disabled={sending}>
-                    {sending ? "Enviando…" : <>Enviar mensaje <span className="btn-arrow">→</span></>}
+                    {sending
+                      ? t("contacto.form.sending")
+                      : <>{t("contacto.form.submit")} <span className="btn-arrow" aria-hidden="true">→</span></>}
                   </Button>
                 </form>
               )}
@@ -202,17 +198,16 @@ function Contacto() {
 
             {/* ── Columna derecha — WhatsApp ── */}
             <div className="ctc-col ctc-col--wa">
-              <h3 className="ctc-col__title">O escríbeme directo</h3>
+              <h3 className="ctc-col__title">{t("contacto.whatsapp.title")}</h3>
               <div className="ctc-wa-card">
                 <svg className="ctc-wa-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <circle cx="24" cy="24" r="24" fill="#25D366"/>
                   <path fill="white" d="M24 10.4C16.5 10.4 10.4 16.5 10.4 24c0 2.4.6 4.6 1.7 6.6L10 38l7.6-2c1.8 1 3.9 1.6 6.1 1.6 7.5 0 13.6-6.1 13.6-13.6S31.5 10.4 24 10.4zm7.8 19.3c-.3.9-1.8 1.7-2.5 1.8-.6.1-1.4.1-2.3-.1-.5-.2-1.2-.4-2-.8-3.5-1.5-5.8-5-6-5.3-.2-.3-1.4-1.9-1.4-3.6 0-1.7.9-2.5 1.2-2.9.3-.3.7-.4.9-.4h.7c.2 0 .5 0 .7.5.3.7.9 2.2 1 2.4.1.2.2.4 0 .7-.1.2-.2.4-.4.6-.2.2-.4.5-.5.6-.2.2-.4.4-.2.8.2.4.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.7.4.2.6.1.8-.1.3-.3.8-.9 1.1-1.2.3-.3.5-.2.9-.1.4.1 2.4 1.1 2.8 1.3.4.2.7.3.8.5.1.4-.1 1.6-.4 2.2z"/>
                 </svg>
-                <p className="ctc-wa-text">
-                  Si prefieres algo más directo, escríbeme por WhatsApp. Sin filtros, sin secretarias, sin formularios.
-                </p>
-                <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="ctc-wa-btn">
-                  Abrir WhatsApp →
+                <p className="ctc-wa-text">{t("contacto.whatsapp.text")}</p>
+                <a href={waUrl} target="_blank" rel="noopener noreferrer" className="ctc-wa-btn">
+                  {t("contacto.whatsapp.cta")} <span aria-hidden="true">→</span>
+                  <span className="visually-hidden"> {t("common.newTab")}</span>
                 </a>
               </div>
             </div>
@@ -228,16 +223,16 @@ function Contacto() {
             ref={stepsTitleRef}
             className={`ctc-steps__title${stepsTitleVisible ? " ctc-steps__title--visible" : ""}`}
           >
-            ¿Y después qué?
+            {t("contacto.steps.title")}
           </h2>
-          <div ref={stepsRef} className={`ctc-steps__grid${stepsVisible ? " ctc-steps__grid--visible" : ""}`}>
-            {STEPS.map(s => (
-              <div key={s.num} className="ctc-step">
-                <span className="ctc-step__num">{s.num}</span>
-                <p className="ctc-step__desc">{s.desc}</p>
-              </div>
+          <ol ref={stepsRef} className={`ctc-steps__grid${stepsVisible ? " ctc-steps__grid--visible" : ""}`}>
+            {steps.map((desc, i) => (
+              <li key={desc} className="ctc-step">
+                <span className="ctc-step__num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                <p className="ctc-step__desc">{desc}</p>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
@@ -248,9 +243,9 @@ function Contacto() {
           className={`ctc-section-inner ctc-data__inner${dataVisible ? " ctc-data__inner--visible" : ""}`}
         >
           <div className="ctc-data__grid">
-            {DATA_ITEMS.map(item => (
-              <div key={item.label} className="ctc-data-item">
-                <span className="ctc-data-item__label">{item.label}</span>
+            {dataItems.map(item => (
+              <div key={item.key} className="ctc-data-item">
+                <span className="ctc-data-item__label">{t(`contacto.data.${item.key}`)}</span>
                 {item.href
                   ? <a
                       href={item.href}

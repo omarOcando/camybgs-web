@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import logoSrc from "../assets/images/LogoCamyDarkBG.png";
 
 function Loader({ onFinish }) {
+  const { t } = useTranslation();
   const [visible,  setVisible]  = useState(false);
   const [fadeOut,  setFadeOut]  = useState(false);
   const [progress, setProgress] = useState(0);
@@ -37,7 +39,7 @@ function Loader({ onFinish }) {
         <img src={logoSrc} alt="CAMY" className="loader__logo" />
       </div>
 
-      <p className="loader__tagline serif">Preparando tu experiencia...</p>
+      <p className="loader__tagline serif">{t("common.loader")}</p>
 
       <div className="loader__bottom">
         <span className="loader__percent">{progress}%</span>

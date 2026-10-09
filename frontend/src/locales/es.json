@@ -1,6 +1,7 @@
 {
   "common": {
-    "newTab": "(se abre en una pestaña nueva)"
+    "newTab": "(se abre en una pestaña nueva)",
+    "loader": "Tu web, reflejo de tu mensaje."
   },
   "nav": {
     "links": {
@@ -35,6 +36,14 @@
     "proyectos": {
       "title": "Proyectos · CAMY",
       "description": "Proyectos reales de diseño web y plataformas a medida."
+    },
+    "sobreMi": {
+      "title": "Sobre mí · CAMY",
+      "description": "La historia detrás de CAMY y de Omar Ocando, diseñador web en Colonia, Alemania."
+    },
+    "contacto": {
+      "title": "Contacto · CAMY",
+      "description": "Cuéntame tu proyecto. Respondo en menos de 24 horas, en español o en inglés."
     }
   },
   "home": {
@@ -419,8 +428,96 @@
       "cta": "Hablemos"
     }
   },
-  "sobreMi": {},
-  "contacto": {},
+  "sobreMi": {
+    "hero": {
+      "title": "Detrás de CAMY hay una historia ruda y hermosa.",
+      "subtitle": "Te la cuento…"
+    },
+    "photoAlt": "Omar Ocando",
+    "story": [
+      { "text": "Nunca quise tener hijos." },
+      { "text": "Durante años preferí la libertad: viajar, crear, moverme por el mundo sin anclas. Viví en 3 continentes, migré 5 veces, sobreviví 2 secuestros y 2 bancarrotas. He aprendido más de lo que cualquier universidad podría haberme enseñado." },
+      { "text": "Entonces, a mis 49 años, algo cambió…", "variant": "strong" },
+      { "text": "Por primera vez, quise ser padre... Y llegó Camila." },
+      { "text": "Llegó en las mejores condiciones para ella y en las peores para mí…" },
+      { "text": "Alemania: un país extraordinario para traer y criar hijos, pero difícil para un latino sin idioma, sin red, con un acento que delata y una cultura que no siempre abre las puertas y que contrasta en formas profundas." },
+      { "text": "Ahí aprendí y experimenté el tener algo valioso que compartir y expresar, y que muy pocos lo reciban... El juicio sobre \"de dónde vienes\" o \"cómo suenas\", y no sobre lo que realmente hay... Por eso sé lo importante que es que el mensaje llegue lo más cercano posible a su origen y cómo se siente..." },
+      { "text": "En medio de todo este tumulto y con la incredulidad de los más cercanos como fondo, nació CAMY." },
+      { "text": "Una decisión desesperada, atrevida y un poco desequilibrada; como casi todo lo que he hecho en la vida que ha valido la pena…", "variant": "strong" },
+      { "text": "CAMY lleva el nombre de mi hija. Y cada cliente al que ayudo a mostrarse tal como es, es un paso más hacia todo lo que quiero darle." },
+      { "text": "No trabajo por un sueldo. Trabajo por ella.", "variant": "highlight" }
+    ],
+    "quote": {
+      "line1": "“La razón básica por la que soy tan directo, honesto y enfocado en transmitir el mensaje bien, es:",
+      "line2": "No tengo tiempo que perder. Y tú tampoco.”"
+    },
+    "closing": {
+      "title": "¿Quieres trabajar con alguien que de verdad entiende lo que es empezar desde cero?",
+      "text": "Hablemos. Sin compromisos. Sin formalismos.",
+      "cta": "Hablemos ahora"
+    }
+  },
+  "contacto": {
+    "hero": {
+      "title": "Contáctame.",
+      "subtitle": "Sin formularios interminables. Sin esperas. Solo hablemos."
+    },
+    "intro": {
+      "title": "Si tienes algo que decir y quieres que tu web lo transmita, ya tenemos de qué hablar.",
+      "subtitle": "Escríbeme por el medio que prefieras. Respondo en menos de 24 horas."
+    },
+    "form": {
+      "title": "Escríbeme aquí",
+      "fields": {
+        "nombre":    { "label": "Nombre",               "placeholder": "Julián Manrique" },
+        "email":     { "label": "Email",                "placeholder": "julianm@gmail.com" },
+        "profesion": { "label": "Profesión o negocio",  "placeholder": "Coach, panadería, estudio de yoga…" },
+        "interes":   { "label": "¿Qué te interesa?",    "placeholder": "Selecciona una opción" },
+        "mensaje":   { "label": "Cuéntame tu proyecto", "placeholder": "Qué haces y qué quieres que tu web transmita" }
+      },
+      "interestOptions": {
+        "one": "Web One",
+        "multi": "Web Multi",
+        "custom": "Web Custom",
+        "bond": "Plataforma Bond",
+        "mantenimiento": "Mantenimiento (Basic o Plus)",
+        "nose": "Aún no lo sé"
+      },
+      "privacy": "Al enviar este formulario, aceptas que tratemos tus datos para responder tu consulta, según nuestra",
+      "privacyLink": "Política de Privacidad",
+      "submit": "Enviar mensaje",
+      "sending": "Enviando…",
+      "errorRequired": "Por favor rellena todos los campos.",
+      "errorSend": "Algo falló. Inténtalo de nuevo o escríbeme por WhatsApp."
+    },
+    "success": {
+      "headline": "¡Recibido! Ya estoy leyendo tu mensaje.",
+      "text1": "Gracias por escribirme. En menos de 24 horas tienes mi respuesta.",
+      "text2": "Mientras tanto, si quieres ver cómo trabajo, echa un vistazo a mis proyectos.",
+      "cta": "Ver proyectos"
+    },
+    "whatsapp": {
+      "title": "O escríbeme directo",
+      "text": "Si prefieres algo más directo, escríbeme por WhatsApp. Sin filtros, sin secretarias, sin formularios.",
+      "cta": "Abrir WhatsApp",
+      "message": "Hola Omar, vi tu web y me gustaría hablar contigo sobre la web de mi negocio."
+    },
+    "steps": {
+      "title": "¿Y después qué?",
+      "items": [
+        "Leo tu mensaje con atención. Sin robots ni plantillas.",
+        "Te respondo en menos de 24 horas y, si encajamos, agendamos una llamada corta, sin costo ni compromiso.",
+        "En la llamada me cuentas tu negocio y lo que quieres transmitir.",
+        "Te envío una propuesta con el precio final, el plazo y una fecha de inicio reservada para ti."
+      ]
+    },
+    "data": {
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "location": "Ubicación",
+      "locationValue": "Colonia, Alemania. Trabajo con clientes de toda Europa y Latinoamérica, en español o en inglés."
+    }
+  },
   "leadMagnet": {
     "popup": {
       "close": "Cerrar",

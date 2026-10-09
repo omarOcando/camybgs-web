@@ -25,39 +25,36 @@ export const createSystemeContact = async (name, email) => {
   }
 };
 
-export const addTagToSystemeContactByEmail = async (email, tagId) => {
+// Busca el contacto una vez y le añade cada etiqueta por separado: si una
+// falla (por ejemplo, un ID mal puesto), las demás se añaden igual.
+export const addTagsToSystemeContactByEmail = async (email, tagIds) => {
+  const headers = {
+    "X-API-Key": process.env.SYSTEME_API_KEY,
+    "Content-Type": "application/json",
+  };
+
+  let contact;
   try {
     const searchResponse = await axios.get(
       `${SYSTEME_API}?email=${encodeURIComponent(email)}`,
-      {
-        headers: {
-          "X-API-Key": process.env.SYSTEME_API_KEY,
-          "Content-Type": "application/json",
-        },
-      }
+      { headers }
     );
-
-    const contact = searchResponse.data?.items?.[0];
-
-    if (!contact) {
-      console.error(`Systeme contact not found for email: ${email}`);
-      return;
-    }
-
-    await axios.post(
-      `https://api.systeme.io/api/contacts/${contact.id}/tags`,
-      {
-        tagId,
-      },
-      {
-        headers: {
-          "X-API-Key": process.env.SYSTEME_API_KEY,
-          "Content-Type": "application/json",
-        },
-      }
-    );
-
+    contact = searchResponse.data?.items?.[0];
   } catch (error) {
-    console.error("Error adding tag to Systeme contact:", error.message);
+    console.error("Error searching Systeme contact:", error.message);
+    return;
+  }
+
+  if (!contact) {
+    console.error(`Systeme contact not found for email: ${email}`);
+    return;
+  }
+
+  for (const tagId of tagIds) {
+    try {
+      await axios.post(`${SYSTEME_API}/${contact.id}/tags`, { tagId }, { headers });
+    } catch (error) {
+      console.error(`Error adding tag ${tagId} to Systeme contact:`, error.response?.data || error.message);
+    }
   }
 };

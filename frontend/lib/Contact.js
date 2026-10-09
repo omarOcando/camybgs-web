@@ -1,10 +1,15 @@
 import mongoose from "mongoose";
+import { INTEREST_VALUES } from "./interests.js";
 
+// El email no es único: si alguien escribe otra vez, se guarda también.
+// (El índice único antiguo "email_1" de leads-web hay que borrarlo en Atlas;
+// Mongoose no lo borra solo.)
 const contactSchema = new mongoose.Schema(
   {
     nombre:    { type: String, required: true },
-    email:     { type: String, required: true, unique: true },
+    email:     { type: String, required: true },
     profesion: { type: String, required: true },
+    interes:   { type: String, required: true, enum: INTEREST_VALUES },
     mensaje:   { type: String, required: true },
   },
   { timestamps: true }

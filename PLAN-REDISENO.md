@@ -2,12 +2,12 @@
 
 > Documento de trabajo para continuar el rediseño en una conversación nueva.
 > Complementa a `BRIEF-REDISENO.md`, que tiene el alcance y los textos definitivos (Anexo).
-> Última actualización: 8 de octubre de 2026, tras la Fase 4 (commits `bc39322` y `0377e5d`).
+> Última actualización: 9 de octubre de 2026, tras el visto bueno de la Fase 5 (commit `892f0ba`).
 
 ## Cómo retomar
 1. Leer `BRIEF-REDISENO.md` completo (incluido el Anexo) y este documento.
 2. Confirmar la rama: `git branch --show-current` → `rediseno-2026`.
-3. Empezar por la **siguiente fase pendiente** (ahora la **Fase 5**), solo cuando Omar haya dado el visto bueno a la anterior.
+3. Empezar por la **siguiente fase pendiente** (ahora la **Fase 6**), solo cuando Omar haya dado el visto bueno a la anterior.
 
 ---
 
@@ -128,6 +128,10 @@
 2. **Redes sociales:** sin redes en el footer. Se quitó el bloque comentado (eran las redes de Ramsés y el LinkedIn de Omar). ✅
 3. **Precio de Bond:** en dos líneas, con las etiquetas destacadas: "**Montaje:** 999 € (o en cuotas desde 96 €/mes)" y "**Suscripción:** 99 €/mes". ✅ Actualizado en el Anexo. **Mismo formato en el bloque de Bond de Servicios** (Fase 5).
 
+### Preguntas de la Fase 5
+1. **FAQ:** título visible "Preguntas frecuentes". ✅
+2. **Tabla de pago:** la primera columna no lleva título visible (solo un texto para lectores de pantalla). ✅
+
 ---
 
 ## 4. Fases
@@ -187,17 +191,16 @@ Commits `bc39322` y `0377e5d`.
 - `NAV_LINKS` en `config/site.js` (`{ to, key, end }`), compartido por `Header.jsx` y `Footer.jsx`; textos en `nav.links.<key>`. También pasaron a `es.json` los `aria-label` de la cabecera y el `alt` del logo. El diseño del menú no cambia.
 - Footer: logo solo "CAMY" + slogan + menú + Impressum · Datenschutz + email (`CONTACT.email`) + "© CAMY | Business Growth Solutions {{year}}" (`footer.copyright`).
 
-### ⏳ Fase 5 — Servicios (página nueva completa)
-- Tarjetas One/Multi/Custom: para quién, qué incluye, duración y valor.
-- "Incluido en todas" + extra de idiomas.
-- Tabla de pago al contado o en cuotas; en móvil, tarjetas.
-- Planes Basic y Plus.
-- Bloque Bond.
-- FAQ en acordeón accesible.
-- "Así empezamos".
-- Reescribir `_servicios.scss`.
+### ✅ Fase 5 — Servicios (hecha, visto bueno de Omar)
+Commit `892f0ba`.
+- `pages/Servicios.jsx` + `styles/pages/_servicios.scss` reescrito (prefijo `srv-`). Textos en `es.json` → `servicios` y `seo.servicios`.
+- Tarjetas One/Multi/Custom (para quién, qué incluye, duración y valor), "Incluido en todas" + extra de idiomas.
+- Tabla de pago al contado o en cuotas: tabla accesible que en móvil pasa a tarjetas.
+- Planes Basic y Plus, bloque Bond (precio en dos líneas, botón a `/bond`), FAQ en acordeón accesible y "Así empezamos" con botón a `/contacto`.
+- Entradas animadas desactivadas con `prefers-reduced-motion`.
 
 ### ⏳ Fase 6 — Sobre mí + Contacto (formulario de punta a punta)
+> **En curso (9 oct 2026).** Hecho en código (sin push): Sobre mí y Contacto con textos en `es.json`, `<select>` obligatorio, `interes` en todo el backend, `lib/interests.js` (valores, texto del email y `tagId` de Systeme con marcador `null`), emails repetidos permitidos, `prefers-reduced-motion` en las dos páginas y propuesta de textos D10 (pendiente de aprobar). **Falta:** IDs de etiquetas, borrar `email_1`, variables de entorno de Preview y la prueba real (avisar a Omar antes de cualquier escritura en Mongo, Systeme o Resend). `/tarjeta` (`vercel.json`) sin tocar hasta que Omar decida.
 - **Sobre mí:** los cambios del Anexo (párrafo NUEVO sin la etiqueta, la frase "cada cliente al que ayudo a mostrarse tal como es" y la cita nueva). Los textos van a `es.json`.
 - **Contacto:**
   - textos nuevos;
@@ -208,7 +211,7 @@ Commits `bc39322` y `0377e5d`.
   - `api/contact.js`, con validación contra una lista de valores permitidos;
   - `lib/Contact.js`;
   - `lib/email.js`: fila "Interés" y cabecera "Nuevo mensaje" en lugar de "Nuevo lead".
-- **Systeme:** se mantiene la etiqueta `2049193` y se añade la de `INTEREST_TAGS[interes]`, con IDs con marcador. Si falta un ID, se omite sin romper el envío.
+- **Systeme:** se mantiene la etiqueta `2049193` (`SYSTEME_BASE_TAG_ID`) y se añade la de `INTERESTS[interes].tagId`, con IDs con marcador. Si falta un ID, se omite sin romper el envío.
 - **Emails repetidos:** quitar `unique: true` del schema y el `catch` del error 11000. **Además hay que borrar el índice único `email_1` de la colección `leads-web` en Atlas**: Mongoose no lo borra solo. Lo hace Omar, o Claude con su permiso.
 - Enseñar a Omar los textos menores de la D10.
 - **Prueba:** envío real desde la vista previa de Vercel (`vite dev` no ejecuta `/api`). Comprobar el email, Mongo (incluido un segundo envío con el mismo email) y las etiquetas de Systeme.
@@ -237,7 +240,7 @@ Commits `bc39322` y `0377e5d`.
 | `#PENDIENTE-signal` | `config/site.js` → `CONTACT.signal` | Enlace de Signal |
 | `#PENDIENTE-bond-venta` | `config/site.js` → `BOND_SALES_URL` | Página de venta de Bond en Systeme |
 | `#PENDIENTE-bond-demo` | `config/site.js` → `BOND_DEMO_URL` | URL para reservar la demo |
-| (Fase 6) | `INTEREST_TAGS` | IDs de las 6 etiquetas de interés en Systeme |
+| `#PENDIENTE-systeme-tag-*` | `lib/interests.js` → `INTERESTS.<valor>.tagId` | IDs de las 6 etiquetas de interés en Systeme (`null` = se omite) |
 
 **Otras cosas que dependen de Omar:**
 - Confirmar si los vídeos de testimonios actuales se mantienen o hay nuevos.

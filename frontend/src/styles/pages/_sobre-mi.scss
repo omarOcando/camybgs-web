@@ -136,6 +136,7 @@
   .sob-story__p:nth-child(8)  { animation: sob-fade-up 2.2s cubic-bezier(0.22, 1, 0.36, 1) 2.1s forwards; }
   .sob-story__p:nth-child(9)  { animation: sob-fade-up 2.2s cubic-bezier(0.22, 1, 0.36, 1) 2.4s forwards; }
   .sob-story__p:nth-child(10) { animation: sob-fade-up 2.2s cubic-bezier(0.22, 1, 0.36, 1) 2.7s forwards; }
+  .sob-story__p:nth-child(11) { animation: sob-fade-up 2.2s cubic-bezier(0.22, 1, 0.36, 1) 3s   forwards; }
 }
 
 // ─── 03 CITA ─────────────────────────────────────────────────────────────────
@@ -281,5 +282,21 @@
 
   .sob-story__text-col {
     padding: 45px 35px;
+  }
+}
+
+// ─── REDUCED MOTION ──────────────────────────────────────────────────────────
+@media (prefers-reduced-motion: reduce) {
+
+  .sob-hero__label,
+  .sob-hero__sub,
+  .sob-hero__title,
+  .sob-story__p,
+  .sob-quote__inner,
+  .sob-cta__inner,
+  .sob-cta__title {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
   }
 }

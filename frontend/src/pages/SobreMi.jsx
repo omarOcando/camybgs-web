@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import Button from "../components/Button";
 import Seo from "../components/Seo";
 import OmarFoto from "../assets/images/sobre-mi/OmarFotoCompleta.jpg";
@@ -20,6 +21,9 @@ function useVisible(threshold = 0.15) {
 }
 
 function SobreMi() {
+  const { t } = useTranslation();
+  const story = t("sobreMi.story", { returnObjects: true });
+
   const { ref: storyRef,    visible: storyVisible    } = useVisible(0.08);
   const { ref: quoteRef,    visible: quoteVisible    } = useVisible(0.3);
   const { ref: ctaInnerRef, visible: ctaInnerVisible } = useVisible(0.3);
@@ -28,18 +32,16 @@ function SobreMi() {
   return (
     <div className="sobre-mi">
       <Seo
-        title="Sobre mí | Omar Ocando — CAMY Business Growth Solutions"
-        description="Conoce la historia detrás de CAMY: quién soy, por qué hago esto y cómo puedo ayudarte a conseguir más clientes con marketing digital y desarrollo web."
+        title={t("seo.sobreMi.title")}
+        description={t("seo.sobreMi.description")}
         path="/sobre-mi"
       />
 
       {/* 01 — HERO */}
       <section className="sob-hero">
         <div className="sob-hero__inner">
-          <h1 className="sob-hero__title">
-            Detrás de CAMY hay una historia ruda y hermosa.
-          </h1>
-          <p className="sob-hero__sub">Te la cuento…</p>
+          <h1 className="sob-hero__title">{t("sobreMi.hero.title")}</h1>
+          <p className="sob-hero__sub">{t("sobreMi.hero.subtitle")}</p>
         </div>
       </section>
 
@@ -47,50 +49,21 @@ function SobreMi() {
       <section className="sob-story">
         <div className="sob-story__layout">
           <div className="sob-story__photo">
-            <img src={OmarFoto} alt="Omar Ocando" />
+            <img src={OmarFoto} alt={t("sobreMi.photoAlt")} />
           </div>
           <div className="sob-story__text-col">
             <div
               ref={storyRef}
               className={`sob-story__body${storyVisible ? " sob-story__body--visible" : ""}`}
             >
-              <p className="sob-story__p">
-                Nunca quise tener hijos.
-              </p>
-              <p className="sob-story__p">
-                Durante años preferí la libertad: viajar, crear, moverme por el mundo sin anclas.
-                Viví en 3 continentes, migré 5 veces, sobreviví 2 secuestros y 2 bancarrotas.
-                He aprendido más de lo que cualquier universidad podría haberme enseñado.
-              </p>
-              <p className="sob-story__p sob-story__p--strong">
-                Entonces, a mis 49 años, algo cambió…
-              </p>
-              <p className="sob-story__p">
-                Por primera vez, quise ser padre... Y llegó Camila.
-              </p>
-              <p className="sob-story__p">
-                Llegó en las mejores condiciones para ella y en las peores para mí…
-              </p>
-              <p className="sob-story__p">
-                Alemania: un país extraordinario para traer y criar hijos, pero difícil para un
-                latino sin idioma, sin red, con un acento que delata y una cultura que no siempre
-                abre las puertas y que contrasta en formas profundas.
-              </p>
-              <p className="sob-story__p">
-                En medio de todo este tumulto y con la incredulidad de los más cercanos como
-                fondo, nació CAMY.
-              </p>
-              <p className="sob-story__p sob-story__p--strong">
-                Una decisión desesperada, atrevida y un poco desequilibrada; como casi todo lo
-                que he hecho en la vida que ha valido la pena…
-              </p>
-              <p className="sob-story__p">
-                CAMY lleva el nombre de mi hija. Y cada cliente que ayudo a crecer, es un paso
-                más hacia todo lo que quiero darle.
-              </p>
-              <p className="sob-story__p sob-story__p--highlight">
-                No trabajo por un sueldo. Trabajo por ella.
-              </p>
+              {story.map((p) => (
+                <p
+                  key={p.text}
+                  className={`sob-story__p${p.variant ? ` sob-story__p--${p.variant}` : ""}`}
+                >
+                  {p.text}
+                </p>
+              ))}
             </div>
           </div>
         </div>
@@ -103,8 +76,7 @@ function SobreMi() {
           className={`sob-section-inner sob-quote__inner${quoteVisible ? " sob-quote__inner--visible" : ""}`}
         >
           <blockquote className="sob-quote__text">
-            "Hay una razón básica por la que soy tan directo, tan honesto y tan
-            obsesionado con los resultados:<br/>No tengo tiempo que perder. Y tú tampoco."
+            {t("sobreMi.quote.line1")}<br />{t("sobreMi.quote.line2")}
           </blockquote>
         </div>
       </section>
@@ -119,13 +91,11 @@ function SobreMi() {
             ref={ctaTitleRef}
             className={`sob-cta__title${ctaTitleVisible ? " sob-cta__title--visible" : ""}`}
           >
-            ¿Quieres trabajar con alguien que de verdad entiende lo que es empezar desde cero?
+            {t("sobreMi.closing.title")}
           </h2>
-          <p className="sob-cta__sub">
-            Hablemos. Sin compromisos. Sin formalismos.
-          </p>
+          <p className="sob-cta__sub">{t("sobreMi.closing.text")}</p>
           <Button to="/contacto" variant="primary" size="xl">
-            Hablemos ahora <span className="btn-arrow">→</span>
+            {t("sobreMi.closing.cta")} <span className="btn-arrow" aria-hidden="true">→</span>
           </Button>
         </div>
       </section>

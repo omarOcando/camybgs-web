@@ -10,17 +10,18 @@ const escapeHtml = (str) =>
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 
-export const notifyContactForm = async ({ nombre, email, profesion, mensaje }) => {
+export const notifyContactForm = async ({ nombre, email, profesion, interes, mensaje }) => {
   const safeNombre = escapeHtml(nombre);
   const safeEmail = escapeHtml(email);
   const safeProfesion = escapeHtml(profesion);
+  const safeInteres = escapeHtml(interes);
   const safeMensaje = escapeHtml(mensaje).replace(/\n/g, "<br>");
 
   try {
     await resend.emails.send({
       from: "CAMY Web <info@camybgs.com>",
       to: process.env.EMAIL_USER,
-      subject: `Nuevo mensaje de contacto — ${nombre}`,
+      subject: `Nuevo mensaje de contacto — ${nombre} · ${interes}`,
       html: `<!doctype html>
 <html lang="es">
 <head>
@@ -38,7 +39,7 @@ export const notifyContactForm = async ({ nombre, email, profesion, mensaje }) =
 <tr>
 <td style="background-color:#1D1D2E;padding:22px 32px;">
 <span style="font-family:'Outfit',Arial,sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#F5F0E8;">CAMY</span>
-<span style="font-family:'Outfit',Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#F04E23;padding-left:10px;">Nuevo lead</span>
+<span style="font-family:'Outfit',Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#F04E23;padding-left:10px;">Nuevo mensaje</span>
 </td>
 </tr>
 <tr><td style="height:3px;background-color:#F04E23;font-size:0;line-height:0;">&nbsp;</td></tr>
@@ -62,8 +63,14 @@ Tienes un nuevo mensaje de<br><span style="color:#F04E23;">${safeNombre}</span>
   </tr>
   <tr>
     <td style="padding:12px 0;border-bottom:1px solid #EDE7DA;">
-      <span style="display:block;font-family:'Outfit',Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#6B1530;padding-bottom:4px;">Profesión</span>
+      <span style="display:block;font-family:'Outfit',Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#6B1530;padding-bottom:4px;">Profesión o negocio</span>
       <span style="font-family:'Outfit',Arial,sans-serif;font-size:15px;color:#1D1D2E;">${safeProfesion}</span>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:12px 0;border-bottom:1px solid #EDE7DA;">
+      <span style="display:block;font-family:'Outfit',Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#6B1530;padding-bottom:4px;">Interés</span>
+      <span style="font-family:'Outfit',Arial,sans-serif;font-size:15px;color:#1D1D2E;">${safeInteres}</span>
     </td>
   </tr>
 </table>
