@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function ScrollToTopButton() {
+  const { t } = useTranslation();
   const { pathname } = useLocation();
   const [visible, setVisible] = useState(false);
 
@@ -20,7 +22,7 @@ function ScrollToTopButton() {
     <button
       onClick={handleClick}
       className={`scroll-top-btn${visible ? " scroll-top-btn--visible" : ""}${isContacto ? " scroll-top-btn--solo" : ""}`}
-      aria-label="Volver al inicio"
+      aria-label={t("common.scrollTop")}
     >
       △
     </button>

@@ -2,12 +2,12 @@
 
 > Documento de trabajo para continuar el rediseño en una conversación nueva.
 > Complementa a `BRIEF-REDISENO.md`, que tiene el alcance y los textos definitivos (Anexo).
-> Última actualización: 9 de octubre de 2026, tras el visto bueno de la Fase 5 (commit `892f0ba`).
+> Última actualización: 9 de octubre de 2026, tras el visto bueno de la Fase 6 (commits `f6ff283` a `07f8dd5`).
 
 ## Cómo retomar
 1. Leer `BRIEF-REDISENO.md` completo (incluido el Anexo) y este documento.
 2. Confirmar la rama: `git branch --show-current` → `rediseno-2026`.
-3. Empezar por la **siguiente fase pendiente** (ahora la **Fase 6**), solo cuando Omar haya dado el visto bueno a la anterior.
+3. Empezar por la **siguiente fase pendiente** (ahora la **Fase 7**), solo cuando Omar haya dado el visto bueno a la anterior.
 
 ---
 
@@ -15,7 +15,7 @@
 - **Rama:** todo se hace en `rediseno-2026`. No tocar `master` ni hacer merge hasta que Omar lo apruebe. Existe la etiqueta `v1-antes-rediseno` para volver a la versión anterior.
 - **Una fase cada vez.**
 - **Al terminar cada fase o ajuste:**
-  1. `cd frontend && npm run lint && npm run build`. El lint debe seguir en los **12 problemas previos** y ninguno nuevo (ver §5).
+  1. `cd frontend && npm run lint && npm run build`. El lint debe seguir en los **11 problemas previos** y ninguno nuevo (ver §5).
   2. Commit en `rediseno-2026`, con el mensaje terminado en la línea `Co-Authored-By` de Claude.
   3. **Pedir confirmación a Omar antes del push.**
   4. Después del push, **esperar el visto bueno de Omar en la vista previa de Vercel** antes de empezar la siguiente fase.
@@ -138,7 +138,7 @@
 3. **Pantalla de éxito:** "…si quieres ver cómo trabajo, echa un vistazo a mis proyectos." ✅
 4. **Mensaje de WhatsApp en Contacto:** "Hola Omar, me gustaría hablar contigo sobre una web para mi negocio." ✅
 5. **`/tarjeta`:** se queda en inglés, sin cambios. ✅
-6. **Base de datos de Preview:** una aparte en el mismo cluster (`MONGO_URI` de Preview con otro nombre de base de datos). El índice `email_1` de la colección real se borra al publicar y se comprueba después del merge (el código antiguo puede volver a crearlo).
+6. **Base de datos de Preview:** `camyweb-preview`, en el mismo cluster (`MONGO_URI` de Preview). La base real es `camyDB`. El índice `email_1` de la colección real se borra al publicar y se comprueba después del merge (el código antiguo puede volver a crearlo).
 7. **Etiquetas de Systeme:** cada contacto recibe **solo** la etiqueta de su interés, sin la `2049193` (lead-web). ✅ IDs: `one` 2220930 (interes-web-one), `multi` 2220931 (interes-web-multi), `custom` 2220932 (interes-web-custom), `bond` 2220933 (interes-bond), `mantenimiento` 2220934 (interes-mantenimiento), `nose` 2220935 (interes-no-sabe). Las etiquetas lead-web y lead-magnet-auditoria las borra Omar después de publicar (§6).
 
 ---
@@ -208,35 +208,29 @@ Commit `892f0ba`.
 - Planes Basic y Plus, bloque Bond (precio en dos líneas, botón a `/bond`), FAQ en acordeón accesible y "Así empezamos" con botón a `/contacto`.
 - Entradas animadas desactivadas con `prefers-reduced-motion`.
 
-### ⏳ Fase 6 — Sobre mí + Contacto (formulario de punta a punta)
-> **En curso (9 oct 2026).** Hecho en código (sin push): Sobre mí y Contacto con textos en `es.json`, `<select>` obligatorio, `interes` en todo el backend, `lib/interests.js` (valores, texto del email y `tagId` de Systeme), emails repetidos permitidos, `prefers-reduced-motion` en las dos páginas y textos D10 aprobados (ver "Preguntas de la Fase 6"). IDs de etiquetas puestos. **Falta:** variables de entorno de Preview y la prueba real (avisar a Omar antes de cualquier escritura en Mongo, Systeme o Resend).
-
-- **Sobre mí:** los cambios del Anexo (párrafo NUEVO sin la etiqueta, la frase "cada cliente al que ayudo a mostrarse tal como es" y la cita nueva). Los textos van a `es.json`.
-- **Contacto:**
-  - textos nuevos;
-  - "Profesión o negocio" y "Cuéntame tu proyecto";
-  - `<select>` obligatorio con valores internos `one`, `multi`, `custom`, `bond`, `mantenimiento` y `nose`, y los textos visibles de la D4.
-- **Backend serverless:** añadir `interes` en:
-  - `contactService.js`;
-  - `api/contact.js`, con validación contra una lista de valores permitidos;
-  - `lib/Contact.js`;
-  - `lib/email.js`: fila "Interés" y cabecera "Nuevo mensaje" en lugar de "Nuevo lead".
-- **Systeme:** cada contacto recibe **solo** la etiqueta `INTERESTS[interes].tagId` (sin la `2049193`).
-- **Emails repetidos:** quitar `unique: true` del schema y el `catch` del error 11000. **Además hay que borrar el índice único `email_1` de la colección `leads-web` en Atlas**: Mongoose no lo borra solo. Lo hace Omar, o Claude con su permiso.
-- Enseñar a Omar los textos menores de la D10.
-- **Prueba:** envío real desde la vista previa de Vercel (`vite dev` no ejecuta `/api`). Comprobar el email, Mongo (incluido un segundo envío con el mismo email) y las etiquetas de Systeme.
+### ✅ Fase 6 — Sobre mí + Contacto (hecha, visto bueno de Omar)
+Commits `f6ff283`, `e25fe04`, `13d157c` y `07f8dd5`.
+- **Sobre mí:** párrafo nuevo (sin la etiqueta NUEVO), "cada cliente al que ayudo a mostrarse tal como es" y la cita nueva. Textos en `es.json` → `sobreMi` (la historia es una lista `{ text, variant }`) y `seo.sobreMi`.
+- **Contacto:** textos en `es.json` → `contacto` y `seo.contacto`; "Profesión o negocio", "Cuéntame tu proyecto" y `<select>` obligatorio "¿Qué te interesa?" (valores `one`, `multi`, `custom`, `bond`, `mantenimiento`, `nose`). Pasos de "¿Y después qué?" en un `<ol>`.
+- **`lib/interests.js`:** fuente única de los valores, el texto del email y el `tagId` de Systeme. La usan `api/contact.js` (validación), `lib/Contact.js` (`enum`) y `Contacto.jsx` (opciones).
+- **Systeme:** cada contacto recibe **solo** la etiqueta de su interés (sin la `2049193`).
+- **Email:** cabecera "Nuevo mensaje", filas "Profesión o negocio" e "Interés", y el interés en el asunto.
+- **Emails repetidos:** sin `unique` en el schema ni `catch` del error 11000. El índice `email_1` de la base real se borra al publicar (§6).
+- `prefers-reduced-motion` en Sobre mí y Contacto. Textos D10 aprobados (ver "Preguntas de la Fase 6").
+- **Prueba real en la vista previa (base `camyweb-preview`):** dos envíos con el mismo email → pantalla de éxito, dos emails, dos documentos en Mongo (solo índice `_id`) y el contacto de Systeme con interes-bond e interes-web-one. ✅
 
 ### ⏳ Fase 7 — SEO, limpieza y revisión final
-- Títulos y descripciones de la tabla §7 del brief, en `es.json`.
-- `index.html`:
-  - description, OG y Twitter con los textos nuevos;
-  - se mantienen el nombre y la imagen OG;
-  - en el JSON-LD, actualizar `description` y `serviceType`.
-- `sitemap.xml`: quitar `/resultados` y `/mi-trabajo`, añadir `/bond` y `/proyectos`, actualizar `lastmod`.
-- **Comprimir las imágenes de las tarjetas de proyecto** (`assets/images/mi-trabajo/ramsesImg.png` ≈ 3 MB y `vivamexicoImg.png` ≈ 7,7 MB), por ejemplo a WebP/JPG del tamaño en que se muestran.
-- Grep de restos de marketing, leads, ventas, captación y mini-audit fuera de los legales. Revisar los `alt` y `aria-label`.
-- Revisión responsive completa y criterios de terminado (§9 del brief).
-- Resumen final con todos los `#PENDIENTE-*`.
+> **En curso (9 oct 2026).** Hecho en código (sin push), pendiente del visto bueno de Omar:
+- **SEO:** `seo.home` en `es.json` (la Home usa `t()`); las 6 páginas tienen ya el título y la descripción de la tabla §7 del brief.
+- **`index.html`:** description, OG y Twitter con el título y la descripción de la Home ("CAMY · Diseño web que comunica"); imagen OG sin cambios. JSON-LD: `name` sin cambios (D3), `description` y `serviceType` nuevos (Diseño web, Desarrollo web, SEO básico, Mantenimiento web, Plataforma de gestión de clientes).
+- **Metas duplicadas (ya pasaba antes del rediseño):** con React 19, react-helmet-async v3 no sustituye las metas de `index.html`, así que cada página tenía dos `description`, dos `canonical`, etc. Ahora las metas fijas llevan `data-seo-static` (para las previsualizaciones sin JavaScript) y `main.jsx` las quita al arrancar. Comprobado: una de cada por página.
+- **`sitemap.xml`:** fuera `/resultados` y `/mi-trabajo`; dentro `/bond` y `/proyectos`; `lastmod` 2026-10-09 (los legales mantienen 2026-06-10, no han cambiado).
+- **Imágenes de las tarjetas:** WebP de 1400 px de ancho (se muestran a ≈ 600 px) → `ramsesImg.webp` 57 KB (antes 3 MB) y `vivamexicoImg.webp` 79 KB (antes 7,7 MB). Borrados los PNG.
+- **Restos de marketing:** solo quedan los esperados (lead magnet oculto por configuración, "Business Growth Solutions" por la D3, la colección `leads-web` y los legales).
+- **`aria-label` sueltos** de `WhatsAppButton` y `ScrollToTopButton` → `es.json` (`common.whatsappButton`, `common.scrollTop`) con los mismos textos. El icono de WhatsApp pasa a `alt=""` (el enlace ya tiene su `aria-label`, que ahora avisa de la pestaña nueva).
+- **Hero con `prefers-reduced-motion`:** el botón "Hablemos de tu web" entraba subiendo; ahora solo con fundido.
+- **Revisión:** las 6 páginas a 320, 375, 768 (tablet vertical), 1024 (tablet horizontal) y 1440 px con barra de scroll clásica: sin scroll horizontal. Con reduced-motion no se queda nada invisible. `/resultados` y `/mi-trabajo` → `/proyectos` en el router.
+- **Falta:** visto bueno de Omar en la vista previa y los pendientes de §5.
 
 ---
 
@@ -259,14 +253,14 @@ Commit `892f0ba`.
 
 **Avisos técnicos:**
 - ~~Desbordamiento de 3 px de la tarjeta de vídeo de Viva México~~: corregido en la Fase 2.
-- **Imágenes pesadas (Fase 7):** las capturas de las tarjetas de `/proyectos` pesan ≈ 3 MB (Ramsés) y ≈ 7,7 MB (Viva México). Comprimirlas en la Fase 7.
-- **Los 12 problemas de lint previos** (9 errores y 3 advertencias, ya estaban antes del rediseño; eran 14 hasta la Fase 3):
+- ~~Imágenes pesadas de las tarjetas~~: comprimidas en la Fase 7. **Siguen pesando** (fuera del alcance, para más adelante): los vídeos de testimonios (12 MB y 20 MB), la música de fondo (6 MB) y `mockupMiniAuditoria.png` (2,6 MB; solo se descarga si se activa el popup).
+- **Los 11 problemas de lint previos** (8 errores y 3 advertencias, ya estaban antes del rediseño; eran 14 hasta la Fase 3 y 12 hasta la Fase 6):
   - `process` no definido en `frontend/lib/*.js` (código de Node que se lintea como navegador);
   - `react-refresh/only-export-components` en `NotificationContext.jsx`;
   - `exhaustive-deps` (falta `threshold`) en los hooks `useVisible` y `useFadeIn` de varias páginas.
 
   No son de este rediseño. La regla es que no aparezca ninguno nuevo.
-- **`VITE_API_URL`:** ya no la usa el código (el formulario llama a `/api/contact`, relativa, desde la migración a funciones de Vercel). Se puede borrar de Vercel y del `.env` local en la Fase 7.
+- **`VITE_API_URL`:** ya no la usa el código (el formulario llama a `/api/contact`, relativa, desde la migración a funciones de Vercel). Omar puede borrarla de Vercel (Production y Preview) y del `.env` local cuando quiera.
 - **Dependencias:** `npm install` avisa de 20 vulnerabilidades en las dependencias del proyecto. Quedan fuera de esta fase.
 - **Legibilidad sobre el aurora:** revisarla sección por sección después de la Fase 2, sin velo salvo que Omar lo pida. Incluye la tarjeta Multi (fondo Noche).
 - **Fuera de esta fase:** migración a Render (justo después, como tarea aparte), versión en inglés, test "¿Tu web dice lo que eres?" y reescritura de los legales. El texto de Datenschutz menciona Systeme.io "für Marketingzwecke".
@@ -276,10 +270,10 @@ Commit `892f0ba`.
 ## 6. Checklist de publicación (merge de `rediseno-2026` en `master`)
 Solo con la aprobación de Omar. En este orden:
 1. **Antes del merge:** lint y build en verde, y la vista previa revisada por Omar.
-2. **Variables de entorno de Production en Vercel:** comprobar que `MONGO_URI` apunta a la base de datos **real** (no a la de pruebas de Preview).
-3. **Atlas:** borrar el índice único `email_1` de la colección `leads-web` de la base real, justo antes o justo después del merge. El código antiguo puede volver a crearlo mientras siga en línea.
+2. **Variables de entorno de Production en Vercel:** comprobar que `MONGO_URI` apunta a la base real **`camyDB`** (no a `camyweb-preview`).
+3. **Atlas:** borrar el índice único `email_1` de **`camyDB.leads-web`** (la base real; **no** `camyweb-preview`), justo antes o justo después del merge. El código antiguo puede volver a crearlo mientras siga en línea.
 4. **Merge** en `master` y comprobar el despliegue en camybgs.com.
-5. **Atlas, después del merge:** comprobar que `email_1` no ha vuelto. Si está, borrarlo otra vez.
+5. **Atlas, después del merge:** comprobar en `camyDB.leads-web` que `email_1` no ha vuelto. Si está, borrarlo otra vez.
 6. **Systeme (lo hace Omar, justo después de publicar):** borrar las etiquetas **lead-web** (`2049193`) y **lead-magnet-auditoria**. Antes no: la web actual todavía las usa.
 7. Un envío real del formulario en camybgs.com (avisando antes): email recibido, documento en Mongo con `interes` y contacto en Systeme solo con su etiqueta de interés.
 8. Si algo falla: *Instant Rollback* en Vercel o la etiqueta `v1-antes-rediseno`.

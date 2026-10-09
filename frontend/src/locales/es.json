@@ -1,7 +1,9 @@
 {
   "common": {
     "newTab": "(se abre en una pestaña nueva)",
-    "loader": "Preparando tu experiencia..."
+    "loader": "Preparando tu experiencia...",
+    "whatsappButton": "Contactar por WhatsApp",
+    "scrollTop": "Volver al inicio"
   },
   "nav": {
     "links": {
@@ -25,6 +27,10 @@
     "copyright": "© CAMY | Business Growth Solutions {{year}}"
   },
   "seo": {
+    "home": {
+      "title": "CAMY · Diseño web que comunica",
+      "description": "Webs creativas donde cada palabra, color, forma y movimiento expresan lo que es tu negocio. Desde 77 €/mes."
+    },
     "servicios": {
       "title": "Servicios y precios · CAMY",
       "description": "Webs One, Multi y Custom, planes de mantenimiento y pago en cuotas. Diseño a medida, SEO básico y páginas legales incluidas."

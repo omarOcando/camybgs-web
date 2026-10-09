@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { CONTACT } from "../config/site";
 import waIcon from "../assets/images/BolaWA.png";
 
 function WhatsAppButton() {
+  const { t } = useTranslation();
   const { pathname } = useLocation();
   const [visible, setVisible] = useState(false);
 
@@ -16,13 +19,13 @@ function WhatsAppButton() {
 
   return (
     <a
-      href="https://wa.me/491778587715"
+      href={`https://wa.me/${CONTACT.whatsapp}`}
       target="_blank"
       rel="noopener noreferrer"
       className={`whatsapp-btn${visible ? " whatsapp-btn--visible" : ""}`}
-      aria-label="Contactar por WhatsApp"
+      aria-label={`${t("common.whatsappButton")} ${t("common.newTab")}`}
     >
-      <img src={waIcon} alt="WhatsApp" />
+      <img src={waIcon} alt="" />
     </a>
   );
 }

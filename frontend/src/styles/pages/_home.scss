@@ -869,4 +869,8 @@
   .home-offer__card-inner {
     transition: none;
   }
+
+  // Hero: solo fundido, sin desplazamiento
+  .home-hero__cta-wrapper { transform: none; }
+  .home--active .home-hero__cta-wrapper { animation-name: heroFadeIn; }
 }

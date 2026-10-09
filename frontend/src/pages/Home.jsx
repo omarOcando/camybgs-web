@@ -60,8 +60,8 @@ function Home({ active = false }) {
   return (
     <div className={`home${active ? " home--active" : ""}`}>
       <Seo
-        title="CAMY | Marketing Digital y Desarrollo Web para profesionales"
-        description="Hay miles buscándote ahora mismo. Te pongo frente a ellos. Marketing Digital y Desarrollo Web para profesionales que quieren más clientes."
+        title={t("seo.home.title")}
+        description={t("seo.home.description")}
         path="/"
       />
 
