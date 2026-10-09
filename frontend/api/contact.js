@@ -1,8 +1,8 @@
 import connectDB from "../lib/db.js";
 import Contact from "../lib/Contact.js";
-import { createSystemeContact, addTagsToSystemeContactByEmail } from "../lib/systeme.js";
+import { createSystemeContact, addTagToSystemeContactByEmail } from "../lib/systeme.js";
 import { notifyContactForm } from "../lib/email.js";
-import { INTERESTS, SYSTEME_BASE_TAG_ID } from "../lib/interests.js";
+import { INTERESTS } from "../lib/interests.js";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -20,15 +20,13 @@ export default async function handler(req, res) {
     return res.status(400).json({ message: "Invalid interest" });
   }
 
-  const tagIds = [SYSTEME_BASE_TAG_ID, INTERESTS[interes].tagId].filter(Boolean);
-
   try {
     await connectDB();
     await Contact.create({ nombre, email, profesion, interes, mensaje });
 
     await Promise.all([
       createSystemeContact(nombre, email).then(() =>
-        addTagsToSystemeContactByEmail(email, tagIds)
+        addTagToSystemeContactByEmail(email, INTERESTS[interes].tagId)
       ),
       notifyContactForm({ nombre, email, profesion, interes: INTERESTS[interes].label, mensaje }),
     ]);

@@ -50,7 +50,7 @@
   - `ContactRadial.jsx`: menú radial del hero.
 - **Formulario de contacto:** `pages/Contacto.jsx` → `services/contactService.js` → `api/contact.js`. Este último:
   - guarda en Mongo (`lib/Contact.js`, colección `leads-web`);
-  - crea el contacto en Systeme con la etiqueta `2049193` (`lib/systeme.js`);
+  - crea el contacto en Systeme con **solo** la etiqueta de su interés (`lib/interests.js` + `lib/systeme.js`);
   - envía el email con Resend (`lib/email.js`).
 
 ---
@@ -70,7 +70,7 @@
 - **D4 — Formulario:**
   - "¿Qué te interesa?" es **obligatorio**, con "Selecciona una opción" al principio.
   - Opciones visibles (sin artículos): Web One · Web Multi · Web Custom · Plataforma Bond · Mantenimiento (Basic o Plus) · Aún no lo sé.
-  - Systeme: **se mantiene la etiqueta 2049193** y se añade **una etiqueta según el interés**. Omar creará las etiquetas y pasará los IDs; mientras tanto, marcadores.
+  - Systeme: **una sola etiqueta según el interés**. ~~Se mantenía la 2049193 (lead-web)~~: Omar decidió en la Fase 6 que la web nueva **no** la usa.
   - Si alguien escribe otra vez con el mismo email, **también se guarda en Mongo** (no perder mensajes).
 - **D5 — Imagen Open Graph:** se mantiene la actual. Omar hará una nueva en Canva más adelante.
 - **D6 — Título de la sección de proyectos de la Home:** "Me alegra mucho compartir sus logros…".
@@ -139,6 +139,7 @@
 4. **Mensaje de WhatsApp en Contacto:** "Hola Omar, me gustaría hablar contigo sobre una web para mi negocio." ✅
 5. **`/tarjeta`:** se queda en inglés, sin cambios. ✅
 6. **Base de datos de Preview:** una aparte en el mismo cluster (`MONGO_URI` de Preview con otro nombre de base de datos). El índice `email_1` de la colección real se borra al publicar y se comprueba después del merge (el código antiguo puede volver a crearlo).
+7. **Etiquetas de Systeme:** cada contacto recibe **solo** la etiqueta de su interés, sin la `2049193` (lead-web). ✅ IDs: `one` 2220930 (interes-web-one), `multi` 2220931 (interes-web-multi), `custom` 2220932 (interes-web-custom), `bond` 2220933 (interes-bond), `mantenimiento` 2220934 (interes-mantenimiento), `nose` 2220935 (interes-no-sabe). Las etiquetas lead-web y lead-magnet-auditoria las borra Omar después de publicar (§6).
 
 ---
 
@@ -208,7 +209,9 @@ Commit `892f0ba`.
 - Entradas animadas desactivadas con `prefers-reduced-motion`.
 
 ### ⏳ Fase 6 — Sobre mí + Contacto (formulario de punta a punta)
-> **En curso (9 oct 2026).** Hecho en código (sin push): Sobre mí y Contacto con textos en `es.json`, `<select>` obligatorio, `interes` en todo el backend, `lib/interests.js` (valores, texto del email y `tagId` de Systeme con marcador `null`), emails repetidos permitidos, `prefers-reduced-motion` en las dos páginas y textos D10 aprobados (ver "Preguntas de la Fase 6"). **Falta:** IDs de etiquetas, borrar `email_1`, variables de entorno de Preview y la prueba real (avisar a Omar antes de cualquier escritura en Mongo, Systeme o Resend). - **Sobre mí:** los cambios del Anexo (párrafo NUEVO sin la etiqueta, la frase "cada cliente al que ayudo a mostrarse tal como es" y la cita nueva). Los textos van a `es.json`.
+> **En curso (9 oct 2026).** Hecho en código (sin push): Sobre mí y Contacto con textos en `es.json`, `<select>` obligatorio, `interes` en todo el backend, `lib/interests.js` (valores, texto del email y `tagId` de Systeme), emails repetidos permitidos, `prefers-reduced-motion` en las dos páginas y textos D10 aprobados (ver "Preguntas de la Fase 6"). IDs de etiquetas puestos. **Falta:** variables de entorno de Preview y la prueba real (avisar a Omar antes de cualquier escritura en Mongo, Systeme o Resend).
+
+- **Sobre mí:** los cambios del Anexo (párrafo NUEVO sin la etiqueta, la frase "cada cliente al que ayudo a mostrarse tal como es" y la cita nueva). Los textos van a `es.json`.
 - **Contacto:**
   - textos nuevos;
   - "Profesión o negocio" y "Cuéntame tu proyecto";
@@ -218,7 +221,7 @@ Commit `892f0ba`.
   - `api/contact.js`, con validación contra una lista de valores permitidos;
   - `lib/Contact.js`;
   - `lib/email.js`: fila "Interés" y cabecera "Nuevo mensaje" en lugar de "Nuevo lead".
-- **Systeme:** se mantiene la etiqueta `2049193` (`SYSTEME_BASE_TAG_ID`) y se añade la de `INTERESTS[interes].tagId`, con IDs con marcador. Si falta un ID, se omite sin romper el envío.
+- **Systeme:** cada contacto recibe **solo** la etiqueta `INTERESTS[interes].tagId` (sin la `2049193`).
 - **Emails repetidos:** quitar `unique: true` del schema y el `catch` del error 11000. **Además hay que borrar el índice único `email_1` de la colección `leads-web` en Atlas**: Mongoose no lo borra solo. Lo hace Omar, o Claude con su permiso.
 - Enseñar a Omar los textos menores de la D10.
 - **Prueba:** envío real desde la vista previa de Vercel (`vite dev` no ejecuta `/api`). Comprobar el email, Mongo (incluido un segundo envío con el mismo email) y las etiquetas de Systeme.
@@ -247,13 +250,12 @@ Commit `892f0ba`.
 | `#PENDIENTE-signal` | `config/site.js` → `CONTACT.signal` | Enlace de Signal |
 | `#PENDIENTE-bond-venta` | `config/site.js` → `BOND_SALES_URL` | Página de venta de Bond en Systeme |
 | `#PENDIENTE-bond-demo` | `config/site.js` → `BOND_DEMO_URL` | URL para reservar la demo |
-| `#PENDIENTE-systeme-tag-*` | `lib/interests.js` → `INTERESTS.<valor>.tagId` | IDs de las 6 etiquetas de interés en Systeme (`null` = se omite) |
 
 **Otras cosas que dependen de Omar:**
 - Confirmar si los vídeos de testimonios actuales se mantienen o hay nuevos.
 - Logo nuevo sin "MARKETING · WEB" (más adelante).
 - Imagen Open Graph nueva hecha en Canva (más adelante).
-- Borrar el índice único `email_1` en Atlas (Fase 6).
+- Lo que le toca al publicar: ver la checklist de publicación (§6).
 
 **Avisos técnicos:**
 - ~~Desbordamiento de 3 px de la tarjeta de vídeo de Viva México~~: corregido en la Fase 2.
@@ -267,3 +269,17 @@ Commit `892f0ba`.
 - **Dependencias:** `npm install` avisa de 20 vulnerabilidades en las dependencias del proyecto. Quedan fuera de esta fase.
 - **Legibilidad sobre el aurora:** revisarla sección por sección después de la Fase 2, sin velo salvo que Omar lo pida. Incluye la tarjeta Multi (fondo Noche).
 - **Fuera de esta fase:** migración a Render (justo después, como tarea aparte), versión en inglés, test "¿Tu web dice lo que eres?" y reescritura de los legales. El texto de Datenschutz menciona Systeme.io "für Marketingzwecke".
+
+---
+
+## 6. Checklist de publicación (merge de `rediseno-2026` en `master`)
+Solo con la aprobación de Omar. En este orden:
+1. **Antes del merge:** lint y build en verde, y la vista previa revisada por Omar.
+2. **Variables de entorno de Production en Vercel:** comprobar que `MONGO_URI` apunta a la base de datos **real** (no a la de pruebas de Preview).
+3. **Atlas:** borrar el índice único `email_1` de la colección `leads-web` de la base real, justo antes o justo después del merge. El código antiguo puede volver a crearlo mientras siga en línea.
+4. **Merge** en `master` y comprobar el despliegue en camybgs.com.
+5. **Atlas, después del merge:** comprobar que `email_1` no ha vuelto. Si está, borrarlo otra vez.
+6. **Systeme (lo hace Omar, justo después de publicar):** borrar las etiquetas **lead-web** (`2049193`) y **lead-magnet-auditoria**. Antes no: la web actual todavía las usa.
+7. Un envío real del formulario en camybgs.com (avisando antes): email recibido, documento en Mongo con `interes` y contacto en Systeme solo con su etiqueta de interés.
+8. Si algo falla: *Instant Rollback* en Vercel o la etiqueta `v1-antes-rediseno`.
+
