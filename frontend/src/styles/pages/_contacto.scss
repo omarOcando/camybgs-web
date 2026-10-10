@@ -489,7 +489,22 @@
   }
 
   .ctc-col {
-    padding: 36px 24px;
+    padding: 36px 16px;
+  }
+
+  // 16 px como mínimo: con menos, Safari en iPhone amplía la página al tocar
+  // el campo. Menos relleno lateral para que quepa "Selecciona una opción" a
+  // 320 px; si un placeholder no cabe, termina en "…" en vez de cortarse.
+  .ctc-form__input {
+    font-size: 16px;
+    padding-left: 14px;
+    padding-right: 14px;
+    text-overflow: ellipsis;
+
+    &--select {
+      padding-right: 38px;
+      background-position: right 14px center;
+    }
   }
 
   .ctc-forms {

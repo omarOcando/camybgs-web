@@ -493,7 +493,7 @@
       "fields": {
         "nombre":    { "label": "Nombre",               "placeholder": "Julia Smith" },
         "email":     { "label": "Email",                "placeholder": "julia@tunegocio.com" },
-        "profesion": { "label": "Profesión o negocio",  "placeholder": "Coach, panadería, estudio de yoga…" },
+        "profesion": { "label": "Profesión o negocio",  "placeholder": "Coach, panadería, yoga…" },
         "interes":   { "label": "¿Qué te interesa?",    "placeholder": "Selecciona una opción" },
         "mensaje":   { "label": "Cuéntame tu proyecto", "placeholder": "Qué haces y qué quieres que tu web transmita" }
       },

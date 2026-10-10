@@ -156,7 +156,7 @@
 
 ### Preguntas de la Fase 6 (textos D10)
 1. **Loader:** se queda "Preparando tu experiencia...". ✅
-2. **Placeholders de Contacto:** "Julia Smith", "julia@tunegocio.com", "Coach, panadería, estudio de yoga…" y "Qué haces y qué quieres que tu web transmita". ✅
+2. **Placeholders de Contacto:** "Julia Smith", "julia@tunegocio.com", "Coach, panadería, yoga…" (acortado el 10 oct para que quepa en móvil) y "Qué haces y qué quieres que tu web transmita". ✅
 3. **Pantalla de éxito:** "…si quieres ver cómo trabajo, echa un vistazo a mis proyectos." ✅
 4. **Mensaje de WhatsApp en Contacto:** "Hola Omar, me gustaría hablar contigo sobre una web para mi negocio." ✅
 5. **`/tarjeta`:** se queda en inglés, sin cambios. ✅
