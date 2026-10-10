@@ -151,7 +151,8 @@ function PrivacyEs() {
         </p>
         <p className="legal__p">
           <strong>Conservación:</strong> la consulta que envías por el formulario se borra
-          automáticamente de la base de datos 24 meses después de su envío. En el resto de
+          automáticamente de la base de datos 24 meses después de su envío (la constancia de
+          tu consentimiento para recibir emails, si lo das, se rige por el apartado 6). En el resto de
           sistemas (correo electrónico y Systeme.io) conservo tus datos mientras sea necesario
           para atender tu consulta y, si no llegamos a colaborar, los elimino como máximo 24
           meses después de nuestro último contacto. Si se celebra un contrato, se aplican los
@@ -167,12 +168,20 @@ function PrivacyEs() {
           En el formulario de contacto puedes marcar, de forma voluntaria, una casilla para
           recibir emails ocasionales con ideas, novedades e información útil para tu negocio.
           Solo si la marcas, tu contacto en Systeme.io recibe una etiqueta que lo identifica
-          como suscrito, y guardo la fecha de tu consentimiento como prueba. Si no la marcas,
-          solo te escribiré para responder a tu consulta.
+          como suscrito. Si no la marcas, solo te escribiré para responder a tu consulta.
         </p>
         <p className="legal__p">
           <strong>Base legal:</strong> tu consentimiento (art. 6, apartado 1, letra a, del
           RGPD, y § 7, apartado 2, de la UWG, ley alemana contra la competencia desleal).
+        </p>
+        <p className="legal__p">
+          <strong>Prueba del consentimiento:</strong> para poder demostrar que lo diste (art.
+          7, apartado 1, del RGPD), guardo tu correo electrónico, la fecha, el texto exacto de
+          la casilla que aceptaste y la versión de ese texto. Se guardan en MongoDB Atlas
+          (servidores de Fráncfort, Alemania), aparte de tu consulta y sin el borrado
+          automático del apartado 5. Base legal: art. 6, apartado 1, letra c, del RGPD, en
+          relación con su art. 7, apartado 1. Conservo esta constancia mientras sigas
+          suscrito y la elimino cuando te das de baja.
         </p>
         <p className="legal__p">
           <strong>Baja:</strong> puedes retirar tu consentimiento en cualquier momento, sin

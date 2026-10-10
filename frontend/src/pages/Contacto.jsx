@@ -6,6 +6,7 @@ import Seo from "../components/Seo";
 import { submitContact } from "../services/contactService";
 import { CONTACT } from "../config/site";
 import { INTEREST_VALUES } from "../../lib/interests.js";
+import { getEmailConsentText } from "../../lib/consentText.js";
 
 // ─── CONSTANTS ───────────────────────────────────────────────────────────────
 
@@ -39,7 +40,7 @@ function useVisible(threshold = 0.15) {
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
 function Contacto() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [form, setForm]     = useState(EMPTY_FORM);
   const [emailConsent, setEmailConsent] = useState(false); // casilla opcional de campañas
   const [sending, setSending] = useState(false);
@@ -73,7 +74,7 @@ function Contacto() {
     }
     setSending(true);
     try {
-      await submitContact({ ...form, emailConsent });
+      await submitContact({ ...form, emailConsent, lang: i18n.resolvedLanguage });
       setSent(true);
     } catch {
       setError(t("contacto.form.errorSend"));
@@ -179,7 +180,8 @@ function Contacto() {
                     />
                   </div>
 
-                  {/* Consentimiento opcional para campañas por email (desmarcado por defecto) */}
+                  {/* Consentimiento opcional para campañas por email (desmarcado por defecto).
+                      El texto sale de lib/consentText.js, no de es.json: es el que se guarda como prueba */}
                   <label className="ctc-form__consent">
                     <input
                       type="checkbox"
@@ -187,7 +189,7 @@ function Contacto() {
                       checked={emailConsent}
                       onChange={(e) => setEmailConsent(e.target.checked)}
                     />
-                    <span>{t("contacto.form.emailConsent")}</span>
+                    <span>{getEmailConsentText(i18n.resolvedLanguage).text}</span>
                   </label>
 
                   {error && <p className="ctc-form__error" role="alert">{error}</p>}

@@ -2,12 +2,29 @@
 
 > Documento de trabajo para continuar el rediseño en una conversación nueva.
 > Complementa a `BRIEF-REDISENO.md`, que tiene el alcance y los textos definitivos (Anexo).
-> Última actualización: 9 de octubre de 2026, tras el visto bueno de la Fase 6 (commits `f6ff283` a `07f8dd5`).
+> Última actualización: 10 de octubre de 2026 (borrado automático y consentimientos de emails).
 
 ## Cómo retomar
-1. Leer `BRIEF-REDISENO.md` completo (incluido el Anexo) y este documento.
+1. Leer `BRIEF-REDISENO.md` completo (incluido el Anexo) y este documento, sobre todo el **resumen de la última sesión** (abajo).
 2. Confirmar la rama: `git branch --show-current` → `rediseno-2026`.
-3. Empezar por la **siguiente fase pendiente** (ahora la **Fase 7**), solo cuando Omar haya dado el visto bueno a la anterior.
+3. Seguir por el punto **"Siguiente"** del resumen de la última sesión.
+
+## Resumen de las últimas sesiones
+
+### Sesión del 9 de octubre de 2026 (commit `edc779f`)
+- **Hecho:**
+  - Escritorio: colores, tamaños, animaciones y botones unificados.
+  - Móvil: footer sin separador, hero de la Home centrado, menú del iPhone SE repartido, tamaños de títulos y botones de Bond.
+  - Fuentes servidas desde el propio sitio (@fontsource, sin Google Fonts).
+  - Casilla opcional de consentimiento de emails, con la etiqueta **consentimiento-emails** (`2222022`) en Systeme.
+  - Legales reescritos en ES y EN (se muestra ES hasta que exista el selector de idioma).
+- **Decidido el 10 de octubre:** TTL de 24 meses en `leads-web`; consentimientos guardados aparte, sin TTL (ver §3).
+- **Tareas de Omar:**
+  - Verificar el dominio camybgs.com en Resend.
+  - Pedir el DPA a Systeme y configurar el doble opt-in.
+  - Que un asesor o un generador alemán revise los legales antes de publicar.
+  - Al migrar a Render, actualizar el apartado de alojamiento de la política de privacidad.
+- **Siguiente:** revisión en móvil del resto de páginas; después tablet (ojo: allí el botón es más grande que en escritorio); después el selector de idioma.
 
 ---
 
@@ -142,7 +159,13 @@
 7. **Etiquetas de Systeme:** cada contacto recibe **solo** la etiqueta de su interés, sin la `2049193` (lead-web). ✅ IDs: `one` 2220930 (interes-web-one), `multi` 2220931 (interes-web-multi), `custom` 2220932 (interes-web-custom), `bond` 2220933 (interes-bond), `mantenimiento` 2220934 (interes-mantenimiento), `nose` 2220935 (interes-no-sabe). Las etiquetas lead-web y lead-magnet-auditoria las borra Omar después de publicar (§6).
 
 ### Decisiones del 10 de octubre de 2026
-1. **Borrado automático a los 24 meses:** sí. ✅ Índice TTL sobre `createdAt` en `leads-web` (`lib/Contact.js`, 730 días) y plazo actualizado en la política de privacidad (ES y EN). Al publicar, ver §6 (pasos 3 y 5).
+1. **Borrado automático a los 24 meses:** sí. ✅ Índice TTL sobre `createdAt` en `leads-web` (`lib/Contact.js`, 730 días) y plazo actualizado en la política de privacidad (ES y EN). Al publicar, ver §6 (pasos 3 y 5). Omar contará las consultas antiguas en Atlas el día de publicar.
+2. **Consentimientos de emails aparte, sin TTL:** ✅ Colección **`email-consents`** (`lib/EmailConsent.js`): `email`, `createdAt` (fecha), `text` (texto exacto de la casilla), `version` y `lang`. Se guarda un documento por cada envío con la casilla marcada.
+   - El texto y la versión están en **`lib/consentText.js`**, que es la fuente única: lo muestra `Contacto.jsx` y lo guarda `api/contact.js`. Por eso ese texto ya no está en `es.json`. **Si cambia el texto, hay que cambiar la versión.**
+   - Política de privacidad (ES y EN), apartado 6: qué se guarda, dónde, base legal (art. 6.1.c en relación con el 7.1 del RGPD) y que se borra con la baja.
+   - **Borrado al darse de baja: propuesta pendiente de aprobación de Omar** (no implementada):
+     - **A (recomendada para empezar): proceso manual, una vez al mes.** En Systeme, filtrar los contactos dados de baja de los emails. En Atlas → `email-consents`, borrar sus documentos con `{ email: "<email en minúsculas>" }` (`deleteMany`). Además, cada vez que alguien pida la baja por email, hacerlo en el momento. Sin código y sin servicios nuevos; el riesgo es olvidarse.
+     - **B (más adelante): automático con webhook de Systeme.** Una función `api/consent-unsubscribe.js` que recibe el aviso de Systeme y borra los documentos de ese email, protegida con un secreto compartido. **Antes hay que comprobar en Systeme** qué evento existe para la baja (si no lo hay, usar una automatización que quite la etiqueta `2222022` al darse de baja, más el webhook de "etiqueta quitada").
 
 ---
 
@@ -279,6 +302,6 @@ Solo con la aprobación de Omar. En este orden:
 4. **Merge** en `master` y comprobar el despliegue en camybgs.com.
 5. **Atlas, después del merge:** comprobar en `camyDB.leads-web` que `email_1` no ha vuelto. Si está, borrarlo otra vez. Comprobar también que existe el índice TTL `createdAt_1` con `expireAfterSeconds: 63072000` (730 días); aparece después del primer envío del formulario (paso 7). Si no aparece, crearlo a mano en Atlas → Indexes con esos valores.
 6. **Systeme (lo hace Omar, justo después de publicar):** borrar las etiquetas **lead-web** (`2049193`) y **lead-magnet-auditoria**. Antes no: la web actual todavía las usa.
-7. Un envío real del formulario en camybgs.com (avisando antes): email recibido, documento en Mongo con `interes` y contacto en Systeme solo con su etiqueta de interés. Después, volver al paso 5 para comprobar el índice TTL.
+7. Un envío real del formulario en camybgs.com (avisando antes): email recibido, documento en Mongo con `interes` y contacto en Systeme solo con su etiqueta de interés. Con la casilla de emails marcada: etiqueta `consentimiento-emails` en Systeme y un documento en `camyDB.email-consents` con el texto y la versión. Después, volver al paso 5 para comprobar el índice TTL (y borrar el documento de prueba de `email-consents`).
 8. Si algo falla: *Instant Rollback* en Vercel o la etiqueta `v1-antes-rediseno`.
 

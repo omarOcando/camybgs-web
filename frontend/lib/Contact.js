@@ -11,8 +11,8 @@ const contactSchema = new mongoose.Schema(
     profesion: { type: String, required: true },
     interes:   { type: String, required: true, enum: INTEREST_VALUES },
     mensaje:   { type: String, required: true },
-    // Casilla opcional de campañas por email: queda constancia de si se marcó
-    // y cuándo (createdAt) como prueba del consentimiento
+    // Casilla opcional de campañas por email. La prueba del consentimiento
+    // (sin TTL) se guarda aparte, en email-consents (lib/EmailConsent.js)
     emailConsent: { type: Boolean, default: false },
   },
   { timestamps: true }

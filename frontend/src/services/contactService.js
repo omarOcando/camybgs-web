@@ -1,10 +1,10 @@
 const API_URL = "/api/contact";
 
-export async function submitContact({ nombre, email, profesion, interes, mensaje, emailConsent }) {
+export async function submitContact({ nombre, email, profesion, interes, mensaje, emailConsent, lang }) {
   const res = await fetch(API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ nombre, email, profesion, interes, mensaje, emailConsent: emailConsent === true }),
+    body: JSON.stringify({ nombre, email, profesion, interes, mensaje, emailConsent: emailConsent === true, lang }),
   });
 
   if (!res.ok) throw new Error("Contact submission failed: " + res.status);

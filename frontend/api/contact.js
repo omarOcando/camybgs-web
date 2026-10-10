@@ -1,5 +1,7 @@
 import connectDB from "../lib/db.js";
 import Contact from "../lib/Contact.js";
+import EmailConsent from "../lib/EmailConsent.js";
+import { EMAIL_CONSENT_VERSION, getEmailConsentText } from "../lib/consentText.js";
 import { createSystemeContact, addTagToSystemeContactByEmail, EMAIL_CONSENT_TAG_ID } from "../lib/systeme.js";
 import { notifyContactForm } from "../lib/email.js";
 import { INTERESTS } from "../lib/interests.js";
@@ -24,6 +26,10 @@ export default async function handler(req, res) {
   try {
     await connectDB();
     await Contact.create({ nombre, email, profesion, interes, mensaje, emailConsent });
+    if (emailConsent) {
+      const { lang, text } = getEmailConsentText(req.body.lang);
+      await EmailConsent.create({ email, text, version: EMAIL_CONSENT_VERSION, lang });
+    }
 
     await Promise.all([
       createSystemeContact(nombre, email).then(async () => {

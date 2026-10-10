@@ -147,7 +147,8 @@ function PrivacyEn() {
         </p>
         <p className="legal__p">
           <strong>Retention:</strong> the enquiry you send through the form is automatically
-          deleted from the database 24 months after it was sent. In my other systems (email
+          deleted from the database 24 months after it was sent (the record of your consent
+          to receive emails, if you give it, is covered by section 6). In my other systems (email
           and Systeme.io) I keep your data for as long as necessary to handle your enquiry
           and, if we do not end up working together, I delete it no later than 24 months
           after our last contact. If a contract is concluded, the statutory retention periods
@@ -162,13 +163,21 @@ function PrivacyEn() {
         <p className="legal__p">
           In the contact form you can voluntarily tick a box to receive occasional emails with
           ideas, news and useful information for your business. Only if you tick it does your
-          contact in Systeme.io receive a tag that marks it as subscribed, and I keep the date
-          of your consent as proof. If you do not tick it, I will only write to you to answer
-          your enquiry.
+          contact in Systeme.io receive a tag that marks it as subscribed. If you do not tick
+          it, I will only write to you to answer your enquiry.
         </p>
         <p className="legal__p">
           <strong>Legal basis:</strong> your consent (Art. 6 (1) (a) GDPR and § 7 (2) UWG, the
           German Act against Unfair Competition).
+        </p>
+        <p className="legal__p">
+          <strong>Proof of consent:</strong> to be able to demonstrate that you gave your
+          consent (Art. 7 (1) GDPR), I keep your email address, the date, the exact wording of
+          the checkbox you accepted and the version of that wording. This record is stored in
+          MongoDB Atlas (servers in Frankfurt, Germany), separately from your enquiry and
+          without the automatic deletion described in section 5. Legal basis: Art. 6 (1) (c)
+          GDPR in conjunction with Art. 7 (1) GDPR. I keep this record for as long as you
+          remain subscribed and delete it when you unsubscribe.
         </p>
         <p className="legal__p">
           <strong>Unsubscribing:</strong> you can withdraw your consent at any time, free of
