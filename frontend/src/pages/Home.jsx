@@ -8,6 +8,7 @@ import aboutPhoto from "../assets/images/home/Omar.jpg";
 import aboutPhotoMovil from "../assets/images/home/OmarMovil.jpg";
 import { PROJECTS } from "../data/projects";
 import { SHOW_BOND } from "../config/site";
+import { useLocalePath } from "../config/routes";
 
 // ─── HOOKS ───────────────────────────────────────────────────────────────────
 
@@ -41,6 +42,7 @@ const reveal = (base, visible) => `${base}${visible ? ` ${base}--visible` : ""}`
 
 function Home({ active = false }) {
   const { t } = useTranslation();
+  const { lang, path } = useLocalePath();
   const list = (key) => t(key, { returnObjects: true });
 
   const { ref: problemTitleRef,  visible: problemTitleVisible  } = useFadeIn();
@@ -67,7 +69,7 @@ function Home({ active = false }) {
       <Seo
         title={t("seo.home.title")}
         description={t("seo.home.description")}
-        path="/"
+        page="home"
       />
 
       {/* Fondo fijo de toda la Home: se monta al terminar el Loader */}
@@ -76,7 +78,7 @@ function Home({ active = false }) {
       {/* 01 — HERO */}
       <section className="home-hero">
         <div className="home-hero__content">
-          <h1 className="home-hero__title">
+          <h1 className={`home-hero__title${lang === "en" ? " home-hero__title--en" : ""}`}>
             <span className="home-hero__title-line">{t("home.hero.titleLine1")}</span>{" "}
             <span className="home-hero__title-line">{t("home.hero.titleLine2")}</span>
           </h1>
@@ -164,7 +166,7 @@ function Home({ active = false }) {
           <div className={reveal("home-offer__notes", offerGridVisible)}>
             <p className="home-offer__included">{t("home.offer.included")}</p>
             <p className="home-offer__plans-line">{t("home.offer.plansLine")}</p>
-            <Button to="/servicios" variant="ghost" size="lg" className="home-link-cta">
+            <Button to={path("servicios")} variant="ghost" size="lg" className="home-link-cta">
               {t("home.offer.cta")} <span className="btn-arrow">→</span>
             </Button>
           </div>
@@ -189,7 +191,7 @@ function Home({ active = false }) {
                 <span className="bond-panel__text-line">{t("home.bond.textLine1")}</span>{" "}
                 <span className="bond-panel__text-line">{t("home.bond.textLine2")}</span>
               </p>
-              <Button to="/bond" variant="primary" size="lg">
+              <Button to={path("bond")} variant="primary" size="lg">
                 {t("home.bond.cta")} <span className="btn-arrow">→</span>
               </Button>
             </div>
@@ -235,7 +237,7 @@ function Home({ active = false }) {
               );
             })}
           </div>
-          <Button to="/proyectos" variant="ghost" size="lg" className={`home-link-cta home-reveal-cta${projectsGridVisible ? " home-reveal-cta--visible" : ""}`}>
+          <Button to={path("proyectos")} variant="ghost" size="lg" className={`home-link-cta home-reveal-cta${projectsGridVisible ? " home-reveal-cta--visible" : ""}`}>
             {t("home.projects.cta")} <span className="btn-arrow">→</span>
           </Button>
         </div>
@@ -276,7 +278,7 @@ function Home({ active = false }) {
               {list("home.about.paragraphs").map((text) => (
                 <p key={text}>{text}</p>
               ))}
-              <Button to="/sobre-mi" variant="ghost" size="lg" className={`home-link-cta home-reveal-cta${aboutVisible ? " home-reveal-cta--visible" : ""}`}>
+              <Button to={path("sobreMi")} variant="ghost" size="lg" className={`home-link-cta home-reveal-cta${aboutVisible ? " home-reveal-cta--visible" : ""}`}>
                 {t("home.about.cta")} <span className="btn-arrow">→</span>
               </Button>
             </div>
@@ -294,7 +296,7 @@ function Home({ active = false }) {
             <span className="home-final-cta__sub-line">{t("home.closing.textLine1")}</span>{" "}
             <span className="home-final-cta__sub-line">{t("home.closing.textLine2")}</span>
           </p>
-          <Button to="/contacto" variant="primary" size="lg">
+          <Button to={path("contacto")} variant="primary" size="lg">
             {t("home.closing.cta")} <span className="btn-arrow">→</span>
           </Button>
         </div>

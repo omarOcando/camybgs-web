@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import Button from "../components/Button";
 import Seo from "../components/Seo";
 import { PROJECTS, CATEGORIES } from "../data/projects";
+import { useLocalePath } from "../config/routes";
 
 // ─── HOOK ────────────────────────────────────────────────────────────────────
 
@@ -36,6 +37,7 @@ const TESTIMONIALS = PROJECTS.filter((p) => p.testimonial);
 
 function Proyectos() {
   const { t } = useTranslation();
+  const { path } = useLocalePath();
   const [activeFilter, setActiveFilter] = useState(ALL);
 
   const { ref: filterBtnsRef,     visible: filterBtnsVisible     } = useVisible(0.2);
@@ -52,7 +54,7 @@ function Proyectos() {
       <Seo
         title={t("seo.proyectos.title")}
         description={t("seo.proyectos.description")}
-        path="/proyectos"
+        page="proyectos"
       />
 
       {/* 01 — HERO */}
@@ -177,7 +179,7 @@ function Proyectos() {
         >
           <h2 className="proj-cta__title">{t("proyectos.closing.title")}</h2>
           <p className="proj-cta__sub">{t("proyectos.closing.text")}</p>
-          <Button to="/contacto" variant="primary" size="lg">
+          <Button to={path("contacto")} variant="primary" size="lg">
             {t("proyectos.closing.cta")} <span className="btn-arrow">→</span>
           </Button>
         </div>

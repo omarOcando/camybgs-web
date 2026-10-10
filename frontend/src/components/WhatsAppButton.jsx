@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { CONTACT } from "../config/site";
+import { pageFromPath } from "../config/routes";
 import waIcon from "../assets/images/BolaWA.png";
 
 function WhatsAppButton() {
@@ -15,7 +16,7 @@ function WhatsAppButton() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  if (pathname === "/contacto") return null;
+  if (pageFromPath(pathname) === "contacto") return null;
 
   return (
     <a

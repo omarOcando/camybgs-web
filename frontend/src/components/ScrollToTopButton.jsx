@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { pageFromPath } from "../config/routes";
 
 function ScrollToTopButton() {
   const { t } = useTranslation();
@@ -16,7 +17,7 @@ function ScrollToTopButton() {
 
   const handleClick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-  const isContacto = pathname === "/contacto";
+  const isContacto = pageFromPath(pathname) === "contacto";
 
   return (
     <button

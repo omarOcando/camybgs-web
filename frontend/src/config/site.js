@@ -23,15 +23,15 @@ export const CONTACT = {
 // (PLAN-REDISENO.md, §3).
 export const SHOW_BOND = false;
 
-// Menú principal (cabecera y footer). El texto de cada enlace está en
-// es.json → nav.links.<key>
+// Menú principal (cabecera y footer). key es la página de config/routes.js
+// (la dirección depende del idioma) y el texto está en nav.links.<key>
 export const NAV_LINKS = [
-  { to: "/",          key: "home",      end: true },
-  { to: "/servicios", key: "servicios" },
-  { to: "/bond",      key: "bond"      },
-  { to: "/proyectos", key: "proyectos" },
-  { to: "/sobre-mi",  key: "sobreMi"   },
-  { to: "/contacto",  key: "contacto"  },
+  { key: "home", end: true },
+  { key: "servicios" },
+  { key: "bond" },
+  { key: "proyectos" },
+  { key: "sobreMi" },
+  { key: "contacto" },
 ].filter((link) => SHOW_BOND || link.key !== "bond");
 
 export const BOND_SALES_URL = "#PENDIENTE-bond-venta";

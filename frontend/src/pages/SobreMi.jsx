@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import Button from "../components/Button";
 import Seo from "../components/Seo";
 import OmarFoto from "../assets/images/sobre-mi/OmarFotoCompleta.jpg";
+import { useLocalePath } from "../config/routes";
 
 function useVisible(threshold = 0.15) {
   const ref = useRef(null);
@@ -22,6 +23,7 @@ function useVisible(threshold = 0.15) {
 
 function SobreMi() {
   const { t } = useTranslation();
+  const { path } = useLocalePath();
   const story = t("sobreMi.story", { returnObjects: true });
 
   const { ref: storyRef,    visible: storyVisible    } = useVisible(0.08);
@@ -34,7 +36,7 @@ function SobreMi() {
       <Seo
         title={t("seo.sobreMi.title")}
         description={t("seo.sobreMi.description")}
-        path="/sobre-mi"
+        page="sobreMi"
       />
 
       {/* 01 — HERO */}
@@ -94,7 +96,7 @@ function SobreMi() {
             {t("sobreMi.closing.title")}
           </h2>
           <p className="sob-cta__sub">{t("sobreMi.closing.text")}</p>
-          <Button to="/contacto" variant="primary" size="lg">
+          <Button to={path("contacto")} variant="primary" size="lg">
             {t("sobreMi.closing.cta")} <span className="btn-arrow" aria-hidden="true">→</span>
           </Button>
         </div>

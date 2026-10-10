@@ -2,7 +2,7 @@
 
 > Documento de trabajo para continuar el rediseño en una conversación nueva.
 > Complementa a `BRIEF-REDISENO.md`, que tiene el alcance y los textos definitivos (Anexo).
-> Última actualización: 10 de octubre de 2026 (borrado automático y consentimientos de emails).
+> Última actualización: 10 de octubre de 2026 (revisión en móvil, `SHOW_BOND`, versión en inglés y selector de idioma).
 
 ## Cómo retomar
 1. Leer `BRIEF-REDISENO.md` completo (incluido el Anexo) y este documento, sobre todo el **resumen de la última sesión** (abajo).
@@ -24,7 +24,8 @@
   - Pedir el DPA a Systeme y configurar el doble opt-in.
   - Que un asesor o un generador alemán revise los legales antes de publicar.
   - Al migrar a Render, actualizar el apartado de alojamiento de la política de privacidad.
-- **Siguiente:** ~~revisión en móvil del resto de páginas~~ (hecha el 10 oct, ver §3); la revisión en tablet (ojo: allí el botón es más grande que en escritorio) y en horizontal **la hace Omar**. Después: interruptor `SHOW_BOND`; después, traducción completa al inglés y selector de idioma.
+- **Hecho el 10 de octubre:** revisión en móvil de las páginas pendientes, interruptor `SHOW_BOND` (en `false`), versión completa en inglés y selector de idioma (ver §3, "Decisiones del 10 de octubre").
+- **Siguiente:** la revisión en tablet (ojo: allí el botón es más grande que en escritorio) y en horizontal **la hace Omar** con el visor. Pendientes: revisión de `en.json` por Omar y prerenderizado al migrar a Render (§5).
 
 ---
 
@@ -55,7 +56,8 @@
 - **`backend/`:** Express, legado. **No se toca.**
 - **Idiomas:** react-i18next (desde la Fase 0).
   - Textos en `frontend/src/locales/es.json` (por página: `common`, `nav`, `footer`, `seo`, `home`, `servicios`, `bond`, `proyectos`, `sobreMi`, `contacto`, `leadMagnet`).
-  - Inicialización en `frontend/src/i18n.js`. El inglés se añadirá después con un `en.json`; en esta fase no se crea.
+  - Inglés en `frontend/src/locales/en.json` (mismas claves que `es.json`; comprobar la paridad al añadir textos).
+  - Inicialización en `frontend/src/i18n.js`: el idioma lo decide la URL. Direcciones de cada página en `frontend/src/config/routes.js` (`ROUTES`, `useLocalePath()`, `pageFromPath()`); **nunca escribir rutas a mano** en enlaces: `to={path("contacto")}`.
   - Los legales (Impressum, Datenschutz) se quedan fuera de `es.json`.
 - **Configuración** en `frontend/src/config/site.js`:
   - interruptores del lead magnet (`SHOW_LEAD_POPUP` y `SHOW_LEAD_FLOAT_BTN`, ambos `false`) y su URL (`LEAD_MAGNET_URL`);
@@ -167,16 +169,25 @@
 1. **Borrado automático a los 24 meses:** sí. ✅ Índice TTL sobre `createdAt` en `leads-web` (`lib/Contact.js`, 730 días) y plazo actualizado en la política de privacidad (ES y EN). Al publicar, ver §6 (pasos 3 y 5). Omar contará las consultas antiguas en Atlas el día de publicar.
 2. **Titulares del hero sin punto final** en todas las páginas **salvo Bond** ("Bond."). La Home sin ningún punto, siempre con el salto entre las dos frases. El slogan del footer no cambia. ✅
 3. **Revisión en móvil de las páginas pendientes (hecha):** formulario de Contacto (campos a 16 px, más anchos, "Coach, panadería, yoga…"); títulos de cierre de Sobre mí, Contacto y Proyectos con `$fs-section-title-mobile` (la de Servicios), altura de línea 1.05 y `text-wrap: balance` (también el subtítulo de Sobre mí), solo en móvil; espacios no separables en "+15 %" y en "§ número" de los legales. El filtro de Proyectos no se toca. **La revisión en tablet y en horizontal la hace Omar** con el visor.
-5. **Interruptor `SHOW_BOND` (`config/site.js`), ahora en `false`:** ✅ Con `false` Bond desaparece de toda la web: menú y footer (`NAV_LINKS`), sección de la Home, panel de Servicios, preguntas del FAQ marcadas con `"bond": true` en `es.json` y la opción "Plataforma Bond" del formulario; `/bond` redirige a la Home (`<Navigate replace>`). La API sigue aceptando `interes: "bond"` (no hace daño). **Al volver a ponerlo en `true`, a mano:**
+4. **Interruptor `SHOW_BOND` (`config/site.js`), ahora en `false`:** ✅ Con `false` Bond desaparece de toda la web: menú y footer (`NAV_LINKS`), sección de la Home, panel de Servicios, preguntas del FAQ marcadas con `"bond": true` en `es.json` y la opción "Plataforma Bond" del formulario; `/bond` redirige a la Home (`<Navigate replace>`). La API sigue aceptando `interes: "bond"` (no hace daño). **Al volver a ponerlo en `true`, a mano:**
    - `public/sitemap.xml`: volver a añadir `<url><loc>https://www.camybgs.com/bond</loc><lastmod>…</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>` después de `/servicios`.
    - `index.html`: volver a añadir `"Plataforma de gestión de clientes"` al `serviceType` del JSON-LD.
    - Revisar en tablet y móvil la Home y Servicios con el bloque de Bond.
-4. **Consentimientos de emails aparte, sin TTL:** ✅ Colección **`email-consents`** (`lib/EmailConsent.js`): `email`, `createdAt` (fecha), `text` (texto exacto de la casilla), `version` y `lang`. Se guarda un documento por cada envío con la casilla marcada.
+5. **Consentimientos de emails aparte, sin TTL:** ✅ Colección **`email-consents`** (`lib/EmailConsent.js`): `email`, `createdAt` (fecha), `text` (texto exacto de la casilla), `version` y `lang`. Se guarda un documento por cada envío con la casilla marcada.
    - El texto y la versión están en **`lib/consentText.js`**, que es la fuente única: lo muestra `Contacto.jsx` y lo guarda `api/contact.js`. Por eso ese texto ya no está en `es.json`. **Si cambia el texto, hay que cambiar la versión.**
    - Política de privacidad (ES y EN), apartado 6: qué se guarda, dónde, base legal (art. 6.1.c en relación con el 7.1 del RGPD) y que se borra con la baja.
    - **Borrado al darse de baja:**
      - **A — proceso manual una vez al mes: aprobado por Omar ✅.** Paso a paso en **§7**.
      - **B — automático con webhook de Systeme: para más adelante**, sin implementar. Una función `api/consent-unsubscribe.js` que recibe el aviso de Systeme y borra los documentos de ese email, protegida con un secreto compartido. **Antes hay que comprobar en Systeme** qué evento existe para la baja (si no lo hay, usar una automatización que quite la etiqueta `2222022` al darse de baja, más el webhook de "etiqueta quitada").
+6. **Versión en inglés y selector de idioma:** ✅ (traducción aprobada por ahora; **Omar revisará `en.json` con calma más adelante**).
+   - **Rutas `/en` traducidas:** `/en`, `/en/services`, `/en/bond`, `/en/projects`, `/en/about`, `/en/contact`, `/en/impressum`, `/en/privacy`. Fuente única: `src/config/routes.js`. El español sigue sin prefijo.
+   - **Siempre español al entrar:** el idioma lo decide la URL; nadie es redirigido según el navegador.
+   - **Selector redondo en la cabecera** (`Header.jsx`, `.header__lang-btn`): mismo aspecto que el botón de música, a su derecha, con el código del **otro** idioma ("EN" / "ES"); enlaza a la misma página en el otro idioma. En escritorio el botón de música no se mueve; en tablet y móvil queda entre la música y el menú; por debajo de 375 px los dos botones redondos bajan a 30 px para que quepan.
+   - **Inglés británico** ("colour", "organise"), precios con el euro delante ("€799", "€77/month"). Textos fijados por Omar: slogan "Your website, a mirror of your message."; titular "You have something to say" / "Let your website make them feel it" (sin punto final). Los nombres de producto (One, Multi, Custom, Basic, Plus, Bond) e "Impressum" no se traducen.
+   - Titular de la Home en inglés, solo en móvil: tamaño calculado para que "You have something to say" quepa en una línea (`.home-hero__title--en`); el español no cambia.
+   - SEO: cada página con `lang`, `canonical` de su idioma y `hreflang` (es, en, x-default); `sitemap.xml` con las dos versiones de cada página.
+   - Casilla de emails: texto en inglés en `lib/consentText.js`, misma versión.
+   - Lo que no se traduce: el email de aviso a Omar y las etiquetas de Systeme siguen en español.
 
 ---
 
@@ -286,6 +297,7 @@ Commits `f6ff283`, `e25fe04`, `13d157c` y `07f8dd5`.
 - Confirmar si los vídeos de testimonios actuales se mantienen o hay nuevos.
 - Logo nuevo sin "MARKETING · WEB" (más adelante).
 - Imagen Open Graph nueva hecha en Canva (más adelante).
+- **Revisar con calma `frontend/src/locales/en.json`** (la traducción está aprobada por ahora).
 - Lo que le toca al publicar: ver la checklist de publicación (§6).
 
 **Avisos técnicos:**
@@ -300,7 +312,11 @@ Commits `f6ff283`, `e25fe04`, `13d157c` y `07f8dd5`.
 - **`VITE_API_URL`:** ya no la usa el código (el formulario llama a `/api/contact`, relativa, desde la migración a funciones de Vercel). Omar puede borrarla de Vercel (Production y Preview) y del `.env` local cuando quiera.
 - **Dependencias:** `npm install` avisa de 20 vulnerabilidades en las dependencias del proyecto. Quedan fuera de esta fase.
 - **Legibilidad sobre el aurora:** revisarla sección por sección después de la Fase 2, sin velo salvo que Omar lo pida. Incluye la tarjeta Multi (fondo Noche).
-- **Fuera de esta fase:** migración a Render (justo después, como tarea aparte), versión en inglés, test "¿Tu web dice lo que eres?" y reescritura de los legales. El texto de Datenschutz menciona Systeme.io "für Marketingzwecke".
+- **Para la migración a Render** (justo después, como tarea aparte):
+  - **Prerenderizado** (generar el HTML de cada página al compilar), para que las vistas previas de WhatsApp y redes salgan en el idioma correcto: hoy leen `index.html` sin JavaScript y un enlace `/en/...` se ve en español.
+  - Replicar las redirecciones de `vercel.json` (D11 y `/tarjeta`) y la reescritura de todas las rutas a `index.html`.
+  - Actualizar el apartado de alojamiento de la política de privacidad (ES y EN).
+- **Fuera de esta fase:** test "¿Tu web dice lo que eres?". (La versión en inglés y la reescritura de los legales ya están hechas.)
 
 ---
 

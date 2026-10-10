@@ -73,6 +73,37 @@
   svg { display: block; }
 }
 
+// ─── SELECTOR DE IDIOMA (enlace a la misma página en el otro idioma) ─────────
+// Mismo aspecto que el botón de música, 12px a su derecha (anula el gap de
+// 100px del grupo, así el botón de música no se mueve)
+.header__lang-btn {
+  pointer-events: auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid $color-arena;
+  color: $color-arena;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7px;
+  margin-left: -88px;
+  font-family: "Outfit", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease;
+  animation: musicBtnSlideDown 1.4s cubic-bezier(0.22, 1, 0.36, 1) 4.95s both;
+
+  &:hover,
+  &:focus-visible {
+    box-shadow:
+      0 0 10px rgba(245, 240, 232, 0.55),
+      0 0 24px rgba(245, 240, 232, 0.28);
+  }
+}
+
 @keyframes burgerLine1Enter {
   from { transform: translateX(200px); }
   to   { transform: translateX(0); }
@@ -425,6 +456,13 @@
     svg { width: 24px; height: 24px; }
   }
 
+  .header__lang-btn {
+    width: 34px;
+    height: 34px;
+    margin: 0 18px 0 0;
+    font-size: 11px;
+  }
+
   .nav-backdrop { display: none; }
 
   .nav-panel {
@@ -530,6 +568,26 @@
 
   .header__logo .header__logo-img--desktop { display: none; }
   .header__logo .header__logo-img--mobile  { display: block; width: 36vw; height: auto; }
+}
+
+// ── Teléfonos estrechos (< 375px): botones redondos más compactos para que
+// quepan logo, música, idioma y menú
+@media (max-width: 374px) {
+
+  .header__music-btn {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+
+    svg { width: 21px; height: 21px; }
+  }
+
+  .header__lang-btn {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    font-size: 10px;
+  }
 }
 
 // ── Teléfonos bajos en vertical (iPhone SE y menores) ────────────────────────

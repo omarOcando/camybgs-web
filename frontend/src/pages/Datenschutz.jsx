@@ -18,7 +18,7 @@ function Datenschutz() {
         description={isEn
           ? "How CAMY Business Growth Solutions processes personal data on this website."
           : "Cómo trata CAMY Business Growth Solutions los datos personales en este sitio web."}
-        path="/datenschutz"
+        page="datenschutz"
       />
       <div className="legal__inner">
         {isEn ? <PrivacyEn /> : <PrivacyEs />}

@@ -1,0 +1,558 @@
+{
+  "common": {
+    "newTab": "(opens in a new tab)",
+    "loader": "Preparing your experience...",
+    "whatsappButton": "Contact via WhatsApp",
+    "scrollTop": "Back to top"
+  },
+  "nav": {
+    "links": {
+      "home": "Home",
+      "servicios": "Services",
+      "bond": "Bond",
+      "proyectos": "Projects",
+      "sobreMi": "About me",
+      "contacto": "Contact"
+    },
+    "logoAlt": "CAMY, go to the home page",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "playMusic": "Play music",
+    "pauseMusic": "Pause music",
+    "switchLang": "View this page in Spanish"
+  },
+  "footer": {
+    "logoAlt": "CAMY",
+    "slogan": "Your website, a mirror of your message.",
+    "navLabel": "Footer menu",
+    "privacy": "Privacy Policy",
+    "copyright": "© CAMY | Business Growth Solutions {{year}}"
+  },
+  "seo": {
+    "home": {
+      "title": "CAMY · Web design that communicates",
+      "description": "Creative websites where every word, colour, shape and movement expresses what your business is. From €77/month."
+    },
+    "servicios": {
+      "title": "Services and prices · CAMY",
+      "description": "One, Multi and Custom websites, maintenance plans and payment in instalments. Custom design, basic SEO and legal pages included."
+    },
+    "bond": {
+      "title": "Bond · Run your business, care for your clients",
+      "description": "CAMY's platform for coaches, therapists and professionals who guide their clients: bookings, calendar, client portal and payments."
+    },
+    "proyectos": {
+      "title": "Projects · CAMY",
+      "description": "Real web design projects and custom-built platforms."
+    },
+    "sobreMi": {
+      "title": "About me · CAMY",
+      "description": "The story behind CAMY and Omar Ocando, a web designer in Cologne, Germany."
+    },
+    "contacto": {
+      "title": "Contact · CAMY",
+      "description": "Tell me about your project. I reply within 24 hours, in English or Spanish."
+    }
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "You have something to say",
+      "titleLine2": "Let your website make them feel it",
+      "subtitleLine1": "Websites where every word, colour, shape and movement",
+      "subtitleLine2": "expresses what your business is.",
+      "cta": "Let's talk about your website",
+      "ctaMenuLabel": "How would you like to talk?",
+      "contactOptions": {
+        "whatsapp": "WhatsApp",
+        "phone": "Call",
+        "telegram": "Telegram",
+        "signal": "Signal"
+      }
+    },
+    "problem": {
+      "title": "Sound familiar?",
+      "pains": [
+        {
+          "title": "“My website doesn't express my business.”",
+          "text": "Visitors don't understand at first glance what you do or why they should choose you. And they leave without getting in touch."
+        },
+        {
+          "title": "“It looks just like all the others.”",
+          "text": "Templates, stock photos, generic copy… But none of what makes you special shows up."
+        },
+        {
+          "title": "“I feel awkward sending the link.”",
+          "text": "You know your work is worth more than your website shows. And it holds you back every time someone asks to see it."
+        }
+      ],
+      "closing": "It's not talent that's missing. It's the message..."
+    },
+    "how": {
+      "title": "Nothing appears by chance",
+      "introLine1": "A website communicates, even before anyone reads a single word...",
+      "introLine2": "That's why I craft every detail with care and intention.",
+      "pillars": [
+        {
+          "title": "Words",
+          "text": "Words are our main tool for understanding each other. How they're used can take people to very specific places."
+        },
+        {
+          "title": "Colour",
+          "text": "Every shade and combination conveys something: trust, energy, calm, and more. They're a powerful way to say exactly what you mean."
+        },
+        {
+          "title": "Shape",
+          "text": "Typography, space and composition that organise your message and guide the eye."
+        },
+        {
+          "title": "Movement",
+          "text": "Meaningful animations that introduce and accompany whoever experiences your message, without distracting from it."
+        }
+      ],
+      "closing": "The result: a website that mirrors your message."
+    },
+    "offer": {
+      "title": "Choose how to start",
+      "plans": [
+        {
+          "name": "One",
+          "text": "A single page with all the essentials, to present yourself clearly.",
+          "priceOnce": "From €799",
+          "priceMonthly": "or from €77/month"
+        },
+        {
+          "name": "Multi",
+          "text": "Several pages to tell the full story of your business: services, projects, team…",
+          "priceOnce": "From €1,199",
+          "priceMonthly": "or from €115/month"
+        },
+        {
+          "name": "Custom",
+          "text": "Features tailored to you: bookings, calendar, online shop…",
+          "priceOnce": "From €1,999",
+          "priceMonthly": "or from €192/month"
+        }
+      ],
+      "included": "All of them include custom design, basic SEO, legal pages and unlimited changes to the approved design. Pay in one go or in instalments.",
+      "plansLine": "And afterwards? With the Basic and Plus plans, your website stays up to date and your clients well looked after.",
+      "cta": "See all the details"
+    },
+    "bond": {
+      "tag": "Flagship product",
+      "titleName": "Bond.",
+      "titleTagline": "Run your business, care for your clients.",
+      "textLine1": "A digital platform for coaches, therapists, nutritionists and any professional who guides their clients through a process.",
+      "textLine2": "Bookings, reminders, a client portal, notes, payments and more… All in one place, with your brand.",
+      "cta": "Discover Bond"
+    },
+    "projects": {
+      "title": "I'm so happy to share my clients' achievements…",
+      "videoLabel": "Video testimonial from {{name}}",
+      "resultLabel": "Result:",
+      "items": {
+        "ramses": {
+          "name": "Ramsés Viloria",
+          "meta": "Relationship coach · Frankfurt",
+          "text": "His own platform to manage clients, bookings and payments, designed around the way he works.",
+          "result": "4 new clients in the first 45 days."
+        },
+        "vivamexico": {
+          "name": "Viva México",
+          "meta": "Mariachi band · NRW",
+          "text": "A bilingual website (German and Spanish) that replaced their old WordPress site without losing their Google rankings."
+        }
+      },
+      "cta": "See projects"
+    },
+    "process": {
+      "title": "Understanding comes first...",
+      "steps": [
+        {
+          "title": "Understanding",
+          "text": "Before writing a single line of code, I listen, think and understand your business, your clients and what you want to convey."
+        },
+        {
+          "title": "Research",
+          "text": "I study what your clients are looking for, what worries them and what drives their decisions."
+        },
+        {
+          "title": "Implementation",
+          "text": "Design is a creative result that comes from understanding and follows what you want to express. Not the other way round."
+        },
+        {
+          "title": "Development",
+          "text": "Clean, fast, effective build, ready to grow with you."
+        },
+        {
+          "title": "Delivery and support",
+          "text": "I don't disappear after launch: I make sure everything works. You're not left on your own."
+        }
+      ]
+    },
+    "about": {
+      "title": "The person behind CAMY",
+      "photoAlt": "Omar Ocando",
+      "paragraphs": [
+        "My name is Omar Ocando. I'm Venezuelan and I live in Cologne, Germany. CAMY is named after my daughter, Camila, and was created to help professionals like you show who they really are.",
+        "I work directly, without beating around the bush, and with you at every step. We can talk in English or Spanish, whichever you prefer."
+      ],
+      "cta": "Read my story"
+    },
+    "closing": {
+      "title": "Shall we talk about your website?",
+      "textLine1": "Tell me what you do and what you want to convey.",
+      "textLine2": "I'll reply within 24 hours.",
+      "cta": "Let's talk"
+    }
+  },
+  "servicios": {
+    "hero": {
+      "title": "What I can do for you",
+      "subtitle": "You choose the website you need. I make sure it says who you are."
+    },
+    "webs": {
+      "title": "Your website",
+      "labels": {
+        "for": "Who it's for:",
+        "includes": "What's included:",
+        "duration": "Timeframe:",
+        "price": "Price:"
+      },
+      "items": [
+        {
+          "name": "One",
+          "for": "professionals and businesses who want to present themselves clearly, without complications.",
+          "includes": "a single page with several sections: who you are, what you do, why choose you and how to contact you. All the essentials, in one straightforward journey.",
+          "duration": "1–2 weeks",
+          "priceOnce": "from €799",
+          "priceMonthly": "or from €77/month"
+        },
+        {
+          "name": "Multi",
+          "for": "professionals and businesses with several services, projects or a team to show.",
+          "includes": "several pages to tell the full story of your business: home, services, projects, about you, contact… Each with its own purpose.",
+          "duration": "3–4 weeks",
+          "priceOnce": "from €1,199",
+          "priceMonthly": "or from €115/month"
+        },
+        {
+          "name": "Custom",
+          "for": "professionals and businesses who need more than a showcase: bookings, calendars or selling online.",
+          "includes": "your website with custom features: bookings, calendar, online shop or whatever your business needs.",
+          "duration": "depends on the project",
+          "priceOnce": "from €1,999",
+          "priceMonthly": "or from €192/month"
+        }
+      ]
+    },
+    "included": {
+      "title": "Included in all your websites:",
+      "items": [
+        "Custom design, built around your message. No templates.",
+        "Clear, effective copy that explains what you do and why to choose you.",
+        "Adapted to mobile, tablet (portrait and landscape) and desktop (fully responsive).",
+        "Basic SEO so Google can find you effectively.",
+        "Contact form and WhatsApp button (if you'd like).",
+        "Legal pages included (legal notice and privacy policy, depending on your country). You provide the content.",
+        "Unlimited changes to the approved design."
+      ],
+      "extraLabel": "Extra:",
+      "extra": "Want your website in more than one language? +15 % per language, with the translated texts provided by you."
+    },
+    "payment": {
+      "title": "Pay the way that suits you",
+      "text": "You can pay for your website in one go or spread it over monthly instalments. That way you can start now, without waiting to have it all.",
+      "caption": "Price of each website, paid in full or in instalments",
+      "columns": {
+        "web": "Website",
+        "once": "Paid in full",
+        "monthly": "Instalments"
+      },
+      "rows": [
+        { "name": "One", "once": "from €799", "monthly": "from €77/month" },
+        { "name": "Multi", "once": "from €1,199", "monthly": "from €115/month" },
+        { "name": "Custom", "once": "from €1,999", "monthly": "from €192/month" }
+      ],
+      "note": "Your first instalment secures your start date."
+    },
+    "plans": {
+      "title": "Your website, always up to date",
+      "subtitleLine1": "A website doesn't end the day it goes live.",
+      "subtitleLine2": "Choose how you want it to continue.",
+      "items": [
+        {
+          "name": "Basic",
+          "price": "€59/month",
+          "text": "Your website secure, up to date and running. Hosting, updates, backups and small changes every month (texts, photos, opening hours)."
+        },
+        {
+          "name": "Plus",
+          "price": "€89/month",
+          "text": "Everything in Basic, and I also look after your clients: welcome and follow-up emails, Google review requests and automations that bring them back."
+        }
+      ],
+      "note": "Small changes don't include structural changes. Anything beyond that is quoted separately."
+    },
+    "bond": {
+      "tag": "Flagship product",
+      "kicker": "Do you guide your clients through a process?",
+      "titleName": "Bond.",
+      "titleTagline": "Run your business, care for your clients.",
+      "text": "Bond is CAMY's business management platform. Built for coaches, therapists, nutritionists and other professionals who work in sessions or programmes. Run your business and care for your clients from one place, with your brand.",
+      "price": [
+        { "label": "Setup:", "value": "€999 (or in instalments from €96/month)" },
+        { "label": "Subscription:", "value": "€99/month" }
+      ],
+      "cta": "Discover Bond"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "q": "How long does my website take?",
+          "a": "One takes 1 to 2 weeks. Multi, 3 to 4. Custom depends on the project. The timeline starts on the agreed start date, once I have all the material."
+        },
+        {
+          "bond": true,
+          "q": "And how long does Bond take?",
+          "a": "Once you send me your logo, colours and schedule, your platform is ready in 7 days. If you already have clients in another tool, I migrate them for you, and in that case it may take a few more days."
+        },
+        {
+          "q": "What do you need from me?",
+          "a": "Your texts or the information to write them, photos, logo and access to your domain. I'll send you a clear list when we start."
+        },
+        {
+          "q": "Is the domain mine?",
+          "a": "Yes. You buy it in your name and I take care of connecting it to your website."
+        },
+        {
+          "q": "What does “unlimited changes to the approved design” mean?",
+          "a": "First we agree on the design. From then on, I adjust everything you need until it's just the way you want it. A complete change of concept is quoted separately."
+        },
+        {
+          "q": "What language do we work in?",
+          "a": "In English or Spanish, whichever you prefer."
+        },
+        {
+          "q": "When is my website fully mine?",
+          "a": "When you complete the payment. If you pay in instalments, the design and code become yours with the last instalment."
+        }
+      ]
+    },
+    "start": {
+      "title": "How we get started",
+      "steps": [
+        {
+          "title": "We talk",
+          "text": "A short call, by phone, video call or WhatsApp. You tell me about your business and what you want to convey."
+        },
+        {
+          "title": "I send you a proposal",
+          "text": "With the final price, the timeline and a start date reserved for you."
+        },
+        {
+          "title": "We start",
+          "text": "With the first payment, your date is confirmed and I send you the list of what I need."
+        }
+      ],
+      "cta": "Let's talk about your website"
+    }
+  },
+  "bond": {
+    "hero": {
+      "tag": "CAMY's flagship product",
+      "title": "Bond.",
+      "subtitle": "Run your business, care for your clients.",
+      "textLine1": "The platform for professionals who guide their clients through a process.",
+      "textLine2": "Bookings, calendar, follow-up and payments in one place, with your brand.",
+      "ctaSales": "See Bond in detail",
+      "ctaDemo": "Book a demo"
+    },
+    "audience": {
+      "title": "Made for those who guide their clients",
+      "textLine1": "Coaches, therapists, psychologists, nutritionists, teachers, physiotherapists and more…",
+      "textLine2": "If you work in sessions or programmes and your clients go on a journey with you, Bond is made for you.",
+      "pain": "Stop jumping between your calendar, WhatsApp, paper notes and pending bank transfers."
+    },
+    "features": {
+      "title": "Your whole business, in one simple place.",
+      "forYou": {
+        "title": "For you:",
+        "items": [
+          { "lead": "Online bookings", "text": "from your website, with your hours, your session types and your free slots." },
+          { "lead": "Your daily and weekly schedule,", "text": "with your next session and your notes at hand." },
+          { "lead": "Alerts for what needs your attention:", "text": "pending payments, clients without a next appointment, notes to complete." },
+          { "lead": "Payments", "text": "online or recorded manually, always in view." }
+        ]
+      },
+      "forClients": {
+        "title": "For your clients:",
+        "items": [
+          { "lead": "Their own portal,", "text": "with their next session, their tasks and the journey so far." },
+          { "lead": "Automatic reminders", "text": "before each session, in their language." },
+          { "lead": "Messages with you,", "text": "without getting lost between chats." }
+        ]
+      },
+      "trust": "Data protected and hosted in Europe, GDPR-ready."
+    },
+    "pricing": {
+      "title": "Get started with Bond",
+      "price": [
+        { "label": "Setup:", "value": "€999 (or in instalments from €96/month)" },
+        { "label": "Subscription:", "value": "€99/month" }
+      ],
+      "textLine1": "I set up Bond with your brand, your services and your languages.",
+      "textLine2": "You just start using it.",
+      "ctaSales": "See Bond in detail",
+      "ctaDemo": "30-minute demo"
+    }
+  },
+  "proyectos": {
+    "hero": {
+      "title": "Real projects. Real results",
+      "subtitle": "Every project has its own story, and they all start the same way: understanding what the business wants to convey before designing anything."
+    },
+    "filters": {
+      "label": "Filter projects by type",
+      "all": "All"
+    },
+    "card": {
+      "challenge": "The challenge",
+      "work": "What I did",
+      "result": "→ Result",
+      "imageAlt": "Preview of the {{name}} project",
+      "visit": "View project",
+      "visitLabel": "View the {{name}} project (opens in a new tab)"
+    },
+    "items": {
+      "ramses": {
+        "name": "Ramsés Viloria",
+        "tag": "Client management platform · Custom",
+        "client": "Relationship coach · Frankfurt",
+        "challenge": "Five years of experience, but all his clients came through referrals. His online presence didn't reflect the quality of his work, and he had no system to organise clients, appointments and payments.",
+        "work": "A brand identity that conveys who he is: warmth, trust and commitment. And his own platform to manage clients, bookings and payments, designed around the way he works.",
+        "result": "4 new clients in the first 45 days."
+      },
+      "vivamexico": {
+        "name": "Viva México",
+        "tag": "Bilingual business website · Multi",
+        "client": "Javier Reyes · Professional mariachi band since 1992 · NRW",
+        "challenge": "Their website was an outdated WordPress site that didn't convey the energy of their music. They needed to renew it without losing what they had gained on Google, and to speak to both their German audience and the Latin community.",
+        "work": "A bilingual website (German and Spanish) where the music can be seen and heard: photo and video gallery, a repertoire with audio samples, and their formats (duo, trio or full mariachi band). With a careful migration to keep their rankings, and cookie consent in line with German regulations.",
+        "result": "New website up and running, without losing Google rankings."
+      }
+    },
+    "testimonials": {
+      "title": "In their own words",
+      "videoLabel": "Video testimonial from {{name}}"
+    },
+    "closing": {
+      "title": "Will yours be next?",
+      "text": "Tell me what you do and what you want to convey. In a short call, I'll tell you how I'd approach it.",
+      "cta": "Let's talk"
+    }
+  },
+  "sobreMi": {
+    "hero": {
+      "title": "Behind CAMY there's a rough and beautiful story",
+      "subtitle": "Let me tell you…"
+    },
+    "photoAlt": "Omar Ocando",
+    "story": [
+      { "text": "I never wanted children." },
+      { "text": "For years I chose freedom: travelling, creating, moving around the world without anchors. I lived on 3 continents, emigrated 5 times, survived 2 kidnappings and 2 bankruptcies. I've learnt more than any university could ever have taught me." },
+      { "text": "Then, at 49, something changed…", "variant": "strong" },
+      { "text": "For the first time, I wanted to be a father... And Camila arrived." },
+      { "text": "She arrived in the best conditions for her and the worst for me…" },
+      { "text": "Germany: an extraordinary country to have and raise children, but a hard one for a Latino with no language, no network, an accent that gives him away and a culture that doesn't always open its doors and contrasts in profound ways." },
+      { "text": "That's where I learnt and lived what it means to have something valuable to share and express, and have very few people receive it... Being judged on \"where you come from\" or \"how you sound\", and not on what's really there... That's why I know how important it is for a message to arrive as close as possible to its origin and to how it feels..." },
+      { "text": "In the middle of all this turmoil, against a backdrop of disbelief from those closest to me, CAMY was born." },
+      { "text": "A desperate, daring and slightly unbalanced decision; like almost everything I've done in life that has been worth it…", "variant": "strong" },
+      { "text": "CAMY is named after my daughter. And every client I help to show themselves as they truly are is one more step towards everything I want to give her." },
+      { "text": "I don't work for a salary. I work for her.", "variant": "highlight" }
+    ],
+    "quote": {
+      "line1": "“The basic reason I'm so direct, honest and focused on getting the message across properly is:",
+      "line2": "I have no time to waste. And neither do you.”"
+    },
+    "closing": {
+      "title": "Want to work with someone who truly understands what it means to start from scratch?",
+      "text": "Let's talk. No commitment. No formalities.",
+      "cta": "Let's talk now"
+    }
+  },
+  "contacto": {
+    "hero": {
+      "title": "Get in touch",
+      "subtitle": "No endless forms. No waiting. Let's just talk."
+    },
+    "intro": {
+      "title": "If you have something to say and want your website to convey it, we already have something to talk about.",
+      "subtitle": "Write to me however you prefer. I reply within 24 hours."
+    },
+    "form": {
+      "title": "Write to me here",
+      "fields": {
+        "nombre":    { "label": "Name",                   "placeholder": "Julia Smith" },
+        "email":     { "label": "Email",                  "placeholder": "julia@yourbusiness.com" },
+        "profesion": { "label": "Profession or business", "placeholder": "Coach, bakery, yoga…" },
+        "interes":   { "label": "What are you interested in?", "placeholder": "Select an option" },
+        "mensaje":   { "label": "Tell me about your project", "placeholder": "What you do and what you want your website to convey" }
+      },
+      "interestOptions": {
+        "one": "One website",
+        "multi": "Multi website",
+        "custom": "Custom website",
+        "bond": "Bond platform",
+        "mantenimiento": "Maintenance (Basic or Plus)",
+        "nose": "I'm not sure yet"
+      },
+      "privacy": "By sending this form, you agree that I process your data to answer your enquiry, in accordance with my",
+      "privacyLink": "Privacy Policy",
+      "submit": "Send message",
+      "sending": "Sending…",
+      "errorRequired": "Please fill in all the fields.",
+      "errorSend": "Something went wrong. Please try again or message me on WhatsApp."
+    },
+    "success": {
+      "headline": "Got it! I'm already reading your message.",
+      "text1": "Thank you for writing. You'll have my reply within 24 hours.",
+      "text2": "In the meantime, if you'd like to see how I work, take a look at my projects.",
+      "cta": "See projects"
+    },
+    "whatsapp": {
+      "title": "Or message me directly",
+      "text": "If you prefer something more direct, message me on WhatsApp. No filters, no assistants, no forms.",
+      "cta": "Open WhatsApp",
+      "message": "Hi Omar, I'd like to talk to you about a website for my business."
+    },
+    "steps": {
+      "title": "What happens next?",
+      "items": [
+        "I read your message carefully. No bots, no templates.",
+        "I reply within 24 hours and, if we're a good fit, we schedule a short call, free and with no commitment.",
+        "On the call, you tell me about your business and what you want to convey.",
+        "I send you a proposal with the final price, the timeline and a start date reserved for you."
+      ]
+    },
+    "data": {
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "location": "Location",
+      "locationValue": "Cologne, Germany. I work with clients across Europe and Latin America, in English or Spanish."
+    }
+  },
+  "leadMagnet": {
+    "popup": {
+      "close": "Close",
+      "title": "Do you know how the internet sees you?",
+      "taglineLine1": "Request your free mini audit",
+      "taglineLine2": "of your online presence",
+      "mockupAlt": "CAMY Mini Audit",
+      "cta": "I want my free audit"
+    },
+    "floatBtn": {
+      "label": "Free audit"
+    }
+  }
+}

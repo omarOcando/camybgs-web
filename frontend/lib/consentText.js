@@ -9,6 +9,7 @@ export const EMAIL_CONSENT_VERSION = "2026-10-09";
 
 export const EMAIL_CONSENT_TEXT = {
   es: "Quiero recibir emails ocasionales con ideas, novedades e información útil para mi negocio. Puedo darme de baja cuando quiera.",
+  en: "I would like to receive occasional emails with ideas, news and useful information for my business. I can unsubscribe at any time.",
 };
 
 // Texto en el idioma pedido, o en español si no existe

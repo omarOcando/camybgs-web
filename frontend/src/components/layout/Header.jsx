@@ -1,10 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef, Fragment } from "react";
 import { useTranslation } from "react-i18next";
 import logoSrc       from "../../assets/images/LogoCamyDarkBG.png";
 import logoMobileSrc from "../../assets/images/LogoCamySoloDarkBG.png";
 import audioSrc from "../../assets/audios/leberch-ambient-electronics-524300.mp3";
 import { NAV_LINKS } from "../../config/site";
+import { useLocalePath, pageFromPath, pathFor } from "../../config/routes";
 
 // Gotas irregulares — parte inferior, clusters y tamaños muy variados
 const DROPS = [
@@ -115,6 +116,11 @@ function buildWavePath(t, scale) {
 
 function Header() {
   const { t } = useTranslation();
+  const { lang, path } = useLocalePath();
+  const { pathname } = useLocation();
+  // Selector de idioma: la misma página en el otro idioma
+  const otherLang = lang === "es" ? "en" : "es";
+  const otherPath = pathFor(pageFromPath(pathname) ?? "home", otherLang);
   const [menuState, setMenuState] = useState("closed");
   const [isPlaying, setIsPlaying] = useState(false);
   const isOpen = menuState === "open";
@@ -245,7 +251,7 @@ function Header() {
       <header className={`header${isOpen ? " header--menu-open" : ""}`}>
         <div className="header__left">
           <NavLink
-            to="/"
+            to={path("home")}
             className="header__logo"
             onClick={menuState !== "closed" ? closeMenu : undefined}
           >
@@ -270,6 +276,16 @@ function Header() {
               />
             </svg>
           </button>
+
+          <Link
+            to={otherPath}
+            className="header__lang-btn"
+            hrefLang={otherLang}
+            aria-label={t("nav.switchLang")}
+            onClick={menuState !== "closed" ? closeMenu : undefined}
+          >
+            {otherLang.toUpperCase()}
+          </Link>
         </div>
 
         <button
@@ -296,14 +312,14 @@ function Header() {
           <div className="nav-panel__stripe-rough-b" aria-hidden="true" />
 
           <ul className="nav-panel__list">
-            {NAV_LINKS.map(({ to, key, end }, i) => (
-              <Fragment key={to}>
+            {NAV_LINKS.map(({ key, end }, i) => (
+              <Fragment key={key}>
                 <li
                   className="nav-panel__item"
                   style={{ "--i": NAV_LINKS.length - 1 - i }}
                 >
                   <NavLink
-                    to={to}
+                    to={path(key)}
                     end={end}
                     className="nav-panel__link"
                     onClick={closeMenu}

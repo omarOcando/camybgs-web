@@ -782,6 +782,13 @@
     margin-bottom: 22px;
   }
 
+  // Inglés: "You have something to say" mide ~11,6em, así que el tamaño se
+  // calcula para esa frase (misma regla: una línea en todo el rango móvil)
+  .home-hero__title--en {
+    font-size: clamp(20px, calc((100vw - 68px) / 12.2), 44px);
+    font-size: clamp(20px, calc(100cqi / 12.2), 44px);
+  }
+
   .home-hero__title-line {
     white-space: normal;
     text-wrap: balance;

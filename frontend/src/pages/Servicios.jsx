@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import Seo from "../components/Seo";
 import Reveal from "../components/Reveal";
 import { SHOW_BOND } from "../config/site";
+import { useLocalePath } from "../config/routes";
 
 // ─── HOOK ────────────────────────────────────────────────────────────────────
 
@@ -64,6 +65,7 @@ function FaqItem({ q, a }) {
 
 function Servicios() {
   const { t } = useTranslation();
+  const { path } = useLocalePath();
   const list = (key) => t(key, { returnObjects: true });
 
   const [websRef,     websVisible]     = useSection(0.1);
@@ -81,7 +83,7 @@ function Servicios() {
       <Seo
         title={t("seo.servicios.title")}
         description={t("seo.servicios.description")}
-        path="/servicios"
+        page="servicios"
       />
 
       {/* 01 — HERO */}
@@ -215,7 +217,7 @@ function Servicios() {
                   </li>
                 ))}
               </ul>
-              <Button to="/bond" variant="primary" size="lg">
+              <Button to={path("bond")} variant="primary" size="lg">
                 {t("servicios.bond.cta")} <span className="btn-arrow">→</span>
               </Button>
             </div>
@@ -248,7 +250,7 @@ function Servicios() {
               </li>
             ))}
           </ol>
-          <Button to="/contacto" variant="primary" size="lg">
+          <Button to={path("contacto")} variant="primary" size="lg">
             {t("servicios.start.cta")} <span className="btn-arrow">→</span>
           </Button>
         </div>

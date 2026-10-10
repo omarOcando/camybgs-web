@@ -18,7 +18,8 @@
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
     "playMusic": "Reproducir música",
-    "pauseMusic": "Pausar música"
+    "pauseMusic": "Pausar música",
+    "switchLang": "Ver esta página en inglés"
   },
   "footer": {
     "logoAlt": "CAMY",

@@ -71,7 +71,7 @@ function Bond() {
       <Seo
         title={t("seo.bond.title")}
         description={t("seo.bond.description")}
-        path="/bond"
+        page="bond"
       />
 
       {/* 01 — HERO */}

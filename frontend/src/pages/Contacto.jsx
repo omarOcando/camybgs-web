@@ -7,6 +7,7 @@ import { submitContact } from "../services/contactService";
 import { CONTACT, SHOW_BOND } from "../config/site";
 import { INTEREST_VALUES } from "../../lib/interests.js";
 import { getEmailConsentText } from "../../lib/consentText.js";
+import { useLocalePath } from "../config/routes";
 
 // ─── CONSTANTS ───────────────────────────────────────────────────────────────
 
@@ -41,6 +42,7 @@ function useVisible(threshold = 0.15) {
 
 function Contacto() {
   const { t, i18n } = useTranslation();
+  const { path } = useLocalePath();
   const [form, setForm]     = useState(EMPTY_FORM);
   const [emailConsent, setEmailConsent] = useState(false); // casilla opcional de campañas
   const [sending, setSending] = useState(false);
@@ -88,7 +90,7 @@ function Contacto() {
       <Seo
         title={t("seo.contacto.title")}
         description={t("seo.contacto.description")}
-        path="/contacto"
+        page="contacto"
       />
 
       {/* 01 — HERO */}
@@ -121,7 +123,7 @@ function Contacto() {
                   <p className="ctc-success__headline">{t("contacto.success.headline")}</p>
                   <p className="ctc-success__text">{t("contacto.success.text1")}</p>
                   <p className="ctc-success__text">{t("contacto.success.text2")}</p>
-                  <Button to="/proyectos" variant="primary" size="lg">
+                  <Button to={path("proyectos")} variant="primary" size="lg">
                     {t("contacto.success.cta")} <span className="btn-arrow" aria-hidden="true">→</span>
                   </Button>
                 </div>
@@ -196,7 +198,7 @@ function Contacto() {
 
                   <p className="ctc-form__privacy">
                     {t("contacto.form.privacy")}{" "}
-                    <Link to="/datenschutz" className="ctc-form__privacy-link">
+                    <Link to={path("datenschutz")} className="ctc-form__privacy-link">
                       {t("contacto.form.privacyLink")}
                     </Link>.
                   </p>

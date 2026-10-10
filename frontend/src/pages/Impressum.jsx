@@ -15,7 +15,7 @@ function Impressum() {
         description={isEn
           ? "Legal notice pursuant to § 5 DDG for CAMY Business Growth Solutions, Omar Jose Ocando Mederos."
           : "Información legal conforme al § 5 DDG de CAMY Business Growth Solutions, Omar Jose Ocando Mederos."}
-        path="/impressum"
+        page="impressum"
       />
       <div className="legal__inner">
         {isEn ? <ImpressumEn /> : <ImpressumEs />}
