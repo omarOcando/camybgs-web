@@ -37,6 +37,11 @@
   3. **Pedir confirmación a Omar antes del push.**
   4. Después del push, **esperar el visto bueno de Omar en la vista previa de Vercel** antes de empezar la siguiente fase.
 - Responder siempre en español.
+- **Regla para la revisión en móvil (y para cualquier ajuste de diseño posterior):**
+  - El diseño ajustado en la sesión del 9 de octubre (commit `edc779f`) está **aprobado**. No cambiar nada de escritorio ni de las partes de móvil ya revisadas.
+  - Limitar los cambios a los **estilos de móvil de las páginas pendientes**. Si un cambio puede afectar a otros tamaños de pantalla o a componentes compartidos (botones, footer, menú, tarjetas), **avisar a Omar y explicárselo antes de hacerlo**.
+  - Antes de cada cambio, enseñar a Omar qué se quiere cambiar y por qué. **Los cambios, de uno en uno.**
+  - Después de cada cambio, comprobar que escritorio (**1280 y 1440 px**) se ve **exactamente igual** que antes (capturas de referencia tomadas antes del primer cambio y comparadas píxel a píxel).
 - Para revisar los cambios, comprobar en el navegador:
   - anchos de 320 a 1440 px;
   - **con barra de scroll clásica** (Chrome headless la oculta por defecto: lanzar Playwright con `ignoreDefaultArgs: ["--hide-scrollbars"]`) y sin ella;
@@ -163,9 +168,9 @@
 2. **Consentimientos de emails aparte, sin TTL:** ✅ Colección **`email-consents`** (`lib/EmailConsent.js`): `email`, `createdAt` (fecha), `text` (texto exacto de la casilla), `version` y `lang`. Se guarda un documento por cada envío con la casilla marcada.
    - El texto y la versión están en **`lib/consentText.js`**, que es la fuente única: lo muestra `Contacto.jsx` y lo guarda `api/contact.js`. Por eso ese texto ya no está en `es.json`. **Si cambia el texto, hay que cambiar la versión.**
    - Política de privacidad (ES y EN), apartado 6: qué se guarda, dónde, base legal (art. 6.1.c en relación con el 7.1 del RGPD) y que se borra con la baja.
-   - **Borrado al darse de baja: propuesta pendiente de aprobación de Omar** (no implementada):
-     - **A (recomendada para empezar): proceso manual, una vez al mes.** En Systeme, filtrar los contactos dados de baja de los emails. En Atlas → `email-consents`, borrar sus documentos con `{ email: "<email en minúsculas>" }` (`deleteMany`). Además, cada vez que alguien pida la baja por email, hacerlo en el momento. Sin código y sin servicios nuevos; el riesgo es olvidarse.
-     - **B (más adelante): automático con webhook de Systeme.** Una función `api/consent-unsubscribe.js` que recibe el aviso de Systeme y borra los documentos de ese email, protegida con un secreto compartido. **Antes hay que comprobar en Systeme** qué evento existe para la baja (si no lo hay, usar una automatización que quite la etiqueta `2222022` al darse de baja, más el webhook de "etiqueta quitada").
+   - **Borrado al darse de baja:**
+     - **A — proceso manual una vez al mes: aprobado por Omar ✅.** Paso a paso en **§7**.
+     - **B — automático con webhook de Systeme: para más adelante**, sin implementar. Una función `api/consent-unsubscribe.js` que recibe el aviso de Systeme y borra los documentos de ese email, protegida con un secreto compartido. **Antes hay que comprobar en Systeme** qué evento existe para la baja (si no lo hay, usar una automatización que quite la etiqueta `2222022` al darse de baja, más el webhook de "etiqueta quitada").
 
 ---
 
@@ -304,4 +309,48 @@ Solo con la aprobación de Omar. En este orden:
 6. **Systeme (lo hace Omar, justo después de publicar):** borrar las etiquetas **lead-web** (`2049193`) y **lead-magnet-auditoria**. Antes no: la web actual todavía las usa.
 7. Un envío real del formulario en camybgs.com (avisando antes): email recibido, documento en Mongo con `interes` y contacto en Systeme solo con su etiqueta de interés. Con la casilla de emails marcada: etiqueta `consentimiento-emails` en Systeme y un documento en `camyDB.email-consents` con el texto y la versión. Después, volver al paso 5 para comprobar el índice TTL (y borrar el documento de prueba de `email-consents`).
 8. Si algo falla: *Instant Rollback* en Vercel o la etiqueta `v1-antes-rediseno`.
+9. **A partir de la publicación:** poner un recordatorio mensual para el proceso de bajas (§7).
 
+
+---
+
+## 7. Proceso mensual: borrar los consentimientos de quien se da de baja
+Lo hace Omar **una vez al mes** (por ejemplo, el día 1) y, además, **en el momento** si alguien pide la baja por email, WhatsApp o teléfono. Empieza a aplicarse cuando la web nueva esté publicada.
+
+**Por qué:** la política de privacidad (apartado 6) promete borrar la prueba del consentimiento cuando la persona se da de baja. Systeme gestiona la baja de los envíos, pero no sabe nada de la colección `email-consents` de Mongo: hay que borrarla a mano.
+
+### Paso 1 — Sacar de Systeme quién se ha dado de baja
+1. Entrar en Systeme → **Contactos**.
+2. Filtrar los contactos **dados de baja** (que ya no reciben emails) desde la última revisión. *La primera vez, anotar aquí el nombre exacto del filtro en Systeme para no tener que buscarlo de nuevo:* `______`.
+3. Si alguien pidió la baja por otro medio (email, WhatsApp, teléfono): darle de baja también en Systeme, quitarle la etiqueta **consentimiento-emails** (`2222022`) y añadirlo a la lista.
+4. Apuntar los emails en una lista. Si la lista está vacía, terminar aquí y saltar al paso 4.
+
+### Paso 2 — Borrar sus documentos en Atlas
+1. Entrar en MongoDB Atlas → el cluster → **Browse Collections** (Data Explorer).
+2. Abrir la base **`camyDB`** (la real, **no** `camyweb-preview`) → colección **`email-consents`**.
+3. Para cada email de la lista:
+   - En **Filter** escribir `{ email: "julia@tunegocio.com" }` (siempre **en minúsculas**: así se guardan) y pulsar **Apply**.
+   - Comprobar que los documentos que salen son de esa persona (puede haber varios: uno por cada vez que marcó la casilla).
+   - Borrarlos todos (icono de papelera en cada documento, o la opción de borrar los documentos del filtro si Atlas la ofrece).
+   - Volver a aplicar el filtro: debe salir **0 documentos**.
+
+   *Alternativa con `mongosh`, para varias personas a la vez:*
+   ```js
+   use camyDB
+   db["email-consents"].deleteMany({ email: { $in: ["julia@tunegocio.com", "otro@ejemplo.com"] } })
+   ```
+   El resultado `deletedCount` debe coincidir con el número de documentos que había.
+
+### Paso 3 — No borrar nada más
+- Las **consultas** (`leads-web`) no se tocan: se borran solas a los 24 meses.
+- En Systeme el contacto se queda **dado de baja** (no borrarlo): es lo que impide volver a escribirle por error. Si la persona pide además que se borren **todos** sus datos, eso es otra cosa (derecho de supresión): borrar también el contacto de Systeme y sus documentos de `leads-web`.
+
+### Paso 4 — Dejar constancia
+Anotar la revisión en la tabla (fecha y número de personas; **sin emails**, para no copiar datos personales aquí):
+
+| Fecha | Bajas tratadas | Documentos borrados | Notas |
+|---|---|---|---|
+| | | | |
+
+### Para más adelante (opción B, sin implementar)
+Una función `api/consent-unsubscribe.js` que recibe un aviso (webhook) de Systeme y borra los documentos de ese email, protegida con un secreto compartido. Antes hay que comprobar en Systeme qué evento existe para la baja. Si no lo hay, usar una automatización que quite la etiqueta `2222022` al darse de baja, más el webhook de "etiqueta quitada".
