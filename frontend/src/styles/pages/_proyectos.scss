@@ -437,7 +437,7 @@
   }
 
   .proj-cta__title {
-    font-size: clamp(38px, 9.5vw, 64px);
+    font-size: $fs-section-title-mobile;
     line-height: 1.14;
   }
 

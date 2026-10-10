@@ -11,6 +11,7 @@ $fs-hero-title-xl: 115px;                   // desde $desktop-xl
 $fs-hero-sub:      clamp(18px, 1.9vw, 30px);
 $fs-section-title: clamp(36px, 5vw, 70px);
 $lh-section-title: 1.05;                       // altura de línea de los títulos de sección
+$fs-section-title-mobile: clamp(32px, 9vw, 56px); // títulos de sección en móvil (≤ $mobile), como Servicios
 $fs-section-sub:   clamp(17px, 1.7vw, 25px);
 $hero-title-gap:   40px;                    // separación título → subtítulo del hero
 

@@ -680,7 +680,7 @@
   }
 
   .srv-section__title {
-    font-size: clamp(32px, 9vw, 56px);
+    font-size: $fs-section-title-mobile;
     margin-bottom: 36px;
   }
 
