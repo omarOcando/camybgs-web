@@ -7,7 +7,7 @@
 CAMY cambia de posicionamiento. Deja de presentarse como agencia de marketing y captación ("te pongo frente a ellos", "ventas reales") y pasa a ser un **estudio de diseño web creativo que comunica**: webs donde cada palabra, color, forma y movimiento expresan lo que es el negocio del cliente.
 
 - **Slogan (fijo, va en el footer):** Tu web, reflejo de tu mensaje.
-- **Titular del hero:** Tienes algo que decir. Haz que tu web lo haga sentir.
+- **Titular del hero:** Tienes algo que decir / Haz que tu web lo haga sentir (sin puntos; decisión del 10 oct 2026)
 - **Productos:** webs **One · Multi · Custom**, planes mensuales **Basic · Plus**, y **Bond** (producto estrella, una plataforma aparte que se vende en su propia página de Systeme).
 
 ## 2. Forma de trabajo: sin tocar la web en línea
@@ -134,7 +134,7 @@ Mientras tanto, usar marcadores claros (por ejemplo `#PENDIENTE-telegram`) y lis
 
 ### 1. Hero
 
-**Titular:** Tienes algo que decir. Haz que tu web lo haga sentir.
+**Titular:** Tienes algo que decir / Haz que tu web lo haga sentir
 
 **Subtítulo:** Webs donde cada palabra, color, forma y movimiento, expresan lo que es tu negocio.
 
@@ -477,7 +477,7 @@ _(Mantener el diseño que ya tienen las tarjetas.)_
 
 ### 1. Historia
 
-**Título:** Detrás de CAMY hay una historia ruda y hermosa.
+**Título:** Detrás de CAMY hay una historia ruda y hermosa
 
 **Subtítulo:** Te la cuento…
 
@@ -519,7 +519,7 @@ _(Igual que el texto actual.)_
 
 ### 1. Intro y formulario
 
-**Título:** Contáctame.
+**Título:** Contáctame
 
 **Subtítulo:** Sin formularios interminables. Sin esperas. Solo hablemos.
 

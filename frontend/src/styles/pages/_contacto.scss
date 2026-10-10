@@ -485,7 +485,8 @@
 
   .ctc-steps__title {
     font-size: $fs-section-title-mobile;
-    line-height: 1.14;
+    line-height: $lh-section-title;
+    text-wrap: balance;
   }
 
   .ctc-col {

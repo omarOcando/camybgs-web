@@ -92,7 +92,7 @@ function PrivacyEn() {
         <p className="legal__p">
           This website does not use cookies or similar tracking technologies, and it does not
           store or read information on your device beyond what is technically necessary to
-          display the pages you request (§ 25 (2) no. 2 TDDDG, the German Telecommunications
+          display the pages you request (§&nbsp;25 (2) no. 2 TDDDG, the German Telecommunications
           and Digital Services Data Protection Act). You therefore do not need to accept any
           cookie notice.
         </p>
@@ -167,7 +167,7 @@ function PrivacyEn() {
           it, I will only write to you to answer your enquiry.
         </p>
         <p className="legal__p">
-          <strong>Legal basis:</strong> your consent (Art. 6 (1) (a) GDPR and § 7 (2) UWG, the
+          <strong>Legal basis:</strong> your consent (Art. 6 (1) (a) GDPR and §&nbsp;7 (2) UWG, the
           German Act against Unfair Competition).
         </p>
         <p className="legal__p">

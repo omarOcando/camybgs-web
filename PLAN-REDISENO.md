@@ -24,7 +24,7 @@
   - Pedir el DPA a Systeme y configurar el doble opt-in.
   - Que un asesor o un generador alemán revise los legales antes de publicar.
   - Al migrar a Render, actualizar el apartado de alojamiento de la política de privacidad.
-- **Siguiente:** revisión en móvil del resto de páginas; después tablet (ojo: allí el botón es más grande que en escritorio); después el selector de idioma.
+- **Siguiente:** ~~revisión en móvil del resto de páginas~~ (hecha el 10 oct, ver §3); la revisión en tablet (ojo: allí el botón es más grande que en escritorio) y en horizontal **la hace Omar**. Después: interruptor `SHOW_BOND`; después, traducción completa al inglés y selector de idioma.
 
 ---
 
@@ -127,10 +127,10 @@
 2. **Legibilidad:** no se toca ahora; se revisa sección por sección después de la Fase 2.
 3. **Logo:** se queda como está (la imagen todavía dice "MARKETING · WEB"). Omar pasará una versión nueva más adelante.
 4. **Titular del hero:** ✅
-   - En escritorio, 2 líneas: "Tienes algo que decir." / "Haz que tu web lo haga sentir.".
+   - En escritorio, 2 líneas: "Tienes algo que decir" / "Haz que tu web lo haga sentir" (sin puntos desde el 10 oct).
    - En móvil puede ocupar más líneas, pero:
      - siempre con el salto entre las dos frases;
-     - "Tienes algo que decir." en **una sola línea entre 320 y 767 px**;
+     - "Tienes algo que decir" en **una sola línea entre 320 y 767 px**;
      - sin palabra sola en la última línea de la segunda frase.
 
 ### Preguntas de la Fase 2
@@ -165,7 +165,9 @@
 
 ### Decisiones del 10 de octubre de 2026
 1. **Borrado automático a los 24 meses:** sí. ✅ Índice TTL sobre `createdAt` en `leads-web` (`lib/Contact.js`, 730 días) y plazo actualizado en la política de privacidad (ES y EN). Al publicar, ver §6 (pasos 3 y 5). Omar contará las consultas antiguas en Atlas el día de publicar.
-2. **Consentimientos de emails aparte, sin TTL:** ✅ Colección **`email-consents`** (`lib/EmailConsent.js`): `email`, `createdAt` (fecha), `text` (texto exacto de la casilla), `version` y `lang`. Se guarda un documento por cada envío con la casilla marcada.
+2. **Titulares del hero sin punto final** en todas las páginas **salvo Bond** ("Bond."). La Home sin ningún punto, siempre con el salto entre las dos frases. El slogan del footer no cambia. ✅
+3. **Revisión en móvil de las páginas pendientes (hecha):** formulario de Contacto (campos a 16 px, más anchos, "Coach, panadería, yoga…"); títulos de cierre de Sobre mí, Contacto y Proyectos con `$fs-section-title-mobile` (la de Servicios), altura de línea 1.05 y `text-wrap: balance` (también el subtítulo de Sobre mí), solo en móvil; espacios no separables en "+15 %" y en "§ número" de los legales. El filtro de Proyectos no se toca. **La revisión en tablet y en horizontal la hace Omar** con el visor.
+4. **Consentimientos de emails aparte, sin TTL:** ✅ Colección **`email-consents`** (`lib/EmailConsent.js`): `email`, `createdAt` (fecha), `text` (texto exacto de la casilla), `version` y `lang`. Se guarda un documento por cada envío con la casilla marcada.
    - El texto y la versión están en **`lib/consentText.js`**, que es la fuente única: lo muestra `Contacto.jsx` y lo guarda `api/contact.js`. Por eso ese texto ya no está en `es.json`. **Si cambia el texto, hay que cambiar la versión.**
    - Política de privacidad (ES y EN), apartado 6: qué se guarda, dónde, base legal (art. 6.1.c en relación con el 7.1 del RGPD) y que se borra con la baja.
    - **Borrado al darse de baja:**

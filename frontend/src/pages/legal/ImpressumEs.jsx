@@ -7,7 +7,7 @@ function ImpressumEs() {
   return (
     <>
       <h1 className="legal__title">Impressum</h1>
-      <p className="legal__meta">Información conforme al § 5 de la DDG (Ley alemana de servicios digitales)</p>
+      <p className="legal__meta">Información conforme al §&nbsp;5 de la DDG (Ley alemana de servicios digitales)</p>
 
       <hr className="legal__divider" />
 
@@ -36,14 +36,14 @@ function ImpressumEs() {
         <p className="legal__p">
           <strong>Número fiscal (Steuernummer):</strong> {PROVIDER.taxNumber}
           <br />
-          <strong>Número de IVA intracomunitario conforme al § 27a UStG:</strong> {PROVIDER.vatId}
+          <strong>Número de IVA intracomunitario conforme al §&nbsp;27a UStG:</strong> {PROVIDER.vatId}
         </p>
       </section>
 
       <hr className="legal__divider" />
 
       <section className="legal__section">
-        <h2 className="legal__h2">Responsable del contenido conforme al § 18, apartado 2, del MStV</h2>
+        <h2 className="legal__h2">Responsable del contenido conforme al §&nbsp;18, apartado 2, del MStV</h2>
         <address className="legal__address">
           {PROVIDER.name}<br />
           {PROVIDER.street}<br />
@@ -58,7 +58,7 @@ function ImpressumEs() {
         <h2 className="legal__h2">Resolución de litigios con consumidores</h2>
         <p className="legal__p">
           No estoy dispuesto ni obligado a participar en procedimientos de resolución de
-          litigios ante una junta de arbitraje de consumo (§ 36 VSBG). Si tienes cualquier
+          litigios ante una junta de arbitraje de consumo (§&nbsp;36 VSBG). Si tienes cualquier
           reclamación, escríbeme directamente a{" "}
           <a className="legal__link" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>{" "}
           y buscaremos una solución.
@@ -72,7 +72,7 @@ function ImpressumEs() {
         <p className="legal__p">
           Elaboro los contenidos de este sitio web con el mayor cuidado. Como proveedor de
           servicios, soy responsable de mis propios contenidos conforme a las leyes generales
-          (§ 7, apartado 1, de la DDG). Según los §§ 8 a 10 de la DDG, no estoy obligado a
+          (§&nbsp;7, apartado 1, de la DDG). Según los §§&nbsp;8 a 10 de la DDG, no estoy obligado a
           supervisar la información de terceros transmitida o almacenada, ni a investigar
           circunstancias que indiquen una actividad ilícita. Las obligaciones de eliminar o
           bloquear el uso de información conforme a las leyes generales no se ven afectadas.

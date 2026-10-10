@@ -93,7 +93,7 @@ function PrivacyEs() {
         <p className="legal__p">
           Este sitio web no utiliza cookies ni tecnologías similares de seguimiento, y no
           guarda ni lee información en tu dispositivo más allá de lo técnicamente necesario
-          para mostrarte las páginas que solicitas (§ 25, apartado 2, n.º 2, de la TDDDG, ley
+          para mostrarte las páginas que solicitas (§&nbsp;25, apartado 2, n.º 2, de la TDDDG, ley
           alemana de protección de datos en telecomunicaciones y servicios digitales). Por eso
           no necesitas aceptar ningún aviso de cookies.
         </p>
@@ -172,7 +172,7 @@ function PrivacyEs() {
         </p>
         <p className="legal__p">
           <strong>Base legal:</strong> tu consentimiento (art. 6, apartado 1, letra a, del
-          RGPD, y § 7, apartado 2, de la UWG, ley alemana contra la competencia desleal).
+          RGPD, y §&nbsp;7, apartado 2, de la UWG, ley alemana contra la competencia desleal).
         </p>
         <p className="legal__p">
           <strong>Prueba del consentimiento:</strong> para poder demostrar que lo diste (art.

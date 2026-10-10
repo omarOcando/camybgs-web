@@ -250,11 +250,13 @@
 
   .sob-cta__title {
     font-size: $fs-section-title-mobile;
-    line-height: 1.14;
+    line-height: $lh-section-title;
+    text-wrap: balance;
   }
 
   .sob-cta__sub {
     font-size: clamp(16px, 4.5vw, 22px);
+    text-wrap: balance;
   }
 
   .sob-quote {

@@ -55,8 +55,8 @@
   },
   "home": {
     "hero": {
-      "titleLine1": "Tienes algo que decir.",
-      "titleLine2": "Haz que tu web lo haga sentir.",
+      "titleLine1": "Tienes algo que decir",
+      "titleLine2": "Haz que tu web lo haga sentir",
       "subtitleLine1": "Webs donde cada palabra, color, forma y movimiento",
       "subtitleLine2": "expresan lo que es tu negocio.",
       "cta": "Hablemos de tu web",
@@ -256,7 +256,7 @@
         "Cambios ilimitados sobre el diseño aprobado."
       ],
       "extraLabel": "Extra:",
-      "extra": "¿Tu web en más de un idioma? +15 % por idioma, con los textos traducidos aportados por ti."
+      "extra": "¿Tu web en más de un idioma? +15 % por idioma, con los textos traducidos aportados por ti."
     },
     "payment": {
       "title": "Paga como mejor te parezca",
@@ -452,7 +452,7 @@
   },
   "sobreMi": {
     "hero": {
-      "title": "Detrás de CAMY hay una historia ruda y hermosa.",
+      "title": "Detrás de CAMY hay una historia ruda y hermosa",
       "subtitle": "Te la cuento…"
     },
     "photoAlt": "Omar Ocando",
@@ -481,7 +481,7 @@
   },
   "contacto": {
     "hero": {
-      "title": "Contáctame.",
+      "title": "Contáctame",
       "subtitle": "Sin formularios interminables. Sin esperas. Solo hablemos."
     },
     "intro": {
