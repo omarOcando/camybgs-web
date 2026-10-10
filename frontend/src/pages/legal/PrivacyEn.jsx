@@ -146,10 +146,12 @@ function PrivacyEn() {
           Commission's Standard Contractual Clauses (Art. 46 (2) (c) GDPR).
         </p>
         <p className="legal__p">
-          <strong>Retention:</strong> I keep your data for as long as necessary to handle
-          your enquiry and, if we do not end up working together, I delete it no later than
-          24 months after our last contact. If a contract is concluded, the statutory
-          retention periods under commercial and tax law apply.
+          <strong>Retention:</strong> the enquiry you send through the form is automatically
+          deleted from the database 24 months after it was sent. In my other systems (email
+          and Systeme.io) I keep your data for as long as necessary to handle your enquiry
+          and, if we do not end up working together, I delete it no later than 24 months
+          after our last contact. If a contract is concluded, the statutory retention periods
+          under commercial and tax law apply.
         </p>
       </section>
 

@@ -150,10 +150,12 @@ function PrivacyEs() {
           tipo de la Comisión Europea (art. 46, apartado 2, letra c, del RGPD).
         </p>
         <p className="legal__p">
-          <strong>Conservación:</strong> conservo tus datos mientras sea necesario para
-          atender tu consulta y, si no llegamos a colaborar, los elimino como máximo 24 meses
-          después de nuestro último contacto. Si se celebra un contrato, se aplican los plazos
-          de conservación mercantiles y fiscales que establece la ley.
+          <strong>Conservación:</strong> la consulta que envías por el formulario se borra
+          automáticamente de la base de datos 24 meses después de su envío. En el resto de
+          sistemas (correo electrónico y Systeme.io) conservo tus datos mientras sea necesario
+          para atender tu consulta y, si no llegamos a colaborar, los elimino como máximo 24
+          meses después de nuestro último contacto. Si se celebra un contrato, se aplican los
+          plazos de conservación mercantiles y fiscales que establece la ley.
         </p>
       </section>
 

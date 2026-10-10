@@ -141,6 +141,9 @@
 6. **Base de datos de Preview:** `camyweb-preview`, en el mismo cluster (`MONGO_URI` de Preview). La base real es `camyDB`. El índice `email_1` de la colección real se borra al publicar y se comprueba después del merge (el código antiguo puede volver a crearlo).
 7. **Etiquetas de Systeme:** cada contacto recibe **solo** la etiqueta de su interés, sin la `2049193` (lead-web). ✅ IDs: `one` 2220930 (interes-web-one), `multi` 2220931 (interes-web-multi), `custom` 2220932 (interes-web-custom), `bond` 2220933 (interes-bond), `mantenimiento` 2220934 (interes-mantenimiento), `nose` 2220935 (interes-no-sabe). Las etiquetas lead-web y lead-magnet-auditoria las borra Omar después de publicar (§6).
 
+### Decisiones del 10 de octubre de 2026
+1. **Borrado automático a los 24 meses:** sí. ✅ Índice TTL sobre `createdAt` en `leads-web` (`lib/Contact.js`, 730 días) y plazo actualizado en la política de privacidad (ES y EN). Al publicar, ver §6 (pasos 3 y 5).
+
 ---
 
 ## 4. Fases
@@ -272,9 +275,10 @@ Solo con la aprobación de Omar. En este orden:
 1. **Antes del merge:** lint y build en verde, y la vista previa revisada por Omar.
 2. **Variables de entorno de Production en Vercel:** comprobar que `MONGO_URI` apunta a la base real **`camyDB`** (no a `camyweb-preview`).
 3. **Atlas:** borrar el índice único `email_1` de **`camyDB.leads-web`** (la base real; **no** `camyweb-preview`), justo antes o justo después del merge. El código antiguo puede volver a crearlo mientras siga en línea.
+   **Además, antes del merge:** contar en `camyDB.leads-web` los documentos con más de 24 meses (730 días), porque **se borrarán solos en cuanto se cree el índice TTL** (lo crea Mongoose al arrancar el código nuevo, con la primera petición al formulario). En Atlas → Data Explorer, filtro `{ createdAt: { $lt: ISODate("<hoy menos 730 días>") } }`. Si hay alguno y Omar quiere conservarlo, exportarlo antes.
 4. **Merge** en `master` y comprobar el despliegue en camybgs.com.
-5. **Atlas, después del merge:** comprobar en `camyDB.leads-web` que `email_1` no ha vuelto. Si está, borrarlo otra vez.
+5. **Atlas, después del merge:** comprobar en `camyDB.leads-web` que `email_1` no ha vuelto. Si está, borrarlo otra vez. Comprobar también que existe el índice TTL `createdAt_1` con `expireAfterSeconds: 63072000` (730 días); aparece después del primer envío del formulario (paso 7). Si no aparece, crearlo a mano en Atlas → Indexes con esos valores.
 6. **Systeme (lo hace Omar, justo después de publicar):** borrar las etiquetas **lead-web** (`2049193`) y **lead-magnet-auditoria**. Antes no: la web actual todavía las usa.
-7. Un envío real del formulario en camybgs.com (avisando antes): email recibido, documento en Mongo con `interes` y contacto en Systeme solo con su etiqueta de interés.
+7. Un envío real del formulario en camybgs.com (avisando antes): email recibido, documento en Mongo con `interes` y contacto en Systeme solo con su etiqueta de interés. Después, volver al paso 5 para comprobar el índice TTL.
 8. Si algo falla: *Instant Rollback* en Vercel o la etiqueta `v1-antes-rediseno`.
 

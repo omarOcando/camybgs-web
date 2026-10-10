@@ -18,4 +18,9 @@ const contactSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// Borrado automático (TTL) a los 24 meses del envío, como dice la política de
+// privacidad. 730 días para no pasarse nunca de 24 meses. Mongoose crea el
+// índice al arrancar (autoIndex), también en la base real.
+contactSchema.index({ createdAt: 1 }, { expireAfterSeconds: 60 * 60 * 24 * 730 });
+
 export default mongoose.models.Contact || mongoose.model("Contact", contactSchema, "leads-web");
