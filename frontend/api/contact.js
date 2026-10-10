@@ -1,6 +1,6 @@
 import connectDB from "../lib/db.js";
 import Contact from "../lib/Contact.js";
-import { createSystemeContact, addTagToSystemeContactByEmail } from "../lib/systeme.js";
+import { createSystemeContact, addTagToSystemeContactByEmail, EMAIL_CONSENT_TAG_ID } from "../lib/systeme.js";
 import { notifyContactForm } from "../lib/email.js";
 import { INTERESTS } from "../lib/interests.js";
 
@@ -11,6 +11,7 @@ export default async function handler(req, res) {
   }
 
   const { nombre, email, profesion, interes, mensaje } = req.body;
+  const emailConsent = req.body.emailConsent === true;
 
   if (!nombre || !email || !profesion || !interes || !mensaje) {
     return res.status(400).json({ message: "All fields are required" });
@@ -22,12 +23,13 @@ export default async function handler(req, res) {
 
   try {
     await connectDB();
-    await Contact.create({ nombre, email, profesion, interes, mensaje });
+    await Contact.create({ nombre, email, profesion, interes, mensaje, emailConsent });
 
     await Promise.all([
-      createSystemeContact(nombre, email).then(() =>
-        addTagToSystemeContactByEmail(email, INTERESTS[interes].tagId)
-      ),
+      createSystemeContact(nombre, email).then(async () => {
+        await addTagToSystemeContactByEmail(email, INTERESTS[interes].tagId);
+        if (emailConsent) await addTagToSystemeContactByEmail(email, EMAIL_CONSENT_TAG_ID);
+      }),
       notifyContactForm({ nombre, email, profesion, interes: INTERESTS[interes].label, mensaje }),
     ]);
 

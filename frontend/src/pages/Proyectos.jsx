@@ -141,7 +141,8 @@ function Proyectos() {
           <h2 className="proj-testimonials__title">{t("proyectos.testimonials.title")}</h2>
           <div ref={testimonialsRef} className={`proj-testimonials__grid${testimonialsVisible ? " proj-testimonials__grid--visible" : ""}`}>
             {TESTIMONIALS.map((p) => {
-              const name = t(`proyectos.items.${p.id}.name`);
+              const name   = t(`proyectos.items.${p.id}.name`);
+              const client = t(`proyectos.items.${p.id}.client`);
               return (
                 <figure key={p.id} className="proj-testimonials__card">
                   <div
@@ -157,7 +158,10 @@ function Proyectos() {
                       onLoadedMetadata={(e) => { e.target.currentTime = 0.01; }}
                     />
                   </div>
-                  <figcaption className="proj-testimonials__name">{name}</figcaption>
+                  <figcaption className="proj-testimonials__caption">
+                    <span className="proj-testimonials__name">{name}</span>
+                    <span className="proj-testimonials__client">{client}</span>
+                  </figcaption>
                 </figure>
               );
             })}
@@ -173,7 +177,7 @@ function Proyectos() {
         >
           <h2 className="proj-cta__title">{t("proyectos.closing.title")}</h2>
           <p className="proj-cta__sub">{t("proyectos.closing.text")}</p>
-          <Button to="/contacto" variant="primary" size="xl">
+          <Button to="/contacto" variant="primary" size="lg">
             {t("proyectos.closing.cta")} <span className="btn-arrow">→</span>
           </Button>
         </div>

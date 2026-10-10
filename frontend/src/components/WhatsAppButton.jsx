@@ -19,7 +19,7 @@ function WhatsAppButton() {
 
   return (
     <a
-      href={`https://wa.me/${CONTACT.whatsapp}`}
+      href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(t("contacto.whatsapp.message"))}`}
       target="_blank"
       rel="noopener noreferrer"
       className={`whatsapp-btn${visible ? " whatsapp-btn--visible" : ""}`}

@@ -34,8 +34,8 @@ function ExternalButtons({ sales, demo, className = "" }) {
       <Button href={BOND_SALES_URL} target="_blank" variant="primary" size="lg">
         {sales} <span className="btn-arrow" aria-hidden="true">→</span>{newTab}
       </Button>
-      <Button href={BOND_DEMO_URL} target="_blank" variant="ghost-light" size="lg" className="bond-buttons__demo">
-        {demo}{newTab}
+      <Button href={BOND_DEMO_URL} target="_blank" variant="ghost" size="lg">
+        {demo} <span className="btn-arrow" aria-hidden="true">→</span>{newTab}
       </Button>
     </div>
   );
@@ -77,10 +77,16 @@ function Bond() {
       {/* 01 — HERO */}
       <section className="bond-hero">
         <div className="bond-hero__inner">
-          <span className="bond-tag">{t("bond.hero.tag")}</span>
+          <span className="bond-panel__tag bond-hero__tag">
+            <span className="bond-panel__tag-star" aria-hidden="true">★</span>
+            {t("bond.hero.tag")}
+          </span>
           <h1 className="bond-hero__title">{t("bond.hero.title")}</h1>
           <p className="bond-hero__subtitle">{t("bond.hero.subtitle")}</p>
-          <p className="bond-hero__text">{t("bond.hero.text")}</p>
+          <p className="bond-hero__text">
+            <span className="bond-hero__text-line">{t("bond.hero.textLine1")}</span>{" "}
+            <span className="bond-hero__text-line">{t("bond.hero.textLine2")}</span>
+          </p>
           <ExternalButtons
             sales={t("bond.hero.ctaSales")}
             demo={t("bond.hero.ctaDemo")}
@@ -96,7 +102,10 @@ function Bond() {
           className={`bond-section-inner bond-audience__inner${audienceVisible ? " bond-audience__inner--visible" : ""}`}
         >
           <h2 className="bond-section-title">{t("bond.audience.title")}</h2>
-          <p className="bond-audience__text">{t("bond.audience.text")}</p>
+          <p className="bond-audience__text">
+            <span className="bond-audience__text-line">{t("bond.audience.textLine1")}</span>{" "}
+            <span className="bond-audience__text-line">{t("bond.audience.textLine2")}</span>
+          </p>
           <p className="bond-audience__pain">{t("bond.audience.pain")}</p>
         </div>
       </section>
@@ -122,7 +131,7 @@ function Bond() {
           ref={pricingRef}
           className={`bond-section-inner bond-pricing__inner${pricingVisible ? " bond-pricing__inner--visible" : ""}`}
         >
-          <h2 className="bond-section-title bond-section-title--light">{t("bond.pricing.title")}</h2>
+          <h2 className="bond-section-title">{t("bond.pricing.title")}</h2>
           <ul className="bond-pricing__price">
             {list("bond.pricing.price").map((line) => (
               <li key={line.label}>
@@ -130,7 +139,10 @@ function Bond() {
               </li>
             ))}
           </ul>
-          <p className="bond-pricing__text">{t("bond.pricing.text")}</p>
+          <p className="bond-pricing__text">
+            <span className="bond-pricing__text-line">{t("bond.pricing.textLine1")}</span>{" "}
+            <span className="bond-pricing__text-line">{t("bond.pricing.textLine2")}</span>
+          </p>
           <ExternalButtons
             sales={t("bond.pricing.ctaSales")}
             demo={t("bond.pricing.ctaDemo")}

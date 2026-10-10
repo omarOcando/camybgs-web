@@ -41,6 +41,7 @@ function useVisible(threshold = 0.15) {
 function Contacto() {
   const { t } = useTranslation();
   const [form, setForm]     = useState(EMPTY_FORM);
+  const [emailConsent, setEmailConsent] = useState(false); // casilla opcional de campañas
   const [sending, setSending] = useState(false);
   const [sent, setSent]     = useState(false);
   const [error, setError]   = useState("");
@@ -72,7 +73,7 @@ function Contacto() {
     }
     setSending(true);
     try {
-      await submitContact(form);
+      await submitContact({ ...form, emailConsent });
       setSent(true);
     } catch {
       setError(t("contacto.form.errorSend"));
@@ -119,7 +120,7 @@ function Contacto() {
                   <p className="ctc-success__headline">{t("contacto.success.headline")}</p>
                   <p className="ctc-success__text">{t("contacto.success.text1")}</p>
                   <p className="ctc-success__text">{t("contacto.success.text2")}</p>
-                  <Button to="/proyectos" variant="primary" size="md">
+                  <Button to="/proyectos" variant="primary" size="lg">
                     {t("contacto.success.cta")} <span className="btn-arrow" aria-hidden="true">→</span>
                   </Button>
                 </div>
@@ -178,6 +179,17 @@ function Contacto() {
                     />
                   </div>
 
+                  {/* Consentimiento opcional para campañas por email (desmarcado por defecto) */}
+                  <label className="ctc-form__consent">
+                    <input
+                      type="checkbox"
+                      className="ctc-form__checkbox"
+                      checked={emailConsent}
+                      onChange={(e) => setEmailConsent(e.target.checked)}
+                    />
+                    <span>{t("contacto.form.emailConsent")}</span>
+                  </label>
+
                   {error && <p className="ctc-form__error" role="alert">{error}</p>}
 
                   <p className="ctc-form__privacy">
@@ -205,8 +217,8 @@ function Contacto() {
                   <path fill="white" d="M24 10.4C16.5 10.4 10.4 16.5 10.4 24c0 2.4.6 4.6 1.7 6.6L10 38l7.6-2c1.8 1 3.9 1.6 6.1 1.6 7.5 0 13.6-6.1 13.6-13.6S31.5 10.4 24 10.4zm7.8 19.3c-.3.9-1.8 1.7-2.5 1.8-.6.1-1.4.1-2.3-.1-.5-.2-1.2-.4-2-.8-3.5-1.5-5.8-5-6-5.3-.2-.3-1.4-1.9-1.4-3.6 0-1.7.9-2.5 1.2-2.9.3-.3.7-.4.9-.4h.7c.2 0 .5 0 .7.5.3.7.9 2.2 1 2.4.1.2.2.4 0 .7-.1.2-.2.4-.4.6-.2.2-.4.5-.5.6-.2.2-.4.4-.2.8.2.4.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.7.4.2.6.1.8-.1.3-.3.8-.9 1.1-1.2.3-.3.5-.2.9-.1.4.1 2.4 1.1 2.8 1.3.4.2.7.3.8.5.1.4-.1 1.6-.4 2.2z"/>
                 </svg>
                 <p className="ctc-wa-text">{t("contacto.whatsapp.text")}</p>
-                <a href={waUrl} target="_blank" rel="noopener noreferrer" className="ctc-wa-btn">
-                  {t("contacto.whatsapp.cta")} <span aria-hidden="true">→</span>
+                <a href={waUrl} target="_blank" rel="noopener noreferrer" className="button button--lg ctc-wa-btn">
+                  {t("contacto.whatsapp.cta")} <span className="btn-arrow" aria-hidden="true">→</span>
                   <span className="visually-hidden"> {t("common.newTab")}</span>
                 </a>
               </div>

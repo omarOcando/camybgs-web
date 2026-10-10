@@ -12,7 +12,7 @@
 }
 
 .legal__title {
-  font-size: clamp(40px, 5.5vw, 80px);
+  font-size: $fs-hero-title;
   color: $color-noche;
   line-height: 1.05;
   margin-bottom: 12px;
@@ -91,30 +91,6 @@
   margin-bottom: 8px;
 }
 
-.legal__lang-divider {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin: 64px 0 48px;
-
-  &::before,
-  &::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: rgba($color-noche, 0.15);
-  }
-
-  span {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: $color-fuego;
-    white-space: nowrap;
-  }
-}
-
 // ─── RESPONSIVE ──────────────────────────────────────────────────────────────
 
 // ── Móvil (≤ 768px) ──────────────────────────────────────────────────────────
@@ -140,4 +116,9 @@
     line-height: 1.7;
     margin-top: 20px;
   }
+}
+
+// ── Pantallas grandes (≥ 2560px) ─────────────────────────────────────────────
+@media (min-width: $desktop-xl) {
+  .legal__title { font-size: $fs-hero-title-xl; }
 }

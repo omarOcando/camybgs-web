@@ -24,6 +24,7 @@
     "logoAlt": "CAMY",
     "slogan": "Tu web, reflejo de tu mensaje.",
     "navLabel": "Menú del pie de página",
+    "privacy": "Política de privacidad",
     "copyright": "© CAMY | Business Growth Solutions {{year}}"
   },
   "seo": {
@@ -56,7 +57,8 @@
     "hero": {
       "titleLine1": "Tienes algo que decir.",
       "titleLine2": "Haz que tu web lo haga sentir.",
-      "subtitle": "Webs donde cada palabra, color, forma y movimiento expresan lo que es tu negocio.",
+      "subtitleLine1": "Webs donde cada palabra, color, forma y movimiento",
+      "subtitleLine2": "expresan lo que es tu negocio.",
       "cta": "Hablemos de tu web",
       "ctaMenuLabel": "¿Cómo prefieres que hablemos?",
       "contactOptions": {
@@ -71,7 +73,7 @@
       "pains": [
         {
           "title": "“Mi web no expresa mi negocio.”",
-          "text": "Tienes una web, pero quien entra no entiende a la primera qué haces ni por qué debería elegirte. Y se va sin escribirte."
+          "text": "Quien entra a tu web no entiende a la primera qué haces, ni por qué debería elegirte. Y se va sin escribirte."
         },
         {
           "title": "“Se ve igual que todas.”",
@@ -82,15 +84,16 @@
           "text": "Sabes que tu trabajo vale más de lo que muestra tu web. Y eso te frena cada vez que alguien te pide verla."
         }
       ],
-      "closing": "No te falta talento. Te falta mensaje..."
+      "closing": "No falta talento. Falta mensaje..."
     },
     "how": {
       "title": "Nada aparece por casualidad",
-      "intro": "Una web comunica, incluso antes de que alguien lea una palabra... Por eso implemento cada detalle con atención e intención.",
+      "introLine1": "Una web comunica, incluso antes de que alguien lea una palabra...",
+      "introLine2": "Por eso implemento cada detalle con atención e intención.",
       "pillars": [
         {
           "title": "Palabras",
-          "text": "Las palabras son nuestra herramienta principal para entendernos. Cómo se interconectan, llevan a lugares muy específicos."
+          "text": "Las palabras son nuestra herramienta principal para entendernos. Cómo se usen, puede llevar a lugares muy específicos."
         },
         {
           "title": "Color",
@@ -105,7 +108,7 @@
           "text": "Animaciones con sentido, que introducen y acompañan a quien experimenta tu mensaje y no lo distrae."
         }
       ],
-      "closing": "El resultado es una web que es un reflejo de tu mensaje."
+      "closing": "El resultado: una web que es un reflejo de tu mensaje."
     },
     "offer": {
       "title": "Elige cómo empezar",
@@ -135,12 +138,14 @@
     },
     "bond": {
       "tag": "Producto estrella",
-      "title": "Bond. Gestiona tu negocio, cuida a tus clientes.",
-      "text": "Plataforma digital para coaches, terapeutas, nutricionistas y cualquier profesional que acompaña a sus clientes en sus procesos. Reservas, recordatorios, un portal para tus clientes, notas, pagos… Todo en un solo lugar y con tu marca y mensaje.",
+      "titleName": "Bond.",
+      "titleTagline": "Gestiona tu negocio, cuida a tus clientes.",
+      "textLine1": "Plataforma digital para coaches, terapeutas, nutricionistas y cualquier profesional que acompaña a sus clientes en sus procesos.",
+      "textLine2": "Reservas, recordatorios, un portal para tus clientes, notas, pagos, etc… Todo en un solo lugar y con tu marca.",
       "cta": "Conoce Bond"
     },
     "projects": {
-      "title": "Me alegra mucho compartir sus logros…",
+      "title": "Me alegra mucho compartir los logros de mis clientes…",
       "videoLabel": "Vídeo testimonio de {{name}}",
       "resultLabel": "Resultado:",
       "items": {
@@ -194,7 +199,8 @@
     },
     "closing": {
       "title": "¿Hablamos de tu web?",
-      "text": "Cuéntame qué haces y qué quieres transmitir. Te respondo en menos de 24 horas.",
+      "textLine1": "Cuéntame qué haces y qué quieres transmitir.",
+      "textLine2": "Te respondo en menos de 24 horas.",
       "cta": "Hablemos"
     }
   },
@@ -222,7 +228,7 @@
         },
         {
           "name": "Multi",
-          "for": "negocios con varios servicios, proyectos o un equipo que mostrar.",
+          "for": "profesionales y negocios con varios servicios, proyectos o un equipo que mostrar.",
           "includes": "varias páginas para contar tu negocio completo: inicio, servicios, proyectos, sobre ti, contacto… Cada una con su propósito.",
           "duration": "3–4 semanas",
           "priceOnce": "desde 1.199 €",
@@ -230,7 +236,7 @@
         },
         {
           "name": "Custom",
-          "for": "negocios que necesitan algo más que mostrar: reservar, agendar o vender.",
+          "for": "profesionales y negocios que necesitan algo más que mostrar: reservas, calendarios o vender.",
           "includes": "tu web con funciones a medida: reservas, calendario, tienda online o lo que tu negocio necesite.",
           "duration": "según el proyecto",
           "priceOnce": "desde 1.999 €",
@@ -246,7 +252,7 @@
         "Adaptada a móvil, tablet (vertical y horizontal) y ordenador (Full Responsive).",
         "SEO básico para que Google te encuentre efectivamente.",
         "Formulario de contacto y botón de WhatsApp (si deseas).",
-        "Páginas legales (Impressum y Datenschutzerklärung) incluidas. Tú aportas el contenido.",
+        "Páginas legales incluidas (aviso legal y política de privacidad, según tu país). Tú aportas el contenido.",
         "Cambios ilimitados sobre el diseño aprobado."
       ],
       "extraLabel": "Extra:",
@@ -270,7 +276,8 @@
     },
     "plans": {
       "title": "Tu web, siempre al día",
-      "subtitle": "Una web no termina el día que se publica. Elige cómo quieres que siga.",
+      "subtitleLine1": "Una web no termina el día que se publica.",
+      "subtitleLine2": "Elige cómo quieres que siga.",
       "items": [
         {
           "name": "Basic",
@@ -280,20 +287,22 @@
         {
           "name": "Plus",
           "price": "89 €/mes",
-          "text": "Todo lo de Basic, y además cuidamos a tus clientes: emails de bienvenida y seguimiento, peticiones de reseñas en Google y automatizaciones para que vuelvan."
+          "text": "Todo lo de Basic, y además cuido a tus clientes: emails de bienvenida y seguimiento, peticiones de reseñas en Google y automatizaciones para que vuelvan."
         }
       ],
       "note": "Los pequeños cambios no incluyen cambios estructurales. Lo que vaya más allá se presupuesta aparte."
     },
     "bond": {
       "tag": "Producto estrella",
-      "title": "¿Acompañas a tus clientes en sus procesos?",
-      "text": "Bond es la plataforma de gestión de CAMY para coaches, terapeutas, nutricionistas y otros profesionales que trabajan por sesiones o programas. Gestiona tu negocio y cuida a tus clientes desde un solo lugar, con tu marca y tu mensaje.",
+      "kicker": "¿Acompañas a tus clientes en sus procesos?",
+      "titleName": "Bond.",
+      "titleTagline": "Gestiona tu negocio, cuida a tus clientes.",
+      "text": "Bond es la plataforma de gestión de negocios de CAMY. Creada para coaches, terapeutas, nutricionistas y otros profesionales que trabajan por sesiones o programas. Gestiona tu negocio y cuida a tus clientes desde un solo lugar y con tu marca.",
       "price": [
         { "label": "Montaje:", "value": "999 € (o en cuotas desde 96 €/mes)" },
         { "label": "Suscripción:", "value": "99 €/mes" }
       ],
-      "cta": "Conoce los detalles de Bond"
+      "cta": "Conoce Bond"
     },
     "faq": {
       "title": "Preguntas frecuentes",
@@ -301,6 +310,10 @@
         {
           "q": "¿Cuánto tarda mi web?",
           "a": "One, entre 1 y 2 semanas. Multi, entre 3 y 4. Custom depende del proyecto. El plazo empieza en la fecha de inicio acordada, cuando tengo todo el material."
+        },
+        {
+          "q": "¿Y cuánto tarda Bond?",
+          "a": "Una vez que me envías tu logo, tus colores y tu horario, tu plataforma está lista en 7 días. Si ya tienes clientes en otra herramienta, los migro por ti, y en ese caso el plazo puede ampliarse unos días."
         },
         {
           "q": "¿Qué necesitas de mí?",
@@ -312,7 +325,7 @@
         },
         {
           "q": "¿Qué significa “cambios ilimitados sobre el diseño aprobado”?",
-          "a": "Primero acordamos el diseño. A partir de ahí, ajustamos todo lo que necesites hasta que quede como quieres. Un cambio de concepto completo se presupuesta aparte."
+          "a": "Primero acordamos el diseño. A partir de ahí, ajusto todo lo que necesites hasta que quede como quieres. Un cambio de concepto completo se presupuesta aparte."
         },
         {
           "q": "¿En qué idioma trabajamos?",
@@ -328,15 +341,15 @@
       "title": "Así empezamos",
       "steps": [
         {
-          "title": "Hablamos.",
+          "title": "Hablamos",
           "text": "Una llamada corta, por teléfono, videollamada o WhatsApp. Me cuentas tu negocio y lo que quieres transmitir."
         },
         {
-          "title": "Te envío una propuesta.",
+          "title": "Te envío una propuesta",
           "text": "Con el precio final, el plazo y una fecha de inicio reservada para ti."
         },
         {
-          "title": "Empezamos.",
+          "title": "Empezamos",
           "text": "Con el primer pago, tu fecha queda confirmada y te envío la lista de lo que necesito."
         }
       ],
@@ -348,13 +361,15 @@
       "tag": "Producto estrella de CAMY",
       "title": "Bond.",
       "subtitle": "Gestiona tu negocio, cuida a tus clientes.",
-      "text": "La plataforma para profesionales que acompañan a sus clientes en sus procesos. Reservas, agenda, seguimiento y pagos en un solo lugar, con tu marca.",
+      "textLine1": "La plataforma para profesionales que acompañan a sus clientes en sus procesos.",
+      "textLine2": "Reservas, agenda, seguimiento y pagos en un solo lugar, con tu marca.",
       "ctaSales": "Ver Bond en detalle",
       "ctaDemo": "Reservar una demo"
     },
     "audience": {
       "title": "Pensado para quien acompaña a sus clientes",
-      "text": "Coaches, terapeutas, psicólogos, nutricionistas, profesores, fisioterapeutas, etc… Si trabajas por sesiones o programas y tus clientes recorren un camino contigo, Bond está hecho para ti.",
+      "textLine1": "Coaches, terapeutas, psicólogos, nutricionistas, profesores, fisioterapeutas, etc…",
+      "textLine2": "Si trabajas por sesiones o programas y tus clientes recorren un camino contigo, Bond está hecho para ti.",
       "pain": "Deja de saltar entre la agenda, el WhatsApp, las notas en papel y las transferencias pendientes."
     },
     "features": {
@@ -384,9 +399,10 @@
         { "label": "Montaje:", "value": "999 € (o en cuotas desde 96 €/mes)" },
         { "label": "Suscripción:", "value": "99 €/mes" }
       ],
-      "text": "Configuro Bond con tu marca, tus servicios y tus idiomas. Tú solo empiezas a usarlo.",
+      "textLine1": "Configuro Bond con tu marca, tus servicios y tus idiomas.",
+      "textLine2": "Tú solo empiezas a usarlo.",
       "ctaSales": "Ver Bond en detalle",
-      "ctaDemo": "Reservar una demo de 30 minutos"
+      "ctaDemo": "Demo de 30 minutos"
     }
   },
   "proyectos": {
@@ -489,7 +505,8 @@
         "mantenimiento": "Mantenimiento (Basic o Plus)",
         "nose": "Aún no lo sé"
       },
-      "privacy": "Al enviar este formulario, aceptas que tratemos tus datos para responder tu consulta, según nuestra",
+      "emailConsent": "Quiero recibir emails ocasionales con ideas, novedades e información útil para mi negocio. Puedo darme de baja cuando quiera.",
+      "privacy": "Al enviar este formulario, aceptas que trate tus datos para responder tu consulta, según mi",
       "privacyLink": "Política de Privacidad",
       "submit": "Enviar mensaje",
       "sending": "Enviando…",

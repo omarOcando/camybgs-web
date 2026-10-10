@@ -14,6 +14,8 @@
 @use "./components/audit-popup";
 @use "./components/audit-float-btn";
 @use "./components/contact-radial";
+@use "./components/bond-panel";
+@use "./components/reveal";
 
 /* LAYOUT */
 @use "./components/layout/header";
@@ -29,8 +31,11 @@
 @use "./pages/contacto";
 @use "./pages/legal";
 
+// El fundido arranca al quitar --hidden, es decir, cuando termina el Loader
 .appFade {
-  animation: appFadeIn 0.8s ease;
+  &:not(.appFade--hidden) {
+    animation: appFadeIn 1.2s ease;
+  }
 
   &--hidden {
     visibility: hidden;
@@ -39,12 +44,6 @@
 }
 
 @keyframes appFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }

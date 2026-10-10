@@ -531,3 +531,22 @@
   .header__logo .header__logo-img--desktop { display: none; }
   .header__logo .header__logo-img--mobile  { display: block; width: 36vw; height: auto; }
 }
+
+// ── Teléfonos bajos en vertical (iPhone SE y menores) ────────────────────────
+// Los enlaces se reparten por igual en el espacio bajo la cabecera (100px),
+// en vez de centrarse en toda la pantalla y chocar con ella
+@media (max-width: $mobile-sm) and (max-height: 700px) {
+
+  .nav-panel__stripe {
+    padding: 100px 0 32px;
+  }
+
+  .nav-panel__list {
+    height: 100%;
+    justify-content: space-evenly;
+  }
+
+  .nav-panel__link {
+    padding: 8px 40px;
+  }
+}

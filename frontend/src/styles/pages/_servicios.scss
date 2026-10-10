@@ -1,6 +1,13 @@
 @use "../abstracts/variables" as *;
 
 // ─── SHARED ──────────────────────────────────────────────────────────────────
+// Cada sección se solapa 2px con la anterior: evita la costura de subpíxel
+// (línea oscura del fondo del body) entre secciones en pantallas de alta
+// densidad, sobre todo en móvil
+.servicios > section + section {
+  margin-top: -2px;
+}
+
 .srv-section-inner {
   max-width: 1400px;
   margin: 0 auto;
@@ -9,10 +16,10 @@
 
 // Títulos claros por defecto (secciones oscuras); --dark sobre Arena
 .srv-section__title {
-  font-size: clamp(36px, 5vw, 72px);
+  font-size: $fs-section-title;
   color: $color-arena;
   text-align: center;
-  line-height: 1.15;
+  line-height: $lh-section-title;
   margin-bottom: 56px;
   text-wrap: balance;
 
@@ -20,7 +27,7 @@
 }
 
 .srv-section__sub {
-  font-size: clamp(16px, 1.7vw, 24px);
+  font-size: $fs-section-sub;
   color: rgba($color-arena, 0.7);
   text-align: center;
   max-width: 750px;
@@ -29,6 +36,11 @@
   text-wrap: pretty;
 
   &--dark { color: rgba($color-noche, 0.7); }
+}
+
+// Cada frase del subtítulo en su propia línea
+.srv-section__sub-line {
+  display: block;
 }
 
 // Nota pequeña al pie de un bloque
@@ -42,11 +54,6 @@
   &--dark { color: rgba($color-noche, 0.6); }
 }
 
-@keyframes srv-fade-in {
-  from { opacity: 0; transform: scale(0.93); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
 @keyframes srv-slide-up {
   from { opacity: 0; transform: translateY(40px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -57,11 +64,9 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-// Bloques que entran deslizándose hacia arriba cuando se ven
-.srv-included__inner,
-.srv-payment__inner,
-.srv-faq__inner,
-.srv-bond__panel {
+// Bloques que entran deslizándose hacia arriba cuando se ven (los títulos van
+// aparte, con el componente Reveal)
+.srv-slide {
   opacity: 0;
 
   &--visible { animation: srv-slide-up 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
@@ -69,7 +74,7 @@
 
 // ─── 01 HERO ─────────────────────────────────────────────────────────────────
 .srv-hero {
-  background: $color-arena;
+  background: $color-noche;
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
@@ -80,28 +85,31 @@
 }
 
 .srv-hero__title {
-  font-size: clamp(36px, 5.8vw, 110px);
-  color: $color-noche;
+  font-size: $fs-hero-title;
+  color: $color-arena;
   line-height: 1.1;
-  margin-bottom: 60px;
+  margin-bottom: $hero-title-gap;
   text-wrap: balance;
-  animation: srv-fade-in 2.8s ease 0.2s both;
+  animation: $hero-title-anim;
 }
 
 .srv-hero__sub {
   max-width: 900px;
   margin: 0 auto;
-  font-size: clamp(18px, 2.2vw, 35px);
+  font-size: $fs-hero-sub;
   line-height: 1.45;
-  color: rgba($color-noche, 0.6);
+  color: rgba($color-arena, 0.7);
   text-wrap: balance;
-  animation: srv-slide-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+  animation: $hero-sub-anim;
 }
 
 // ─── TARJETA ARENA (webs y planes) ───────────────────────────────────────────
 .srv-card {
-  background: $color-arena;
-  border: 1px solid rgba($color-noche, 0.1);
+  // Mismo cristal oscuro que las tarjetas de la Home
+  background: rgba($color-noche, 0.55);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba($color-arena, 0.18);
   border-radius: 30px;
   padding: 40px 36px;
   display: flex;
@@ -123,19 +131,19 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-align: center;
-  color: $color-noche;
+  color: $color-arena;
   margin-bottom: 20px;
 }
 
 .srv-card__for {
   font-size: clamp(14px, 1.2vw, 16px);
-  color: $color-fuego;
+  color: $color-arena;
   font-style: italic;
   font-weight: 500;
   line-height: 1.5;
   margin-bottom: 20px;
 
-  strong { font-style: normal; font-weight: 700; }
+  strong { font-style: normal; font-weight: 700; color: $color-fuego; }
 }
 
 .srv-card__label {
@@ -143,13 +151,13 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  color: rgba($color-noche, 0.45);
+  color: rgba($color-arena, 0.5);
   margin-bottom: 6px;
 }
 
 .srv-card__desc {
   font-size: clamp(15px, 1.3vw, 18px);
-  color: rgba($color-noche, 0.72);
+  color: rgba($color-arena, 0.7);
   line-height: 1.65;
   flex: 1;
 }
@@ -158,7 +166,7 @@
 .srv-card__facts {
   margin: 28px 0 0;
   padding-top: 20px;
-  border-top: 1px solid rgba($color-noche, 0.12);
+  border-top: 1px solid rgba($color-arena, 0.15);
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -168,13 +176,13 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.07em;
-    color: rgba($color-noche, 0.45);
+    color: rgba($color-arena, 0.5);
   }
 
   dd {
     margin: 2px 0 0;
     font-size: clamp(15px, 1.3vw, 18px);
-    color: $color-noche;
+    color: $color-arena;
   }
 }
 
@@ -182,37 +190,89 @@
   display: block;
   font-size: clamp(22px, 2vw, 28px);
   font-weight: 800;
-  color: $color-vinotinto;
+  color: $color-fuego;
 }
 
 .srv-card__price-monthly {
-  color: rgba($color-noche, 0.7);
+  color: rgba($color-arena, 0.7);
 }
 
 // ─── 02 TU WEB ───────────────────────────────────────────────────────────────
 .srv-webs {
-  background: $color-vinotinto;
+  background: $color-arena;
+}
+
+// Las 4 partes de cada tarjeta (título, para quién, "qué incluye" con su texto
+// y datos) se acoplan a filas compartidas: cada bloque empieza a la misma
+// altura en las tres tarjetas. row-gap: 0 evita heredar el gap de la rejilla.
+.srv-webs .srv-card {
+  background: $color-noche;
+  display: grid;
+  grid-row: span 4;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+
+  // Cada plan con su color, como en la Home: One vinotinto, Multi noche,
+  // Custom fuego
+  &:nth-child(1) { background: $color-vinotinto; }
+  &:nth-child(2) { background: $color-noche; }
+  &:nth-child(3) { background: $color-fuego; }
+}
+
+// Texto claro sobre los tres colores (el fuego desaparecería sobre Custom)
+.srv-webs .srv-card__title {
+  color: rgba(#fff, 0.92);
+}
+
+.srv-webs .srv-card__for {
+  color: rgba(#fff, 0.85);
+
+  strong { color: #fff; }
+}
+
+.srv-webs .srv-card__price {
+  color: #fff;
+}
+
+.srv-webs .srv-card__label,
+.srv-webs .srv-card__facts dt {
+  color: rgba(#fff, 0.75);
+}
+
+.srv-webs .srv-card__desc {
+  color: rgba(#fff, 0.92);
+}
+
+.srv-webs .srv-card__facts {
+  border-top-color: rgba(#fff, 0.25);
+
+  dd { color: #fff; }
+}
+
+.srv-webs .srv-card__price-monthly {
+  color: rgba(#fff, 0.85);
 }
 
 .srv-webs__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px;
+  gap: 48px;
 
   &--visible .srv-card {
     @for $i from 1 through 3 {
-      &:nth-child(#{$i}) { animation: srv-card-in 1.6s cubic-bezier(0.22, 1, 0.36, 1) #{($i - 1) * 0.25}s forwards; }
+      &:nth-child(#{$i}) { animation: srv-card-in 3s cubic-bezier(0.22, 1, 0.36, 1) #{($i - 1) * 0.15}s forwards; }
     }
   }
 }
 
 // ─── 03 INCLUIDO EN TODAS ────────────────────────────────────────────────────
 .srv-included {
-  background: $color-noche;
+  background: $color-arena;
 }
 
 .srv-included__inner {
   max-width: 1100px;
+  padding-top: 40px; // sigue a "Tu web" con el mismo fondo: menos aire entre ambas
 }
 
 .srv-included__list {
@@ -228,7 +288,7 @@
     padding-left: 36px;
     font-size: clamp(16px, 1.4vw, 19px);
     line-height: 1.55;
-    color: rgba($color-arena, 0.88);
+    color: rgba($color-noche, 0.85);
 
     &::before {
       content: "✓";
@@ -257,7 +317,7 @@
   text-align: center;
   font-size: clamp(15px, 1.4vw, 19px);
   line-height: 1.55;
-  color: $color-arena;
+  color: $color-noche;
 
   strong { color: $color-fuego; }
 }
@@ -269,6 +329,7 @@
 
 .srv-payment__inner {
   max-width: 900px;
+  padding-top: 40px; // sigue a otra sección arena: menos aire entre ambas
 }
 
 .srv-payment__table {
@@ -304,7 +365,7 @@
     font-weight: 800;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: $color-vinotinto;
+    color: $color-fuego;
   }
 
   td { color: $color-noche; }
@@ -312,7 +373,17 @@
 
 // ─── 05 BASIC · PLUS ─────────────────────────────────────────────────────────
 .srv-plans {
-  background: $color-vinotinto;
+  background: $color-arena;
+}
+
+// Sobre arena, tarjetas noche sólidas (el cristal se vería gris)
+.srv-plans .srv-card {
+  background: $color-noche;
+}
+
+// Sigue a otra sección arena: menos aire entre ambas
+.srv-plans__inner {
+  padding-top: 40px;
 }
 
 .srv-plans__grid {
@@ -324,7 +395,7 @@
 
   &--visible .srv-card {
     @for $i from 1 through 2 {
-      &:nth-child(#{$i}) { animation: srv-card-in 1.6s cubic-bezier(0.22, 1, 0.36, 1) #{($i - 1) * 0.25}s forwards; }
+      &:nth-child(#{$i}) { animation: srv-card-in 3s cubic-bezier(0.22, 1, 0.36, 1) #{($i - 1) * 0.15}s forwards; }
     }
   }
 }
@@ -342,48 +413,15 @@
 }
 
 // ─── 06 BOND ─────────────────────────────────────────────────────────────────
+// El panel usa el estilo compartido de components/_bond-panel.scss
 .srv-bond {
-  background: $color-noche;
+  background: $color-vinotinto;
 }
 
-.srv-bond__panel {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 64px 56px;
-  border: 1.5px solid rgba($color-fuego, 0.6);
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.srv-bond__tag {
-  display: inline-block;
-  padding: 6px 18px;
-  margin-bottom: 28px;
-  border-radius: 50px;
-  background: $color-fuego;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.srv-bond__title {
-  font-size: clamp(30px, 3.8vw, 52px);
-  color: $color-arena;
-  margin-bottom: 24px;
-  text-wrap: balance;
-}
-
-.srv-bond__text {
-  max-width: 680px;
-  font-size: clamp(16px, 1.5vw, 20px);
-  line-height: 1.7;
-  color: rgba($color-arena, 0.8);
-  margin-bottom: 32px;
+// Más aire alrededor del panel (el halo ocupa parte del relleno)
+.srv-bond__inner {
+  padding-top: 140px;
+  padding-bottom: 140px;
 }
 
 // Una línea por importe: "Montaje:" y "Suscripción:" destacados (igual que /bond)
@@ -393,18 +431,18 @@
   margin: 0 0 40px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 14px;
   font-family: "DM Serif Display", serif;
   font-size: clamp(20px, 2.2vw, 30px);
   line-height: 1.35;
-  color: rgba($color-arena, 0.85);
+  color: rgba($color-noche, 0.8);
   text-wrap: balance;
 
   strong {
     font-family: "Outfit", sans-serif;
     font-weight: 800;
     letter-spacing: 0.02em;
-    color: $color-arena;
+    color: $color-vinotinto;
   }
 }
 
@@ -524,11 +562,11 @@
   max-width: 1100px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  gap: 48px;
 
   &--visible .srv-start__step {
     @for $i from 1 through 3 {
-      &:nth-child(#{$i}) { animation: srv-card-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) #{($i - 1) * 0.15}s forwards; }
+      &:nth-child(#{$i}) { animation: srv-card-in 3s cubic-bezier(0.22, 1, 0.36, 1) #{($i - 1) * 0.15}s forwards; }
     }
   }
 }
@@ -540,11 +578,17 @@
   text-align: center;
   gap: 12px;
   padding: 40px 28px;
-  border-radius: 20px;
+  border-radius: 30px;
   background: $color-arena;
+  border: 1px solid rgba($color-noche, 0.1);
   box-shadow: 0 14px 44px rgba(0, 0, 0, 0.3);
   opacity: 0;
   transform: translateY(30px);
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 14px 44px rgba($color-arena, 0.5);
+  }
 }
 
 .srv-start__num {
@@ -556,9 +600,9 @@
 
 .srv-start__title {
   font-family: "Outfit", sans-serif;
-  font-size: clamp(18px, 1.6vw, 22px);
+  font-size: clamp(19px, 1.75vw, 25px);
   font-weight: 700;
-  color: $color-vinotinto;
+  color: $color-fuego;
 }
 
 .srv-start__text {
@@ -648,13 +692,16 @@
     padding: 30px 24px;
   }
 
+  // Títulos de tarjeta algo más grandes en móvil: "Tu web", planes y
+  // "Así empezamos" (el panel de Bond tiene su propio estilo)
+  .srv-card__title,
+  .srv-start__title {
+    font-size: clamp(28px, 8vw, 32px);
+  }
+
   .srv-included__extra {
     margin-top: 40px;
     padding: 18px 20px;
-  }
-
-  .srv-bond__panel {
-    padding: 44px 22px;
   }
 
   .srv-faq__question button {
@@ -714,6 +761,7 @@
     td {
       display: flex;
       justify-content: space-between;
+      align-items: center; // etiqueta y precio centrados verticalmente
       gap: 16px;
       padding: 14px 22px;
 
@@ -738,10 +786,7 @@
   .srv-hero__title,
   .srv-hero__sub,
   .srv-card,
-  .srv-included__inner,
-  .srv-payment__inner,
-  .srv-faq__inner,
-  .srv-bond__panel,
+  .srv-slide,
   .srv-start__step {
     animation: none !important;
     opacity: 1;
@@ -753,4 +798,9 @@
   .srv-faq__icon::after {
     transition: none;
   }
+}
+
+// ── Pantallas grandes (≥ 2560px) ─────────────────────────────────────────────
+@media (min-width: $desktop-xl) {
+  .srv-hero__title { font-size: $fs-hero-title-xl; }
 }

@@ -11,8 +11,8 @@ export const LEAD_MAGNET_URL     = "https://omar-ocando.systeme.io/mini-auditori
 export const CONTACT = {
   whatsapp: "491778587715",
   phone:    "+491778587715",
-  telegram: "#PENDIENTE-telegram",
-  signal:   "#PENDIENTE-signal",
+  telegram: "https://t.me/camybgs",
+  signal:   "https://signal.me/#eu/mo9KAFhNA6tBa1SyzGaPQ_iVoc_LUJPN9xAN6-CcfHxmDv2Xs31LtKi0FmkmrjVE",
   email:    "info@camybgs.com",
 };
 

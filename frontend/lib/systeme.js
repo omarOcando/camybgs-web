@@ -2,6 +2,10 @@ import axios from "axios";
 
 const SYSTEME_API = "https://api.systeme.io/api/contacts";
 
+// Etiqueta "consentimiento-emails": solo la reciben quienes marcan la casilla
+// del formulario. Las campañas deben enviarse únicamente a esta etiqueta.
+export const EMAIL_CONSENT_TAG_ID = 2222022;
+
 export const createSystemeContact = async (name, email) => {
   try {
     await axios.post(

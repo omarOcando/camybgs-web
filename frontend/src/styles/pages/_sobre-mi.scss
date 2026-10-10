@@ -7,11 +7,6 @@
   padding: 100px 24px;
 }
 
-@keyframes sob-title-in {
-  from { opacity: 0; transform: scale(0.92); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
 @keyframes sob-fade-up {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -24,7 +19,7 @@
 
 // ─── 01 HERO ─────────────────────────────────────────────────────────────────
 .sob-hero {
-  background: $color-vinotinto;
+  background: $color-noche;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -37,7 +32,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: $hero-title-gap;
 }
 
 .sob-hero__label {
@@ -50,17 +45,17 @@
 }
 
 .sob-hero__sub {
-  font-size: clamp(18px, 2.2vw, 35px);
+  font-size: $fs-hero-sub;
   color: rgba($color-arena, 0.4);
-  animation: sob-slide-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+  animation: $hero-sub-anim;
 }
 
 .sob-hero__title {
-  font-size: clamp(40px, 6.5vw, 110px);
+  font-size: $fs-hero-title;
   color: $color-arena;
   line-height: 1.1;
   max-width: 900px;
-  animation: sob-title-in 2.8s ease 0.3s both;
+  animation: $hero-title-anim;
 }
 
 // ─── 02 HISTORIA ─────────────────────────────────────────────────────────────
@@ -141,7 +136,7 @@
 
 // ─── 03 CITA ─────────────────────────────────────────────────────────────────
 .sob-quote {
-  background: $color-fuego;
+  background: $color-noche;
   height: 45vh;
   align-content: center;
 }
@@ -169,8 +164,8 @@
 
 // ─── 04 CTA FINAL ────────────────────────────────────────────────────────────
 .sob-cta {
-  background: $color-noche;
-  border-top: 1px solid rgba($color-arena, 0.07);
+  background: $color-arena;
+  border-top: 1px solid rgba($color-noche, 0.07);
 }
 
 .sob-cta__inner {
@@ -185,8 +180,9 @@
 }
 
 .sob-cta__title {
-  font-size: clamp(36px, 5vw, 72px);
-  color: $color-arena;
+  font-size: $fs-section-title;
+  line-height: $lh-section-title;
+  color: $color-noche;
   margin-bottom: 24px;
   max-width: 900px;
   transform: scale(0.92);
@@ -199,8 +195,8 @@
 }
 
 .sob-cta__sub {
-  font-size: clamp(16px, 1.6vw, 22px);
-  color: rgba($color-arena, 0.55);
+  font-size: $fs-section-sub;
+  color: rgba($color-noche, 0.7);
   max-width: 540px;
   line-height: 1.7;
   margin-bottom: 48px;
@@ -299,4 +295,9 @@
     opacity: 1;
     transform: none;
   }
+}
+
+// ── Pantallas grandes (≥ 2560px) ─────────────────────────────────────────────
+@media (min-width: $desktop-xl) {
+  .sob-hero__title { font-size: $fs-hero-title-xl; }
 }

@@ -44,8 +44,11 @@ function Home({ active = false }) {
 
   const { ref: problemTitleRef,  visible: problemTitleVisible  } = useFadeIn();
   const { ref: problemCardsRef,  visible: problemCardsVisible  } = useFadeIn(0.15);
+  const { ref: problemClosingRef, visible: problemClosingVisible } = useFadeIn();
   const { ref: howTitleRef,      visible: howTitleVisible      } = useFadeIn();
+  const { ref: howIntroRef,      visible: howIntroVisible      } = useFadeIn();
   const { ref: howPillarsRef,    visible: howPillarsVisible    } = useFadeIn(0.15);
+  const { ref: howClosingRef,    visible: howClosingVisible    } = useFadeIn();
   const { ref: offerTitleRef,    visible: offerTitleVisible    } = useFadeIn();
   const { ref: offerGridRef,     visible: offerGridVisible     } = useFadeIn(0.15);
   const { ref: bondRef,          visible: bondVisible          } = useFadeIn(0.2);
@@ -56,6 +59,7 @@ function Home({ active = false }) {
   const { ref: aboutTitleRef,    visible: aboutTitleVisible    } = useFadeIn();
   const { ref: aboutRef,         visible: aboutVisible         } = useFadeIn(0.15);
   const { ref: closingTitleRef,  visible: closingTitleVisible  } = useFadeIn();
+  const { ref: closingTextRef,   visible: closingTextVisible   } = useFadeIn();
 
   return (
     <div className={`home${active ? " home--active" : ""}`}>
@@ -75,7 +79,10 @@ function Home({ active = false }) {
             <span className="home-hero__title-line">{t("home.hero.titleLine1")}</span>{" "}
             <span className="home-hero__title-line">{t("home.hero.titleLine2")}</span>
           </h1>
-          <p className="home-hero__subtitle">{t("home.hero.subtitle")}</p>
+          <p className="home-hero__subtitle">
+            <span className="home-hero__subtitle-line">{t("home.hero.subtitleLine1")}</span>{" "}
+            <span className="home-hero__subtitle-line">{t("home.hero.subtitleLine2")}</span>
+          </p>
 
           <div className="home-hero__cta-wrapper">
             <ContactRadial />
@@ -97,7 +104,9 @@ function Home({ active = false }) {
               </article>
             ))}
           </div>
-          <p className="home-section-closing">{t("home.problem.closing")}</p>
+          <p ref={problemClosingRef} className={`home-section-closing ${reveal("home-fade-zoom", problemClosingVisible)}`}>
+            {t("home.problem.closing")}
+          </p>
         </div>
       </section>
 
@@ -107,7 +116,10 @@ function Home({ active = false }) {
           <h2 ref={howTitleRef} className={reveal("home-section-title", howTitleVisible)}>
             {t("home.how.title")}
           </h2>
-          <p className="home-section-intro">{t("home.how.intro")}</p>
+          <p ref={howIntroRef} className={`home-section-intro ${reveal("home-fade-zoom", howIntroVisible)}`}>
+            <span className="home-section-intro__line">{t("home.how.introLine1")}</span>{" "}
+            <span className="home-section-intro__line">{t("home.how.introLine2")}</span>
+          </p>
           <div ref={howPillarsRef} className={reveal("home-how__pillars", howPillarsVisible)}>
             {list("home.how.pillars").map((p) => (
               <article key={p.title} className="home-card home-how__pillar">
@@ -116,7 +128,9 @@ function Home({ active = false }) {
               </article>
             ))}
           </div>
-          <p className="home-section-closing">{t("home.how.closing")}</p>
+          <p ref={howClosingRef} className={`home-section-closing ${reveal("home-fade-zoom", howClosingVisible)}`}>
+            {t("home.how.closing")}
+          </p>
         </div>
       </section>
 
@@ -159,13 +173,25 @@ function Home({ active = false }) {
       {/* 05 — BOND DESTACADO */}
       <section className="home-bond">
         <div className="home-section-inner">
-          <div ref={bondRef} className={reveal("home-bond__panel", bondVisible)}>
-            <span className="home-bond__tag">{t("home.bond.tag")}</span>
-            <h2 className="home-bond__title">{t("home.bond.title")}</h2>
-            <p className="home-bond__text">{t("home.bond.text")}</p>
-            <Button to="/bond" variant="primary" size="lg">
-              {t("home.bond.cta")} <span className="btn-arrow">→</span>
-            </Button>
+          <div className={reveal("bond-panel-stage", bondVisible)}>
+            <div className="bond-panel-stage__halo" aria-hidden="true" />
+            <div ref={bondRef} className={reveal("bond-panel", bondVisible)}>
+              <span className="bond-panel__tag">
+                <span className="bond-panel__tag-star" aria-hidden="true">★</span>
+                {t("home.bond.tag")}
+              </span>
+              <h2 className="bond-panel__title">
+                <span className="bond-panel__title-name">{t("home.bond.titleName")}</span>{" "}
+                <span className="bond-panel__title-tagline">{t("home.bond.titleTagline")}</span>
+              </h2>
+              <p className="bond-panel__text">
+                <span className="bond-panel__text-line">{t("home.bond.textLine1")}</span>{" "}
+                <span className="bond-panel__text-line">{t("home.bond.textLine2")}</span>
+              </p>
+              <Button to="/bond" variant="primary" size="lg">
+                {t("home.bond.cta")} <span className="btn-arrow">→</span>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -249,7 +275,7 @@ function Home({ active = false }) {
               {list("home.about.paragraphs").map((text) => (
                 <p key={text}>{text}</p>
               ))}
-              <Button to="/sobre-mi" variant="ghost-light" size="lg" className={`home-link-cta home-reveal-cta${aboutVisible ? " home-reveal-cta--visible" : ""}`}>
+              <Button to="/sobre-mi" variant="ghost" size="lg" className={`home-link-cta home-reveal-cta${aboutVisible ? " home-reveal-cta--visible" : ""}`}>
                 {t("home.about.cta")} <span className="btn-arrow">→</span>
               </Button>
             </div>
@@ -263,8 +289,11 @@ function Home({ active = false }) {
           <h2 ref={closingTitleRef} className={reveal("home-section-title", closingTitleVisible)}>
             {t("home.closing.title")}
           </h2>
-          <p className="home-final-cta__sub">{t("home.closing.text")}</p>
-          <Button to="/contacto" variant="primary" size="xl">
+          <p ref={closingTextRef} className={`home-final-cta__sub ${reveal("home-fade-zoom", closingTextVisible)}`}>
+            <span className="home-final-cta__sub-line">{t("home.closing.textLine1")}</span>{" "}
+            <span className="home-final-cta__sub-line">{t("home.closing.textLine2")}</span>
+          </p>
+          <Button to="/contacto" variant="primary" size="lg">
             {t("home.closing.cta")} <span className="btn-arrow">→</span>
           </Button>
         </div>

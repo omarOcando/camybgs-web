@@ -94,7 +94,7 @@ function SobreMi() {
             {t("sobreMi.closing.title")}
           </h2>
           <p className="sob-cta__sub">{t("sobreMi.closing.text")}</p>
-          <Button to="/contacto" variant="primary" size="xl">
+          <Button to="/contacto" variant="primary" size="lg">
             {t("sobreMi.closing.cta")} <span className="btn-arrow" aria-hidden="true">→</span>
           </Button>
         </div>

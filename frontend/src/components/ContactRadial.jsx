@@ -68,7 +68,11 @@ function ContactRadial({ className = "" }) {
 
       <ul id={listId} className="contact-radial__items" aria-label={t("home.hero.ctaMenuLabel")}>
         {ITEMS.map((item, i) => {
-          const { id, Icon, angle, href } = item;
+          const { id, Icon, angle } = item;
+          // WhatsApp abre el chat con el mismo mensaje que la página de Contacto
+          const href    = id === "whatsapp"
+            ? `${item.href}?text=${encodeURIComponent(t("contacto.whatsapp.message"))}`
+            : item.href;
           const label   = t(`home.hero.contactOptions.${id}`);
           const isWeb   = href.startsWith("http");
           const isBelow = angle > 0 && angle < 180;

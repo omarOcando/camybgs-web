@@ -28,7 +28,7 @@
 
 // ─── 01 HERO ─────────────────────────────────────────────────────────────────
 .ctc-hero {
-  background: $color-arena;
+  background: $color-noche;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -42,30 +42,32 @@
 }
 
 .ctc-hero__title {
-  font-size: clamp(36px, 5.8vw, 110px);
-  color: $color-noche;
+  font-size: $fs-hero-title;
+  color: $color-arena;
   line-height: 1;
-  margin-bottom: 48px;
-  animation: ctc-fade-in 2.8s ease 0.2s both;
+  margin-bottom: $hero-title-gap;
+  animation: $hero-title-anim;
 }
 
 .ctc-hero__sub {
-  font-size: clamp(18px, 2.2vw, 35px);
-  color: rgba($color-noche, 0.5);
-  animation: ctc-slide-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+  font-size: $fs-hero-sub;
+  color: rgba($color-arena, 0.7);
+  animation: $hero-sub-anim;
 }
 
 // ─── 02 FORMAS DE CONTACTO ───────────────────────────────────────────────────
 .ctc-forms {
-  background: $color-noche;
+  background: $color-arena;
 }
 
+// Excepción al tamaño común de títulos de sección: es una frase larga y a
+// 72px ocuparía 3–4 líneas; así queda en dos
 .ctc-forms__title {
-  font-size: clamp(28px, 3.5vw, 56px);
-  color: $color-arena;
+  font-size: clamp(30px, 3.4vw, 56px);
+  color: $color-noche;
   text-align: center;
   margin-bottom: 20px;
-  line-height: 1.25;
+  line-height: $lh-section-title;
   max-width: 980px;
   margin-inline: auto;
   text-wrap: balance;
@@ -78,8 +80,8 @@
 }
 
 .ctc-forms__sub {
-  font-size: clamp(15px, 1.6vw, 22px);
-  color: rgba($color-arena, 0.5);
+  font-size: $fs-section-sub;
+  color: rgba($color-noche, 0.6);
   text-align: center;
   margin-bottom: 72px;
 }
@@ -101,8 +103,10 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  background: $color-arena;
-  border: 1px solid rgba($color-noche, 0.1);
+  // Blanco sobre la sección arena (como la tabla de pagos de Servicios)
+  background: #fff;
+  border: 1px solid rgba($color-noche, 0.08);
+  box-shadow: 0 14px 44px rgba($color-noche, 0.12);
   border-radius: 28px;
   padding: 48px 40px;
 }
@@ -194,6 +198,26 @@
   margin-top: -4px;
 }
 
+// Casilla opcional de campañas por email
+.ctc-form__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba($color-noche, 0.7);
+  cursor: pointer;
+}
+
+.ctc-form__checkbox {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  accent-color: $color-fuego;
+  cursor: pointer;
+}
+
 .ctc-form__privacy {
   font-size: 12px;
   color: rgba($color-noche, 0.45);
@@ -252,19 +276,13 @@
 }
 
 .ctc-wa-btn {
+  // Tamaño y forma de .button--lg (como el resto de botones); aquí solo el
+  // estilo fantasma en verde WhatsApp
   align-self: flex-start;
-  display: inline-block;
-  padding: 10px 24px;
-  border: 2px solid rgba(#25D366, 0.6);
-  border-radius: 100px;
+  border-color: rgba(#25D366, 0.6);
   background: transparent;
-  font-family: "Outfit", sans-serif;
-  font-size: clamp(13px, 1.2vw, 15px);
-  font-weight: 700;
   color: #25D366;
-  text-decoration: none;
-  cursor: pointer;
-  transition: border-color 0.25s ease, background 0.25s ease;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
 
   &:hover {
     border-color: #25D366;
@@ -274,12 +292,13 @@
 
 // ─── 03 QUÉ PASA DESPUÉS ─────────────────────────────────────────────────────
 .ctc-steps {
-  background: $color-vinotinto;
+  background: $color-noche;
   padding-bottom: 50px;
 }
 
 .ctc-steps__title {
-  font-size: clamp(36px, 5vw, 72px);
+  font-size: $fs-section-title;
+  line-height: $lh-section-title;
   color: $color-arena;
   text-align: center;
   margin-bottom: 64px;
@@ -294,7 +313,7 @@
 .ctc-steps__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 48px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -307,13 +326,14 @@
   text-align: center;
   gap: 12px;
   padding: 40px 20px;
-  border-radius: 20px;
+  // Igual que las tarjetas de "Así empezamos" (Servicios)
+  border-radius: 30px;
   background: $color-arena;
   border: 1px solid rgba($color-noche, 0.1);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.3);
   opacity: 0;
   transform: translateY(30px);
-  box-shadow: 0 14px 44px rgba($color-noche, 0.3);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  transition: box-shadow 0.3s ease;
 
   &:hover {
     box-shadow: 0 14px 44px rgba($color-arena, 0.5);
@@ -321,23 +341,23 @@
 }
 
 .ctc-steps__grid--visible {
-  .ctc-step:nth-child(1) { animation: ctc-card-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0s    forwards; }
-  .ctc-step:nth-child(2) { animation: ctc-card-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.12s forwards; }
-  .ctc-step:nth-child(3) { animation: ctc-card-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.24s forwards; }
-  .ctc-step:nth-child(4) { animation: ctc-card-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.36s forwards; }
+  .ctc-step:nth-child(1) { animation: ctc-card-in 3s cubic-bezier(0.22, 1, 0.36, 1) 0s    forwards; }
+  .ctc-step:nth-child(2) { animation: ctc-card-in 3s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards; }
+  .ctc-step:nth-child(3) { animation: ctc-card-in 3s cubic-bezier(0.22, 1, 0.36, 1) 0.3s  forwards; }
+  .ctc-step:nth-child(4) { animation: ctc-card-in 3s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards; }
 }
 
 .ctc-step__num {
-  font-size: clamp(36px, 3.6vw, 60px);
+  font-size: clamp(40px, 3.6vw, 60px);
   font-family: "DM Serif Display", serif;
   color: $color-fuego;
   line-height: 1;
 }
 
 .ctc-step__desc {
-  font-size: clamp(12px, 1vw, 18px);
+  font-size: clamp(15px, 1.3vw, 17px);
   color: rgba($color-noche, 0.7);
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
 // ─── 04 DATOS DIRECTOS ───────────────────────────────────────────────────────
@@ -518,4 +538,9 @@
     opacity: 1;
     transform: none;
   }
+}
+
+// ── Pantallas grandes (≥ 2560px) ─────────────────────────────────────────────
+@media (min-width: $desktop-xl) {
+  .ctc-hero__title { font-size: $fs-hero-title-xl; }
 }

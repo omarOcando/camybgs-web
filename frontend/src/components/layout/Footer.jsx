@@ -8,11 +8,13 @@ function Footer() {
 
   return (
     <footer className="footer">
-      <Link to="/" className="footer__logo">
-        <img src={logoSrc} alt={t("footer.logoAlt")} className="footer__logo-img" />
-      </Link>
-
-      <p className="footer__tagline">{t("footer.slogan")}</p>
+      <div className="footer__brand">
+        <Link to="/" className="footer__logo">
+          <img src={logoSrc} alt={t("footer.logoAlt")} className="footer__logo-img" />
+        </Link>
+        <span className="footer__sep" aria-hidden="true" />
+        <p className="footer__tagline">{t("footer.slogan")}</p>
+      </div>
 
       <nav className="footer__nav" aria-label={t("footer.navLabel")}>
         {NAV_LINKS.map(({ to, key }) => (
@@ -23,7 +25,7 @@ function Footer() {
       <div className="footer__legal">
         <Link to="/impressum">Impressum</Link>
         <span className="footer__dot" aria-hidden="true">•</span>
-        <Link to="/datenschutz">Datenschutz</Link>
+        <Link to="/datenschutz">{t("footer.privacy")}</Link>
       </div>
 
       <a href={`mailto:${CONTACT.email}`} className="footer__email">{CONTACT.email}</a>

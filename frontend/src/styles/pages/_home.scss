@@ -48,12 +48,19 @@
 }
 
 .home-hero__title {
-  font-size: clamp(40px, 5vw, 80px);
+  font-size: $fs-hero-title;
   line-height: 1.1;
   color: $color-arena;
-  margin-bottom: 28px;
+  margin-bottom: $hero-title-gap;
   opacity: 0;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+
+// La 2.ª línea del título mide ~13em (≈1500px a 115px): el contenedor se
+// ensancha para que quepa sin cortarse
+@media (min-width: $desktop-xl) {
+  .home-hero__content { max-width: 1700px; }
+  .home-hero__title   { font-size: $fs-hero-title-xl; }
 }
 
 // Una frase por línea. En móvil cada frase puede partirse, pero el salto
@@ -64,54 +71,83 @@
 }
 
 .home-hero__subtitle {
-  font-size: clamp(18px, 1.9vw, 28px);
+  font-size: $fs-hero-sub;
   line-height: 1.5;
   color: rgba($color-arena, 0.85);
-  max-width: 34ch;
   margin-bottom: 110px;
   opacity: 0;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
+// En escritorio, una línea por frase: el corte va después de "movimiento".
+// En móvil las dos partes fluyen juntas (ver bloque móvil).
+.home-hero__subtitle-line {
+  display: block;
+  white-space: nowrap;
+}
+
 .home-hero__cta-wrapper {
   opacity: 0;
-  transform: translateY(36px);
 }
 
 // Animaciones del hero — solo arrancan cuando el Loader termina
 .home--active {
-  .home-hero__title       { animation: heroFadeIn  1s   ease 0.6s forwards; }
-  .home-hero__subtitle    { animation: heroFadeIn  0.9s ease 1.3s forwards; }
-  .home-hero__cta-wrapper { animation: heroSlideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1.9s forwards; }
+  .home-hero__title       { animation: heroMaterialize 2.6s cubic-bezier(0.25, 0.1, 0.25, 1) 0.6s forwards; }
+  .home-hero__subtitle    { animation: heroMaterializeSoft 2.1s cubic-bezier(0.25, 0.1, 0.25, 1) 1.6s forwards; }
+  .home-hero__cta-wrapper { animation: heroMaterializeSoft 1.7s cubic-bezier(0.25, 0.1, 0.25, 1) 2.6s forwards; }
+}
+
+// El título surge del espacio: de una nube difusa a nítido, con un zoom mínimo
+@keyframes heroMaterialize {
+  0%   { opacity: 0;   filter: blur(40px); transform: scale(0.97); }
+  50%  { opacity: 0.8; filter: blur(12px); }
+  100% { opacity: 1;   filter: blur(0);    transform: scale(1); }
+}
+
+// Misma idea para el subtítulo y el botón, más suave para no emborronar
+// elementos pequeños
+@keyframes heroMaterializeSoft {
+  0%   { opacity: 0;   filter: blur(16px); transform: scale(0.98); }
+  50%  { opacity: 0.8; filter: blur(5px); }
+  100% { opacity: 1;   filter: blur(0);    transform: scale(1); }
 }
 
 @keyframes heroFadeIn {
   to { opacity: 1; }
 }
-
-@keyframes heroSlideUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-
 // ─── SECCIONES 02–09: PIEZAS COMUNES ─────────────────────────────────────────
 .home-section-title {
-  font-size: clamp(36px, 5vw, 72px);
+  font-size: $fs-section-title;
+  line-height: $lh-section-title;
   color: $color-arena;
   text-align: center;
   margin-bottom: 56px;
   opacity: 0;
   transform: scale(0.92);
 
-  &--visible { animation: title-fade-zoom 1.2s ease forwards; }
+  &--visible { animation: title-fade-zoom 2s ease forwards; }
 }
 
 .home-section-intro {
   max-width: 760px;
   margin: -16px auto 56px;
   text-align: center;
-  font-size: clamp(17px, 1.7vw, 22px);
+  font-size: $fs-section-sub;
   line-height: 1.6;
   color: rgba($color-arena, 0.85);
+}
+
+// En escritorio, una línea por frase; en móvil fluyen juntas (ver bloque móvil)
+.home-section-intro__line {
+  display: block;
+}
+
+// Textos que entran igual que los títulos de sección (fundido + zoom suave)
+.home-fade-zoom {
+  opacity: 0;
+  transform: scale(0.92);
+
+  &--visible { animation: title-fade-zoom 2s ease forwards; }
 }
 
 .home-section-closing {
@@ -123,15 +159,25 @@
   color: $color-arena;
 }
 
-// Tarjeta arena (El problema y Cómo lo hago)
+// Tarjeta de cristal (El problema y Cómo lo hago): la aurora se ve detrás
 .home-card {
-  background: $color-arena;
-  border: 1px solid rgba($color-noche, 0.1);
+  background: rgba($color-noche, 0.55);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba($color-arena, 0.18);
   border-radius: 30px;
   padding: 48px 36px;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   box-shadow: 0 14px 44px rgba($color-noche, 0.3);
   opacity: 0;
+
+  // Título y texto se acoplan a dos filas compartidas por las tarjetas de la
+  // misma fila: los textos empiezan a la misma altura aunque un título ocupe
+  // más líneas. row-gap: 0 evita heredar el gap de la rejilla entre ambos.
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+  row-gap: 0;
 
   &:hover {
     box-shadow: 0 14px 44px rgba($color-arena, 0.5);
@@ -144,12 +190,13 @@
   margin-bottom: 18px;
   line-height: 1.3;
   text-align: center;
+  align-self: center; // un título más corto queda centrado en su fila
 }
 
 .home-card__text {
   font-size: clamp(15px, 1.2vw, 17px);
   line-height: 1.7;
-  color: rgba($color-noche, 0.7);
+  color: rgba($color-arena, 0.7);
   text-align: center;
 }
 
@@ -188,13 +235,13 @@
 
   &--visible {
     .home-problem__card:nth-child(1) {
-      animation: problem-from-left  2s cubic-bezier(0.22, 1, 0.36, 1) 0s    forwards;
+      animation: problem-from-left  3s cubic-bezier(0.22, 1, 0.36, 1) 0s    forwards;
     }
     .home-problem__card:nth-child(2) {
-      animation: problem-fade-in    2s ease                           0.15s forwards;
+      animation: problem-fade-in    3s ease                           0.15s forwards;
     }
     .home-problem__card:nth-child(3) {
-      animation: problem-from-right 2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s  forwards;
+      animation: problem-from-right 3s cubic-bezier(0.22, 1, 0.36, 1) 0.3s  forwards;
     }
   }
 }
@@ -218,6 +265,11 @@
   padding: 40px 28px;
 }
 
+// Títulos de una palabra (Palabras, Color…): algo más grandes que en "¿Te suena?"
+.home-how__pillar .home-card__title {
+  font-size: clamp(22px, 2vw, 30px);
+}
+
 // ─── 04 OFERTA RESUMIDA ──────────────────────────────────────────────────────
 .home-offer__grid {
   display: grid;
@@ -226,13 +278,13 @@
 
   &--visible {
     .home-offer__card:nth-child(1) {
-      animation: problem-from-left  2s cubic-bezier(0.22, 1, 0.36, 1) 0s    forwards;
+      animation: problem-from-left  3s cubic-bezier(0.22, 1, 0.36, 1) 0s    forwards;
     }
     .home-offer__card:nth-child(2) {
-      animation: problem-fade-in    2s ease                           0.15s forwards;
+      animation: problem-fade-in    3s ease                           0.15s forwards;
     }
     .home-offer__card:nth-child(3) {
-      animation: problem-from-right 2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s  forwards;
+      animation: problem-from-right 3s cubic-bezier(0.22, 1, 0.36, 1) 0.3s  forwards;
     }
   }
 }
@@ -366,47 +418,7 @@
 }
 
 // ─── 05 BOND DESTACADO ───────────────────────────────────────────────────────
-.home-bond__panel {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 64px 56px;
-  border: 1.5px solid rgba($color-fuego, 0.6);
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  opacity: 0;
-
-  &--visible { animation: home-rise 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
-}
-
-.home-bond__tag {
-  display: inline-block;
-  padding: 6px 18px;
-  margin-bottom: 28px;
-  border-radius: 50px;
-  background: $color-fuego;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.home-bond__title {
-  font-size: clamp(32px, 4vw, 56px);
-  color: $color-arena;
-  margin-bottom: 28px;
-}
-
-.home-bond__text {
-  max-width: 680px;
-  font-size: clamp(16px, 1.5vw, 20px);
-  line-height: 1.7;
-  color: rgba($color-arena, 0.85);
-  margin-bottom: 40px;
-}
+// El panel usa el estilo compartido de components/_bond-panel.scss
 
 // ─── 06 PROYECTOS Y TESTIMONIOS ──────────────────────────────────────────────
 // Columnas proporcionales (340 : 560) en vez de fijas: así la rejilla nunca
@@ -564,7 +576,7 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: $color-vinotinto;
+  background: $color-fuego;
   color: $color-arena;
   display: flex;
   align-items: center;
@@ -592,8 +604,8 @@
 }
 
 .home-process__step-title {
-  font-size: clamp(19px, 1.7vw, 24px);
-  color: $color-vinotinto;
+  font-size: clamp(22px, 2vw, 30px);
+  color: $color-fuego;
   margin-bottom: 6px;
 }
 
@@ -670,11 +682,16 @@
 }
 
 .home-final-cta__sub {
-  font-size: clamp(17px, 1.8vw, 24px);
+  font-size: $fs-section-sub;
   line-height: 1.6;
   color: rgba($color-arena, 0.85);
   margin-bottom: 48px;
   max-width: 680px;
+}
+
+// Cada frase en su propia línea
+.home-final-cta__sub-line {
+  display: block;
 }
 
 // ─── RESPONSIVE ──────────────────────────────────────────────────────────────
@@ -748,8 +765,10 @@
     padding: 45px 35px;
   }
 
+  // Centrado en el espacio visible bajo el menú: 100px de cabecera fija
+  // arriba + el mismo aire (40px) arriba y abajo
   .home-hero__content {
-    padding: 110px 24px 120px;
+    padding: 108px 24px 40px;
   }
 
   // "Tienes algo que decir." mide ~9,56em: el tamaño se ajusta al ancho útil
@@ -770,7 +789,13 @@
 
   .home-hero__subtitle {
     font-size: clamp(17px, 4.6vw, 20px);
-    margin-bottom: 90px;
+    max-width: 34ch;
+    margin-bottom: 55px;
+  }
+
+  .home-hero__subtitle-line {
+    display: inline;
+    white-space: normal;
   }
 
   .home-section-title {
@@ -783,6 +808,10 @@
     margin: 0 auto 36px;
   }
 
+  .home-section-intro__line {
+    display: inline;
+  }
+
   .home-section-closing {
     margin-top: 48px;
   }
@@ -791,16 +820,19 @@
     padding: 30px 30px;
   }
 
+  // "¿Te suena?" y "Nada aparece por casualidad": títulos de tarjeta algo más
+  // grandes en móvil
+  .home-problem__card .home-card__title,
+  .home-how__pillar .home-card__title {
+    font-size: clamp(22px, 6vw, 26px);
+  }
+
   .home-offer__card {
     height: 300px;
   }
 
   .home-offer__notes {
     margin-top: 40px;
-  }
-
-  .home-bond__panel {
-    padding: 44px 24px;
   }
 
   .home-process__step {
@@ -846,10 +878,10 @@
 @media (prefers-reduced-motion: reduce) {
 
   .home-section-title,
+  .home-fade-zoom,
   .home-card,
   .home-offer__card,
   .home-offer__notes,
-  .home-bond__panel,
   .home-testimonials__card,
   .home-reveal-cta,
   .home-process__step::before,
@@ -872,5 +904,7 @@
 
   // Hero: solo fundido, sin desplazamiento
   .home-hero__cta-wrapper { transform: none; }
+  .home--active .home-hero__title,
+  .home--active .home-hero__subtitle    { animation-name: heroFadeIn; }
   .home--active .home-hero__cta-wrapper { animation-name: heroFadeIn; }
 }
