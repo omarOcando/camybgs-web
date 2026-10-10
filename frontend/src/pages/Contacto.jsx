@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Seo from "../components/Seo";
 import { submitContact } from "../services/contactService";
-import { CONTACT } from "../config/site";
+import { CONTACT, SHOW_BOND } from "../config/site";
 import { INTEREST_VALUES } from "../../lib/interests.js";
 import { getEmailConsentText } from "../../lib/consentText.js";
 
@@ -158,7 +158,7 @@ function Contacto() {
                       required
                     >
                       <option value="" disabled>{t("contacto.form.fields.interes.placeholder")}</option>
-                      {INTEREST_VALUES.map(v => (
+                      {INTEREST_VALUES.filter(v => SHOW_BOND || v !== "bond").map(v => (
                         <option key={v} value={v}>{t(`contacto.form.interestOptions.${v}`)}</option>
                       ))}
                     </select>

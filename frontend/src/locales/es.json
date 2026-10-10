@@ -312,6 +312,7 @@
           "a": "One, entre 1 y 2 semanas. Multi, entre 3 y 4. Custom depende del proyecto. El plazo empieza en la fecha de inicio acordada, cuando tengo todo el material."
         },
         {
+          "bond": true,
           "q": "¿Y cuánto tarda Bond?",
           "a": "Una vez que me envías tu logo, tus colores y tu horario, tu plataforma está lista en 7 días. Si ya tienes clientes en otra herramienta, los migro por ti, y en ese caso el plazo puede ampliarse unos días."
         },

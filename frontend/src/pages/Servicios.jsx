@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import Button from "../components/Button";
 import Seo from "../components/Seo";
 import Reveal from "../components/Reveal";
+import { SHOW_BOND } from "../config/site";
 
 // ─── HOOK ────────────────────────────────────────────────────────────────────
 
@@ -191,8 +192,8 @@ function Servicios() {
         </div>
       </section>
 
-      {/* 06 — BOND */}
-      <section className="srv-bond">
+      {/* 06 — BOND (oculto con SHOW_BOND = false) */}
+      {SHOW_BOND && <section className="srv-bond">
         <div className="srv-section-inner srv-bond__inner">
           <div className={reveal("bond-panel-stage", bondVisible)}>
             <div className="bond-panel-stage__halo" aria-hidden="true" />
@@ -220,14 +221,16 @@ function Servicios() {
             </div>
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* 07 — PREGUNTAS FRECUENTES */}
       <section className="srv-faq">
         <div className="srv-section-inner srv-faq__inner">
           <Reveal as="h2" className="srv-section__title srv-section__title--dark">{t("servicios.faq.title")}</Reveal>
           <div ref={faqRef} className={`srv-faq__list ${reveal("srv-slide", faqVisible)}`}>
-            {list("servicios.faq.items").map((f) => <FaqItem key={f.q} q={f.q} a={f.a} />)}
+            {list("servicios.faq.items")
+              .filter((f) => SHOW_BOND || !f.bond) // preguntas de Bond: "bond": true en es.json
+              .map((f) => <FaqItem key={f.q} q={f.q} a={f.a} />)}
           </div>
         </div>
       </section>

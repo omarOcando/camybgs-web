@@ -16,7 +16,7 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import AuditPopup from "./components/AuditPopup";
 import AuditFloatBtn from "./components/AuditFloatBtn";
-import { SHOW_LEAD_POPUP, SHOW_LEAD_FLOAT_BTN } from "./config/site";
+import { SHOW_LEAD_POPUP, SHOW_LEAD_FLOAT_BTN, SHOW_BOND } from "./config/site";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -39,7 +39,7 @@ function App() {
           <Routes>
             <Route path="/"           element={<Home active={!loading} />} />
             <Route path="/servicios"  element={<Servicios />} />
-            <Route path="/bond"       element={<Bond />} />
+            <Route path="/bond"       element={SHOW_BOND ? <Bond /> : <Navigate to="/" replace />} />
             <Route path="/proyectos"  element={<Proyectos />} />
             <Route path="/sobre-mi"   element={<SobreMi />} />
             <Route path="/contacto"   element={<Contacto />} />

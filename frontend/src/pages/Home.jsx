@@ -7,6 +7,7 @@ import ContactRadial from "../components/ContactRadial";
 import aboutPhoto from "../assets/images/home/Omar.jpg";
 import aboutPhotoMovil from "../assets/images/home/OmarMovil.jpg";
 import { PROJECTS } from "../data/projects";
+import { SHOW_BOND } from "../config/site";
 
 // ─── HOOKS ───────────────────────────────────────────────────────────────────
 
@@ -170,8 +171,8 @@ function Home({ active = false }) {
         </div>
       </section>
 
-      {/* 05 — BOND DESTACADO */}
-      <section className="home-bond">
+      {/* 05 — BOND DESTACADO (oculto con SHOW_BOND = false) */}
+      {SHOW_BOND && <section className="home-bond">
         <div className="home-section-inner">
           <div className={reveal("bond-panel-stage", bondVisible)}>
             <div className="bond-panel-stage__halo" aria-hidden="true" />
@@ -194,7 +195,7 @@ function Home({ active = false }) {
             </div>
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* 06 — PROYECTOS Y TESTIMONIOS */}
       <section className="home-testimonials">

@@ -16,6 +16,13 @@ export const CONTACT = {
   email:    "info@camybgs.com",
 };
 
+// Interruptor de Bond. Con false desaparece de toda la web: menú y footer,
+// sección de la Home, panel y pregunta del FAQ de Servicios y opción del
+// formulario; /bond redirige a la Home. Al cambiarlo, actualizar también a
+// mano public/sitemap.xml y el serviceType del JSON-LD de index.html
+// (PLAN-REDISENO.md, §3).
+export const SHOW_BOND = false;
+
 // Menú principal (cabecera y footer). El texto de cada enlace está en
 // es.json → nav.links.<key>
 export const NAV_LINKS = [
@@ -25,7 +32,7 @@ export const NAV_LINKS = [
   { to: "/proyectos", key: "proyectos" },
   { to: "/sobre-mi",  key: "sobreMi"   },
   { to: "/contacto",  key: "contacto"  },
-];
+].filter((link) => SHOW_BOND || link.key !== "bond");
 
 export const BOND_SALES_URL = "#PENDIENTE-bond-venta";
 export const BOND_DEMO_URL  = "#PENDIENTE-bond-demo";
