@@ -8,6 +8,11 @@
   margin-top: -2px;
 }
 
+// La segunda sección no se solapa con el hero (el hero ya llega hasta su borde)
+.servicios > .srv-hero + .srv-webs {
+  margin-top: 0;
+}
+
 .srv-section-inner {
   max-width: 1400px;
   margin: 0 auto;
