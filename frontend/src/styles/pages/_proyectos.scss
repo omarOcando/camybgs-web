@@ -411,6 +411,8 @@
   }
 
   .proj-hero {
+    // dvh sigue a la altura visible real (svh se queda corto al retraerse la barra del navegador)
+    min-height: 100dvh;
     padding-top: 100px;
   }
 
