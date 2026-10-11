@@ -63,7 +63,7 @@ function FaqItem({ q, a }) {
 
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
-function Servicios() {
+function Services() {
   const { t } = useTranslation();
   const { path } = useLocalePath();
   const list = (key) => t(key, { returnObjects: true });
@@ -260,4 +260,4 @@ function Servicios() {
   );
 }
 
-export default Servicios;
+export default Services;

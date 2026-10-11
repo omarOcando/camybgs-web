@@ -40,7 +40,7 @@ function useVisible(threshold = 0.15) {
 
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
-function Contacto() {
+function Contact() {
   const { t, i18n } = useTranslation();
   const { path } = useLocalePath();
   const [form, setForm]     = useState(EMPTY_FORM);
@@ -283,4 +283,4 @@ function Contacto() {
   );
 }
 
-export default Contacto;
+export default Contact;

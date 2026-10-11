@@ -35,7 +35,7 @@ const TESTIMONIALS = PROJECTS.filter((p) => p.testimonial);
 
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
-function Proyectos() {
+function Projects() {
   const { t } = useTranslation();
   const { path } = useLocalePath();
   const [activeFilter, setActiveFilter] = useState(ALL);
@@ -189,4 +189,4 @@ function Proyectos() {
   );
 }
 
-export default Proyectos;
+export default Projects;

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import Button from "../components/Button";
 import Seo from "../components/Seo";
-import OmarFoto from "../assets/images/sobre-mi/OmarFotoCompleta.jpg";
+import OmarFoto from "../assets/images/about/OmarFotoCompleta.jpg";
 import { useLocalePath } from "../config/routes";
 
 function useVisible(threshold = 0.15) {
@@ -21,7 +21,7 @@ function useVisible(threshold = 0.15) {
   return { ref, visible };
 }
 
-function SobreMi() {
+function About() {
   const { t } = useTranslation();
   const { path } = useLocalePath();
   const story = t("sobreMi.story", { returnObjects: true });
@@ -106,4 +106,4 @@ function SobreMi() {
   );
 }
 
-export default SobreMi;
+export default About;

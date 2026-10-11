@@ -7,13 +7,13 @@ import ScrollToTop from "./components/ScrollToTop";
 import { NotificationProvider } from "./context/NotificationContext";
 import Loader from "./components/Loader";
 import Home from "./pages/Home";
-import Servicios from "./pages/Servicios";
-import SobreMi from "./pages/SobreMi";
+import Services from "./pages/Services";
+import About from "./pages/About";
 import Bond from "./pages/Bond";
-import Proyectos from "./pages/Proyectos";
-import Contacto from "./pages/Contacto";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
-import Datenschutz from "./pages/Datenschutz";
+import Privacy from "./pages/Privacy";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import AuditPopup from "./components/AuditPopup";
@@ -39,13 +39,13 @@ function App() {
   // Páginas y su elemento según el idioma (Bond: interruptor SHOW_BOND)
   const pages = {
     home:        () => <Home active={!loading} />,
-    servicios:   () => <Servicios />,
+    servicios:   () => <Services />,
     bond:        (lang) => (SHOW_BOND ? <Bond /> : <Navigate to={ROUTES.home[lang]} replace />),
-    proyectos:   () => <Proyectos />,
-    sobreMi:     () => <SobreMi />,
-    contacto:    () => <Contacto />,
+    proyectos:   () => <Projects />,
+    sobreMi:     () => <About />,
+    contacto:    () => <Contact />,
     impressum:   () => <Impressum />,
-    datenschutz: () => <Datenschutz />,
+    datenschutz: () => <Privacy />,
   };
 
   return (

@@ -5,7 +5,7 @@ import PrivacyEn from "./legal/PrivacyEn";
 
 // Política de privacidad en el idioma activo del sitio (español por defecto).
 // Ruta: /privacidad (ES) y /en/privacy (EN). /datenschutz redirige a /privacidad.
-function Datenschutz() {
+function Privacy() {
   const { i18n } = useTranslation();
   const isEn = i18n.resolvedLanguage === "en";
 
@@ -27,4 +27,4 @@ function Datenschutz() {
   );
 }
 
-export default Datenschutz;
+export default Privacy;

@@ -1,5 +1,5 @@
-import ramsesImg from "../assets/images/mi-trabajo/ramsesImg.webp";
-import vivamexicoImg from "../assets/images/mi-trabajo/vivamexicoImg.webp";
+import ramsesImg from "../assets/images/projects/ramsesImg.webp";
+import vivamexicoImg from "../assets/images/projects/vivamexicoImg.webp";
 import testimonioRamses from "../assets/videos/clients-testimonials/testimonio-ramses.mp4";
 import testimonioVivaMexico from "../assets/videos/clients-testimonials/testimonio-viva-mexico.mp4";
 
