@@ -32,7 +32,7 @@ function About() {
   const { ref: ctaTitleRef, visible: ctaTitleVisible } = useVisible(0.3);
 
   return (
-    <div className="sobre-mi">
+    <div className="about">
       <Seo
         title={t("seo.sobreMi.title")}
         description={t("seo.sobreMi.description")}
@@ -40,28 +40,28 @@ function About() {
       />
 
       {/* 01 — HERO */}
-      <section className="sob-hero">
-        <div className="sob-hero__inner">
-          <h1 className="sob-hero__title">{t("sobreMi.hero.title")}</h1>
-          <p className="sob-hero__sub">{t("sobreMi.hero.subtitle")}</p>
+      <section className="abt-hero">
+        <div className="abt-hero__inner">
+          <h1 className="abt-hero__title">{t("sobreMi.hero.title")}</h1>
+          <p className="abt-hero__sub">{t("sobreMi.hero.subtitle")}</p>
         </div>
       </section>
 
       {/* 02 — HISTORIA */}
-      <section className="sob-story">
-        <div className="sob-story__layout">
-          <div className="sob-story__photo">
+      <section className="abt-story">
+        <div className="abt-story__layout">
+          <div className="abt-story__photo">
             <img src={OmarFoto} alt={t("sobreMi.photoAlt")} />
           </div>
-          <div className="sob-story__text-col">
+          <div className="abt-story__text-col">
             <div
               ref={storyRef}
-              className={`sob-story__body${storyVisible ? " sob-story__body--visible" : ""}`}
+              className={`abt-story__body${storyVisible ? " abt-story__body--visible" : ""}`}
             >
               {story.map((p) => (
                 <p
                   key={p.text}
-                  className={`sob-story__p${p.variant ? ` sob-story__p--${p.variant}` : ""}`}
+                  className={`abt-story__p${p.variant ? ` abt-story__p--${p.variant}` : ""}`}
                 >
                   {p.text}
                 </p>
@@ -72,30 +72,30 @@ function About() {
       </section>
 
       {/* 03 — CITA */}
-      <section className="sob-quote">
+      <section className="abt-quote">
         <div
           ref={quoteRef}
-          className={`sob-section-inner sob-quote__inner${quoteVisible ? " sob-quote__inner--visible" : ""}`}
+          className={`abt-section-inner abt-quote__inner${quoteVisible ? " abt-quote__inner--visible" : ""}`}
         >
-          <blockquote className="sob-quote__text">
+          <blockquote className="abt-quote__text">
             {t("sobreMi.quote.line1")}<br />{t("sobreMi.quote.line2")}
           </blockquote>
         </div>
       </section>
 
       {/* 04 — CTA FINAL */}
-      <section className="sob-cta">
+      <section className="abt-cta">
         <div
           ref={ctaInnerRef}
-          className={`sob-section-inner sob-cta__inner${ctaInnerVisible ? " sob-cta__inner--visible" : ""}`}
+          className={`abt-section-inner abt-cta__inner${ctaInnerVisible ? " abt-cta__inner--visible" : ""}`}
         >
           <h2
             ref={ctaTitleRef}
-            className={`sob-cta__title${ctaTitleVisible ? " sob-cta__title--visible" : ""}`}
+            className={`abt-cta__title${ctaTitleVisible ? " abt-cta__title--visible" : ""}`}
           >
             {t("sobreMi.closing.title")}
           </h2>
-          <p className="sob-cta__sub">{t("sobreMi.closing.text")}</p>
+          <p className="abt-cta__sub">{t("sobreMi.closing.text")}</p>
           <Button to={path("contacto")} variant="primary" size="lg">
             {t("sobreMi.closing.cta")} <span className="btn-arrow" aria-hidden="true">→</span>
           </Button>

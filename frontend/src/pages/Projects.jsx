@@ -50,7 +50,7 @@ function Projects() {
     : PROJECTS.filter((p) => p.category === activeFilter);
 
   return (
-    <div className="proyectos">
+    <div className="projects">
       <Seo
         title={t("seo.proyectos.title")}
         description={t("seo.proyectos.description")}

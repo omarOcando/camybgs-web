@@ -86,7 +86,7 @@ function Contact() {
   }
 
   return (
-    <div className="contacto">
+    <div className="contact">
       <Seo
         title={t("seo.contacto.title")}
         description={t("seo.contacto.description")}

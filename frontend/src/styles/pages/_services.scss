@@ -4,12 +4,12 @@
 // Cada sección se solapa 2px con la anterior: evita la costura de subpíxel
 // (línea oscura del fondo del body) entre secciones en pantallas de alta
 // densidad, sobre todo en móvil
-.servicios > section + section {
+.services > section + section {
   margin-top: -2px;
 }
 
 // La segunda sección no se solapa con el hero (el hero ya llega hasta su borde)
-.servicios > .srv-hero + .srv-webs {
+.services > .srv-hero + .srv-webs {
   margin-top: 0;
 }
 

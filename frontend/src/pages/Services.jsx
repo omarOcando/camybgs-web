@@ -79,7 +79,7 @@ function Services() {
   const columns = list("servicios.payment.columns");
 
   return (
-    <div className="servicios">
+    <div className="services">
       <Seo
         title={t("seo.servicios.title")}
         description={t("seo.servicios.description")}
