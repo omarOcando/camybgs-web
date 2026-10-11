@@ -29,7 +29,7 @@ La web actual debe seguir funcionando igual mientras se hace el rediseño, y su 
 ## 4. Cambios globales
 
 - **Menú nuevo:** Inicio · Servicios · Bond · Proyectos · Sobre mí · Contacto. Mantener el diseño actual del menú; solo cambian las entradas.
-- **Footer:** logo + slogan "Tu web, reflejo de tu mensaje." + menú + Impressum · Datenschutz + email (info@camybgs.com).
+- **Footer:** logo + slogan "Tu web, reflejo de tu mensaje." + menú + Impressum · Privacidad (EN: Impressum · Privacy) + email (info@camybgs.com).
 - **Quitar el enlace y cualquier popup o botón al mini-audit actual** (`omar-ocando.systeme.io/mini-auditoria`). Hoy hay **dos elementos distintos**: la ventana emergente (popup) y el botón fijo flotante que aparece al hacer scroll. **Ocultar los dos, sin borrarlos**: dejarlos desactivados por configuración (un interruptor para cada uno) y con la URL del lead magnet en una sola variable, para reutilizarlos después con el nuevo test "¿Tu web dice lo que eres?" sin tocar el diseño.
 - **Mantener el botón flotante de WhatsApp** (wa.me/491778587715).
 - **Revisar todos los textos sueltos** (meta títulos, descripciones, textos alternativos, títulos de pestaña) para que no hablen de marketing, captación, leads o "ventas reales".
@@ -44,7 +44,7 @@ La web actual debe seguir funcionando igual mientras se hace el rediseño, y su 
 | `/proyectos` | Proyectos | **Página nueva**: une Resultados y Mi trabajo |
 | `/sobre-mi` | Sobre mí | Cambios pequeños |
 | `/contacto` | Contacto | Cambios pequeños + campo nuevo en el formulario |
-| `/impressum`, `/datenschutz` | Legales | Sin cambios de texto en esta fase |
+| `/impressum`, `/privacidad` (antes `/datenschutz`, que redirige con 301) | Legales | Sin cambios de texto en esta fase |
 | `/resultados`, `/mi-trabajo` | — | **Redirección permanente (301) a `/proyectos`** |
 
 Actualizar `sitemap.xml`, los enlaces internos y la configuración de rutas del hosting actual (`vercel.json`) con las rutas nuevas y las redirecciones.

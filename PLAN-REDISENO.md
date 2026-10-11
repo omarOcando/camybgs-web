@@ -58,7 +58,7 @@
   - Textos en `frontend/src/locales/es.json` (por página: `common`, `nav`, `footer`, `seo`, `home`, `servicios`, `bond`, `proyectos`, `sobreMi`, `contacto`, `leadMagnet`).
   - Inglés en `frontend/src/locales/en.json` (mismas claves que `es.json`; comprobar la paridad al añadir textos).
   - Inicialización en `frontend/src/i18n.js`: el idioma lo decide la URL. Direcciones de cada página en `frontend/src/config/routes.js` (`ROUTES`, `useLocalePath()`, `pageFromPath()`); **nunca escribir rutas a mano** en enlaces: `to={path("contacto")}`.
-  - Los legales (Impressum, Datenschutz) se quedan fuera de `es.json`.
+  - Los legales (Impressum y la política de privacidad) se quedan fuera de `es.json`.
 - **Configuración** en `frontend/src/config/site.js`:
   - interruptores del lead magnet (`SHOW_LEAD_POPUP` y `SHOW_LEAD_FLOAT_BTN`, ambos `false`) y su URL (`LEAD_MAGNET_URL`);
   - `CONTACT` (WhatsApp, teléfono, Telegram, Signal, email);
@@ -247,7 +247,7 @@ Commits `bc39322` y `0377e5d`.
 - Botones externos (`ExternalButtons`): `BOND_SALES_URL` y `BOND_DEMO_URL` en pestaña nueva, con aviso para lectores de pantalla (`common.newTab` + clase global `.visually-hidden` en `_typography.scss`).
 - Precio en `bond.pricing.price` como lista `{ label, value }`: una línea por importe.
 - `NAV_LINKS` en `config/site.js` (`{ to, key, end }`), compartido por `Header.jsx` y `Footer.jsx`; textos en `nav.links.<key>`. También pasaron a `es.json` los `aria-label` de la cabecera y el `alt` del logo. El diseño del menú no cambia.
-- Footer: logo solo "CAMY" + slogan + menú + Impressum · Datenschutz + email (`CONTACT.email`) + "© CAMY | Business Growth Solutions {{year}}" (`footer.copyright`).
+- Footer: logo solo "CAMY" + slogan + menú + Impressum · Privacidad (EN: Impressum · Privacy) + email (`CONTACT.email`) + "© CAMY | Business Growth Solutions {{year}}" (`footer.copyright`).
 
 ### ✅ Fase 5 — Servicios (hecha, visto bueno de Omar)
 Commit `892f0ba`.

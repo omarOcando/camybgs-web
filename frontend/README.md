@@ -30,7 +30,7 @@ SPA en React + Vite para el sitio web de CAMY Business Growth Solutions.
 | `/mi-trabajo` | Mi trabajo |
 | `/contacto` | Contacto |
 | `/impressum` | Impressum |
-| `/datenschutz` | Datenschutz |
+| `/privacidad` | Política de privacidad (`/datenschutz` redirige con 301) |
 
 ---
 
