@@ -15,6 +15,9 @@ $fs-section-title-mobile: clamp(32px, 9vw, 56px); // títulos de sección en mó
 $fs-section-sub:   clamp(17px, 1.7vw, 25px);
 $hero-title-gap:   40px;                    // separación título → subtítulo del hero
 
+// ─── FONDO DE LOS HEROS (foco central: luz suave en el centro, bordes oscuros) ──
+$hero-spotlight: radial-gradient(ellipse 70% 60% at 50% 45%, #34344f 0%, #1D1D2E 55%, #121220 100%);
+
 // ─── ENTRADA DE LOS HEROS (keyframes en components/_reveal.scss) ──
 $hero-title-anim: hero-fade-zoom 2.8s ease 0.2s both;
 $hero-sub-anim:   hero-fade-zoom 2.8s ease 1s both;
