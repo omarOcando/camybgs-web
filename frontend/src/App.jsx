@@ -66,6 +66,7 @@ function App() {
             {/* Rutas antiguas: también hay redirección 301 en vercel.json */}
             <Route path="/resultados" element={<Navigate to="/proyectos" replace />} />
             <Route path="/mi-trabajo" element={<Navigate to="/proyectos" replace />} />
+            <Route path="/datenschutz" element={<Navigate to="/privacidad" replace />} />
           </Routes>
         </MainLayout>
       </div>

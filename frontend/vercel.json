@@ -6,7 +6,8 @@
       "permanent": false
     },
     { "source": "/resultados", "destination": "/proyectos", "statusCode": 301 },
-    { "source": "/mi-trabajo", "destination": "/proyectos", "statusCode": 301 }
+    { "source": "/mi-trabajo", "destination": "/proyectos", "statusCode": 301 },
+    { "source": "/datenschutz", "destination": "/privacidad", "statusCode": 301 }
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }

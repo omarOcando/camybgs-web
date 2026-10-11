@@ -118,6 +118,7 @@
 - **D10 — Textos menores:** los adapto yo al nuevo tono y **se los enseño a Omar para aprobarlos**: pantalla de éxito del formulario, placeholders, texto del Loader y mensajes predefinidos de WhatsApp y `/tarjeta` (este último está en inglés).
 - **D11 — Redirecciones:**
   - `/resultados` y `/mi-trabajo` → `/proyectos` con `"statusCode": 301` en `vercel.json` (`permanent: true` daría un 308).
+  - `/datenschutz` → `/privacidad` (política de privacidad en español), también con `"statusCode": 301`. Impressum se queda como `/impressum`: es la única ruta en alemán.
   - Además, `<Navigate replace>` en el router.
   - Al migrar a Render habrá que replicarlas.
 - **D12 — Limpieza:**

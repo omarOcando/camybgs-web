@@ -16,7 +16,7 @@ export const ROUTES = {
   sobreMi:     { es: "/sobre-mi",    en: "/en/about" },
   contacto:    { es: "/contacto",    en: "/en/contact" },
   impressum:   { es: "/impressum",   en: "/en/impressum" },
-  datenschutz: { es: "/datenschutz", en: "/en/privacy" },
+  datenschutz: { es: "/privacidad",  en: "/en/privacy" },
 };
 
 const normalize = (pathname) => (pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname);
