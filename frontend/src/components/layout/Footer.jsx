@@ -27,7 +27,7 @@ function Footer() {
       <div className="footer__legal">
         <Link to={path("impressum")}>Impressum</Link>
         <span className="footer__dot" aria-hidden="true">•</span>
-        <Link to={path("datenschutz")}>{t("footer.privacy")}</Link>
+        <Link to={path("privacy")}>{t("footer.privacy")}</Link>
       </div>
 
       <a href={`mailto:${CONTACT.email}`} className="footer__email">{CONTACT.email}</a>

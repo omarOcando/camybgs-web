@@ -17,12 +17,12 @@ function ScrollToTopButton() {
 
   const handleClick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-  const isContacto = pageFromPath(pathname) === "contacto";
+  const isContact = pageFromPath(pathname) === "contact";
 
   return (
     <button
       onClick={handleClick}
-      className={`scroll-top-btn${visible ? " scroll-top-btn--visible" : ""}${isContacto ? " scroll-top-btn--solo" : ""}`}
+      className={`scroll-top-btn${visible ? " scroll-top-btn--visible" : ""}${isContact ? " scroll-top-btn--solo" : ""}`}
       aria-label={t("common.scrollTop")}
     >
       △

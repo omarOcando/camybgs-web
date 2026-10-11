@@ -8,11 +8,11 @@
   "nav": {
     "links": {
       "home": "Home",
-      "servicios": "Services",
+      "services": "Services",
       "bond": "Bond",
-      "proyectos": "Projects",
-      "sobreMi": "About me",
-      "contacto": "Contact"
+      "projects": "Projects",
+      "about": "About me",
+      "contact": "Contact"
     },
     "logoAlt": "CAMY, go to the home page",
     "openMenu": "Open menu",
@@ -33,7 +33,7 @@
       "title": "CAMY · Web design that communicates",
       "description": "Creative websites where every word, colour, shape and movement expresses what your business is. From €77/month."
     },
-    "servicios": {
+    "services": {
       "title": "Services and prices · CAMY",
       "description": "One, Multi and Custom websites, maintenance plans and payment in instalments. Custom design, basic SEO and legal pages included."
     },
@@ -41,15 +41,15 @@
       "title": "Bond · Run your business, care for your clients",
       "description": "CAMY's platform for coaches, therapists and professionals who guide their clients: bookings, calendar, client portal and payments."
     },
-    "proyectos": {
+    "projects": {
       "title": "Projects · CAMY",
       "description": "Real web design projects and custom-built platforms."
     },
-    "sobreMi": {
+    "about": {
       "title": "About me · CAMY",
       "description": "The story behind CAMY and Omar Ocando, a web designer in Cologne, Germany."
     },
-    "contacto": {
+    "contact": {
       "title": "Contact · CAMY",
       "description": "Tell me about your project. I reply within 24 hours, in English or Spanish."
     }
@@ -205,7 +205,7 @@
       "cta": "Let's talk"
     }
   },
-  "servicios": {
+  "services": {
     "hero": {
       "title": "What I can do for you",
       "subtitle": "You choose the website you need. I make sure it says who you are."
@@ -407,7 +407,7 @@
       "ctaDemo": "30-minute demo"
     }
   },
-  "proyectos": {
+  "projects": {
     "hero": {
       "title": "Real projects. Real results",
       "subtitle": "Every project has its own story, and they all start the same way: understanding what the business wants to convey before designing anything."
@@ -452,7 +452,7 @@
       "cta": "Let's talk"
     }
   },
-  "sobreMi": {
+  "about": {
     "hero": {
       "title": "Behind CAMY there's a rough and beautiful story",
       "subtitle": "Let me tell you…"
@@ -481,7 +481,7 @@
       "cta": "Let's talk now"
     }
   },
-  "contacto": {
+  "contact": {
     "hero": {
       "title": "Get in touch",
       "subtitle": "No endless forms. No waiting. Let's just talk."
@@ -493,11 +493,11 @@
     "form": {
       "title": "Write to me here",
       "fields": {
-        "nombre":    { "label": "Name",                   "placeholder": "Julia Smith" },
+        "name":      { "label": "Name",                   "placeholder": "Julia Smith" },
         "email":     { "label": "Email",                  "placeholder": "julia@yourbusiness.com" },
-        "profesion": { "label": "Profession or business", "placeholder": "Coach, bakery, yoga…" },
-        "interes":   { "label": "What are you interested in?", "placeholder": "Select an option" },
-        "mensaje":   { "label": "Tell me about your project", "placeholder": "What you do and what you want your website to convey" }
+        "profession":{ "label": "Profession or business", "placeholder": "Coach, bakery, yoga…" },
+        "interest":  { "label": "What are you interested in?", "placeholder": "Select an option" },
+        "message":   { "label": "Tell me about your project", "placeholder": "What you do and what you want your website to convey" }
       },
       "interestOptions": {
         "one": "One website",

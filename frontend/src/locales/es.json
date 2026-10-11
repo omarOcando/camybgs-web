@@ -8,11 +8,11 @@
   "nav": {
     "links": {
       "home": "Inicio",
-      "servicios": "Servicios",
+      "services": "Servicios",
       "bond": "Bond",
-      "proyectos": "Proyectos",
-      "sobreMi": "Sobre mí",
-      "contacto": "Contacto"
+      "projects": "Proyectos",
+      "about": "Sobre mí",
+      "contact": "Contacto"
     },
     "logoAlt": "CAMY, ir al inicio",
     "openMenu": "Abrir menú",
@@ -33,7 +33,7 @@
       "title": "CAMY · Diseño web que comunica",
       "description": "Webs creativas donde cada palabra, color, forma y movimiento expresan lo que es tu negocio. Desde 77 €/mes."
     },
-    "servicios": {
+    "services": {
       "title": "Servicios y precios · CAMY",
       "description": "Webs One, Multi y Custom, planes de mantenimiento y pago en cuotas. Diseño a medida, SEO básico y páginas legales incluidas."
     },
@@ -41,15 +41,15 @@
       "title": "Bond · Gestiona tu negocio, cuida a tus clientes",
       "description": "La plataforma de CAMY para coaches, terapeutas y profesionales que acompañan a sus clientes: reservas, agenda, portal y pagos."
     },
-    "proyectos": {
+    "projects": {
       "title": "Proyectos · CAMY",
       "description": "Proyectos reales de diseño web y plataformas a medida."
     },
-    "sobreMi": {
+    "about": {
       "title": "Sobre mí · CAMY",
       "description": "La historia detrás de CAMY y de Omar Ocando, diseñador web en Colonia, Alemania."
     },
-    "contacto": {
+    "contact": {
       "title": "Contacto · CAMY",
       "description": "Cuéntame tu proyecto. Respondo en menos de 24 horas, en español o en inglés."
     }
@@ -205,7 +205,7 @@
       "cta": "Hablemos"
     }
   },
-  "servicios": {
+  "services": {
     "hero": {
       "title": "Lo que puedo hacer por ti",
       "subtitle": "Eliges la web que necesitas. Yo me encargo de que diga lo que eres."
@@ -407,7 +407,7 @@
       "ctaDemo": "Demo de 30 minutos"
     }
   },
-  "proyectos": {
+  "projects": {
     "hero": {
       "title": "Proyectos reales. Resultados reales",
       "subtitle": "Cada proyecto tiene su historia y empieza igual: entender qué quiere transmitir el negocio antes de diseñar nada."
@@ -452,7 +452,7 @@
       "cta": "Hablemos"
     }
   },
-  "sobreMi": {
+  "about": {
     "hero": {
       "title": "Detrás de CAMY hay una historia ruda y hermosa",
       "subtitle": "Te la cuento…"
@@ -481,7 +481,7 @@
       "cta": "Hablemos ahora"
     }
   },
-  "contacto": {
+  "contact": {
     "hero": {
       "title": "Contáctame",
       "subtitle": "Sin formularios interminables. Sin esperas. Solo hablemos."
@@ -493,11 +493,11 @@
     "form": {
       "title": "Escríbeme aquí",
       "fields": {
-        "nombre":    { "label": "Nombre",               "placeholder": "Julia Smith" },
+        "name":      { "label": "Nombre",               "placeholder": "Julia Smith" },
         "email":     { "label": "Email",                "placeholder": "julia@tunegocio.com" },
-        "profesion": { "label": "Profesión o negocio",  "placeholder": "Coach, panadería, yoga…" },
-        "interes":   { "label": "¿Qué te interesa?",    "placeholder": "Selecciona una opción" },
-        "mensaje":   { "label": "Cuéntame tu proyecto", "placeholder": "Qué haces y qué quieres que tu web transmita" }
+        "profession":{ "label": "Profesión o negocio",  "placeholder": "Coach, panadería, yoga…" },
+        "interest":  { "label": "¿Qué te interesa?",    "placeholder": "Selecciona una opción" },
+        "message":   { "label": "Cuéntame tu proyecto", "placeholder": "Qué haces y qué quieres que tu web transmita" }
       },
       "interestOptions": {
         "one": "Web One",

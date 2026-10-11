@@ -24,7 +24,7 @@ function useVisible(threshold = 0.15) {
 function About() {
   const { t } = useTranslation();
   const { path } = useLocalePath();
-  const story = t("sobreMi.story", { returnObjects: true });
+  const story = t("about.story", { returnObjects: true });
 
   const { ref: storyRef,    visible: storyVisible    } = useVisible(0.08);
   const { ref: quoteRef,    visible: quoteVisible    } = useVisible(0.3);
@@ -34,16 +34,16 @@ function About() {
   return (
     <div className="about">
       <Seo
-        title={t("seo.sobreMi.title")}
-        description={t("seo.sobreMi.description")}
-        page="sobreMi"
+        title={t("seo.about.title")}
+        description={t("seo.about.description")}
+        page="about"
       />
 
       {/* 01 — HERO */}
       <section className="abt-hero">
         <div className="abt-hero__inner">
-          <h1 className="abt-hero__title">{t("sobreMi.hero.title")}</h1>
-          <p className="abt-hero__sub">{t("sobreMi.hero.subtitle")}</p>
+          <h1 className="abt-hero__title">{t("about.hero.title")}</h1>
+          <p className="abt-hero__sub">{t("about.hero.subtitle")}</p>
         </div>
       </section>
 
@@ -51,7 +51,7 @@ function About() {
       <section className="abt-story">
         <div className="abt-story__layout">
           <div className="abt-story__photo">
-            <img src={OmarFoto} alt={t("sobreMi.photoAlt")} />
+            <img src={OmarFoto} alt={t("about.photoAlt")} />
           </div>
           <div className="abt-story__text-col">
             <div
@@ -78,7 +78,7 @@ function About() {
           className={`abt-section-inner abt-quote__inner${quoteVisible ? " abt-quote__inner--visible" : ""}`}
         >
           <blockquote className="abt-quote__text">
-            {t("sobreMi.quote.line1")}<br />{t("sobreMi.quote.line2")}
+            {t("about.quote.line1")}<br />{t("about.quote.line2")}
           </blockquote>
         </div>
       </section>
@@ -93,11 +93,11 @@ function About() {
             ref={ctaTitleRef}
             className={`abt-cta__title${ctaTitleVisible ? " abt-cta__title--visible" : ""}`}
           >
-            {t("sobreMi.closing.title")}
+            {t("about.closing.title")}
           </h2>
-          <p className="abt-cta__sub">{t("sobreMi.closing.text")}</p>
-          <Button to={path("contacto")} variant="primary" size="lg">
-            {t("sobreMi.closing.cta")} <span className="btn-arrow" aria-hidden="true">→</span>
+          <p className="abt-cta__sub">{t("about.closing.text")}</p>
+          <Button to={path("contact")} variant="primary" size="lg">
+            {t("about.closing.cta")} <span className="btn-arrow" aria-hidden="true">→</span>
           </Button>
         </div>
       </section>

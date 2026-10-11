@@ -6,7 +6,7 @@ import testimonioVivaMexico from "../assets/videos/clients-testimonials/testimon
 // ─── PROYECTOS ───────────────────────────────────────────────────────────────
 // Fuente única de proyectos y testimonios. Aquí van solo los datos que no
 // dependen del idioma; los textos de cada proyecto están en es.json, bajo
-// proyectos.items.<id> (página Proyectos) y home.projects.items.<id> (Home).
+// projects.items.<id> (página Proyectos) y home.projects.items.<id> (Home).
 // Si el nombre de la tarjeta (name) es el del cliente, no se repite en la
 // línea de cliente (client): ahí va solo profesión · ciudad.
 //

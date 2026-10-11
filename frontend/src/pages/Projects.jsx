@@ -52,16 +52,16 @@ function Projects() {
   return (
     <div className="projects">
       <Seo
-        title={t("seo.proyectos.title")}
-        description={t("seo.proyectos.description")}
-        page="proyectos"
+        title={t("seo.projects.title")}
+        description={t("seo.projects.description")}
+        page="projects"
       />
 
       {/* 01 — HERO */}
       <section className="proj-hero">
         <div className="proj-hero__inner">
-          <h1 className="proj-hero__title">{t("proyectos.hero.title")}</h1>
-          <p className="proj-hero__sub">{t("proyectos.hero.subtitle")}</p>
+          <h1 className="proj-hero__title">{t("projects.hero.title")}</h1>
+          <p className="proj-hero__sub">{t("projects.hero.subtitle")}</p>
         </div>
       </section>
 
@@ -72,7 +72,7 @@ function Projects() {
           <div
             ref={filterBtnsRef}
             role="group"
-            aria-label={t("proyectos.filters.label")}
+            aria-label={t("projects.filters.label")}
             className={`proj-filters${filterBtnsVisible ? " proj-filters--visible" : ""}`}
           >
             {FILTERS.map((f) => (
@@ -83,32 +83,32 @@ function Projects() {
                 className={`proj-filter-btn${activeFilter === f ? " proj-filter-btn--active" : ""}`}
                 onClick={() => setActiveFilter(f)}
               >
-                {f === ALL ? t("proyectos.filters.all") : f}
+                {f === ALL ? t("projects.filters.all") : f}
               </button>
             ))}
           </div>
 
           <div ref={projectsRef} className={`proj-projects${projectsVisible ? " proj-projects--visible" : ""}`}>
             {filtered.map((p) => {
-              const item = t(`proyectos.items.${p.id}`, { returnObjects: true });
+              const item = t(`projects.items.${p.id}`, { returnObjects: true });
               return (
                 <article key={p.id} className="proj-card">
                   <span className="proj-card__type">{item.tag}</span>
 
                   <div className="proj-card__preview">
-                    <img src={p.image} alt={t("proyectos.card.imageAlt", { name: item.name })} className="proj-card__preview-img" />
+                    <img src={p.image} alt={t("projects.card.imageAlt", { name: item.name })} className="proj-card__preview-img" />
                   </div>
 
                   <h2 className="proj-card__name">{item.name}</h2>
                   <p className="proj-card__client">{item.client}</p>
 
-                  <p className="proj-card__label">{t("proyectos.card.challenge")}</p>
+                  <p className="proj-card__label">{t("projects.card.challenge")}</p>
                   <p className="proj-card__text">{item.challenge}</p>
 
-                  <p className="proj-card__label">{t("proyectos.card.work")}</p>
+                  <p className="proj-card__label">{t("projects.card.work")}</p>
                   <p className="proj-card__text">{item.work}</p>
 
-                  <p className="proj-card__label">{t("proyectos.card.result")}</p>
+                  <p className="proj-card__label">{t("projects.card.result")}</p>
                   <p className="proj-card__result">{item.result}</p>
 
                   <div className="proj-card__tech">
@@ -122,12 +122,12 @@ function Projects() {
                         className="proj-card__visit-btn"
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={t("proyectos.card.visitLabel", { name: item.name })}
+                        aria-label={t("projects.card.visitLabel", { name: item.name })}
                       >
-                        {t("proyectos.card.visit")} →
+                        {t("projects.card.visit")} →
                       </a>
                     )
-                    : <button type="button" className="proj-card__visit-btn" disabled>{t("proyectos.card.visit")} →</button>
+                    : <button type="button" className="proj-card__visit-btn" disabled>{t("projects.card.visit")} →</button>
                   }
                 </article>
               );
@@ -140,11 +140,11 @@ function Projects() {
       {/* 03 — TESTIMONIOS */}
       <section className="proj-testimonials">
         <div className="proj-section-inner">
-          <h2 className="proj-testimonials__title">{t("proyectos.testimonials.title")}</h2>
+          <h2 className="proj-testimonials__title">{t("projects.testimonials.title")}</h2>
           <div ref={testimonialsRef} className={`proj-testimonials__grid${testimonialsVisible ? " proj-testimonials__grid--visible" : ""}`}>
             {TESTIMONIALS.map((p) => {
-              const name   = t(`proyectos.items.${p.id}.name`);
-              const client = t(`proyectos.items.${p.id}.client`);
+              const name   = t(`projects.items.${p.id}.name`);
+              const client = t(`projects.items.${p.id}.client`);
               return (
                 <figure key={p.id} className="proj-testimonials__card">
                   <div
@@ -156,7 +156,7 @@ function Projects() {
                       preload="metadata"
                       controls
                       playsInline
-                      aria-label={t("proyectos.testimonials.videoLabel", { name })}
+                      aria-label={t("projects.testimonials.videoLabel", { name })}
                       onLoadedMetadata={(e) => { e.target.currentTime = 0.01; }}
                     />
                   </div>
@@ -177,10 +177,10 @@ function Projects() {
           ref={ctaInnerRef}
           className={`proj-section-inner proj-cta__inner${ctaInnerVisible ? " proj-cta__inner--visible" : ""}`}
         >
-          <h2 className="proj-cta__title">{t("proyectos.closing.title")}</h2>
-          <p className="proj-cta__sub">{t("proyectos.closing.text")}</p>
-          <Button to={path("contacto")} variant="primary" size="lg">
-            {t("proyectos.closing.cta")} <span className="btn-arrow">→</span>
+          <h2 className="proj-cta__title">{t("projects.closing.title")}</h2>
+          <p className="proj-cta__sub">{t("projects.closing.text")}</p>
+          <Button to={path("contact")} variant="primary" size="lg">
+            {t("projects.closing.cta")} <span className="btn-arrow">→</span>
           </Button>
         </div>
       </section>

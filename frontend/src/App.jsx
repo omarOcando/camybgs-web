@@ -39,13 +39,13 @@ function App() {
   // Páginas y su elemento según el idioma (Bond: interruptor SHOW_BOND)
   const pages = {
     home:        () => <Home active={!loading} />,
-    servicios:   () => <Services />,
+    services:    () => <Services />,
     bond:        (lang) => (SHOW_BOND ? <Bond /> : <Navigate to={ROUTES.home[lang]} replace />),
-    proyectos:   () => <Projects />,
-    sobreMi:     () => <About />,
-    contacto:    () => <Contact />,
+    projects:    () => <Projects />,
+    about:       () => <About />,
+    contact:     () => <Contact />,
     impressum:   () => <Impressum />,
-    datenschutz: () => <Privacy />,
+    privacy:     () => <Privacy />,
   };
 
   return (

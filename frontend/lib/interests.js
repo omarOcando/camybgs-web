@@ -1,6 +1,6 @@
 // Campo "¿Qué te interesa?" del formulario de contacto.
 // - La clave es el valor que envía el formulario (los textos visibles están en
-//   src/locales/es.json → contacto.form.interestOptions).
+//   src/locales/es.json → contact.form.interestOptions).
 // - label: texto con el que aparece en el email de aviso.
 // - tagId: etiqueta de Systeme que se añade al contacto (la única que recibe).
 

@@ -10,13 +10,13 @@ export const DEFAULT_LANG = "es";
 
 export const ROUTES = {
   home:        { es: "/",            en: "/en" },
-  servicios:   { es: "/servicios",   en: "/en/services" },
+  services:    { es: "/servicios",   en: "/en/services" },
   bond:        { es: "/bond",        en: "/en/bond" },
-  proyectos:   { es: "/proyectos",   en: "/en/projects" },
-  sobreMi:     { es: "/sobre-mi",    en: "/en/about" },
-  contacto:    { es: "/contacto",    en: "/en/contact" },
+  projects:    { es: "/proyectos",   en: "/en/projects" },
+  about:       { es: "/sobre-mi",    en: "/en/about" },
+  contact:     { es: "/contacto",    en: "/en/contact" },
   impressum:   { es: "/impressum",   en: "/en/impressum" },
-  datenschutz: { es: "/privacidad",  en: "/en/privacy" },
+  privacy:     { es: "/privacidad",  en: "/en/privacy" },
 };
 
 const normalize = (pathname) => (pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname);
@@ -39,7 +39,7 @@ export function pageFromPath(pathname) {
 export const pathFor = (page, lang) => ROUTES[page][lang] ?? ROUTES[page][DEFAULT_LANG];
 
 // Idioma actual (según la URL) y función para obtener la dirección de una
-// página en ese idioma: const { lang, path } = useLocalePath(); path("contacto")
+// página en ese idioma: const { lang, path } = useLocalePath(); path("contact")
 export function useLocalePath() {
   const lang = langFromPath(useLocation().pathname);
   return { lang, path: (page) => pathFor(page, lang) };

@@ -27,11 +27,11 @@ export const SHOW_BOND = false;
 // (la dirección depende del idioma) y el texto está en nav.links.<key>
 export const NAV_LINKS = [
   { key: "home", end: true },
-  { key: "servicios" },
+  { key: "services" },
   { key: "bond" },
-  { key: "proyectos" },
-  { key: "sobreMi" },
-  { key: "contacto" },
+  { key: "projects" },
+  { key: "about" },
+  { key: "contact" },
 ].filter((link) => SHOW_BOND || link.key !== "bond");
 
 export const BOND_SALES_URL = "#PENDIENTE-bond-venta";

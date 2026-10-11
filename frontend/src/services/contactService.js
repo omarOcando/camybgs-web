@@ -1,10 +1,20 @@
 const API_URL = "/api/contact";
 
-export async function submitContact({ nombre, email, profesion, interes, mensaje, emailConsent, lang }) {
+// El formulario usa nombres en inglés; la API y la base de datos conservan los
+// suyos (nombre, profesion, interes, mensaje), así que se traducen aquí.
+export async function submitContact({ name, email, profession, interest, message, emailConsent, lang }) {
   const res = await fetch(API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ nombre, email, profesion, interes, mensaje, emailConsent: emailConsent === true, lang }),
+    body: JSON.stringify({
+      nombre: name,
+      email,
+      profesion: profession,
+      interes: interest,
+      mensaje: message,
+      emailConsent: emailConsent === true,
+      lang,
+    }),
   });
 
   if (!res.ok) throw new Error("Contact submission failed: " + res.status);

@@ -76,46 +76,46 @@ function Services() {
   const [faqRef,      faqVisible]      = useSection(0.1);
   const [startRef,    startVisible]    = useSection(0.15);
 
-  const columns = list("servicios.payment.columns");
+  const columns = list("services.payment.columns");
 
   return (
     <div className="services">
       <Seo
-        title={t("seo.servicios.title")}
-        description={t("seo.servicios.description")}
-        page="servicios"
+        title={t("seo.services.title")}
+        description={t("seo.services.description")}
+        page="services"
       />
 
       {/* 01 — HERO */}
       <section className="srv-hero">
         <div className="srv-hero__inner">
-          <h1 className="srv-hero__title">{t("servicios.hero.title")}</h1>
-          <p className="srv-hero__sub">{t("servicios.hero.subtitle")}</p>
+          <h1 className="srv-hero__title">{t("services.hero.title")}</h1>
+          <p className="srv-hero__sub">{t("services.hero.subtitle")}</p>
         </div>
       </section>
 
       {/* 02 — TU WEB: ONE · MULTI · CUSTOM */}
       <section className="srv-webs">
         <div className="srv-section-inner">
-          <Reveal as="h2" className="srv-section__title srv-section__title--dark">{t("servicios.webs.title")}</Reveal>
+          <Reveal as="h2" className="srv-section__title srv-section__title--dark">{t("services.webs.title")}</Reveal>
           <div ref={websRef} className={reveal("srv-webs__grid", websVisible)}>
-            {list("servicios.webs.items").map((w) => (
+            {list("services.webs.items").map((w) => (
               <article key={w.name} className="srv-card">
                 <h3 className="srv-card__title">{w.name}</h3>
                 <p className="srv-card__for">
-                  <strong>{t("servicios.webs.labels.for")}</strong> {w.for}
+                  <strong>{t("services.webs.labels.for")}</strong> {w.for}
                 </p>
                 <div className="srv-card__includes">
-                  <p className="srv-card__label">{t("servicios.webs.labels.includes")}</p>
+                  <p className="srv-card__label">{t("services.webs.labels.includes")}</p>
                   <p className="srv-card__desc">{w.includes}</p>
                 </div>
                 <dl className="srv-card__facts">
                   <div>
-                    <dt>{t("servicios.webs.labels.duration")}</dt>
+                    <dt>{t("services.webs.labels.duration")}</dt>
                     <dd>{w.duration}</dd>
                   </div>
                   <div>
-                    <dt>{t("servicios.webs.labels.price")}</dt>
+                    <dt>{t("services.webs.labels.price")}</dt>
                     <dd>
                       <strong className="srv-card__price">{w.priceOnce}</strong>
                       <span className="srv-card__price-monthly">{w.priceMonthly}</span>
@@ -131,13 +131,13 @@ function Services() {
       {/* 03 — INCLUIDO EN TODAS */}
       <section className="srv-included">
         <div className="srv-section-inner srv-included__inner">
-          <Reveal as="h2" className="srv-section__title srv-section__title--dark">{t("servicios.included.title")}</Reveal>
+          <Reveal as="h2" className="srv-section__title srv-section__title--dark">{t("services.included.title")}</Reveal>
           <div ref={includedRef} className={reveal("srv-slide", includedVisible)}>
             <ul className="srv-included__list">
-              {list("servicios.included.items").map((item) => <li key={item}>{item}</li>)}
+              {list("services.included.items").map((item) => <li key={item}>{item}</li>)}
             </ul>
             <p className="srv-included__extra">
-              <strong>{t("servicios.included.extraLabel")}</strong> {t("servicios.included.extra")}
+              <strong>{t("services.included.extraLabel")}</strong> {t("services.included.extra")}
             </p>
           </div>
         </div>
@@ -146,11 +146,11 @@ function Services() {
       {/* 04 — PAGA COMO PREFIERAS */}
       <section className="srv-payment">
         <div className="srv-section-inner srv-payment__inner">
-          <Reveal as="h2" className="srv-section__title srv-section__title--dark">{t("servicios.payment.title")}</Reveal>
-          <Reveal as="p" className="srv-section__sub srv-section__sub--dark">{t("servicios.payment.text")}</Reveal>
+          <Reveal as="h2" className="srv-section__title srv-section__title--dark">{t("services.payment.title")}</Reveal>
+          <Reveal as="p" className="srv-section__sub srv-section__sub--dark">{t("services.payment.text")}</Reveal>
           <div ref={paymentRef} className={reveal("srv-slide", paymentVisible)}>
             <table className="srv-payment__table">
-              <caption className="visually-hidden">{t("servicios.payment.caption")}</caption>
+              <caption className="visually-hidden">{t("services.payment.caption")}</caption>
               <thead>
                 <tr>
                   <th scope="col"><span className="visually-hidden">{columns.web}</span></th>
@@ -159,7 +159,7 @@ function Services() {
                 </tr>
               </thead>
               <tbody>
-                {list("servicios.payment.rows").map((r) => (
+                {list("services.payment.rows").map((r) => (
                   <tr key={r.name}>
                     <th scope="row">{r.name}</th>
                     <td data-label={columns.once}>{r.once}</td>
@@ -168,7 +168,7 @@ function Services() {
                 ))}
               </tbody>
             </table>
-            <p className="srv-section__note srv-section__note--dark">{t("servicios.payment.note")}</p>
+            <p className="srv-section__note srv-section__note--dark">{t("services.payment.note")}</p>
           </div>
         </div>
       </section>
@@ -176,13 +176,13 @@ function Services() {
       {/* 05 — DESPUÉS DEL LANZAMIENTO: BASIC · PLUS */}
       <section className="srv-plans">
         <div className="srv-section-inner srv-plans__inner">
-          <Reveal as="h2" className="srv-section__title srv-section__title--dark">{t("servicios.plans.title")}</Reveal>
+          <Reveal as="h2" className="srv-section__title srv-section__title--dark">{t("services.plans.title")}</Reveal>
           <Reveal as="p" className="srv-section__sub srv-section__sub--dark">
-            <span className="srv-section__sub-line">{t("servicios.plans.subtitleLine1")}</span>{" "}
-            <span className="srv-section__sub-line">{t("servicios.plans.subtitleLine2")}</span>
+            <span className="srv-section__sub-line">{t("services.plans.subtitleLine1")}</span>{" "}
+            <span className="srv-section__sub-line">{t("services.plans.subtitleLine2")}</span>
           </Reveal>
           <div ref={plansRef} className={reveal("srv-plans__grid", plansVisible)}>
-            {list("servicios.plans.items").map((p) => (
+            {list("services.plans.items").map((p) => (
               <article key={p.name} className="srv-card srv-plan">
                 <h3 className="srv-card__title">{p.name}</h3>
                 <p className="srv-plan__price">{p.price}</p>
@@ -190,7 +190,7 @@ function Services() {
               </article>
             ))}
           </div>
-          <p className="srv-section__note srv-section__note--dark">{t("servicios.plans.note")}</p>
+          <p className="srv-section__note srv-section__note--dark">{t("services.plans.note")}</p>
         </div>
       </section>
 
@@ -202,23 +202,23 @@ function Services() {
             <div ref={bondRef} className={reveal("bond-panel", bondVisible)}>
               <span className="bond-panel__tag">
                 <span className="bond-panel__tag-star" aria-hidden="true">★</span>
-                {t("servicios.bond.tag")}
+                {t("services.bond.tag")}
               </span>
-              <p className="bond-panel__kicker">{t("servicios.bond.kicker")}</p>
+              <p className="bond-panel__kicker">{t("services.bond.kicker")}</p>
               <h2 className="bond-panel__title">
-                <span className="bond-panel__title-name">{t("servicios.bond.titleName")}</span>{" "}
-                <span className="bond-panel__title-tagline">{t("servicios.bond.titleTagline")}</span>
+                <span className="bond-panel__title-name">{t("services.bond.titleName")}</span>{" "}
+                <span className="bond-panel__title-tagline">{t("services.bond.titleTagline")}</span>
               </h2>
-              <p className="bond-panel__text">{t("servicios.bond.text")}</p>
+              <p className="bond-panel__text">{t("services.bond.text")}</p>
               <ul className="srv-bond__price">
-                {list("servicios.bond.price").map((line) => (
+                {list("services.bond.price").map((line) => (
                   <li key={line.label}>
                     <strong>{line.label}</strong> {line.value}
                   </li>
                 ))}
               </ul>
               <Button to={path("bond")} variant="primary" size="lg">
-                {t("servicios.bond.cta")} <span className="btn-arrow">→</span>
+                {t("services.bond.cta")} <span className="btn-arrow">→</span>
               </Button>
             </div>
           </div>
@@ -228,9 +228,9 @@ function Services() {
       {/* 07 — PREGUNTAS FRECUENTES */}
       <section className="srv-faq">
         <div className="srv-section-inner srv-faq__inner">
-          <Reveal as="h2" className="srv-section__title srv-section__title--dark">{t("servicios.faq.title")}</Reveal>
+          <Reveal as="h2" className="srv-section__title srv-section__title--dark">{t("services.faq.title")}</Reveal>
           <div ref={faqRef} className={`srv-faq__list ${reveal("srv-slide", faqVisible)}`}>
-            {list("servicios.faq.items")
+            {list("services.faq.items")
               .filter((f) => SHOW_BOND || !f.bond) // preguntas de Bond: "bond": true en es.json
               .map((f) => <FaqItem key={f.q} q={f.q} a={f.a} />)}
           </div>
@@ -240,9 +240,9 @@ function Services() {
       {/* 08 — ASÍ EMPEZAMOS */}
       <section className="srv-start">
         <div className="srv-section-inner srv-start__inner">
-          <Reveal as="h2" className="srv-section__title">{t("servicios.start.title")}</Reveal>
+          <Reveal as="h2" className="srv-section__title">{t("services.start.title")}</Reveal>
           <ol ref={startRef} className={reveal("srv-start__steps", startVisible)}>
-            {list("servicios.start.steps").map((s, i) => (
+            {list("services.start.steps").map((s, i) => (
               <li key={s.title} className="srv-start__step">
                 <span className="srv-start__num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="srv-start__title">{s.title}</h3>
@@ -250,8 +250,8 @@ function Services() {
               </li>
             ))}
           </ol>
-          <Button to={path("contacto")} variant="primary" size="lg">
-            {t("servicios.start.cta")} <span className="btn-arrow">→</span>
+          <Button to={path("contact")} variant="primary" size="lg">
+            {t("services.start.cta")} <span className="btn-arrow">→</span>
           </Button>
         </div>
       </section>

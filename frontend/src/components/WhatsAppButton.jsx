@@ -16,11 +16,11 @@ function WhatsAppButton() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  if (pageFromPath(pathname) === "contacto") return null;
+  if (pageFromPath(pathname) === "contact") return null;
 
   return (
     <a
-      href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(t("contacto.whatsapp.message"))}`}
+      href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(t("contact.whatsapp.message"))}`}
       target="_blank"
       rel="noopener noreferrer"
       className={`whatsapp-btn${visible ? " whatsapp-btn--visible" : ""}`}
