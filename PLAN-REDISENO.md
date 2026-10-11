@@ -55,7 +55,7 @@
 - **Stack:** React 19 + Vite + React Router 7 + SCSS (`frontend/src/styles/`) + react-helmet-async. Despliegue en Vercel: SPA estática + función serverless `frontend/api/contact.js`.
 - **`backend/`:** Express, legado. **No se toca.**
 - **Idiomas:** react-i18next (desde la Fase 0).
-  - Textos en `frontend/src/locales/es.json` (por página: `common`, `nav`, `footer`, `seo`, `home`, `servicios`, `bond`, `proyectos`, `sobreMi`, `contacto`, `leadMagnet`).
+  - Textos en `frontend/src/locales/es.json` (por página: `common`, `nav`, `footer`, `seo`, `home`, `services`, `bond`, `projects`, `about`, `contact`, `leadMagnet`).
   - Inglés en `frontend/src/locales/en.json` (mismas claves que `es.json`; comprobar la paridad al añadir textos).
   - Inicialización en `frontend/src/i18n.js`: el idioma lo decide la URL. Direcciones de cada página en `frontend/src/config/routes.js` (`ROUTES`, `useLocalePath()`, `pageFromPath()`); **nunca escribir rutas a mano** en enlaces: `to={path("contacto")}`.
   - Los legales (Impressum y la política de privacidad) se quedan fuera de `es.json`.
@@ -72,7 +72,7 @@
   - `WhatsAppButton.jsx`.
   - `AuroraMandala.jsx`: **no modificar el shader**.
   - `ContactRadial.jsx`: menú radial del hero.
-- **Formulario de contacto:** `pages/Contacto.jsx` → `services/contactService.js` → `api/contact.js`. Este último:
+- **Formulario de contacto:** `pages/Contact.jsx` → `services/contactService.js` → `api/contact.js`. Este último:
   - guarda en Mongo (`lib/Contact.js`, colección `leads-web`);
   - crea el contacto en Systeme con **solo** la etiqueta de su interés (`lib/interests.js` + `lib/systeme.js`);
   - envía el email con Resend (`lib/email.js`).
@@ -175,7 +175,7 @@
    - `index.html`: volver a añadir `"Plataforma de gestión de clientes"` al `serviceType` del JSON-LD.
    - Revisar en tablet y móvil la Home y Servicios con el bloque de Bond.
 5. **Consentimientos de emails aparte, sin TTL:** ✅ Colección **`email-consents`** (`lib/EmailConsent.js`): `email`, `createdAt` (fecha), `text` (texto exacto de la casilla), `version` y `lang`. Se guarda un documento por cada envío con la casilla marcada.
-   - El texto y la versión están en **`lib/consentText.js`**, que es la fuente única: lo muestra `Contacto.jsx` y lo guarda `api/contact.js`. Por eso ese texto ya no está en `es.json`. **Si cambia el texto, hay que cambiar la versión.**
+   - El texto y la versión están en **`lib/consentText.js`**, que es la fuente única: lo muestra `Contact.jsx` y lo guarda `api/contact.js`. Por eso ese texto ya no está en `es.json`. **Si cambia el texto, hay que cambiar la versión.**
    - Política de privacidad (ES y EN), apartado 6: qué se guarda, dónde, base legal (art. 6.1.c en relación con el 7.1 del RGPD) y que se borra con la baja.
    - **Borrado al darse de baja:**
      - **A — proceso manual una vez al mes: aprobado por Omar ✅.** Paso a paso en **§7**.
@@ -189,6 +189,19 @@
    - SEO: cada página con `lang`, `canonical` de su idioma y `hreflang` (es, en, x-default); `sitemap.xml` con las dos versiones de cada página.
    - Casilla de emails: texto en inglés en `lib/consentText.js`, misma versión.
    - Lo que no se traduce: el email de aviso a Omar y las etiquetas de Systeme siguen en español.
+
+### Nombres internos del código en inglés (12 de octubre de 2026)
+
+Refactor sin cambios visibles: las URLs públicas, los textos y el diseño son los mismos. Tres commits (páginas y carpetas; SCSS y clases; claves de rutas y de locales).
+
+- **Páginas** (`src/pages/`): `Services`, `Projects`, `About`, `Contact` y `Privacy` (antes `Servicios`, `Proyectos`, `SobreMi`, `Contacto` y `Datenschutz`). `Home`, `Bond` e `Impressum` no cambian.
+- **SCSS:** `_services`, `_projects`, `_about` y `_contact`. Clases raíz `.services`, `.projects`, `.about` y `.contact`. El prefijo `sob-` pasa a `abt-`; `srv-`, `ctc-` y `proj-` se quedan.
+- **Imágenes:** `assets/images/projects/` y `assets/images/about/` (antes `mi-trabajo/` y `sobre-mi/`).
+- **Claves de `ROUTES`, `NAV_LINKS` y `Seo` (`page`):** `services`, `projects`, `about`, `contact` y `privacy`. Las direcciones no cambian: `/servicios`, `/proyectos`, `/sobre-mi`, `/contacto`, `/privacidad`, `/impressum`, `/bond` y sus equivalentes bajo `/en`.
+- **Claves de `es.json` y `en.json`:** secciones `services`, `projects`, `about` y `contact` (también en `seo.*` y `nav.links.*`). Campos del formulario: `contact.form.fields.name`, `profession`, `interest` y `message`.
+- **Lo que NO cambia a propósito:** la API y la base de datos conservan `nombre`, `profesion`, `interes` y `mensaje` (y los valores `mantenimiento` y `nose` de `lib/interests.js`, que están en el `enum` de Mongo y en las etiquetas de Systeme). `services/contactService.js` traduce entre los nombres ingleses del formulario y los de la API.
+- **Redirecciones antiguas** (`/resultados`, `/mi-trabajo`, `/datenschutz`): siguen en `vercel.json` y en `App.jsx` con sus rutas en español, porque son las URLs viejas.
+- **Verificación:** 16 páginas (8 ES y 8 EN) en móvil (375 px) y escritorio (1440 px), antes y después, con captura completa, texto, URL final, `lang` y título: idénticas. Las 3 redirecciones llevan al mismo destino y el formulario envía a `/api/contact` los mismos campos de siempre. `/bond` redirige a la Home mientras `SHOW_BOND` esté en `false`.
 
 ---
 
@@ -230,8 +243,8 @@ Commits `bf568ee` y `5db79da`.
 ### ✅ Fase 3 — Proyectos + redirecciones (hecha, visto bueno de Omar)
 Commits `6685369` y `5e0cdb0`.
 - `data/projects.js`: solo Ramsés (`category: "Custom"`) y Viva México (`"Multi"`), con los datos que no dependen del idioma (`tech`, `link`, `image`, `video`, `videoAspect`, `testimonial`) y `CATEGORIES` (orden del filtro: One · Multi · Custom · Bond).
-- Textos de cada proyecto en `es.json` → `proyectos.items.<id>` (`name`, `tag`, `client`, `challenge`, `work`, `result`). Título y descripción SEO en `seo.proyectos`.
-- `pages/Proyectos.jsx` + `styles/pages/_proyectos.scss` (prefijo `proj-`, basado en el antiguo `mt-`):
+- Textos de cada proyecto en `es.json` → `projects.items.<id>` (`name`, `tag`, `client`, `challenge`, `work`, `result`). Título y descripción SEO en `seo.projects`.
+- `pages/Projects.jsx` + `styles/pages/_projects.scss` (prefijo `proj-`, basado en el antiguo `mt-`):
   - filtro calculado con los datos (hoy: Todos · Multi · Custom), con `aria-pressed`;
   - tarjetas con el diseño de `mt-project-card`, en 2 columnas (1 en ≤ 900 px); Ramsés con "Ver proyecto" desactivado;
   - testimonios "En sus propias palabras": vídeo + nombre;
@@ -251,7 +264,7 @@ Commits `bc39322` y `0377e5d`.
 
 ### ✅ Fase 5 — Servicios (hecha, visto bueno de Omar)
 Commit `892f0ba`.
-- `pages/Servicios.jsx` + `styles/pages/_servicios.scss` reescrito (prefijo `srv-`). Textos en `es.json` → `servicios` y `seo.servicios`.
+- `pages/Services.jsx` + `styles/pages/_services.scss` reescrito (prefijo `srv-`). Textos en `es.json` → `services` y `seo.services`.
 - Tarjetas One/Multi/Custom (para quién, qué incluye, duración y valor), "Incluido en todas" + extra de idiomas.
 - Tabla de pago al contado o en cuotas: tabla accesible que en móvil pasa a tarjetas.
 - Planes Basic y Plus, bloque Bond (precio en dos líneas, botón a `/bond`), FAQ en acordeón accesible y "Así empezamos" con botón a `/contacto`.
@@ -259,9 +272,9 @@ Commit `892f0ba`.
 
 ### ✅ Fase 6 — Sobre mí + Contacto (hecha, visto bueno de Omar)
 Commits `f6ff283`, `e25fe04`, `13d157c` y `07f8dd5`.
-- **Sobre mí:** párrafo nuevo (sin la etiqueta NUEVO), "cada cliente al que ayudo a mostrarse tal como es" y la cita nueva. Textos en `es.json` → `sobreMi` (la historia es una lista `{ text, variant }`) y `seo.sobreMi`.
+- **Sobre mí:** párrafo nuevo (sin la etiqueta NUEVO), "cada cliente al que ayudo a mostrarse tal como es" y la cita nueva. Textos en `es.json` → `about` (la historia es una lista `{ text, variant }`) y `seo.about`.
 - **Contacto:** textos en `es.json` → `contacto` y `seo.contacto`; "Profesión o negocio", "Cuéntame tu proyecto" y `<select>` obligatorio "¿Qué te interesa?" (valores `one`, `multi`, `custom`, `bond`, `mantenimiento`, `nose`). Pasos de "¿Y después qué?" en un `<ol>`.
-- **`lib/interests.js`:** fuente única de los valores, el texto del email y el `tagId` de Systeme. La usan `api/contact.js` (validación), `lib/Contact.js` (`enum`) y `Contacto.jsx` (opciones).
+- **`lib/interests.js`:** fuente única de los valores, el texto del email y el `tagId` de Systeme. La usan `api/contact.js` (validación), `lib/Contact.js` (`enum`) y `Contact.jsx` (opciones).
 - **Systeme:** cada contacto recibe **solo** la etiqueta de su interés (sin la `2049193`).
 - **Email:** cabecera "Nuevo mensaje", filas "Profesión o negocio" e "Interés", y el interés en el asunto.
 - **Emails repetidos:** sin `unique` en el schema ni `catch` del error 11000. El índice `email_1` de la base real se borra al publicar (§6).
