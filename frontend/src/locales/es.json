@@ -259,20 +259,20 @@
     },
     "payment": {
       "title": "Paga como mejor te parezca",
-      "text": "Puedes pagar tu web en dos partes o financiarla a plazos. Así empiezas ya, sin esperar a tenerlo todo.",
-      "caption": "Precio de cada web",
-      "columns": {
-        "web": "Web",
-        "price": "Precio"
-      },
-      "rows": [
-        { "name": "One", "price": "desde 799 €" },
-        { "name": "Multi", "price": "desde 1.199 €" },
-        { "name": "Custom", "price": "desde 1.999 €" }
+      "subtitleLine1": "Paga tu web en dos partes o a plazos.",
+      "subtitleLine2": "Así empiezas ya, sin esperar a tenerlo todo.",
+      "options": [
+        {
+          "title": "En dos partes",
+          "text": "50 % al empezar y 50 % a la entrega. El primer pago reserva la fecha de inicio que acordamos juntos."
+        },
+        {
+          "title": "A plazos",
+          "text": "Al pagar, elige Klarna y decide en cuántas cuotas. Tu fecha de inicio queda reservada igual, y tú pagas a tu ritmo."
+        }
       ],
-      "noteTwoParts": "En dos partes: 50 % al empezar y 50 % a la entrega. Con el primer pago reservas tu fecha de inicio.",
-      "noteInstalments": "A plazos: al pagar, elige Klarna y decide en cuántos meses. Yo recibo el pago y empiezo tu web enseguida.",
-      "noteMethods": "Aceptamos tarjeta (Visa, Mastercard, American Express), Apple Pay, Google Pay, PayPal, transferencia bancaria y Klarna."
+      "methodsLabel": "Puedes pagar con",
+      "bankTransfer": "Transferencia"
     },
     "plans": {
       "title": "Tu web, siempre al día",

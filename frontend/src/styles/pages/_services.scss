@@ -329,51 +329,81 @@
   padding-top: 40px; // sigue a otra sección arena: menos aire entre ambas
 }
 
-.srv-payment__table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  background: #fff;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 14px 44px rgba($color-noche, 0.12);
-  font-size: clamp(16px, 1.5vw, 20px);
+// Dos tarjetas (en dos partes · a plazos), como las de Basic · Plus
+.srv-payment__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
 
-  th,
-  td {
-    padding: 22px 28px;
-    text-align: left;
+  &--visible .srv-card {
+    @for $i from 1 through 2 {
+      &:nth-child(#{$i}) { animation: srv-card-in 3s cubic-bezier(0.22, 1, 0.36, 1) #{($i - 1) * 0.15}s forwards; }
+    }
   }
-
-  thead th {
-    background: $color-noche;
-    color: $color-arena;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  tbody tr + tr > * {
-    border-top: 1px solid rgba($color-noche, 0.1);
-  }
-
-  tbody th {
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: $color-fuego;
-  }
-
-  td { color: $color-noche; }
 }
 
-// Las tres líneas bajo la tabla: más juntas entre sí que de la tabla
-.srv-payment__note + .srv-payment__note { margin-top: 12px; }
+// Sobre arena, tarjetas noche sólidas (como .srv-plans .srv-card)
+.srv-payment .srv-card {
+  background: $color-noche;
+}
 
-// Medios de pago: más discretos
-.srv-payment__note--small {
-  font-size: clamp(12px, 1.05vw, 14px);
+.srv-payment__icon {
+  align-self: center;
+  font-size: 40px;
+  color: $color-fuego;
+  margin-bottom: 16px;
+}
+
+// Medios de pago: texto pequeño y pastillas blancas iguales
+.srv-payment__methods-label {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba($color-noche, 0.5);
+  margin: 56px 0 18px;
+}
+
+.srv-payment__pills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(8, 96px);
+  justify-content: center;
+  gap: 12px;
+}
+
+.srv-payment__pill {
+  height: 60px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba($color-noche, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    display: block;
+    max-width: 72%;
+  }
+}
+
+// Transferencia: icono de banco con su nombre debajo
+.srv-payment__pill--bank {
+  flex-direction: column;
+  gap: 3px;
+  color: $color-noche;
+
+  svg { font-size: 22px; color: $color-fuego; }
+
+  span {
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.1;
+    text-align: center;
+  }
 }
 
 // ─── 05 BASIC · PLUS ─────────────────────────────────────────────────────────
@@ -641,6 +671,11 @@
 // ── Tablet SM (≤ 900px) ──────────────────────────────────────────────────────
 @media (max-width: $tablet-sm) {
 
+  // Pastillas de pago en dos filas de 4
+  .srv-payment__pills {
+    grid-template-columns: repeat(4, 96px);
+  }
+
   .srv-section-inner {
     padding: 70px 100px;
   }
@@ -651,6 +686,7 @@
 
   .srv-webs__grid,
   .srv-plans__grid,
+  .srv-payment__grid,
   .srv-start__steps {
     grid-template-columns: 1fr;
     max-width: 560px;
@@ -672,6 +708,11 @@
 
   .srv-section-inner {
     padding: 50px 28px;
+  }
+
+  // Subtítulo de pagos: en móvil las dos frases fluyen juntas
+  .srv-payment__sub .srv-section__sub-line {
+    display: inline;
   }
 
   .srv-hero {
@@ -720,70 +761,20 @@
   }
 }
 
-// ── Móvil SM (≤ 600px): la tabla de pago pasa a tarjetas ─────────────────────
+// ── Móvil SM (≤ 600px): pastillas de pago a lo ancho, 4 por fila ────────────
 @media (max-width: $mobile-sm) {
 
-  .srv-payment__table {
-    background: none;
-    box-shadow: none;
-    border-radius: 0;
-    overflow: visible;
+  .srv-payment__pills {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
 
-    thead {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-    }
+  .srv-payment__pill {
+    height: 54px;
+  }
 
-    tbody,
-    tr,
-    th,
-    td {
-      display: block;
-    }
-
-    tbody {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    tr {
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba($color-noche, 0.1);
-      overflow: hidden;
-    }
-
-    tbody tr + tr > * { border-top: none; }
-
-    tbody th {
-      padding: 16px 22px;
-      background: $color-noche;
-      color: $color-arena;
-    }
-
-    td {
-      display: flex;
-      justify-content: space-between;
-      align-items: center; // etiqueta y precio centrados verticalmente
-      gap: 16px;
-      padding: 14px 22px;
-
-      &::before {
-        content: attr(data-label);
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: rgba($color-noche, 0.5);
-      }
-    }
-
-    // Más específico que "tr + tr > *" para que la línea salga en todas las tarjetas
-    tbody tr td + td { border-top: 1px solid rgba($color-noche, 0.1); }
+  .srv-payment__pill--bank span {
+    font-size: 10px;
   }
 }
 

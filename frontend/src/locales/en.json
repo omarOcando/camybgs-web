@@ -259,20 +259,20 @@
     },
     "payment": {
       "title": "Pay the way that suits you",
-      "text": "You can pay for your website in two parts or spread the cost in instalments. That way you can start now, without waiting to have it all.",
-      "caption": "Price of each website",
-      "columns": {
-        "web": "Website",
-        "price": "Price"
-      },
-      "rows": [
-        { "name": "One", "price": "from €799" },
-        { "name": "Multi", "price": "from €1,199" },
-        { "name": "Custom", "price": "from €1,999" }
+      "subtitleLine1": "Pay for your website in two parts or in instalments.",
+      "subtitleLine2": "That way you can start now, without waiting to have it all.",
+      "options": [
+        {
+          "title": "In two parts",
+          "text": "50 % at the start and 50 % on delivery. Your first payment reserves the start date we agree on together."
+        },
+        {
+          "title": "In instalments",
+          "text": "At checkout, choose Klarna and decide how many instalments. Your start date is reserved just the same, and you pay at your own pace."
+        }
       ],
-      "noteTwoParts": "In two parts: 50 % at the start and 50 % on delivery. Your first payment reserves your start date.",
-      "noteInstalments": "In instalments: choose Klarna at checkout and decide over how many months. I receive the payment and start your website right away.",
-      "noteMethods": "We accept cards (Visa, Mastercard, American Express), Apple Pay, Google Pay, PayPal, bank transfer and Klarna."
+      "methodsLabel": "You can pay with",
+      "bankTransfer": "Bank transfer"
     },
     "plans": {
       "title": "Your website, always up to date",

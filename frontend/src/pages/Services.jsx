@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 import Button from "../components/Button";
 import Seo from "../components/Seo";
 import Reveal from "../components/Reveal";
+import { TbCircleHalf2, TbCalendarRepeat } from "react-icons/tb";
+import PaymentMethods from "../components/PaymentMethods";
 import { SHOW_BOND } from "../config/site";
 import { useLocalePath } from "../config/routes";
 
@@ -61,6 +63,9 @@ function FaqItem({ q, a }) {
   );
 }
 
+// Icono de cada forma de pago (mismo orden que services.payment.options)
+const PAYMENT_OPTION_ICONS = [TbCircleHalf2, TbCalendarRepeat];
+
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
 function Services() {
@@ -75,8 +80,6 @@ function Services() {
   const [bondRef,     bondVisible]     = useSection(0.2);
   const [faqRef,      faqVisible]      = useSection(0.1);
   const [startRef,    startVisible]    = useSection(0.15);
-
-  const columns = list("services.payment.columns");
 
   return (
     <div className="services">
@@ -146,28 +149,25 @@ function Services() {
       <section className="srv-payment">
         <div className="srv-section-inner srv-payment__inner">
           <Reveal as="h2" className="srv-section__title srv-section__title--dark">{t("services.payment.title")}</Reveal>
-          <Reveal as="p" className="srv-section__sub srv-section__sub--dark">{t("services.payment.text")}</Reveal>
-          <div ref={paymentRef} className={reveal("srv-slide", paymentVisible)}>
-            <table className="srv-payment__table">
-              <caption className="visually-hidden">{t("services.payment.caption")}</caption>
-              <thead>
-                <tr>
-                  <th scope="col"><span className="visually-hidden">{columns.web}</span></th>
-                  <th scope="col">{columns.price}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {list("services.payment.rows").map((r) => (
-                  <tr key={r.name}>
-                    <th scope="row">{r.name}</th>
-                    <td data-label={columns.price}>{r.price}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <p className="srv-section__note srv-section__note--dark srv-payment__note">{t("services.payment.noteTwoParts")}</p>
-            <p className="srv-section__note srv-section__note--dark srv-payment__note">{t("services.payment.noteInstalments")}</p>
-            <p className="srv-section__note srv-section__note--dark srv-payment__note srv-payment__note--small">{t("services.payment.noteMethods")}</p>
+          <Reveal as="p" className="srv-section__sub srv-section__sub--dark srv-payment__sub">
+            <span className="srv-section__sub-line">{t("services.payment.subtitleLine1")}</span>{" "}
+            <span className="srv-section__sub-line">{t("services.payment.subtitleLine2")}</span>
+          </Reveal>
+          <div ref={paymentRef} className={reveal("srv-payment__grid", paymentVisible)}>
+            {list("services.payment.options").map((o, i) => {
+              const Icon = PAYMENT_OPTION_ICONS[i];
+              return (
+                <article key={o.title} className="srv-card srv-payment__option">
+                  <Icon className="srv-payment__icon" aria-hidden="true" />
+                  <h3 className="srv-card__title">{o.title}</h3>
+                  <p className="srv-card__desc">{o.text}</p>
+                </article>
+              );
+            })}
+          </div>
+          <div className={reveal("srv-slide", paymentVisible)}>
+            <p className="srv-payment__methods-label">{t("services.payment.methodsLabel")}</p>
+            <PaymentMethods bankLabel={t("services.payment.bankTransfer")} />
           </div>
         </div>
       </section>
