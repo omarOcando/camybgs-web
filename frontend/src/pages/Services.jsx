@@ -154,21 +154,21 @@ function Services() {
               <thead>
                 <tr>
                   <th scope="col"><span className="visually-hidden">{columns.web}</span></th>
-                  <th scope="col">{columns.once}</th>
-                  <th scope="col">{columns.monthly}</th>
+                  <th scope="col">{columns.price}</th>
                 </tr>
               </thead>
               <tbody>
                 {list("services.payment.rows").map((r) => (
                   <tr key={r.name}>
                     <th scope="row">{r.name}</th>
-                    <td data-label={columns.once}>{r.once}</td>
-                    <td data-label={columns.monthly}>{r.monthly}</td>
+                    <td data-label={columns.price}>{r.price}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <p className="srv-section__note srv-section__note--dark">{t("services.payment.note")}</p>
+            <p className="srv-section__note srv-section__note--dark srv-payment__note">{t("services.payment.noteTwoParts")}</p>
+            <p className="srv-section__note srv-section__note--dark srv-payment__note">{t("services.payment.noteInstalments")}</p>
+            <p className="srv-section__note srv-section__note--dark srv-payment__note srv-payment__note--small">{t("services.payment.noteMethods")}</p>
           </div>
         </div>
       </section>

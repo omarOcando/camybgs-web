@@ -265,19 +265,20 @@
     },
     "payment": {
       "title": "Paga como mejor te parezca",
-      "text": "Puedes pagar tu web de una vez o repartirla en cuotas mensuales. Así empiezas ya, sin esperar a tenerlo todo.",
-      "caption": "Precios de cada web al contado o en cuotas",
+      "text": "Puedes pagar tu web en dos partes o financiarla a plazos. Así empiezas ya, sin esperar a tenerlo todo.",
+      "caption": "Precio de cada web",
       "columns": {
         "web": "Web",
-        "once": "Al contado",
-        "monthly": "Cuotas"
+        "price": "Precio"
       },
       "rows": [
-        { "name": "One", "once": "desde 799 €", "monthly": "desde 77 €/mes" },
-        { "name": "Multi", "once": "desde 1.199 €", "monthly": "desde 115 €/mes" },
-        { "name": "Custom", "once": "desde 1.999 €", "monthly": "desde 192 €/mes" }
+        { "name": "One", "price": "desde 799 €" },
+        { "name": "Multi", "price": "desde 1.199 €" },
+        { "name": "Custom", "price": "desde 1.999 €" }
       ],
-      "note": "Con la primera cuota reservas tu fecha de inicio."
+      "noteTwoParts": "En dos partes: 50 % al empezar y 50 % a la entrega. Con el primer pago reservas tu fecha de inicio.",
+      "noteInstalments": "A plazos: al pagar, elige Klarna y decide en cuántos meses. Yo recibo el pago y empiezo tu web enseguida.",
+      "noteMethods": "Aceptamos tarjeta (Visa, Mastercard, American Express), Apple Pay, Google Pay, PayPal, transferencia bancaria y Klarna."
     },
     "plans": {
       "title": "Tu web, siempre al día",

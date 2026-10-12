@@ -376,6 +376,14 @@
   td { color: $color-noche; }
 }
 
+// Las tres líneas bajo la tabla: más juntas entre sí que de la tabla
+.srv-payment__note + .srv-payment__note { margin-top: 12px; }
+
+// Medios de pago: más discretos
+.srv-payment__note--small {
+  font-size: clamp(12px, 1.05vw, 14px);
+}
+
 // ─── 05 BASIC · PLUS ─────────────────────────────────────────────────────────
 .srv-plans {
   background: $color-arena;

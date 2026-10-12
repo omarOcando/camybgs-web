@@ -265,19 +265,20 @@
     },
     "payment": {
       "title": "Pay the way that suits you",
-      "text": "You can pay for your website in one go or spread it over monthly instalments. That way you can start now, without waiting to have it all.",
-      "caption": "Price of each website, paid in full or in instalments",
+      "text": "You can pay for your website in two parts or spread the cost in instalments. That way you can start now, without waiting to have it all.",
+      "caption": "Price of each website",
       "columns": {
         "web": "Website",
-        "once": "Paid in full",
-        "monthly": "Instalments"
+        "price": "Price"
       },
       "rows": [
-        { "name": "One", "once": "from €799", "monthly": "from €77/month" },
-        { "name": "Multi", "once": "from €1,199", "monthly": "from €115/month" },
-        { "name": "Custom", "once": "from €1,999", "monthly": "from €192/month" }
+        { "name": "One", "price": "from €799" },
+        { "name": "Multi", "price": "from €1,199" },
+        { "name": "Custom", "price": "from €1,999" }
       ],
-      "note": "Your first instalment secures your start date."
+      "noteTwoParts": "In two parts: 50 % at the start and 50 % on delivery. Your first payment reserves your start date.",
+      "noteInstalments": "In instalments: choose Klarna at checkout and decide over how many months. I receive the payment and start your website right away.",
+      "noteMethods": "We accept cards (Visa, Mastercard, American Express), Apple Pay, Google Pay, PayPal, bank transfer and Klarna."
     },
     "plans": {
       "title": "Your website, always up to date",
