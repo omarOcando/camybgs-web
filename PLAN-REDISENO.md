@@ -366,7 +366,7 @@ Lo hace Omar **una vez al mes** (por ejemplo, el día 1) y, además, **en el mom
 2. Abrir la base **`camyDB`** (la real, **no** `camyweb-preview`) → colección **`email-consents`**.
 3. Para cada email de la lista:
    - En **Filter** escribir `{ email: "julia@tunegocio.com" }` (siempre **en minúsculas**: así se guardan) y pulsar **Apply**.
-   - Comprobar que los documentos que salen son de esa persona (puede haber varios: uno por cada vez que marcó la casilla).
+   - Comprobar que los documentos que salen son de esa persona (puede haber varios: uno por cada vez que marcó la casilla; con el doble opt-in, también alguno en `status: "pending"` si no lo confirmó; esos se borran solos a los 30 días, pero se pueden borrar ya).
    - Borrarlos todos (icono de papelera en cada documento, o la opción de borrar los documentos del filtro si Atlas la ofrece).
    - Volver a aplicar el filtro: debe salir **0 documentos**.
 
@@ -376,6 +376,15 @@ Lo hace Omar **una vez al mes** (por ejemplo, el día 1) y, además, **en el mom
    db["email-consents"].deleteMany({ email: { $in: ["julia@tunegocio.com", "otro@ejemplo.com"] } })
    ```
    El resultado `deletedCount` debe coincidir con el número de documentos que había.
+
+### Paso 2 bis — Etiquetas que Systeme no llegó a poner
+Con el doble opt-in, la etiqueta **consentimiento-emails** (`2222022`) se añade cuando la persona pulsa el enlace del email de confirmación. Si Systeme falla en ese momento, el consentimiento queda confirmado pero sin etiqueta (y el error sale en el log de Vercel con `[CONSENT]`).
+1. En Atlas/Compass, colección **`email-consents`** de **`camyDB`**, filtrar:
+   ```js
+   { status: "confirmed", systemeTagged: false }
+   ```
+2. Para cada documento: en Systeme, buscar el contacto por su email y añadirle la etiqueta **consentimiento-emails** a mano (si el contacto no existe, crearlo con ese email).
+3. En Compass, cambiar `systemeTagged` a `true` en ese documento (editar el documento → **Update**), para que no vuelva a salir en el filtro.
 
 ### Paso 3 — No borrar nada más
 - Las **consultas** (`leads-web`) no se tocan: se borran solas a los 24 meses.
