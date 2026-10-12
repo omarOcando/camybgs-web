@@ -1,6 +1,7 @@
 // Casilla opcional de emails del formulario de contacto.
-// Fuente única del texto: lo muestra Contacto.jsx y lo guarda api/contact.js
-// en email-consents como prueba de lo que aceptó cada persona.
+// Fuente única del texto: lo muestra Contact.jsx y lo guarda
+// lib/emailConsentFlow.js en email-consents como prueba de lo que aceptó cada
+// persona (doble opt-in).
 // - Si cambia el texto, cambiar también la versión (nunca editar una versión
 //   ya publicada: los consentimientos guardados la citan).
 // - Al añadir otro idioma, añadir su texto con la misma versión.

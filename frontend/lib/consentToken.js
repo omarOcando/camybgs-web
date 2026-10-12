@@ -26,7 +26,9 @@ function decode(data) {
   }
 }
 
-// Devuelve { valid: true, id, lang } o { valid: false, lang }.
+// Devuelve { valid: true, id, lang } o { valid: false, lang }. Si la firma es
+// buena pero ha caducado, también expired: true e id (para poder decir "ya
+// estaba confirmada" aunque el enlace sea viejo).
 // lang se intenta leer aunque el token no valga, solo para elegir el idioma de
 // la página de error (no se usa para nada más).
 export function verifyConsentToken(token) {
@@ -40,7 +42,9 @@ export function verifyConsentToken(token) {
   if (given.length !== expected.length || !timingSafeEqual(given, expected)) {
     return { valid: false, lang };
   }
-  if (typeof payload.exp !== "number" || Date.now() > payload.exp) return { valid: false, lang };
+  if (typeof payload.exp !== "number" || Date.now() > payload.exp) {
+    return { valid: false, expired: true, id: payload.id, lang };
+  }
 
   return { valid: true, id: payload.id, lang };
 }
