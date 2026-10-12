@@ -122,6 +122,9 @@ function Contact() {
                 <div className="ctc-success">
                   <p className="ctc-success__headline">{t("contact.success.headline")}</p>
                   <p className="ctc-success__text">{t("contact.success.text1")}</p>
+                  {emailConsent && (
+                    <p className="ctc-success__text">{t("contact.success.consentPending")}</p>
+                  )}
                   <p className="ctc-success__text">{t("contact.success.text2")}</p>
                   <Button to={path("projects")} variant="primary" size="lg">
                     {t("contact.success.cta")} <span className="btn-arrow" aria-hidden="true">→</span>

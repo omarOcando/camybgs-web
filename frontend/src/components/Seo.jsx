@@ -7,7 +7,8 @@ const OG_LOCALE = { es: "es_ES", en: "en_GB" };
 
 // page: clave de config/routes.js. La dirección canónica es la del idioma
 // actual, con enlaces hreflang a la otra versión (x-default: español).
-function Seo({ title, description, page = "home", image = DEFAULT_IMAGE }) {
+// noindex: páginas que no deben salir en buscadores (tampoco van al sitemap).
+function Seo({ title, description, page = "home", image = DEFAULT_IMAGE, noindex = false }) {
   const { lang } = useLocalePath();
   const url = `${SITE_URL}${pathFor(page, lang)}`;
 
@@ -16,6 +17,7 @@ function Seo({ title, description, page = "home", image = DEFAULT_IMAGE }) {
       <html lang={lang} />
       <title>{title}</title>
       <meta name="description" content={description} />
+      {noindex && <meta name="robots" content="noindex" />}
       <link rel="canonical" href={url} />
       {LANGS.map((l) => (
         <link key={l} rel="alternate" hrefLang={l} href={`${SITE_URL}${pathFor(page, l)}`} />

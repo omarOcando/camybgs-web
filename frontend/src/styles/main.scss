@@ -30,6 +30,7 @@
 @use "./pages/projects";
 @use "./pages/contact";
 @use "./pages/legal";
+@use "./pages/confirm-subscription";
 
 // El fundido arranca al quitar --hidden, es decir, cuando termina el Loader
 .appFade {

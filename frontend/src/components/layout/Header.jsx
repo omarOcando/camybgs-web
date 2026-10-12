@@ -117,10 +117,11 @@ function buildWavePath(t, scale) {
 function Header() {
   const { t } = useTranslation();
   const { lang, path } = useLocalePath();
-  const { pathname } = useLocation();
-  // Selector de idioma: la misma página en el otro idioma
+  const { pathname, search } = useLocation();
+  // Selector de idioma: la misma página en el otro idioma (con su ?…, que usa
+  // la página de confirmación de suscripción)
   const otherLang = lang === "es" ? "en" : "es";
-  const otherPath = pathFor(pageFromPath(pathname) ?? "home", otherLang);
+  const otherPath = pathFor(pageFromPath(pathname) ?? "home", otherLang) + search;
   const [menuState, setMenuState] = useState("closed");
   const [isPlaying, setIsPlaying] = useState(false);
   const isOpen = menuState === "open";

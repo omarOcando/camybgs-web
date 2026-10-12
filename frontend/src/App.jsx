@@ -14,6 +14,7 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
 import Privacy from "./pages/Privacy";
+import ConfirmSubscription from "./pages/ConfirmSubscription";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import AuditPopup from "./components/AuditPopup";
@@ -46,6 +47,7 @@ function App() {
     contact:     () => <Contact />,
     impressum:   () => <Impressum />,
     privacy:     () => <Privacy />,
+    confirmSubscription: () => <ConfirmSubscription />,
   };
 
   return (

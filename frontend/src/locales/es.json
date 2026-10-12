@@ -52,6 +52,10 @@
     "contact": {
       "title": "Contacto · CAMY",
       "description": "Cuéntame tu proyecto. Respondo en menos de 24 horas, en español o en inglés."
+    },
+    "confirmSubscription": {
+      "title": "Confirmar suscripción · CAMY",
+      "description": "Confirmación de la suscripción a los emails ocasionales de CAMY."
     }
   },
   "home": {
@@ -517,6 +521,7 @@
     "success": {
       "headline": "¡Recibido! Ya estoy leyendo tu mensaje.",
       "text1": "Gracias por escribirme. En menos de 24 horas tienes mi respuesta.",
+      "consentPending": "Te he enviado un email para confirmar tu suscripción.",
       "text2": "Mientras tanto, si quieres ver cómo trabajo, echa un vistazo a mis proyectos.",
       "cta": "Ver proyectos"
     },
@@ -554,5 +559,21 @@
     "floatBtn": {
       "label": "Auditoría gratis"
     }
+  },
+  "confirmSubscription": {
+    "confirmed": {
+      "title": "¡Suscripción confirmada!",
+      "text": "Gracias. A partir de ahora recibirás emails ocasionales con ideas, novedades e información útil para tu negocio. Puedes darte de baja cuando quieras desde cualquiera de ellos."
+    },
+    "already": {
+      "title": "Tu suscripción ya estaba confirmada",
+      "text": "No tienes que hacer nada más: ya estás en la lista. Puedes darte de baja cuando quieras desde cualquiera de los emails."
+    },
+    "error": {
+      "title": "Este enlace no funciona",
+      "text": "Puede que haya caducado (dura 7 días) o que no se haya copiado entero. Si quieres suscribirte, vuelve a enviar el formulario de contacto marcando la casilla y te llegará un enlace nuevo."
+    },
+    "ctaHome": "Ir al inicio",
+    "ctaContact": "Ir al formulario de contacto"
   }
 }

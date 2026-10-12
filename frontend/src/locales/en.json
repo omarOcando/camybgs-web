@@ -52,6 +52,10 @@
     "contact": {
       "title": "Contact · CAMY",
       "description": "Tell me about your project. I reply within 24 hours, in English or Spanish."
+    },
+    "confirmSubscription": {
+      "title": "Confirm subscription · CAMY",
+      "description": "Confirmation of your subscription to occasional emails from CAMY."
     }
   },
   "home": {
@@ -517,6 +521,7 @@
     "success": {
       "headline": "Got it! I'm already reading your message.",
       "text1": "Thank you for writing. You'll have my reply within 24 hours.",
+      "consentPending": "I've sent you an email to confirm your subscription.",
       "text2": "In the meantime, if you'd like to see how I work, take a look at my projects.",
       "cta": "See projects"
     },
@@ -554,5 +559,21 @@
     "floatBtn": {
       "label": "Free audit"
     }
+  },
+  "confirmSubscription": {
+    "confirmed": {
+      "title": "Subscription confirmed!",
+      "text": "Thank you. From now on you'll receive occasional emails with ideas, news and useful information for your business. You can unsubscribe at any time from any of them."
+    },
+    "already": {
+      "title": "Your subscription was already confirmed",
+      "text": "There's nothing else you need to do: you're already on the list. You can unsubscribe at any time from any of the emails."
+    },
+    "error": {
+      "title": "This link doesn't work",
+      "text": "It may have expired (it lasts 7 days) or not been copied in full. If you'd like to subscribe, send the contact form again with the box ticked and you'll receive a new link."
+    },
+    "ctaHome": "Go to the home page",
+    "ctaContact": "Go to the contact form"
   }
 }

@@ -1,0 +1,35 @@
+@use "../abstracts/variables" as *;
+
+// Página de confirmación del doble opt-in: solo el hero, como el de Contacto
+.csub-hero {
+  background: $hero-spotlight;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 160px 24px 100px;
+  text-align: center;
+}
+
+.csub-hero__inner {
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.csub-hero__title {
+  font-size: $fs-hero-title;
+  color: $color-arena;
+  line-height: 1;
+  margin-bottom: $hero-title-gap;
+  animation: $hero-title-anim;
+}
+
+.csub-hero__sub {
+  max-width: 680px;
+  font-size: $fs-hero-sub;
+  color: rgba($color-arena, 0.7);
+  margin-bottom: 40px;
+  animation: $hero-sub-anim;
+}
