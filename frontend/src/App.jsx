@@ -54,7 +54,8 @@ function App() {
   return (
     <NotificationProvider>
       {loading && <Loader onFinish={handleFinish} />}
-      <div className={`appFade${loading ? " appFade--hidden" : ""}`}>
+      {/* inert: mientras el Loader la tapa, la página no recibe foco ni la leen los lectores de pantalla */}
+      <div className={`appFade${loading ? " appFade--hidden" : ""}`} inert={loading}>
         <ScrollToTop />
         {SHOW_LEAD_POPUP && <AuditPopup />}
         {SHOW_LEAD_FLOAT_BTN && <AuditFloatBtn />}

@@ -38,8 +38,10 @@
     animation: appFadeIn 1.2s ease;
   }
 
+  // Oculta con opacidad, no con visibility: Safari se saltaba el fundido de
+  // los títulos de la Home montados mientras estaban con visibility: hidden
   &--hidden {
-    visibility: hidden;
+    opacity: 0;
     overflow: hidden;
   }
 }
