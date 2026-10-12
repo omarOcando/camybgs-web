@@ -131,7 +131,8 @@ function PrivacyEn() {
           </li>
           <li>
             <strong>Resend</strong> (Resend, Inc., USA): sends me an email notification with
-            the content of your enquiry.
+            the content of your enquiry and, if you tick the email box, sends you the
+            confirmation email described in section 6.
           </li>
           <li>
             <strong>Vercel</strong> (Vercel Inc., USA): receives the form and passes it on to
@@ -162,9 +163,15 @@ function PrivacyEn() {
         <h2 className="legal__h2">6. Occasional emails (optional consent)</h2>
         <p className="legal__p">
           In the contact form you can voluntarily tick a box to receive occasional emails with
-          ideas, news and useful information for your business. Only if you tick it does your
-          contact in Systeme.io receive a tag that marks it as subscribed. If you do not tick
-          it, I will only write to you to answer your enquiry.
+          ideas, news and useful information for your business. If you do not tick it, I will
+          only write to you to answer your enquiry.
+        </p>
+        <p className="legal__p">
+          <strong>Confirmation (double opt-in):</strong> if you tick it, I send you a
+          confirmation email with a link that is valid for 7 days. Only when you click that
+          link is your subscription activated and your contact in Systeme.io given a tag that
+          marks it as subscribed. This way I make sure that it was you who asked for it. If
+          you do not confirm, you will not receive any emails of this kind.
         </p>
         <p className="legal__p">
           <strong>Legal basis:</strong> your consent (Art. 6 (1) (a) GDPR and §&nbsp;7 (2) UWG, the
@@ -172,12 +179,14 @@ function PrivacyEn() {
         </p>
         <p className="legal__p">
           <strong>Proof of consent:</strong> to be able to demonstrate that you gave your
-          consent (Art. 7 (1) GDPR), I keep your email address, the date, the exact wording of
-          the checkbox you accepted and the version of that wording. This record is stored in
+          consent (Art. 7 (1) GDPR), I keep your email address, the date you ticked the box, the
+          date you confirmed your subscription, the exact wording of the checkbox you accepted
+          and the version of that wording. This record is stored in
           MongoDB Atlas (servers in Frankfurt, Germany), separately from your enquiry and
           without the automatic deletion described in section 5. Legal basis: Art. 6 (1) (c)
           GDPR in conjunction with Art. 7 (1) GDPR. I keep this record for as long as you
-          remain subscribed and delete it when you unsubscribe.
+          remain subscribed and delete it when you unsubscribe. If you do not confirm your
+          subscription, the record is deleted automatically after 30 days.
         </p>
         <p className="legal__p">
           <strong>Unsubscribing:</strong> you can withdraw your consent at any time, free of

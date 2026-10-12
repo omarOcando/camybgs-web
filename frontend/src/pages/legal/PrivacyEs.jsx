@@ -134,7 +134,8 @@ function PrivacyEs() {
           </li>
           <li>
             <strong>Resend</strong> (Resend, Inc., EE. UU.): envía a mi correo un aviso con el
-            contenido de tu consulta.
+            contenido de tu consulta y, si marcas la casilla de emails, te envía el email de
+            confirmación del apartado 6.
           </li>
           <li>
             <strong>Vercel</strong> (Vercel Inc., EE. UU.): recibe el formulario y lo transmite
@@ -167,8 +168,14 @@ function PrivacyEs() {
         <p className="legal__p">
           En el formulario de contacto puedes marcar, de forma voluntaria, una casilla para
           recibir emails ocasionales con ideas, novedades e información útil para tu negocio.
-          Solo si la marcas, tu contacto en Systeme.io recibe una etiqueta que lo identifica
-          como suscrito. Si no la marcas, solo te escribiré para responder a tu consulta.
+          Si no la marcas, solo te escribiré para responder a tu consulta.
+        </p>
+        <p className="legal__p">
+          <strong>Confirmación (doble opt-in):</strong> si la marcas, te envío un email de
+          confirmación con un enlace válido durante 7 días. Solo cuando pulsas ese enlace
+          queda activada la suscripción y tu contacto en Systeme.io recibe una etiqueta que lo
+          identifica como suscrito. Así me aseguro de que eres tú quien la ha pedido. Si no lo
+          confirmas, no recibirás ningún email de este tipo.
         </p>
         <p className="legal__p">
           <strong>Base legal:</strong> tu consentimiento (art. 6, apartado 1, letra a, del
@@ -176,12 +183,14 @@ function PrivacyEs() {
         </p>
         <p className="legal__p">
           <strong>Prueba del consentimiento:</strong> para poder demostrar que lo diste (art.
-          7, apartado 1, del RGPD), guardo tu correo electrónico, la fecha, el texto exacto de
-          la casilla que aceptaste y la versión de ese texto. Se guardan en MongoDB Atlas
+          7, apartado 1, del RGPD), guardo tu correo electrónico, la fecha en que marcaste la
+          casilla, la fecha en que confirmaste la suscripción, el texto exacto de la casilla que
+          aceptaste y la versión de ese texto. Se guardan en MongoDB Atlas
           (servidores de Fráncfort, Alemania), aparte de tu consulta y sin el borrado
           automático del apartado 5. Base legal: art. 6, apartado 1, letra c, del RGPD, en
           relación con su art. 7, apartado 1. Conservo esta constancia mientras sigas
-          suscrito y la elimino cuando te das de baja.
+          suscrito y la elimino cuando te das de baja. Si no confirmas la suscripción, el
+          registro se borra automáticamente a los 30 días.
         </p>
         <p className="legal__p">
           <strong>Baja:</strong> puedes retirar tu consentimiento en cualquier momento, sin
