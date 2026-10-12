@@ -198,10 +198,6 @@
   color: $color-fuego;
 }
 
-.srv-card__price-monthly {
-  color: rgba($color-arena, 0.7);
-}
-
 // ─── 02 TU WEB ───────────────────────────────────────────────────────────────
 .srv-webs {
   background: $color-arena;
@@ -252,10 +248,6 @@
   border-top-color: rgba(#fff, 0.25);
 
   dd { color: #fff; }
-}
-
-.srv-webs .srv-card__price-monthly {
-  color: rgba(#fff, 0.85);
 }
 
 .srv-webs__grid {

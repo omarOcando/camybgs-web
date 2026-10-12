@@ -31,11 +31,11 @@
   "seo": {
     "home": {
       "title": "CAMY · Web design that communicates",
-      "description": "Creative websites where every word, colour, shape and movement expresses what your business is. From €77/month."
+      "description": "Creative websites where every word, colour, shape and movement expresses what your business is. From €799."
     },
     "services": {
       "title": "Services and prices · CAMY",
-      "description": "One, Multi and Custom websites, maintenance plans and payment in instalments. Custom design, basic SEO and legal pages included."
+      "description": "One, Multi and Custom websites, maintenance plans and payment in two parts or in instalments. Custom design, basic SEO and legal pages included."
     },
     "bond": {
       "title": "Bond · Run your business, care for your clients",
@@ -121,23 +121,20 @@
         {
           "name": "One",
           "text": "A single page with all the essentials, to present yourself clearly.",
-          "priceOnce": "From €799",
-          "priceMonthly": "or from €77/month"
+          "priceOnce": "From €799"
         },
         {
           "name": "Multi",
           "text": "Several pages to tell the full story of your business: services, projects, team…",
-          "priceOnce": "From €1,199",
-          "priceMonthly": "or from €115/month"
+          "priceOnce": "From €1,199"
         },
         {
           "name": "Custom",
           "text": "Features tailored to you: bookings, calendar, online shop…",
-          "priceOnce": "From €1,999",
-          "priceMonthly": "or from €192/month"
+          "priceOnce": "From €1,999"
         }
       ],
-      "included": "All of them include custom design, basic SEO, legal pages and unlimited changes to the approved design. Pay in one go or in instalments.",
+      "included": "All of them include custom design, basic SEO, legal pages and unlimited changes to the approved design. Pay in two parts or in instalments.",
       "plansLine": "And afterwards? With the Basic and Plus plans, your website stays up to date and your clients well looked after.",
       "cta": "See all the details"
     },
@@ -228,24 +225,21 @@
           "for": "professionals and businesses who want to present themselves clearly, without complications.",
           "includes": "a single page with several sections: who you are, what you do, why choose you and how to contact you. All the essentials, in one straightforward journey.",
           "duration": "1–2 weeks",
-          "priceOnce": "from €799",
-          "priceMonthly": "or from €77/month"
+          "priceOnce": "from €799"
         },
         {
           "name": "Multi",
           "for": "professionals and businesses with several services, projects or a team to show.",
           "includes": "several pages to tell the full story of your business: home, services, projects, about you, contact… Each with its own purpose.",
           "duration": "3–4 weeks",
-          "priceOnce": "from €1,199",
-          "priceMonthly": "or from €115/month"
+          "priceOnce": "from €1,199"
         },
         {
           "name": "Custom",
           "for": "professionals and businesses who need more than a showcase: bookings, calendars or selling online.",
           "includes": "your website with custom features: bookings, calendar, online shop or whatever your business needs.",
           "duration": "depends on the project",
-          "priceOnce": "from €1,999",
-          "priceMonthly": "or from €192/month"
+          "priceOnce": "from €1,999"
         }
       ]
     },
@@ -305,7 +299,7 @@
       "titleTagline": "Run your business, care for your clients.",
       "text": "Bond is CAMY's business management platform. Built for coaches, therapists, nutritionists and other professionals who work in sessions or programmes. Run your business and care for your clients from one place, with your brand.",
       "price": [
-        { "label": "Setup:", "value": "€999 (or in instalments from €96/month)" },
+        { "label": "Setup:", "value": "€999" },
         { "label": "Subscription:", "value": "€99/month" }
       ],
       "cta": "Discover Bond"
@@ -340,7 +334,7 @@
         },
         {
           "q": "When is my website fully mine?",
-          "a": "When you complete the payment. If you pay in instalments, the design and code become yours with the last instalment."
+          "a": "When you complete the payment. If you pay in two parts, the design and code become yours with the second payment."
         }
       ]
     },
@@ -403,7 +397,7 @@
     "pricing": {
       "title": "Get started with Bond",
       "price": [
-        { "label": "Setup:", "value": "€999 (or in instalments from €96/month)" },
+        { "label": "Setup:", "value": "€999" },
         { "label": "Subscription:", "value": "€99/month" }
       ],
       "textLine1": "I set up Bond with your brand, your services and your languages.",

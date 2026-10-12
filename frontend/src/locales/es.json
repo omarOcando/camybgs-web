@@ -31,11 +31,11 @@
   "seo": {
     "home": {
       "title": "CAMY · Diseño web que comunica",
-      "description": "Webs creativas donde cada palabra, color, forma y movimiento expresan lo que es tu negocio. Desde 77 €/mes."
+      "description": "Webs creativas donde cada palabra, color, forma y movimiento expresan lo que es tu negocio. Desde 799 €."
     },
     "services": {
       "title": "Servicios y precios · CAMY",
-      "description": "Webs One, Multi y Custom, planes de mantenimiento y pago en cuotas. Diseño a medida, SEO básico y páginas legales incluidas."
+      "description": "Webs One, Multi y Custom, planes de mantenimiento y pago en dos partes o a plazos. Diseño a medida, SEO básico y páginas legales incluidas."
     },
     "bond": {
       "title": "Bond · Gestiona tu negocio, cuida a tus clientes",
@@ -121,23 +121,20 @@
         {
           "name": "One",
           "text": "Una página con todo lo esencial, para presentarte con claridad.",
-          "priceOnce": "Desde 799 €",
-          "priceMonthly": "o desde 77 €/mes"
+          "priceOnce": "Desde 799 €"
         },
         {
           "name": "Multi",
           "text": "Varias páginas para contar todo tu negocio: servicios, proyectos, equipo…",
-          "priceOnce": "Desde 1.199 €",
-          "priceMonthly": "o desde 115 €/mes"
+          "priceOnce": "Desde 1.199 €"
         },
         {
           "name": "Custom",
           "text": "Funciones a tu medida: reservas, calendario, tienda online…",
-          "priceOnce": "Desde 1.999 €",
-          "priceMonthly": "o desde 192 €/mes"
+          "priceOnce": "Desde 1.999 €"
         }
       ],
-      "included": "Todas incluyen diseño a medida, SEO básico, páginas legales y cambios ilimitados sobre el diseño aprobado. Paga de una vez o en cuotas.",
+      "included": "Todas incluyen diseño a medida, SEO básico, páginas legales y cambios ilimitados sobre el diseño aprobado. Paga en dos partes o a plazos.",
       "plansLine": "¿Y después? Con los planes Basic y Plus tu web sigue al día, y tus clientes, bien cuidados.",
       "cta": "Ver todos los detalles"
     },
@@ -228,24 +225,21 @@
           "for": "profesionales y negocios que quieren presentarse con claridad, sin complicarse.",
           "includes": "una sola página con varias secciones: quién eres, qué haces, por qué elegirte y cómo contactarte. Todo lo esencial, en un recorrido directo.",
           "duration": "1–2 semanas",
-          "priceOnce": "desde 799 €",
-          "priceMonthly": "o desde 77 €/mes"
+          "priceOnce": "desde 799 €"
         },
         {
           "name": "Multi",
           "for": "profesionales y negocios con varios servicios, proyectos o un equipo que mostrar.",
           "includes": "varias páginas para contar tu negocio completo: inicio, servicios, proyectos, sobre ti, contacto… Cada una con su propósito.",
           "duration": "3–4 semanas",
-          "priceOnce": "desde 1.199 €",
-          "priceMonthly": "o desde 115 €/mes"
+          "priceOnce": "desde 1.199 €"
         },
         {
           "name": "Custom",
           "for": "profesionales y negocios que necesitan algo más que mostrar: reservas, calendarios o vender.",
           "includes": "tu web con funciones a medida: reservas, calendario, tienda online o lo que tu negocio necesite.",
           "duration": "según el proyecto",
-          "priceOnce": "desde 1.999 €",
-          "priceMonthly": "o desde 192 €/mes"
+          "priceOnce": "desde 1.999 €"
         }
       ]
     },
@@ -305,7 +299,7 @@
       "titleTagline": "Gestiona tu negocio, cuida a tus clientes.",
       "text": "Bond es la plataforma de gestión de negocios de CAMY. Creada para coaches, terapeutas, nutricionistas y otros profesionales que trabajan por sesiones o programas. Gestiona tu negocio y cuida a tus clientes desde un solo lugar y con tu marca.",
       "price": [
-        { "label": "Montaje:", "value": "999 € (o en cuotas desde 96 €/mes)" },
+        { "label": "Montaje:", "value": "999 €" },
         { "label": "Suscripción:", "value": "99 €/mes" }
       ],
       "cta": "Conoce Bond"
@@ -340,7 +334,7 @@
         },
         {
           "q": "¿Cuándo es mi web completamente mía?",
-          "a": "Cuando completas el pago. Si pagas en cuotas, el diseño y el código pasan a ser tuyos con la última cuota."
+          "a": "Cuando completas el pago. Si pagas en dos partes, el diseño y el código pasan a ser tuyos con el segundo pago."
         }
       ]
     },
@@ -403,7 +397,7 @@
     "pricing": {
       "title": "Empieza con Bond",
       "price": [
-        { "label": "Montaje:", "value": "999 € (o en cuotas desde 96 €/mes)" },
+        { "label": "Montaje:", "value": "999 €" },
         { "label": "Suscripción:", "value": "99 €/mes" }
       ],
       "textLine1": "Configuro Bond con tu marca, tus servicios y tus idiomas.",

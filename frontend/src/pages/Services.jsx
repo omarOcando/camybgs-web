@@ -118,7 +118,6 @@ function Services() {
                     <dt>{t("services.webs.labels.price")}</dt>
                     <dd>
                       <strong className="srv-card__price">{w.priceOnce}</strong>
-                      <span className="srv-card__price-monthly">{w.priceMonthly}</span>
                     </dd>
                   </div>
                 </dl>

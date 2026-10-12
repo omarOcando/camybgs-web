@@ -1,5 +1,7 @@
 # Brief: rediseño de camybgs.com (fase 1, solo español)
 
+> **Decisión del 12 de octubre de 2026 (forma de pago):** CAMY ya no ofrece cuotas propias. Los precios no cambian. Se paga en dos partes (50 % al empezar, 50 % a la entrega) o a plazos con Klarna (CAMY asume la comisión). Medios aceptados: tarjeta, Apple Pay, Google Pay, PayPal, transferencia y Klarna. **Donde este documento habla de cuotas ("o desde 77/115/192 €/mes", "Cuotas", "primera cuota", "en cuotas desde 96 €/mes"), manda esta decisión;** los textos vigentes están en `frontend/src/locales/es.json` y `en.json`.
+
 > Documento para Claude Code. Colócalo en la raíz del repositorio de camybgs.com y pide: "Lee BRIEF-REDISENO.md y propón un plan antes de tocar código".
 
 ## 1. Contexto

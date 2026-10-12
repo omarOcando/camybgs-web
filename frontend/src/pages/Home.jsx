@@ -156,7 +156,7 @@ function Home({ active = false }) {
                     <span className="home-offer__card-back-title" aria-hidden="true">{plan.name}</span>
                     <p className="home-offer__card-text">{plan.text}</p>
                     <p className="home-offer__card-price">
-                      <strong>{plan.priceOnce}</strong> {plan.priceMonthly}
+                      <strong>{plan.priceOnce}</strong>
                     </p>
                   </div>
                 </div>
