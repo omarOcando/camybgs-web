@@ -22,6 +22,9 @@ export const ROUTES = {
   confirmSubscription: { es: "/confirmar-suscripcion", en: "/en/confirm-subscription" },
 };
 
+// Páginas a las que se entra directo, sin el loader inicial (claves de ROUTES)
+const PAGES_WITHOUT_LOADER = ["confirmSubscription"];
+
 const normalize = (pathname) => (pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname);
 
 // Idioma de una dirección: /en y /en/... son inglés; el resto, español
@@ -38,6 +41,9 @@ export function pageFromPath(pathname) {
   }
   return null;
 }
+
+// ¿Se muestra el loader al entrar directamente en esta dirección?
+export const hasLoader = (pathname) => !PAGES_WITHOUT_LOADER.includes(pageFromPath(pathname));
 
 export const pathFor = (page, lang) => ROUTES[page][lang] ?? ROUTES[page][DEFAULT_LANG];
 

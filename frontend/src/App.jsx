@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect, useLayoutEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import i18n from "./i18n";
-import { LANGS, ROUTES, langFromPath } from "./config/routes";
+import { LANGS, ROUTES, langFromPath, hasLoader } from "./config/routes";
 import MainLayout from "./components/layout/MainLayout";
 import ScrollToTop from "./components/ScrollToTop";
 import { NotificationProvider } from "./context/NotificationContext";
@@ -22,9 +22,10 @@ import AuditFloatBtn from "./components/AuditFloatBtn";
 import { SHOW_LEAD_POPUP, SHOW_LEAD_FLOAT_BTN, SHOW_BOND } from "./config/site";
 
 function App() {
-  const [loading, setLoading] = useState(true);
-  const handleFinish = useCallback(() => setLoading(false), []);
   const { pathname } = useLocation();
+  // El loader solo se ve en la primera carga, y no en las páginas sin loader
+  const [loading, setLoading] = useState(() => hasLoader(pathname));
+  const handleFinish = useCallback(() => setLoading(false), []);
 
   useEffect(() => {
     document.body.style.overflow = loading ? "hidden" : "";
