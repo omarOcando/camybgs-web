@@ -119,3 +119,109 @@ Tienes un nuevo mensaje de<br><span style="color:#F04E23;">${safeNombre}</span>
     console.error("[EMAIL] Failed:", error.message);
   }
 };
+
+// Email de confirmación del doble opt-in (lib/emailConsentFlow.js), en el
+// idioma de la página. Mismo remitente y estilo que el aviso de arriba.
+const CONSENT_CONFIRMATION_TEXT = {
+  es: {
+    subject: "Confirma tu suscripción a los emails de CAMY",
+    label: "Confirmación",
+    title: "Confirma tu suscripción",
+    text: "Has marcado en el formulario de contacto de camybgs.com que quieres recibir emails ocasionales con ideas, novedades e información útil para tu negocio. Para activarlo, confirma tu suscripción con este botón:",
+    button: "Confirmar suscripción",
+    expiry: "El enlace caduca a los 7 días. Si no has sido tú, ignora este email: no recibirás nada más.",
+    footer: "Enviado desde camybgs.com porque se marcó la casilla de emails del formulario de contacto.",
+  },
+  en: {
+    subject: "Confirm your subscription to CAMY emails",
+    label: "Confirmation",
+    title: "Confirm your subscription",
+    text: "You ticked the box in the contact form on camybgs.com to receive occasional emails with ideas, news and useful information for your business. To activate it, please confirm your subscription with this button:",
+    button: "Confirm subscription",
+    expiry: "The link expires after 7 days. If this wasn't you, just ignore this email: you won't receive anything else.",
+    footer: "Sent from camybgs.com because the email box in the contact form was ticked.",
+  },
+};
+
+export const sendConsentConfirmation = async ({ email, lang, confirmUrl }) => {
+  const txt = CONSENT_CONFIRMATION_TEXT[lang] ?? CONSENT_CONFIRMATION_TEXT.es;
+  const safeUrl = escapeHtml(confirmUrl);
+
+  try {
+    const { error } = await resend.emails.send({
+      from: "CAMY Web <info@camybgs.com>",
+      to: email,
+      subject: txt.subject,
+      text: `${txt.title}\n\n${txt.text}\n\n${confirmUrl}\n\n${txt.expiry}`,
+      html: `<!doctype html>
+<html lang="${lang === "en" ? "en" : "es"}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@400;500;600&display=swap">
+</head>
+<body style="margin:0;padding:0;background-color:#F5F0E8;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F5F0E8;">
+<tr><td align="center" style="padding:40px 16px;">
+<table role="presentation" width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;background-color:#FFFFFF;border-radius:4px;overflow:hidden;">
+
+<tr>
+<td style="background-color:#1D1D2E;padding:22px 32px;">
+<span style="font-family:'Outfit',Arial,sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#F5F0E8;">CAMY</span>
+<span style="font-family:'Outfit',Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#F04E23;padding-left:10px;">${txt.label}</span>
+</td>
+</tr>
+<tr><td style="height:3px;background-color:#F04E23;font-size:0;line-height:0;">&nbsp;</td></tr>
+
+<tr>
+<td style="padding:36px 32px 8px 32px;">
+<h1 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:26px;line-height:1.3;color:#1D1D2E;">${txt.title}</h1>
+</td>
+</tr>
+
+<tr>
+<td style="padding:16px 32px 8px 32px;">
+<p style="margin:0;font-family:'Outfit',Arial,sans-serif;font-size:15px;line-height:1.6;color:#1D1D2E;">${txt.text}</p>
+</td>
+</tr>
+
+<tr>
+<td style="padding:24px 32px 8px 32px;">
+<table role="presentation" cellpadding="0" cellspacing="0">
+<tr>
+<td style="background-color:#F04E23;border-radius:3px;">
+<a href="${safeUrl}" style="display:inline-block;padding:13px 28px;font-family:'Outfit',Arial,sans-serif;font-size:14px;font-weight:600;letter-spacing:0.5px;color:#F5F0E8;text-decoration:none;">${txt.button} →</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td style="padding:20px 32px 36px 32px;">
+<p style="margin:0;font-family:'Outfit',Arial,sans-serif;font-size:13px;line-height:1.6;color:#1D1D2E;opacity:0.7;">${txt.expiry}</p>
+</td>
+</tr>
+
+</table>
+
+<table role="presentation" width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;">
+<tr>
+<td style="padding:18px 32px 0 32px;text-align:center;">
+<span style="font-family:'Outfit',Arial,sans-serif;font-size:11px;color:#1D1D2E;opacity:0.55;">${txt.footer}</span>
+</td>
+</tr>
+</table>
+
+</td></tr>
+</table>
+</body>
+</html>`,
+    });
+    if (error) throw new Error(error.message);
+  } catch (error) {
+    console.error("[EMAIL] Consent confirmation failed:", error.message);
+  }
+};
