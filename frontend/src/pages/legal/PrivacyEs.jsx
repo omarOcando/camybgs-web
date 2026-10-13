@@ -65,7 +65,8 @@ function PrivacyEs() {
           operativo. Las páginas se entregan a través de la red de distribución de contenidos
           (CDN) de Render, con servidores en distintos países. Render también ejecuta, en
           servidores situados en Fráncfort (Alemania), el servicio que recibe los datos del
-          formulario de contacto (apartado 5).
+          formulario de contacto (apartado 5). He celebrado con Render un contrato de encargo
+          de tratamiento (art. 28 del RGPD).
         </p>
         <p className="legal__p">
           <strong>Finalidad y base legal:</strong> la entrega técnica, la estabilidad y la
@@ -80,8 +81,12 @@ function PrivacyEs() {
         </p>
         <p className="legal__p">
           <strong>Transferencia a terceros países:</strong> Render puede tratar datos en
-          EE. UU. La transferencia se basa en las cláusulas contractuales tipo de la Comisión
-          Europea (art. 46, apartado 2, letra c, del RGPD). Más información:{" "}
+          EE. UU. Render está certificada en el Marco de Privacidad de Datos UE-EE. UU.
+          (EU-U.S. Data Privacy Framework), para el que la Comisión Europea ha adoptado una
+          decisión de adecuación (art. 45 del RGPD). Si ese marco dejara de aplicarse, la
+          transferencia se basa en las cláusulas contractuales tipo de la Comisión Europea
+          incluidas en el contrato con Render (art. 46, apartado 2, letra c, del RGPD). Más
+          información:{" "}
           <a className="legal__link" href="https://render.com/privacy" {...ext}>
             render.com/privacy
           </a>.

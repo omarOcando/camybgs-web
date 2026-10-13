@@ -64,7 +64,8 @@ function PrivacyEn() {
           the referring page, your browser and your operating system. Pages are delivered
           through Render's content delivery network (CDN), with servers in several countries.
           Render also runs, on servers in Frankfurt (Germany), the service that receives the
-          contact form data (section 5).
+          contact form data (section 5). I have concluded a data processing agreement with
+          Render (Art. 28 GDPR).
         </p>
         <p className="legal__p">
           <strong>Purpose and legal basis:</strong> the technical delivery, stability and
@@ -79,8 +80,11 @@ function PrivacyEn() {
         </p>
         <p className="legal__p">
           <strong>Transfers to third countries:</strong> Render may process data in the USA.
-          The transfer is based on the European Commission's Standard Contractual Clauses
-          (Art. 46 (2) (c) GDPR). More information:{" "}
+          Render is certified under the EU-U.S. Data Privacy Framework, for which the European
+          Commission has adopted an adequacy decision (Art. 45 GDPR). Should that framework
+          cease to apply, the transfer is based on the European Commission's standard
+          contractual clauses included in the agreement with Render (Art. 46(2)(c) GDPR). More
+          information:{" "}
           <a className="legal__link" href="https://render.com/privacy" {...ext}>
             render.com/privacy
           </a>.
