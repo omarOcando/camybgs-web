@@ -58,12 +58,14 @@ function PrivacyEs() {
       <section className="legal__section">
         <h2 className="legal__h2">3. Alojamiento y entrega del sitio web</h2>
         <p className="legal__p">
-          Este sitio web está alojado en <strong>Vercel Inc.</strong> (EE. UU.). Cada vez que
-          visitas una página, el servidor de Vercel procesa automáticamente los datos técnicos
-          necesarios para entregártela: tu dirección IP, la fecha y hora de acceso, la página
-          solicitada, la página de procedencia, el navegador y el sistema operativo. Vercel
-          también ejecuta el servicio que recibe los datos del formulario de contacto
-          (apartado 5).
+          Este sitio web está alojado en <strong>Render Services, Inc.</strong> (EE. UU.). Cada
+          vez que visitas una página, los servidores de Render procesan automáticamente los
+          datos técnicos necesarios para entregártela: tu dirección IP, la fecha y hora de
+          acceso, la página solicitada, la página de procedencia, el navegador y el sistema
+          operativo. Las páginas se entregan a través de la red de distribución de contenidos
+          (CDN) de Render, con servidores en distintos países. Render también ejecuta, en
+          servidores situados en Fráncfort (Alemania), el servicio que recibe los datos del
+          formulario de contacto (apartado 5).
         </p>
         <p className="legal__p">
           <strong>Finalidad y base legal:</strong> la entrega técnica, la estabilidad y la
@@ -72,16 +74,16 @@ function PrivacyEs() {
           apartado 1, letra f, del RGPD).
         </p>
         <p className="legal__p">
-          <strong>Conservación:</strong> estos datos de registro los conserva Vercel durante
+          <strong>Conservación:</strong> estos datos de registro los conserva Render durante
           un periodo limitado según sus condiciones y después se eliminan. Yo no los combino
           con otros datos ni los utilizo para identificarte.
         </p>
         <p className="legal__p">
-          <strong>Transferencia a terceros países:</strong> Vercel puede tratar datos en
+          <strong>Transferencia a terceros países:</strong> Render puede tratar datos en
           EE. UU. La transferencia se basa en las cláusulas contractuales tipo de la Comisión
           Europea (art. 46, apartado 2, letra c, del RGPD). Más información:{" "}
-          <a className="legal__link" href="https://vercel.com/legal/privacy-policy" {...ext}>
-            vercel.com/legal/privacy-policy
+          <a className="legal__link" href="https://render.com/privacy" {...ext}>
+            render.com/privacy
           </a>.
         </p>
       </section>
@@ -138,12 +140,13 @@ function PrivacyEs() {
             confirmación del apartado 6.
           </li>
           <li>
-            <strong>Vercel</strong> (Vercel Inc., EE. UU.): recibe el formulario y lo transmite
-            a los servicios anteriores (apartado 3).
+            <strong>Render</strong> (Render Services, Inc., EE. UU.; servidores en Fráncfort,
+            Alemania): recibe el formulario y lo transmite a los servicios anteriores
+            (apartado 3).
           </li>
         </ul>
         <p className="legal__p">
-          <strong>Transferencia a terceros países:</strong> MongoDB, Resend y Vercel son
+          <strong>Transferencia a terceros países:</strong> MongoDB, Resend y Render son
           empresas estadounidenses, por lo que no puede descartarse un acceso a los datos
           desde EE. UU. Estas transferencias se basan en la decisión de adecuación de la
           Comisión Europea para el Marco de Privacidad de Datos UE-EE. UU. (art. 45 del RGPD),

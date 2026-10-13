@@ -58,11 +58,13 @@ function PrivacyEn() {
       <section className="legal__section">
         <h2 className="legal__h2">3. Hosting and delivery of the website</h2>
         <p className="legal__p">
-          This website is hosted by <strong>Vercel Inc.</strong> (USA). Every time you visit a
-          page, Vercel's server automatically processes the technical data needed to deliver
-          it to you: your IP address, the date and time of access, the requested page, the
-          referring page, your browser and your operating system. Vercel also runs the service
-          that receives the contact form data (section 5).
+          This website is hosted by <strong>Render Services, Inc.</strong> (USA). Every time you
+          visit a page, Render's servers automatically process the technical data needed to
+          deliver it to you: your IP address, the date and time of access, the requested page,
+          the referring page, your browser and your operating system. Pages are delivered
+          through Render's content delivery network (CDN), with servers in several countries.
+          Render also runs, on servers in Frankfurt (Germany), the service that receives the
+          contact form data (section 5).
         </p>
         <p className="legal__p">
           <strong>Purpose and legal basis:</strong> the technical delivery, stability and
@@ -71,16 +73,16 @@ function PrivacyEn() {
           (Art. 6 (1) (f) GDPR).
         </p>
         <p className="legal__p">
-          <strong>Retention:</strong> Vercel keeps this log data for a limited period
+          <strong>Retention:</strong> Render keeps this log data for a limited period
           according to its terms and then deletes it. I do not combine it with other data or
           use it to identify you.
         </p>
         <p className="legal__p">
-          <strong>Transfers to third countries:</strong> Vercel may process data in the USA.
+          <strong>Transfers to third countries:</strong> Render may process data in the USA.
           The transfer is based on the European Commission's Standard Contractual Clauses
           (Art. 46 (2) (c) GDPR). More information:{" "}
-          <a className="legal__link" href="https://vercel.com/legal/privacy-policy" {...ext}>
-            vercel.com/legal/privacy-policy
+          <a className="legal__link" href="https://render.com/privacy" {...ext}>
+            render.com/privacy
           </a>.
         </p>
       </section>
@@ -135,12 +137,12 @@ function PrivacyEn() {
             confirmation email described in section 6.
           </li>
           <li>
-            <strong>Vercel</strong> (Vercel Inc., USA): receives the form and passes it on to
-            the services above (section 3).
+            <strong>Render</strong> (Render Services, Inc., USA; servers in Frankfurt,
+            Germany): receives the form and passes it on to the services above (section 3).
           </li>
         </ul>
         <p className="legal__p">
-          <strong>Transfers to third countries:</strong> MongoDB, Resend and Vercel are US
+          <strong>Transfers to third countries:</strong> MongoDB, Resend and Render are US
           companies, so access to the data from the USA cannot be ruled out. These transfers
           are based on the European Commission's adequacy decision for the EU-US Data Privacy
           Framework (Art. 45 GDPR), insofar as the company is certified, and on the European
