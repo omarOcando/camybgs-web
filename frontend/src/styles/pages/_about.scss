@@ -283,12 +283,26 @@
   }
 }
 
-// ── Móvil en horizontal: la franja crece con la cita ─────────────────────────
+// ── Móvil en horizontal ──────────────────────────────────────────────────────
 @media #{$mobile-landscape} {
 
+  // La franja crece con la cita y ocupa como mínimo el alto visible bajo la
+  // cabecera (100px), con la cita centrada: así se puede ver entera sin que
+  // la cabecera la tape
   .abt-quote {
     height: auto;
-    min-height: 45vh;
+    min-height: calc(100vh - 100px);
+    padding: 0;
+  }
+}
+
+// ── Móvil en horizontal estrecho (iPhone SE): el título del hero con el mismo
+// tamaño que en los demás móviles en horizontal (los de > 768px, regla de tablet)
+@media #{$mobile-landscape} and (max-width: $mobile) {
+
+  .abt-hero__title {
+    font-size: clamp(48px, 7.5vw, 110px);
+    line-height: 1.1;
   }
 }
 

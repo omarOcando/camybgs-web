@@ -449,11 +449,13 @@
   }
 }
 
-// ── Móvil en horizontal: mismo tamaño de título del hero que en Sobre mí ─────
+// ── Móvil en horizontal estrecho (iPhone SE): el título del hero con el mismo
+// tamaño que en los demás móviles en horizontal (los de > 768px, regla de tablet)
 @media #{$mobile-landscape} and (max-width: $mobile) {
 
   .proj-hero__title {
-    font-size: clamp(44px, 9vw, 72px);
+    font-size: clamp(48px, 7.5vw, 110px);
+    line-height: 1.1;
   }
 }
 
