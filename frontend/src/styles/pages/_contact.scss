@@ -539,12 +539,12 @@
   }
 }
 
-// ── Móvil en horizontal estrecho (iPhone SE): el título del hero con el mismo
-// tamaño que en los demás móviles en horizontal (los de > 768px, regla de tablet)
-@media #{$mobile-landscape} and (max-width: $mobile) {
+// ── Móvil en horizontal: título del hero del mismo tamaño en todos los modelos
+// (50 px en el iPhone SE, 54 px como máximo en los más anchos)
+@media #{$mobile-landscape} {
 
   .ctc-hero__title {
-    font-size: clamp(48px, 7.5vw, 110px);
+    font-size: clamp(48px, 7.5vw, 54px);
     line-height: 1;
   }
 }
