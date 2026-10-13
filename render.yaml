@@ -44,7 +44,7 @@ services:
     runtime: static
     branch: rediseno-2026
     rootDir: frontend
-    buildCommand: npm ci && npm run build
+    buildCommand: npm ci && npm run build:render
     staticPublishPath: dist
     envVars:
       - key: NODE_VERSION
@@ -79,6 +79,48 @@ services:
       - type: rewrite
         source: /api/*
         destination: https://camybgs-api.onrender.com/api/*
+      # Páginas prerenderizadas (scripts/prerender.js): cada una con su HTML.
+      # Las mismas del sitemap; si se activa Bond (SHOW_BOND), añadir /bond y
+      # /en/bond.
+      - type: rewrite
+        source: /servicios
+        destination: /servicios/index.html
+      - type: rewrite
+        source: /proyectos
+        destination: /proyectos/index.html
+      - type: rewrite
+        source: /sobre-mi
+        destination: /sobre-mi/index.html
+      - type: rewrite
+        source: /contacto
+        destination: /contacto/index.html
+      - type: rewrite
+        source: /impressum
+        destination: /impressum/index.html
+      - type: rewrite
+        source: /privacidad
+        destination: /privacidad/index.html
+      - type: rewrite
+        source: /en
+        destination: /en/index.html
+      - type: rewrite
+        source: /en/services
+        destination: /en/services/index.html
+      - type: rewrite
+        source: /en/projects
+        destination: /en/projects/index.html
+      - type: rewrite
+        source: /en/about
+        destination: /en/about/index.html
+      - type: rewrite
+        source: /en/contact
+        destination: /en/contact/index.html
+      - type: rewrite
+        source: /en/impressum
+        destination: /en/impressum/index.html
+      - type: rewrite
+        source: /en/privacy
+        destination: /en/privacy/index.html
       # SPA: el resto de rutas las resuelve React Router
       - type: rewrite
         source: /*

@@ -26,9 +26,11 @@ export default defineConfig([
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
-  // Código de Node (servidor de la API en Render y scripts de build)
+  // Código de Node (servidor de la API en Render y scripts de build; sin
+  // recarga en caliente)
   {
-    files: ['server/**/*.js', 'scripts/**/*.{js,mjs}'],
+    files: ['server/**/*.js', 'scripts/**/*.{js,jsx}'],
     languageOptions: { globals: globals.node },
+    rules: { 'react-refresh/only-export-components': 'off' },
   },
 ])
