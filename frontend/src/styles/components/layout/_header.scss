@@ -608,3 +608,25 @@
     padding: 8px 40px;
   }
 }
+
+// ── Móvil en horizontal: no caben los 5 enlaces con el tamaño de vertical ────
+// Enlaces más pequeños y juntos bajo la cabecera; si aun así no caben, el
+// panel hace scroll interno sin pasar bajo la cabecera
+@media #{$mobile-landscape} {
+
+  .nav-panel__stripe {
+    padding: 84px 0 12px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    pointer-events: auto;
+  }
+
+  .nav-panel__list {
+    margin: auto 0;
+  }
+
+  .nav-panel__link {
+    font-size: clamp(18px, 5.5vh, 24px);
+    padding: 6px 40px;
+  }
+}

@@ -539,6 +539,14 @@
   }
 }
 
+// ── Móvil en horizontal: mismo tamaño de título del hero que en Sobre mí ─────
+@media #{$mobile-landscape} and (max-width: $mobile) {
+
+  .ctc-hero__title {
+    font-size: clamp(44px, 9vw, 72px);
+  }
+}
+
 // ─── REDUCED MOTION ──────────────────────────────────────────────────────────
 @media (prefers-reduced-motion: reduce) {
 

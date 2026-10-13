@@ -283,6 +283,15 @@
   }
 }
 
+// ── Móvil en horizontal: la franja crece con la cita ─────────────────────────
+@media #{$mobile-landscape} {
+
+  .abt-quote {
+    height: auto;
+    min-height: 45vh;
+  }
+}
+
 // ─── REDUCED MOTION ──────────────────────────────────────────────────────────
 @media (prefers-reduced-motion: reduce) {
 
