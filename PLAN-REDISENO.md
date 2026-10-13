@@ -13,6 +13,13 @@
 
 ## Resumen de las últimas sesiones
 
+### Sesión del 13 de octubre de 2026: migración a Render (preparada, sin publicar)
+- **Hecho:** `render.yaml` (Blueprint con la API Express Starter en Frankfurt y el sitio estático), `frontend/server/index.js` (mismos handlers de `api/`, CORS limitado a los dominios propios y `/tarjeta` con 302), prerenderizado del `<head>` de las 14 páginas públicas (`npm run build:render`, `frontend/scripts/prerender.js`) y la política de privacidad con Render como alojamiento.
+- **Decidido:** la API va bajo el mismo dominio (el sitio estático reenvía `/api/*` y `/tarjeta`), `CONSENT_SECRET` nueva en Render, Blueprint en `rediseno-2026` durante las pruebas y en `master` al publicar.
+- **Vercel sigue igual:** `frontend/api/` y `frontend/vercel.json` no se tocan hasta después del cambio de DNS.
+- **Siguiente:** Omar crea el Blueprint y prueba en las URL `.onrender.com`. Si el proxy no deja pasar el 302 de `/tarjeta`, se pasa a una redirección 301 en `render.yaml`.
+- **Lint:** hoy son 21 problemas previos (los `process` de `lib/` crecieron con los archivos del doble opt-in), ninguno del código de Render.
+
 ### Sesión del 9 de octubre de 2026 (commit `edc779f`)
 - **Hecho:**
   - Escritorio: colores, tamaños, animaciones y botones unificados.
@@ -328,10 +335,7 @@ Commits `f6ff283`, `e25fe04`, `13d157c` y `07f8dd5`.
 - **`VITE_API_URL`:** ya no la usa el código (el formulario llama a `/api/contact`, relativa, desde la migración a funciones de Vercel). Omar puede borrarla de Vercel (Production y Preview) y del `.env` local cuando quiera.
 - **Dependencias:** `npm install` avisa de 20 vulnerabilidades en las dependencias del proyecto. Quedan fuera de esta fase.
 - **Legibilidad sobre el aurora:** revisarla sección por sección después de la Fase 2, sin velo salvo que Omar lo pida. Incluye la tarjeta Multi (fondo Noche).
-- **Para la migración a Render** (justo después, como tarea aparte):
-  - **Prerenderizado** (generar el HTML de cada página al compilar), para que las vistas previas de WhatsApp y redes salgan en el idioma correcto: hoy leen `index.html` sin JavaScript y un enlace `/en/...` se ve en español.
-  - Replicar las redirecciones de `vercel.json` (D11 y `/tarjeta`) y la reescritura de todas las rutas a `index.html`.
-  - Actualizar el apartado de alojamiento de la política de privacidad (ES y EN).
+- **Migración a Render:** preparada el 13 de octubre (ver el resumen de esa sesión): prerenderizado del `<head>`, redirecciones y reescrituras en `render.yaml`, y privacidad actualizada. Al activar Bond (`SHOW_BOND`), añadir `/bond` y `/en/bond` a las reescrituras de `render.yaml`. Después del cambio de DNS y unos días de margen: quitar los dominios de Vercel y borrar `frontend/api/` y `frontend/vercel.json` (los handlers de `api/` habría que moverlos antes a `server/`, que hoy los importa).
 - **Fuera de esta fase:** test "¿Tu web dice lo que eres?". (La versión en inglés y la reescritura de los legales ya están hechas.)
 
 ---
@@ -339,14 +343,14 @@ Commits `f6ff283`, `e25fe04`, `13d157c` y `07f8dd5`.
 ## 6. Checklist de publicación (merge de `rediseno-2026` en `master`)
 Solo con la aprobación de Omar. En este orden:
 1. **Antes del merge:** lint y build en verde, y la vista previa revisada por Omar.
-2. **Variables de entorno de Production en Vercel:** comprobar que `MONGO_URI` apunta a la base real **`camyDB`** (no a `camyweb-preview`).
+2. **Variables de entorno de la API en Render (`camybgs-api`):** `MONGO_URI` a la base real **`camyDB`** (no a `camyweb-preview`), `SITE_URL=https://www.camybgs.com` y `ALLOWED_ORIGINS=https://www.camybgs.com,https://camybgs.com`. Cambiar la rama del Blueprint a `master`.
 3. **Atlas:** borrar el índice único `email_1` de **`camyDB.leads-web`** (la base real; **no** `camyweb-preview`), justo antes o justo después del merge. El código antiguo puede volver a crearlo mientras siga en línea.
    **Además, antes del merge:** contar en `camyDB.leads-web` los documentos con más de 24 meses (730 días), porque **se borrarán solos en cuanto se cree el índice TTL** (lo crea Mongoose al arrancar el código nuevo, con la primera petición al formulario). En Atlas → Data Explorer, filtro `{ createdAt: { $lt: ISODate("<hoy menos 730 días>") } }`. Si hay alguno y Omar quiere conservarlo, exportarlo antes.
 4. **Merge** en `master` y comprobar el despliegue en camybgs.com.
 5. **Atlas, después del merge:** comprobar en `camyDB.leads-web` que `email_1` no ha vuelto. Si está, borrarlo otra vez. Comprobar también que existe el índice TTL `createdAt_1` con `expireAfterSeconds: 63072000` (730 días); aparece después del primer envío del formulario (paso 7). Si no aparece, crearlo a mano en Atlas → Indexes con esos valores.
 6. **Systeme (lo hace Omar, justo después de publicar):** borrar las etiquetas **lead-web** (`2049193`) y **lead-magnet-auditoria**. Antes no: la web actual todavía las usa.
 7. Un envío real del formulario en camybgs.com (avisando antes): email recibido, documento en Mongo con `interes` y contacto en Systeme solo con su etiqueta de interés. Con la casilla de emails marcada: etiqueta `consentimiento-emails` en Systeme y un documento en `camyDB.email-consents` con el texto y la versión. Después, volver al paso 5 para comprobar el índice TTL (y borrar el documento de prueba de `email-consents`).
-8. Si algo falla: *Instant Rollback* en Vercel o la etiqueta `v1-antes-rediseno`.
+8. Si algo falla: volver a apuntar el DNS de IONOS a Vercel (sigue desplegado), *Rollback* en Render o la etiqueta `v1-antes-rediseno`.
 9. **A partir de la publicación:** poner un recordatorio mensual para el proceso de bajas (§7).
 
 

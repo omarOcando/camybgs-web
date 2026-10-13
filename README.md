@@ -1,18 +1,20 @@
 # CAMY | Business Growth Solutions — Web
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=black)
-![Vercel](https://img.shields.io/badge/Vercel-Serverless-000000?style=flat&logo=vercel&logoColor=white)
+![Render](https://img.shields.io/badge/Render-Static%20%2B%20Web%20Service-46E3B7?style=flat&logo=render&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose-47A248?style=flat&logo=mongodb&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)
 ![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=flat&logo=sass&logoColor=white)
 
-Sitio web oficial de CAMY Business Growth Solutions. Plataforma de marketing digital para la captación de clientes, construida con React + Vite y desplegada íntegramente en Vercel: la SPA como sitio estático y el formulario de contacto como función serverless.
+Sitio web oficial de CAMY Business Growth Solutions. Plataforma de marketing digital para la captación de clientes, construida con React + Vite.
+
+**En migración de Vercel a Render** (descrita en `render.yaml`): un sitio estático para la SPA y un web service Express en Frankfurt para la API. Mientras se prueba Render, Vercel sigue funcionando igual con `frontend/api/` y `frontend/vercel.json`; se retirarán después del cambio de DNS.
 
 **Frontend** – React + Vite · SPA con animaciones, formulario de contacto y diseño responsive
 
-**API** – Función serverless en Vercel (`frontend/api/contact.js`) · gestión del formulario de contacto, persistencia en MongoDB, notificación por email e integración con Systeme.io
+**API** – Formulario de contacto (`POST /api/contact`) y confirmación del doble opt-in (`GET /api/confirm-consent`) · persistencia en MongoDB, emails con Resend e integración con Systeme.io. La lógica está en `frontend/lib/`; la sirven las funciones de Vercel (`frontend/api/`) y el servidor Express de Render (`frontend/server/`), que reutiliza esos mismos handlers.
 
-> ⚠️ El directorio `backend/` (Node.js + Express) es código legado: ya no se despliega ni se usa en producción. Todo el tráfico de `/api/contact` es servido por la función serverless de Vercel.
+> ⚠️ El directorio `backend/` (Node.js + Express) es código legado: ya no se despliega ni se usa en producción.
 
 ---
 
@@ -25,8 +27,8 @@ Sitio web oficial de CAMY Business Growth Solutions. Plataforma de marketing dig
 * SCSS modular
 * Vite
 
-### API (Vercel Serverless Functions)
-* Node.js
+### API (Express en Render · funciones de Vercel durante la transición)
+* Node.js 22 + Express 5
 * MongoDB + Mongoose
 * Resend (email transaccional)
 * Systeme.io API
@@ -52,6 +54,7 @@ Sitio web oficial de CAMY Business Growth Solutions. Plataforma de marketing dig
 
 ```
 CamyWeb/
+├── render.yaml         # Blueprint de Render (API + sitio estático)
 ├── backend/            # legado — no desplegado, no usado en producción
 │   └── src/
 │       ├── api/
@@ -61,13 +64,14 @@ CamyWeb/
 │       ├── config/
 │       └── utils/
 └── frontend/
-    ├── api/
-    │   └── contact.js  # función serverless de Vercel (POST /api/contact)
-    ├── lib/
-    │   ├── db.js        # conexión a MongoDB (Mongoose, con caché de conexión)
-    │   ├── Contact.js   # modelo Mongoose
-    │   ├── email.js     # notificación por email vía Resend
-    │   └── systeme.js   # integración con Systeme.io
+    ├── api/             # funciones de Vercel (se retirarán tras la migración)
+    │   ├── contact.js           # POST /api/contact
+    │   └── confirm-consent.js   # GET /api/confirm-consent (doble opt-in)
+    ├── server/
+    │   └── index.js     # servidor Express de Render: mismos handlers + /tarjeta
+    ├── scripts/
+    │   └── prerender.js # <head> de cada página pública (npm run build:render)
+    ├── lib/             # lógica compartida (MongoDB, Resend, Systeme, doble opt-in)
     └── src/
         ├── assets/
         ├── components/
@@ -95,18 +99,25 @@ npm run dev
 
 Frontend: `http://localhost:5173`
 
-> Para ejecutar la función serverless (`frontend/api/contact.js`) en local con el mismo runtime que Vercel, usa `vercel dev` en lugar de (o junto a) `npm run dev`.
+```bash
+npm run start:api      # API Express en http://localhost:3000 (lee las variables del entorno)
+npm run build:render   # build de producción + prerenderizado del <head> (el que usa Render)
+```
 
 ---
 
 ## 🔐 Variables de entorno
 
-Configurar en el proyecto de Vercel (Project Settings → Environment Variables), o en un `.env` dentro de `frontend/` para desarrollo local con `vercel dev`:
+Las de la API, descritas en `frontend/.env.example`. En Render van en el servicio `camybgs-api` (Environment); en Vercel, en Project Settings → Environment Variables. El sitio estático solo necesita `NODE_VERSION`.
 
 ```env
 MONGO_URI=
 RESEND_API_KEY=
+EMAIL_USER=
 SYSTEME_API_KEY=
+CONSENT_SECRET=
+SITE_URL=
+ALLOWED_ORIGINS=   # solo Render
 ```
 
 ---
@@ -115,14 +126,14 @@ SYSTEME_API_KEY=
 
 | Capa | Servicio | Detalle |
 |---|---|---|
-| Dominio | `camybgs.com` | DNS apuntando a Vercel |
-| Frontend | Vercel | SPA estática, auto-deploy desde `master` en GitHub |
-| API | Vercel (Serverless Function) | `frontend/api/contact.js`, mismo proyecto y deploy que el frontend |
-| Base de datos | MongoDB Atlas | Conectada a la función serverless vía `MONGO_URI` |
+| Dominio | `camybgs.com` (DNS en IONOS) | Hoy apunta a Vercel; pasará a Render al publicar |
+| Frontend | Render, sitio estático (`camybgs-web`) | SPA con el `<head>` prerenderizado; reenvía `/api/*` y `/tarjeta` a la API, así que todo va bajo el mismo dominio |
+| API | Render, web service Starter en Frankfurt (`camybgs-api`) | `frontend/server/index.js` |
+| Base de datos | MongoDB Atlas | `camyDB` en producción, `camyweb-preview` para pruebas |
 | Email | Resend | Notificaciones del formulario de contacto |
 | CRM | Systeme.io | Integración para captación de leads |
 
-> Cada push a `master` redeploya automáticamente frontend y función serverless como un único proyecto en Vercel. **Railway ya no forma parte de la infraestructura** — el backend Express en `backend/` es código legado sin despliegue activo.
+> Cada push a la rama del Blueprint (`rediseno-2026` durante las pruebas, `master` al publicar) redespliega los dos servicios de Render. **Railway ya no forma parte de la infraestructura** — el backend Express en `backend/` es código legado sin despliegue activo.
 
 ---
 
