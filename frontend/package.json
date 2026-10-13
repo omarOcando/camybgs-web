@@ -7,12 +7,14 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start:api": "node server/index.js"
   },
   "dependencies": {
     "@fontsource/dm-serif-display": "^5.3.0",
     "@fontsource/outfit": "^5.3.0",
     "axios": "^1.13.5",
+    "express": "^5.3.0",
     "i18next": "^26.4.2",
     "mongoose": "^9.9.4",
     "react": "^19.2.0",
