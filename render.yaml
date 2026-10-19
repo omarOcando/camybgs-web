@@ -6,7 +6,7 @@
 # Si Render asigna a la API una URL distinta de https://camybgs-api.onrender.com
 # (nombre ya ocupado), cambiarla en las dos reglas de rewrite de abajo.
 #
-# Vercel sigue funcionando en paralelo con api/ y vercel.json.
+# Los dos servicios despliegan desde master: cada push redespliega la web.
 
 services:
   # ── API: formulario de contacto, doble opt-in y /tarjeta ───────────────────
@@ -15,7 +15,7 @@ services:
     runtime: node
     region: frankfurt
     plan: starter
-    branch: rediseno-2026
+    branch: master
     rootDir: frontend
     buildCommand: npm ci
     startCommand: npm run start:api
@@ -42,7 +42,7 @@ services:
   - type: web
     name: camybgs-web
     runtime: static
-    branch: rediseno-2026
+    branch: master
     rootDir: frontend
     buildCommand: npm ci && npm run build:render
     staticPublishPath: dist

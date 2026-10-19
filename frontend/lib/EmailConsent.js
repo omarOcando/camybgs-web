@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 // Doble opt-in (lib/emailConsentFlow.js): el registro nace "pending" y pasa a
 // "confirmed" cuando la persona pulsa el enlace del email de confirmación.
 // - Los "confirmed" no se borran solos: se borran cuando la persona se da de
-//   baja (proceso en PLAN-REDISENO.md).
+//   baja (proceso mensual en README.md).
 // - Los "pending" se borran solos a los 30 días (índice TTL parcial, abajo).
 // - Los registros anteriores al doble opt-in no tienen status: ya tenían la
 //   etiqueta en Systeme y cuentan como confirmados.

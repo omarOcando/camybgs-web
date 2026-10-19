@@ -20,7 +20,7 @@ export const CONTACT = {
 // sección de la Home, panel y pregunta del FAQ de Servicios y opción del
 // formulario; /bond redirige a la Home. Al cambiarlo, actualizar también a
 // mano public/sitemap.xml y el serviceType del JSON-LD de index.html
-// (PLAN-REDISENO.md, §3).
+// (README.md, "Activar Bond").
 export const SHOW_BOND = false;
 
 // Menú principal (cabecera y footer). key es la página de config/routes.js

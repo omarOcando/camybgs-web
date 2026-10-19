@@ -21,17 +21,19 @@ SPA en React + Vite para el sitio web de CAMY Business Growth Solutions.
 
 ## 📄 Páginas
 
-| Ruta | Página |
-|---|---|
-| `/` | Home |
-| `/servicios` | Servicios |
-| `/resultados` | Resultados |
-| `/sobre-mi` | Sobre mí |
-| `/mi-trabajo` | Mi trabajo |
-| `/contacto` | Contacto |
-| `/impressum` | Impressum |
-| `/privacidad` | Política de privacidad (`/datenschutz` redirige con 301) |
-| `/condiciones` | Condiciones generales (EN: `/en/terms`) |
+El español va sin prefijo y el inglés bajo `/en` (fuente única: `src/config/routes.js`). Redirecciones y despliegue: ver el README de la raíz.
+
+| Página | Español | Inglés |
+|---|---|---|
+| Home | `/` | `/en` |
+| Servicios | `/servicios` | `/en/services` |
+| Proyectos | `/proyectos` | `/en/projects` |
+| Sobre mí | `/sobre-mi` | `/en/about` |
+| Contacto | `/contacto` | `/en/contact` |
+| Impressum | `/impressum` | `/en/impressum` |
+| Política de privacidad | `/privacidad` | `/en/privacy` |
+| Condiciones generales | `/condiciones` | `/en/terms` |
+| Bond (oculta mientras `SHOW_BOND` sea `false`) | `/bond` | `/en/bond` |
 
 ---
 
@@ -45,8 +47,12 @@ src/
 │   └── videos/
 ├── components/
 │   └── layout/
+├── config/
 ├── context/
+├── data/
+├── locales/
 ├── pages/
+│   └── legal/
 ├── services/
 └── styles/
     ├── abstracts/
@@ -62,10 +68,10 @@ src/
 
 ```bash
 npm install
-npm run dev
+npm run dev            # http://localhost:5173
+npm run start:api      # API Express en http://localhost:3000
+npm run build:render   # build + prerenderizado del <head> (el que usa Render)
 ```
-
-Aplicación: `http://localhost:5173`
 
 ---
 
