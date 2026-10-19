@@ -17,6 +17,7 @@ export const ROUTES = {
   contact:     { es: "/contacto",    en: "/en/contact" },
   impressum:   { es: "/impressum",   en: "/en/impressum" },
   privacy:     { es: "/privacidad",  en: "/en/privacy" },
+  terms:       { es: "/condiciones", en: "/en/terms" },
   // Destino del enlace del doble opt-in (lib/emailConsentFlow.js). Noindex,
   // fuera del menú y del sitemap.
   confirmSubscription: { es: "/confirmar-suscripcion", en: "/en/confirm-subscription" },

@@ -47,6 +47,7 @@ Sitio web oficial de CAMY Business Growth Solutions. Plataforma de marketing dig
 | `/contacto` | Contacto |
 | `/impressum` | Impressum |
 | `/privacidad` | Política de privacidad (`/datenschutz` redirige con 301) |
+| `/condiciones` | Condiciones generales (EN: `/en/terms`) |
 
 ---
 

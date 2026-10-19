@@ -101,6 +101,9 @@ services:
         source: /privacidad
         destination: /privacidad/index.html
       - type: rewrite
+        source: /condiciones
+        destination: /condiciones/index.html
+      - type: rewrite
         source: /en
         destination: /en/index.html
       - type: rewrite
@@ -121,6 +124,9 @@ services:
       - type: rewrite
         source: /en/privacy
         destination: /en/privacy/index.html
+      - type: rewrite
+        source: /en/terms
+        destination: /en/terms/index.html
       # SPA: el resto de rutas las resuelve React Router
       - type: rewrite
         source: /*

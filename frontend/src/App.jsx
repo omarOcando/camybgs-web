@@ -14,6 +14,7 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
 import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 import ConfirmSubscription from "./pages/ConfirmSubscription";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTopButton from "./components/ScrollToTopButton";
@@ -48,6 +49,7 @@ function App() {
     contact:     () => <Contact />,
     impressum:   () => <Impressum />,
     privacy:     () => <Privacy />,
+    terms:       () => <Terms />,
     confirmSubscription: () => <ConfirmSubscription />,
   };
 

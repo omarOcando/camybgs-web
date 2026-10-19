@@ -14,6 +14,7 @@ import About from "../../src/pages/About";
 import Contact from "../../src/pages/Contact";
 import Impressum from "../../src/pages/Impressum";
 import Privacy from "../../src/pages/Privacy";
+import Terms from "../../src/pages/Terms";
 import { takeCaptured } from "./helmet-capture";
 
 // Páginas públicas que se prerenderizan (las del sitemap). Fuera quedan la
@@ -27,6 +28,7 @@ const PAGES = {
   contact: Contact,
   impressum: Impressum,
   privacy: Privacy,
+  terms: Terms,
 };
 
 i18n.use(initReactI18next).init({
