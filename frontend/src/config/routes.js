@@ -18,6 +18,9 @@ export const ROUTES = {
   impressum:   { es: "/impressum",   en: "/en/impressum" },
   privacy:     { es: "/privacidad",  en: "/en/privacy" },
   terms:       { es: "/condiciones", en: "/en/terms" },
+  // Privacidad del demo de Bond: enlazada desde /privacidad. Noindex, fuera
+  // del menú y del sitemap.
+  privacyDemo: { es: "/privacidad-demo", en: "/en/privacy-demo" },
   // Destino del enlace del doble opt-in (lib/emailConsentFlow.js). Noindex,
   // fuera del menú y del sitemap.
   confirmSubscription: { es: "/confirmar-suscripcion", en: "/en/confirm-subscription" },

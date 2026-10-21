@@ -91,6 +91,12 @@
   margin-bottom: 8px;
 }
 
+// Enlace discreto al final de la página (p. ej. privacidad del demo de Bond)
+.legal__footnote {
+  font-size: clamp(13px, 1.1vw, 15px);
+  color: rgba($color-noche, 0.4);
+}
+
 // ─── RESPONSIVE ──────────────────────────────────────────────────────────────
 
 // ── Móvil (≤ 768px) ──────────────────────────────────────────────────────────
