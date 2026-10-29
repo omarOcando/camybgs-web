@@ -1,135 +1,142 @@
 import { CONTACT } from "../../config/site";
-import { PROVIDER, LEGAL_UPDATED } from "./provider";
-
-const ext = { target: "_blank", rel: "noopener noreferrer" };
+import { PROVIDER } from "./provider";
 
 // Privacy policy for the Bond demo (demo.camybgs.com), in English
 function PrivacyDemoEn() {
+  const mail = (
+    <a className="legal__link" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+  );
+
   return (
     <>
       <h1 className="legal__title">Bond Demo Privacy Policy</h1>
-      <p className="legal__meta">Last updated: {LEGAL_UPDATED.en}</p>
+      <p className="legal__meta">Last updated: 29 October 2026</p>
+
+      <p className="legal__p">
+        This page explains what we do with your data when you try the Bond demo at
+        demo.camybgs.com. The demo is there to show how the platform works: it is not a real
+        coaching service.
+      </p>
 
       <hr className="legal__divider" />
       <section className="legal__section">
-        <h2 className="legal__h2">Controller</h2>
+        <h2 className="legal__h2">1. Who is responsible</h2>
         <address className="legal__address">
-          {PROVIDER.name}<br />
-          {PROVIDER.business}<br />
-          {PROVIDER.street}<br />
-          {PROVIDER.city}<br />
-          Germany<br />
-          <br />
-          Email:{" "}
-          <a className="legal__link" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+          {PROVIDER.name}, trading as {PROVIDER.business}.<br />
+          {PROVIDER.street}, {PROVIDER.city} (Germany).<br />
+          VAT ID: {PROVIDER.vatId}.<br />
+          Email: {mail}.
         </address>
+      </section>
+
+      <hr className="legal__divider" />
+      <section className="legal__section">
+        <h2 className="legal__h2">2. What data we process and why</h2>
+        <ul className="legal__list">
+          <li>
+            When you book: first name, last name (if you enter it), email, language, your
+            browser's time zone and your consent. To save your appointment, send you the
+            link to confirm it and the reminders about it.
+          </li>
+          <li>
+            When you use your space: a technical session cookie and your appointments. To
+            keep you logged in and show you your sessions.
+          </li>
+          <li>
+            If you use them: your check-ins, your messages and your profile photo (optional,
+            and you can remove it whenever you like).
+          </li>
+          <li>
+            Payments: the demo uses Stripe's test mode. Nothing is really charged and you
+            must not enter real card details.
+          </li>
+        </ul>
         <p className="legal__p">
-          At demo.camybgs.com you can try Bond, my client management platform. It is a
-          demo: payments run in test mode and nothing is actually charged. Please do not
-          enter health data or any other sensitive data.
+          Messages, check-ins and notes may contain data about your health or well-being.
+          That is why they are stored encrypted and can only be seen by the person they are
+          addressed to.
         </p>
       </section>
 
       <hr className="legal__divider" />
       <section className="legal__section">
-        <h2 className="legal__h2">What data I process</h2>
+        <h2 className="legal__h2">3. Why we may process your data</h2>
         <ul className="legal__list">
+          <li>To provide what you ask for when you book and use the demo.</li>
           <li>
-            If you book a session: your name, your email, your browser&apos;s language and
-            time zone, and the date and version of the consent you accept.
+            Any health or well-being data you share, only with your explicit consent, which
+            you give by ticking the box when you book (Art. 9(2)(a) GDPR), and only to
+            support you in the demo. You can withdraw it at any time by writing to {mail} or
+            by deleting your account from "Your data".
           </li>
           <li>
-            If you log in to the portal: your appointments, your check-ins, your messages,
-            shared summaries and your payments (amount and status).
+            Legitimate interest: protecting the service, for example by limiting repeated
+            login attempts.
           </li>
-          <li>I do not use demo data to send you marketing.</li>
+        </ul>
+      </section>
+
+      <hr className="legal__divider" />
+      <section className="legal__section">
+        <h2 className="legal__h2">4. Who we share your data with</h2>
+        <p className="legal__p">
+          We do not sell your data. We use these providers, who process it only on our behalf
+          and under contract:
+        </p>
+        <ul className="legal__list">
+          <li>Render (application hosting): Frankfurt, EU.</li>
+          <li>MongoDB Atlas (database): Frankfurt, EU.</li>
+          <li>Scaleway (encrypted backups): Paris, EU.</li>
+          <li>Resend (login, booking and reminder emails): United States.</li>
+          <li>Stripe (test payments): Stripe Payments Europe, Ireland.</li>
+        </ul>
+        <p className="legal__p">
+          Render, MongoDB and Resend are US companies. Although Render and MongoDB store the
+          data in Frankfurt, they can access it from there to provide their service. These
+          transfers are protected by the European Union's standard contractual clauses and,
+          for Render and Resend, by their certification under the EU-US Data Privacy
+          Framework.
+        </p>
+      </section>
+
+      <hr className="legal__divider" />
+      <section className="legal__section">
+        <h2 className="legal__h2">5. How long we keep your data</h2>
+        <ul className="legal__list">
+          <li>Your account and everything in it: for as long as you have it. If you delete it, it is erased.</li>
+          <li>An unconfirmed booking: 30 minutes.</li>
+          <li>The login link sent by email: 15 minutes and single use.</li>
+          <li>Your open session on a device: up to 90 days, renewed as you use it.</li>
+          <li>
+            Backups: 30 days at most. Deleted data may remain in a backup until it expires.
+          </li>
         </ul>
       </section>
 
       <hr className="legal__divider" />
       <section className="legal__section">
-        <h2 className="legal__h2">Why, and on what legal basis</h2>
+        <h2 className="legal__h2">6. Your rights</h2>
         <p className="legal__p">
-          To manage your booking and your test account (Art. 6(1)(b) GDPR), to keep proof of
-          your consent (Art. 6(1)(c) GDPR) and to keep the service secure (Art. 6(1)(f) GDPR).
+          From "Your data", in your space, you can download a copy of your data, correct your
+          name and language, and delete your account (you confirm it with a link sent to you
+          by email). For any other right (objection, restriction, changing your email), write
+          to {mail}. We reply within one month at most.
+        </p>
+        <p className="legal__p">
+          If you think we have not handled your data properly, you can complain to the data
+          protection authority of North Rhine-Westphalia (LDI NRW) or to the one in your
+          country.
         </p>
       </section>
 
       <hr className="legal__divider" />
       <section className="legal__section">
-        <h2 className="legal__h2">Who helps me</h2>
+        <h2 className="legal__h2">7. Security and cookies</h2>
         <p className="legal__p">
-          These providers are processors: they process the data on my behalf and on my
-          instructions (Art. 28 GDPR), except for Stripe as explained below.
-        </p>
-        <ul className="legal__list">
-          <li>Render (application hosting, servers in Frankfurt, Germany).</li>
-          <li>MongoDB Atlas (database, servers in Frankfurt, Germany).</li>
-          <li>Resend (sending the booking and login emails).</li>
-          <li>Scaleway (encrypted backups, servers in Paris, France).</li>
-          <li>
-            Stripe Payments Europe Ltd., Ireland (payment page). Stripe collects the payment
-            details on its own page; I never see or store your card details. For fraud
-            prevention and its legal obligations, Stripe acts as an independent controller
-            and keeps the payment data under its own privacy policy, even if you delete your
-            demo account.
-          </li>
-        </ul>
-        <p className="legal__p">
-          Some of these providers belong to companies outside the EU; in that case, transfers
-          are based on the European Commission&apos;s standard contractual clauses or on the
-          EU-U.S. Data Privacy Framework.
-        </p>
-      </section>
-
-      <hr className="legal__divider" />
-      <section className="legal__section">
-        <h2 className="legal__h2">How long I keep it</h2>
-        <p className="legal__p">
-          Until you delete your account. Backups are kept for no more than 30 days; after
-          that, deleted data is gone from them too. I may reset the demo at any time, which
-          deletes its data.
-        </p>
-      </section>
-
-      <hr className="legal__divider" />
-      <section className="legal__section">
-        <h2 className="legal__h2">Your rights</h2>
-        <p className="legal__p">
-          In the &ldquo;Your data&rdquo; section of the portal you can download your data and
-          delete your account yourself.
-        </p>
-        <p className="legal__p">
-          Regarding your personal data, you have the right to:
-        </p>
-        <ul className="legal__list">
-          <li>access it and find out how I process it (Art. 15 GDPR);</li>
-          <li>have it corrected if it is inaccurate (Art. 16 GDPR);</li>
-          <li>have it erased (Art. 17 GDPR);</li>
-          <li>restrict its processing (Art. 18 GDPR);</li>
-          <li>receive it in a structured format and transmit it to another controller (Art. 20 GDPR);</li>
-          <li>withdraw any consent you have given at any time, with effect for the future (Art. 7 (3) GDPR);</li>
-          <li>lodge a complaint with a supervisory authority (Art. 77 GDPR).</li>
-        </ul>
-        <p className="legal__p">
-          To exercise these rights, simply write to me at{" "}
-          <a className="legal__link" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.
-          The supervisory authority responsible for me is the{" "}
-          <strong>Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen</strong>{" "}
-          (Kavalleriestraße 2-4, 40213 Düsseldorf, Germany,{" "}
-          <a className="legal__link" href="https://www.ldi.nrw.de" {...ext}>www.ldi.nrw.de</a>),
-          but you may also contact the authority in your country of residence.
-        </p>
-
-        <h3 className="legal__h3">Right to object (Art. 21 GDPR)</h3>
-        <p className="legal__p">
-          <strong>
-            Where I process your data on the basis of my legitimate interest
-            (Art. 6 (1) (f) GDPR), you may object to this processing at any time on grounds
-            relating to your particular situation. I will then stop processing it, unless
-            there are compelling legitimate grounds that override your interests, or the
-            processing serves to establish, exercise or defend legal claims.
-          </strong>
+          Everything travels encrypted (HTTPS). Messages, notes and backups are stored
+          encrypted. The demo uses a single cookie, technical and necessary, to keep your
+          session. It does not use advertising or analytics cookies, and it does not load
+          third-party scripts or fonts.
         </p>
       </section>
     </>
