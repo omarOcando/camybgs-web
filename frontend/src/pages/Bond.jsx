@@ -1,9 +1,16 @@
-import { useState, useEffect, useRef } from "react";
+import { lazy, Suspense, useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { FaShieldAlt } from "react-icons/fa";
 import Button from "../components/Button";
 import Seo from "../components/Seo";
-import { BOND_SALES_URL, BOND_DEMO_URL } from "../config/site";
+import { BOND_SALES_URL, BOND_DEMO_URL, SHOW_BOND } from "../config/site";
+
+// Hero animada. Con SHOW_BOND = false, su código y su CSS quedan fuera del build
+// de producción (la condición se resuelve al compilar). El logo y Orbitron sí
+// se copian a dist/assets, pero sin ninguna referencia: no se cargan.
+const BondHero = SHOW_BOND || import.meta.env.DEV
+  ? lazy(() => import("../components/BondHero/BondHero"))
+  : null;
 
 // ─── HOOK ────────────────────────────────────────────────────────────────────
 
@@ -58,7 +65,8 @@ function FeatureList({ title, items }) {
 
 // ─── PÁGINA ──────────────────────────────────────────────────────────────────
 
-function Bond() {
+// active: false mientras está el Loader, para que la animación no empiece detrás
+function Bond({ active = true }) {
   const { t } = useTranslation();
   const list = (key) => t(key, { returnObjects: true });
 
@@ -74,6 +82,13 @@ function Bond() {
         page="bond"
       />
 
+      {/* 00 — HERO ANIMADA */}
+      {BondHero && active && (
+        <Suspense fallback={null}>
+          <BondHero />
+        </Suspense>
+      )}
+
       {/* 01 — HERO */}
       <section className="bond-hero">
         <div className="bond-hero__inner">
@@ -81,7 +96,7 @@ function Bond() {
             <span className="bond-panel__tag-star" aria-hidden="true">★</span>
             {t("bond.hero.tag")}
           </span>
-          <h1 className="bond-hero__title">{t("bond.hero.title")}</h1>
+          <h2 className="bond-hero__title">{t("bond.hero.title")}</h2>
           <p className="bond-hero__subtitle">{t("bond.hero.subtitle")}</p>
           <p className="bond-hero__text">
             <span className="bond-hero__text-line">{t("bond.hero.textLine1")}</span>{" "}

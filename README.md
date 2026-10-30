@@ -169,6 +169,8 @@ Con `false`, Bond desaparece de toda la web (menú, footer, sección de la Home,
 4. Rellenar `BOND_SALES_URL` y `BOND_DEMO_URL` en `config/site.js` (hoy son marcadores `#PENDIENTE-`).
 5. Revisar en móvil, tablet y escritorio la Home y Servicios con el bloque de Bond.
 
+Con `npm run dev`, `/bond` se ve aunque `SHOW_BOND` sea `false` (solo hay que escribir la dirección). El código y el CSS de la hero animada (`components/BondHero/`) no entran en el build de producción hasta poner `true`; el logo y Orbitron sí se copian a `dist/assets`, pero nada los referencia.
+
 ---
 
 ## 🗓️ Proceso mensual: borrar los consentimientos de quien se da de baja

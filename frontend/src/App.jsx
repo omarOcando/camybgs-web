@@ -44,7 +44,8 @@ function App() {
   const pages = {
     home:        () => <Home active={!loading} />,
     services:    () => <Services />,
-    bond:        (lang) => (SHOW_BOND ? <Bond /> : <Navigate to={ROUTES.home[lang]} replace />),
+    // En local (npm run dev) se ve aunque SHOW_BOND sea false
+    bond:        (lang) => (SHOW_BOND || import.meta.env.DEV ? <Bond active={!loading} /> : <Navigate to={ROUTES.home[lang]} replace />),
     projects:    () => <Projects />,
     about:       () => <About />,
     contact:     () => <Contact />,
