@@ -24,7 +24,7 @@ function useFadeIn(threshold = 0.2) {
     );
     const rafId = requestAnimationFrame(() => obs.observe(el));
     return () => { cancelAnimationFrame(rafId); obs.disconnect(); };
-  }, []);
+  }, [threshold]);
   return { ref, visible };
 }
 

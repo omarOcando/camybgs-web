@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Direcciones como en src/config/routes.js (es + en, con hreflang). Sin Bond mientras SHOW_BOND sea false. -->
+<!-- Direcciones como en src/config/routes.js (es + en, con hreflang). Sin Bond: es una página oculta (noindex) mientras SHOW_BOND sea false. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.camybgs.com/</loc>

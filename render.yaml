@@ -80,11 +80,13 @@ services:
         source: /api/*
         destination: https://camybgs-api.onrender.com/api/*
       # Páginas prerenderizadas (scripts/prerender.js): cada una con su HTML.
-      # Las mismas del sitemap; si se activa Bond (SHOW_BOND), añadir /bond y
-      # /en/bond.
+      # Las mismas del sitemap, más Bond (oculta, pero con su noindex en el HTML).
       - type: rewrite
         source: /servicios
         destination: /servicios/index.html
+      - type: rewrite
+        source: /bond
+        destination: /bond/index.html
       - type: rewrite
         source: /proyectos
         destination: /proyectos/index.html
@@ -109,6 +111,9 @@ services:
       - type: rewrite
         source: /en/services
         destination: /en/services/index.html
+      - type: rewrite
+        source: /en/bond
+        destination: /en/bond/index.html
       - type: rewrite
         source: /en/projects
         destination: /en/projects/index.html

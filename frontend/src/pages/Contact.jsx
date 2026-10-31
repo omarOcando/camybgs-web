@@ -34,7 +34,7 @@ function useVisible(threshold = 0.15) {
     );
     const rafId = requestAnimationFrame(() => obs.observe(el));
     return () => { cancelAnimationFrame(rafId); obs.disconnect(); };
-  }, []);
+  }, [threshold]);
   return { ref, visible };
 }
 

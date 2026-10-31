@@ -5,7 +5,6 @@ import { initReactI18next } from "react-i18next";
 import es from "../../src/locales/es.json";
 import en from "../../src/locales/en.json";
 import { LANGS, ROUTES } from "../../src/config/routes";
-import { SHOW_BOND } from "../../src/config/site";
 import Home from "../../src/pages/Home";
 import Services from "../../src/pages/Services";
 import Bond from "../../src/pages/Bond";
@@ -17,12 +16,13 @@ import Privacy from "../../src/pages/Privacy";
 import Terms from "../../src/pages/Terms";
 import { takeCaptured } from "./helmet-capture";
 
-// Páginas públicas que se prerenderizan (las del sitemap). Fuera quedan la
-// confirmación de suscripción (noindex) y Bond mientras SHOW_BOND sea false.
+// Páginas que se prerenderizan: las del sitemap y Bond, que está fuera de él
+// pero necesita su noindex en el HTML inicial. Fuera queda la confirmación de
+// suscripción (noindex).
 const PAGES = {
   home: Home,
   services: Services,
-  ...(SHOW_BOND && { bond: Bond }),
+  bond: Bond,
   projects: Projects,
   about: About,
   contact: Contact,

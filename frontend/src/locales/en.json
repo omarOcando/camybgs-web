@@ -39,8 +39,8 @@
       "description": "One, Multi and Custom websites, maintenance plans and payment in two parts or in instalments. Custom design, basic SEO and legal pages included."
     },
     "bond": {
-      "title": "Bond · Run your business, care for your clients",
-      "description": "CAMY's platform for coaches, therapists and professionals who guide their clients: bookings, calendar, client portal and payments."
+      "title": "Bond · Run your business. Care for your clients.",
+      "description": "Bond brings your calendar, your clients and their follow-up, your notes and your payments together in one place, under your brand."
     },
     "projects": {
       "title": "Projects · CAMY",
@@ -359,52 +359,195 @@
     }
   },
   "bond": {
-    "hero": {
-      "tag": "CAMY's flagship product",
-      "title": "Bond.",
-      "subtitle": "Run your business, care for your clients.",
-      "textLine1": "The platform for professionals who guide their clients through a process.",
-      "textLine2": "Bookings, calendar, follow-up and payments in one place, with your brand.",
-      "ctaSales": "See Bond in detail",
-      "ctaDemo": "Book a demo"
+    "cta": {
+      "demo": "Book your live demo",
+      "start": "Start now"
     },
-    "audience": {
-      "title": "Made for those who guide their clients",
-      "textLine1": "Coaches, therapists, psychologists, nutritionists, teachers, physiotherapists and more…",
-      "textLine2": "If you work in sessions or programmes and your clients go on a journey with you, Bond is made for you.",
-      "pain": "Stop jumping between your calendar, WhatsApp, paper notes and pending bank transfers."
+    "intro": {
+      "tag": "FOR COACHES WHO GUIDE CLIENTS THROUGH A PROCESS",
+      "title": "Run your business. Care for your clients.",
+      "subtitle": "Bond brings your calendar, your clients and their follow-up, your notes and your payments together in one place, under your brand. So your time goes into guiding people, not into admin.",
+      "videoLabel": "Bond presentation video",
+      "note": "30-minute demo by video call. No obligation."
+    },
+    "pain": {
+      "title": "Your job is to guide people. But everything else eats up your time.",
+      "items": [
+        "You jump between your calendar, WhatsApp, paper notes and your bank.",
+        "You work out appointment times one message at a time.",
+        "A client ends up with no next session, and nothing tells you.",
+        "You chase bank transfers and can't tell who owes you what.",
+        "Before every session, you hunt for what you talked about last time."
+      ],
+      "closing": "Your service is excellent. Your organisation should live up to it."
+    },
+    "about": {
+      "title": "Your business, all in one place.",
+      "text": "Bond is the management platform for professionals who work in sessions or programmes. It organises your bookings, your clients, your notes and your payments, and gives each client their own space, with your brand and the care they deserve. You do the guiding; Bond takes care of the rest."
+    },
+    "gallery": {
+      "role": "gallery",
+      "label": "Bond screenshots",
+      "previous": "Previous photo",
+      "next": "Next photo",
+      "items": {
+        "home": "Your management panel",
+        "homeMobile": "Your panel, on mobile",
+        "agenda": "Your calendar",
+        "agendaMobile": "Your calendar, on mobile",
+        "clients": "Your clients",
+        "clientsMobile": "Your clients, on mobile",
+        "payments": "Your payments",
+        "paymentsMobile": "Your payments, on mobile",
+        "language": "Bond in your language",
+        "portalToday": "Your client's portal",
+        "portalPayments": "Your client's payments",
+        "portalPaymentsMobile": "Your client's payments, on mobile",
+        "portalMessagesMobile": "Your client messages you from their phone",
+        "portalSessionsMobile": "Your client's sessions, on mobile"
+      }
     },
     "features": {
-      "title": "Your whole business, in one simple place.",
+      "title": "Designed for you. And for your clients.",
       "forYou": {
         "title": "For you:",
         "items": [
-          { "lead": "Online bookings", "text": "from your website, with your hours, your session types and your free slots." },
-          { "lead": "Your daily and weekly schedule,", "text": "with your next session and your notes at hand." },
-          { "lead": "Alerts for what needs your attention:", "text": "pending payments, clients without a next appointment, notes to complete." },
-          { "lead": "Payments", "text": "online or recorded manually, always in view." }
+          { "lead": "Online booking:", "text": "clients book from your website, with your hours and your session types." },
+          { "lead": "Your calendar, at a glance:", "text": "today and the week ahead, with your next session and your notes to hand." },
+          { "lead": "Client records:", "text": "their process, their goal, their sessions and your private notes." },
+          { "lead": "Alerts for what matters:", "text": "pending or overdue payments, clients with no next session and notes still to finish." },
+          { "lead": "Payments:", "text": "online card payments, or log cash and bank transfers by hand." },
+          { "lead": "Your business in numbers:", "text": "monthly income, sessions delivered, active clients and how full your calendar is." }
         ]
       },
       "forClients": {
         "title": "For your clients:",
         "items": [
-          { "lead": "Their own portal,", "text": "with their next session, their tasks and the journey so far." },
+          { "lead": "Their own portal,", "text": "with their next session, their tasks and how far they've come." },
           { "lead": "Automatic reminders", "text": "before each session, in their language." },
-          { "lead": "Messages with you,", "text": "without getting lost between chats." }
+          { "lead": "Messages with you,", "text": "instead of getting lost across chats." },
+          { "lead": "Sign in without passwords,", "text": "through a secure link sent by email." }
         ]
       },
-      "trust": "Data protected and hosted in Europe, GDPR-ready."
+      "cta": "I want to see it in action"
+    },
+    "language": {
+      "title": "Your words, not software speak.",
+      "text": "Every profession has its own way of talking. In Bond, sessions and clients are called whatever you call them: meetings, coachees or anything else you prefer. Your clients see a space that sounds like you.",
+      "languages": "Bond works in Spanish, English and German. Each client uses it in their own language, and their reminders arrive in that language too. Do your clients speak another language? We can add it; just ask me."
+    },
+    "case": {
+      "title": "Bond was born working with a real coach.",
+      "text": "Ramsés Viloria, a couples' relationship coach in Frankfurt, had spent five years managing his clients across a calendar, WhatsApp and bank transfers. Bond grew out of the platform we designed for him: the same way of organising clients, bookings and payments, now ready for any professional.",
+      "cta": "I want the same for my business"
+    },
+    "fit": {
+      "title": "Is Bond right for you?",
+      "yes": {
+        "title": "It's for you if:",
+        "items": [
+          "You're a coach, or you guide clients through processes of several sessions.",
+          "You already have clients and want to spend less time organising.",
+          "You want a professional image that lives up to your work."
+        ]
+      },
+      "no": {
+        "title": "It's not for you if:",
+        "items": [
+          "You're just starting out and don't have clients yet.",
+          "All you need is a booking link.",
+          "You work at a large centre with its own software."
+        ]
+      }
+    },
+    "steps": {
+      "title": "From the demo to your first session with Bond, in one week.",
+      "items": [
+        { "lead": "Live demo (30 minutes).", "text": "I show you Bond in action and you try it the way your clients would." },
+        { "lead": "Setup in 5 working days.", "text": "I set up Bond with your brand, your services, your hours, your languages and your words. If you already have clients, I import them." },
+        { "lead": "Training, and off you go.", "text": "On a 45-minute video call I show you how to use it. From that day on, Bond works alongside you." }
+      ],
+      "note": "The 5 days start once I have all your material (logo, services, hours and prices)."
     },
     "pricing": {
-      "title": "Get started with Bond",
-      "price": [
-        { "label": "Setup:", "value": "€999" },
-        { "label": "Subscription:", "value": "€99/month" }
+      "title": "One clear price. No surprises.",
+      "setup": {
+        "title": "Setup",
+        "price": "€990",
+        "badge": "one-off payment",
+        "items": [
+          "Bond with your brand: logo, colours and your own web address.",
+          "Your services, hours and prices, already set up.",
+          "Bond in your words: labels in the language of your profession.",
+          "Your languages: Spanish, English and German.",
+          "Online payments connected to your Stripe account: cards and, if you activate them in Stripe, other methods such as PayPal, Apple Pay or Google Pay.",
+          "Import of your current clients, if you have any.",
+          "45-minute training by video call."
+        ]
+      },
+      "subscription": {
+        "title": "Subscription",
+        "price": "€89 a month",
+        "items": [
+          "Everything technical is on me: hosting, security, backups and updates.",
+          "New Bond improvements, at no extra cost.",
+          "Support by email or WhatsApp, with a reply within 2 working days."
+        ],
+        "marketing": "Marketing to look after your clients, with Systeme: welcome and follow-up emails, Google review requests and automations that bring them back.",
+        "noLockIn": "No lock-in: cancel whenever you like."
+      },
+      "paymentLead": "Ways to pay for setup:",
+      "paymentText": "in two parts (50% at the start and 50% on delivery) or in instalments with Klarna.",
+      "note": "Final prices. As a small business (Kleinunternehmer, § 19 UStG), I don't charge VAT.",
+      "ctaDemo": "I'd rather see it first",
+      "ctaStart": "Start with Bond"
+    },
+    "data": {
+      "title": "Your data and your clients' data, protected.",
+      "hosting": { "lead": "Hosted in Europe:", "text": "Bond runs in Germany and backups are stored in France. Only email delivery goes through the United States, with the safeguards the GDPR requires." },
+      "avv": { "lead": "GDPR-ready:", "text": "we sign a data processing agreement (AVV) with you." },
+      "items": [
+        { "lead": "Your data is yours.", "text": "If you ever leave Bond, I hand it over as an export and then delete it." },
+        { "lead": "Your clients stay in control:", "text": "each one can download or delete their own data from their portal." }
+      ]
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        { "q": "Do I need to be good with technology?", "a": "No. I set everything up and show you how to use it in 45 minutes. If you can use WhatsApp, you can use Bond." },
+        { "q": "How long does setup take?", "a": "5 working days from when I have your material: logo, services, hours and prices." },
+        { "q": "Can I use my own words?", "a": "Yes. Sessions and clients are called whatever you call them." },
+        { "q": "What if my clients are already in another system?", "a": "I import them during setup, at no extra cost." },
+        { "q": "How do I get paid by my clients?", "a": "Online by card, through your own Stripe account, or by logging cash and bank transfers by hand. The money goes straight to your account. If you activate them in your Stripe, your clients can also pay with PayPal, Apple Pay or Google Pay." },
+        { "q": "Am I tied in?", "a": "No. The subscription is monthly and you can cancel whenever you like. Setup is a one-off payment and is non-refundable." },
+        { "q": "What happens to my data if I leave Bond?", "a": "I hand it over as an export within 7 days at most and delete it 30 days after you leave." },
+        { "q": "Which languages does it work in?", "a": "Spanish, English and German. Each client sees it in their own language. If you need another language, we can add it; just ask me." },
+        { "q": "Does it work on mobile?", "a": "Yes. Your clients sign in from their phone without installing anything, and you can manage Bond from your computer or your phone." },
+        { "q": "What support do I get?", "a": "By email or WhatsApp, with a reply within 2 working days." },
+        { "q": "Can I pay for setup in instalments?", "a": "Yes: in two parts (50% at the start and 50% on delivery) or in instalments with Klarna." }
       ],
-      "textLine1": "I set up Bond with your brand, your services and your languages.",
-      "textLine2": "You just start using it.",
-      "ctaSales": "See Bond in detail",
-      "ctaDemo": "30-minute demo"
+      "providers": {
+        "q": "Who else handles the data?",
+        "headProvider": "Provider",
+        "headPurpose": "What for",
+        "rows": [
+          { "name": "Render", "purpose": "Servers where Bond runs" },
+          { "name": "MongoDB Atlas", "purpose": "Database that stores your clients, appointments and notes" },
+          { "name": "Resend", "purpose": "Sending the emails: confirmations, reminders and access links. Processed in the United States under the EU standard contractual clauses" },
+          { "name": "Stripe", "purpose": "Online payments, with your own account" },
+          { "name": "Scaleway", "purpose": "Backups, stored in Paris" }
+        ],
+        "systeme": { "name": "Systeme", "purpose": "Follow-up emails, reviews and marketing automations for your clients" },
+        "note": "A data processing agreement is signed with Render, MongoDB, Resend and Scaleway. You contract Stripe directly, with your own account.",
+        "noteWithSysteme": "A data processing agreement is signed with Render, MongoDB, Resend, Scaleway and Systeme. You contract Stripe directly, with your own account."
+      }
+    },
+    "final": {
+      "title": "Spend your time guiding people. Bond takes care of the rest.",
+      "text": "Book a 30-minute demo and see how Bond would work in your business."
+    },
+    "footer": {
+      "copyright": "© 2026 CAMY"
     }
   },
   "projects": {

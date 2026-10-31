@@ -23,6 +23,21 @@ export const CONTACT = {
 // (README.md, "Activar Bond").
 export const SHOW_BOND = false;
 
+// Página de ventas de Bond (/bond y /en/bond), independiente de SHOW_BOND: es
+// una página oculta, sin menú, noindex y fuera del sitemap. Con false redirige
+// a la Home (en npm run dev se ve siempre).
+export const SHOW_BOND_PAGE = false;
+
+// Partes de la página de ventas ocultas hasta confirmarlas: el caso real
+// (sección 6), la línea del contrato de tratamiento de datos, AVV (sección 10),
+// el marketing con Systeme (línea de la sección 9, y Systeme como proveedor en
+// la pregunta "¿Quién más trata los datos?") y el vídeo de /en/bond, hasta tener
+// la versión en inglés (en /bond se ve siempre).
+export const SHOW_BOND_CASE      = false;
+export const SHOW_BOND_AVV       = false;
+export const SHOW_BOND_MARKETING = false;
+export const SHOW_BOND_VIDEO_EN  = false;
+
 // Menú principal (cabecera y footer). key es la página de config/routes.js
 // (la dirección depende del idioma) y el texto está en nav.links.<key>
 export const NAV_LINKS = [
@@ -34,5 +49,5 @@ export const NAV_LINKS = [
   { key: "contact" },
 ].filter((link) => SHOW_BOND || link.key !== "bond");
 
-export const BOND_SALES_URL = "#PENDIENTE-bond-venta";
-export const BOND_DEMO_URL  = "#PENDIENTE-bond-demo";
+export const BOND_SALES_URL = "#PENDIENTE-pago";
+export const BOND_DEMO_URL  = "#PENDIENTE-demo";

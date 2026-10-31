@@ -16,7 +16,7 @@ function WhatsAppButton() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  if (pageFromPath(pathname) === "contact") return null;
+  if (["contact", "bond"].includes(pageFromPath(pathname))) return null;
 
   return (
     <a

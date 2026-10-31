@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 
 // Texto que entra con fundido y zoom suave (como los títulos de la Home)
 // cuando aparece en pantalla. Uso: <Reveal as="h2" className="...">…</Reveal>
-function Reveal({ as = "div", className = "", threshold = 0.2, children }) {
+// base: otra animación de entrada (clases <base> y <base>--visible).
+function Reveal({ as = "div", base = "reveal-zoom", className = "", threshold = 0.2, children }) {
   const Tag = as;
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -18,7 +19,7 @@ function Reveal({ as = "div", className = "", threshold = 0.2, children }) {
     return () => { cancelAnimationFrame(rafId); obs.disconnect(); };
   }, [threshold]);
 
-  const classes = ["reveal-zoom", visible && "reveal-zoom--visible", className].filter(Boolean).join(" ");
+  const classes = [base, visible && `${base}--visible`, className].filter(Boolean).join(" ");
   return <Tag ref={ref} className={classes}>{children}</Tag>;
 }
 

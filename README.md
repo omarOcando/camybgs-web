@@ -50,7 +50,7 @@ El español va sin prefijo; el inglés, bajo `/en`. Fuente única de las direcci
 | Impressum | `/impressum` | `/en/impressum` |
 | Política de privacidad | `/privacidad` | `/en/privacy` |
 | Condiciones generales | `/condiciones` | `/en/terms` |
-| Bond (oculta mientras `SHOW_BOND` sea `false`; redirige a la Home) | `/bond` | `/en/bond` |
+| Bond, página de ventas oculta (noindex, fuera del menú y del sitemap; redirige a la Home mientras `SHOW_BOND_PAGE` sea `false`) | `/bond` | `/en/bond` |
 | Confirmación del doble opt-in (noindex, fuera del sitemap) | `/confirmar-suscripcion` | `/en/confirm-subscription` |
 
 **Redirecciones** (direcciones antiguas, en `render.yaml` y en `App.jsx`):
@@ -156,20 +156,25 @@ Las de la API, descritas en `frontend/.env.example`. En Render van en el servici
 - **Legales** (Impressum, Privacidad y Condiciones): fuera de los JSON, en `src/pages/legal/`. Los datos del proveedor y la fecha de revisión, en `src/pages/legal/provider.js`.
 - **Casilla de consentimiento de emails:** el texto y su versión están en `lib/consentText.js` (fuente única: lo muestra `Contact.jsx` y lo guarda `api/contact.js`). **Si cambia el texto, hay que cambiar la versión.**
 - **Interesados del formulario:** `lib/interests.js` es la fuente única de los valores, el texto del email y la etiqueta de Systeme. La API y Mongo mantienen los nombres de campo en español (`nombre`, `profesion`, `interes`, `mensaje`); `services/contactService.js` los traduce.
-- **Lint:** `npm run lint` da hoy 21 problemas previos (`process` en `lib/`, `only-export-components` en `NotificationContext.jsx` y `exhaustive-deps` en los hooks de visibilidad). La regla es no añadir ninguno nuevo.
+- **Lint:** `npm run lint` tiene que dar 0 problemas.
 - **`AuroraMandala.jsx`:** no modificar el shader.
 
-### Activar Bond (`SHOW_BOND` en `src/config/site.js`)
+### Publicar la página de ventas de Bond (`SHOW_BOND_PAGE` en `src/config/site.js`)
 
-Con `false`, Bond desaparece de toda la web (menú, footer, sección de la Home, panel y preguntas del FAQ de Servicios, opción del formulario) y `/bond` redirige a la Home. Al ponerlo en `true`, además, a mano:
+`/bond` y `/en/bond` son una página oculta: sin menú ni footer de la web, noindex y fuera del sitemap. Con `false` redirigen a la Home. Antes de ponerlo en `true`:
 
-1. `public/sitemap.xml`: añadir `/bond` y `/en/bond` (con sus `hreflang`), después de Servicios.
-2. `render.yaml`: añadir los rewrites de `/bond` y `/en/bond` a su `index.html` (el prerender ya los genera solo).
-3. `index.html`: volver a añadir `"Plataforma de gestión de clientes"` al `serviceType` del JSON-LD.
-4. Rellenar `BOND_SALES_URL` y `BOND_DEMO_URL` en `config/site.js` (hoy son marcadores `#PENDIENTE-`).
-5. Revisar en móvil, tablet y escritorio la Home y Servicios con el bloque de Bond.
+1. Rellenar `BOND_SALES_URL` (pago en Systeme) y `BOND_DEMO_URL` (calendario de la demo) en `config/site.js` (hoy son marcadores `#PENDIENTE-`).
+2. Decidir, también en `config/site.js`: `SHOW_BOND_CASE` (sección 6, caso real), `SHOW_BOND_AVV` (línea del contrato AVV), `SHOW_BOND_MARKETING` (línea de marketing con Systeme y Systeme como proveedor) y `SHOW_BOND_VIDEO_EN` (vídeo de `/en/bond`; antes hay que añadir el vídeo en inglés y usarlo en `pages/Bond.jsx`, que hoy solo tiene el español).
 
-Con `npm run dev`, `/bond` se ve aunque `SHOW_BOND` sea `false` (solo hay que escribir la dirección). El código y el CSS de la hero animada (`components/BondHero/`) no entran en el build de producción hasta poner `true`; el logo y Orbitron sí se copian a `dist/assets`, pero nada los referencia.
+Con `npm run dev`, `/bond` se ve aunque `SHOW_BOND_PAGE` sea `false` (solo hay que escribir la dirección). El código y el CSS de la hero animada (`components/BondHero/`) no entran en el build de producción hasta poner `true`; el logo y Orbitron sí se copian a `dist/assets`, pero nada los referencia.
+
+### Activar Bond en toda la web (`SHOW_BOND` en `src/config/site.js`)
+
+Con `false`, Bond no aparece en el resto de la web (menú, footer, sección de la Home, panel y preguntas del FAQ de Servicios, opción del formulario). Al ponerlo en `true`, además, a mano:
+
+1. Quitar `noindex` de `pages/Bond.jsx` y añadir `/bond` y `/en/bond` a `public/sitemap.xml` (con sus `hreflang`), después de Servicios.
+2. `index.html`: volver a añadir `"Plataforma de gestión de clientes"` al `serviceType` del JSON-LD.
+3. Revisar en móvil, tablet y escritorio la Home y Servicios con el bloque de Bond.
 
 ---
 
