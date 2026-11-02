@@ -29,7 +29,7 @@ Publicado en **Render** (descrito en `render.yaml`): un sitio estático para la 
 * Vite
 
 ### API (Express en Render)
-* Node.js 22 + Express 5
+* Node.js 22.23.4 + Express 5
 * MongoDB + Mongoose
 * Resend (email transaccional)
 * Systeme.io API
@@ -119,7 +119,7 @@ Las de la API, descritas en `frontend/.env.example`. En Render van en el servici
 
 | Variable | Valor en producción |
 |---|---|
-| `NODE_VERSION` | `22` (en `render.yaml`) |
+| `NODE_VERSION` | `22.23.4` (en `render.yaml`) |
 | `MONGO_URI` | Cluster de Atlas, base **`camyDB`** (`camyweb-preview` solo para pruebas) |
 | `RESEND_API_KEY` | Clave de Resend (dominio camybgs.com verificado) |
 | `EMAIL_USER` | Correo al que llega el aviso del formulario |
