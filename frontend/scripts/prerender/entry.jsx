@@ -5,9 +5,11 @@ import { initReactI18next } from "react-i18next";
 import es from "../../src/locales/es.json";
 import en from "../../src/locales/en.json";
 import { LANGS, ROUTES } from "../../src/config/routes";
+import { SHOW_BOND } from "../../src/config/site";
 import Home from "../../src/pages/Home";
 import Services from "../../src/pages/Services";
 import Bond from "../../src/pages/Bond";
+import DiscoverBond from "../../src/pages/DiscoverBond";
 import Projects from "../../src/pages/Projects";
 import About from "../../src/pages/About";
 import Contact from "../../src/pages/Contact";
@@ -16,13 +18,14 @@ import Privacy from "../../src/pages/Privacy";
 import Terms from "../../src/pages/Terms";
 import { takeCaptured } from "./helmet-capture";
 
-// Páginas que se prerenderizan: las del sitemap y Bond, que está fuera de él
-// pero necesita su noindex en el HTML inicial. Fuera queda la confirmación de
-// suscripción (noindex).
+// Páginas que se prerenderizan: las del sitemap y la de ventas de Bond, que está
+// fuera de él pero necesita su noindex en el HTML inicial. Fuera quedan la
+// confirmación de suscripción (noindex) y /bond mientras SHOW_BOND sea false.
 const PAGES = {
   home: Home,
   services: Services,
-  bond: Bond,
+  ...(SHOW_BOND && { bond: Bond }),
+  discoverBond: DiscoverBond,
   projects: Projects,
   about: About,
   contact: Contact,

@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Services from "./pages/Services";
 import About from "./pages/About";
 import Bond from "./pages/Bond";
+import DiscoverBond from "./pages/DiscoverBond";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
@@ -21,7 +22,7 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import AuditPopup from "./components/AuditPopup";
 import AuditFloatBtn from "./components/AuditFloatBtn";
-import { SHOW_LEAD_POPUP, SHOW_LEAD_FLOAT_BTN, SHOW_BOND_PAGE } from "./config/site";
+import { SHOW_LEAD_POPUP, SHOW_LEAD_FLOAT_BTN, SHOW_BOND, SHOW_BOND_PAGE } from "./config/site";
 
 function App() {
   const { pathname } = useLocation();
@@ -40,12 +41,13 @@ function App() {
     if (i18n.language !== lang) i18n.changeLanguage(lang);
   }, [pathname]);
 
-  // Páginas y su elemento según el idioma (Bond: interruptor SHOW_BOND_PAGE)
+  // Páginas y su elemento según el idioma (Bond: interruptores SHOW_BOND y SHOW_BOND_PAGE)
   const pages = {
     home:        () => <Home active={!loading} />,
     services:    () => <Services />,
-    // En local (npm run dev) se ve aunque SHOW_BOND_PAGE sea false
-    bond:        (lang) => (SHOW_BOND_PAGE || import.meta.env.DEV ? <Bond active={!loading} /> : <Navigate to={ROUTES.home[lang]} replace />),
+    // En local (npm run dev) las dos se ven aunque su interruptor sea false
+    bond:        (lang) => (SHOW_BOND || import.meta.env.DEV ? <Bond /> : <Navigate to={ROUTES.home[lang]} replace />),
+    discoverBond: (lang) => (SHOW_BOND_PAGE || import.meta.env.DEV ? <DiscoverBond active={!loading} /> : <Navigate to={ROUTES.home[lang]} replace />),
     projects:    () => <Projects />,
     about:       () => <About />,
     contact:     () => <Contact />,

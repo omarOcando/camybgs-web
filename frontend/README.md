@@ -33,7 +33,8 @@ El español va sin prefijo y el inglés bajo `/en` (fuente única: `src/config/r
 | Impressum | `/impressum` | `/en/impressum` |
 | Política de privacidad | `/privacidad` | `/en/privacy` |
 | Condiciones generales | `/condiciones` | `/en/terms` |
-| Bond, página de ventas oculta (redirige a la Home mientras `SHOW_BOND_PAGE` sea `false`) | `/bond` | `/en/bond` |
+| Bond, página del sitio (redirige a la Home mientras `SHOW_BOND` sea `false`) | `/bond` | `/en/bond` |
+| Bond, página de ventas oculta (redirige a la Home mientras `SHOW_BOND_PAGE` sea `false`) | `/descubre-bond` | `/en/discover-bond` |
 
 ---
 

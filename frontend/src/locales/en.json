@@ -38,6 +38,10 @@
       "title": "Services and prices · CAMY",
       "description": "One, Multi and Custom websites, maintenance plans and payment in two parts or in instalments. Custom design, basic SEO and legal pages included."
     },
+    "bondSite": {
+      "title": "Bond · Run your business, care for your clients",
+      "description": "CAMY's platform for coaches, therapists and professionals who guide their clients: bookings, calendar, client portal and payments."
+    },
     "bond": {
       "title": "Bond · Run your business. Care for your clients.",
       "description": "Bond brings your calendar, your clients and their follow-up, your notes and your payments together in one place, under your brand."
@@ -300,8 +304,8 @@
       "titleTagline": "Run your business, care for your clients.",
       "text": "Bond is CAMY's business management platform. Built for coaches, therapists, nutritionists and other professionals who work in sessions or programmes. Run your business and care for your clients from one place, with your brand.",
       "price": [
-        { "label": "Setup:", "value": "€999" },
-        { "label": "Subscription:", "value": "€99/month" }
+        { "label": "Setup:", "value": "€990" },
+        { "label": "Subscription:", "value": "€89/month" }
       ],
       "cta": "Discover Bond"
     },
@@ -357,6 +361,79 @@
       ],
       "cta": "Let's talk about your website"
     }
+  },
+  "bondSite": {
+    "hero": {
+      "tag": "CAMY's flagship product",
+      "title": "Bond.",
+      "subtitle": "Run your business, care for your clients.",
+      "textLine1": "The platform for professionals who guide their clients through a process.",
+      "textLine2": "Bookings, calendar, follow-up and payments in one place, with your brand."
+    },
+    "audience": {
+      "title": "Made for those who guide their clients",
+      "textLine1": "Coaches, nutritionists, teachers, physiotherapists and other professionals who guide clients through a process.",
+      "textLine2": "If you work in sessions or programmes and your clients go on a journey with you, Bond is made for you.",
+      "pain": "Stop jumping between your calendar, WhatsApp, paper notes and pending bank transfers."
+    },
+    "features": {
+      "title": "Your whole business, in one simple place.",
+      "forYou": {
+        "title": "For you:",
+        "items": [
+          {
+            "lead": "Online bookings",
+            "text": "from your website, with your hours, your session types and your free slots."
+          },
+          {
+            "lead": "Your daily and weekly schedule,",
+            "text": "with your next session and your notes at hand."
+          },
+          {
+            "lead": "Alerts for what needs your attention:",
+            "text": "pending payments, clients without a next appointment, notes to complete."
+          },
+          {
+            "lead": "Payments",
+            "text": "online or recorded manually, always in view."
+          }
+        ]
+      },
+      "forClients": {
+        "title": "For your clients:",
+        "items": [
+          {
+            "lead": "Their own portal,",
+            "text": "with their next session, their tasks and the journey so far."
+          },
+          {
+            "lead": "Automatic reminders",
+            "text": "before each session, in their language."
+          },
+          {
+            "lead": "Messages with you,",
+            "text": "without getting lost between chats."
+          }
+        ]
+      },
+      "trust": "Protected data, GDPR-ready. Bond runs on servers in Germany."
+    },
+    "pricing": {
+      "title": "Get started with Bond",
+      "price": [
+        {
+          "label": "Setup:",
+          "value": "€990"
+        },
+        {
+          "label": "Subscription:",
+          "value": "€89/month"
+        }
+      ],
+      "textLine1": "I set up Bond with your brand, your services and your languages.",
+      "textLine2": "You just start using it."
+    },
+    "cta": "Discover Bond in detail"
   },
   "bond": {
     "cta": {

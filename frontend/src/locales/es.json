@@ -38,6 +38,10 @@
       "title": "Servicios y precios · CAMY",
       "description": "Webs One, Multi y Custom, planes de mantenimiento y pago en dos partes o a plazos. Diseño a medida, SEO básico y páginas legales incluidas."
     },
+    "bondSite": {
+      "title": "Bond · Gestiona tu negocio, cuida a tus clientes",
+      "description": "La plataforma de CAMY para coaches, terapeutas y profesionales que acompañan a sus clientes: reservas, agenda, portal y pagos."
+    },
     "bond": {
       "title": "Bond · Gestiona tu negocio. Cuida a tus clientes.",
       "description": "Bond reúne tu agenda, tus clientes y su atención, tus notas y tus cobros en un solo lugar, con tu marca."
@@ -300,8 +304,8 @@
       "titleTagline": "Gestiona tu negocio, cuida a tus clientes.",
       "text": "Bond es la plataforma de gestión de negocios de CAMY. Creada para coaches, terapeutas, nutricionistas y otros profesionales que trabajan por sesiones o programas. Gestiona tu negocio y cuida a tus clientes desde un solo lugar y con tu marca.",
       "price": [
-        { "label": "Montaje:", "value": "999 €" },
-        { "label": "Suscripción:", "value": "99 €/mes" }
+        { "label": "Montaje:", "value": "990 €" },
+        { "label": "Suscripción:", "value": "89 €/mes" }
       ],
       "cta": "Conoce Bond"
     },
@@ -357,6 +361,79 @@
       ],
       "cta": "Hablemos de tu web"
     }
+  },
+  "bondSite": {
+    "hero": {
+      "tag": "Producto estrella de CAMY",
+      "title": "Bond.",
+      "subtitle": "Gestiona tu negocio, cuida a tus clientes.",
+      "textLine1": "La plataforma para profesionales que acompañan a sus clientes en sus procesos.",
+      "textLine2": "Reservas, agenda, seguimiento y pagos en un solo lugar, con tu marca."
+    },
+    "audience": {
+      "title": "Pensado para quien acompaña a sus clientes",
+      "textLine1": "Coaches, nutricionistas, profesores, fisioterapeutas y otros profesionales que acompañan procesos.",
+      "textLine2": "Si trabajas por sesiones o programas y tus clientes recorren un camino contigo, Bond está hecho para ti.",
+      "pain": "Deja de saltar entre la agenda, el WhatsApp, las notas en papel y las transferencias pendientes."
+    },
+    "features": {
+      "title": "Todo tu negocio, en un solo lugar y sencillo.",
+      "forYou": {
+        "title": "Para ti:",
+        "items": [
+          {
+            "lead": "Reservas online",
+            "text": "desde tu web, con tu horario, tus tipos de sesión y tus huecos libres."
+          },
+          {
+            "lead": "Tu agenda del día y de la semana,",
+            "text": "con la próxima sesión y tus notas a mano."
+          },
+          {
+            "lead": "Avisos de lo que requiere tu atención:",
+            "text": "pagos pendientes, clientes sin próxima cita, notas por completar."
+          },
+          {
+            "lead": "Pagos",
+            "text": "online o registrados a mano, siempre a la vista."
+          }
+        ]
+      },
+      "forClients": {
+        "title": "Para tus clientes:",
+        "items": [
+          {
+            "lead": "Su propio portal,",
+            "text": "con su próxima sesión, sus tareas y su camino recorrido."
+          },
+          {
+            "lead": "Recordatorios automáticos",
+            "text": "antes de cada sesión, en su idioma."
+          },
+          {
+            "lead": "Mensajes contigo,",
+            "text": "sin perderse entre chats."
+          }
+        ]
+      },
+      "trust": "Datos protegidos y preparado para el RGPD. Bond funciona en servidores en Alemania."
+    },
+    "pricing": {
+      "title": "Empieza con Bond",
+      "price": [
+        {
+          "label": "Montaje:",
+          "value": "990 €"
+        },
+        {
+          "label": "Suscripción:",
+          "value": "89 €/mes"
+        }
+      ],
+      "textLine1": "Configuro Bond con tu marca, tus servicios y tus idiomas.",
+      "textLine2": "Tú solo empiezas a usarlo."
+    },
+    "cta": "Descubre Bond en detalle"
   },
   "bond": {
     "cta": {

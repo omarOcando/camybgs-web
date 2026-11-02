@@ -12,6 +12,8 @@ export const ROUTES = {
   home:        { es: "/",            en: "/en" },
   services:    { es: "/servicios",   en: "/en/services" },
   bond:        { es: "/bond",        en: "/en/bond" },
+  // Página de ventas de Bond: noindex, fuera del menú y del sitemap
+  discoverBond: { es: "/descubre-bond", en: "/en/discover-bond" },
   projects:    { es: "/proyectos",   en: "/en/projects" },
   about:       { es: "/sobre-mi",    en: "/en/about" },
   contact:     { es: "/contacto",    en: "/en/contact" },

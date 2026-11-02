@@ -18,7 +18,7 @@ function ScrollToTopButton() {
   const handleClick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   const page = pageFromPath(pathname);
-  if (page === "bond") return null;
+  if (page === "discoverBond") return null;
 
   const isContact = page === "contact";
 
