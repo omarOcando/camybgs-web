@@ -29,7 +29,7 @@ export const ROUTES = {
 };
 
 // Páginas a las que se entra directo, sin el loader inicial (claves de ROUTES)
-const PAGES_WITHOUT_LOADER = ["confirmSubscription"];
+const PAGES_WITHOUT_LOADER = ["confirmSubscription", "discoverBond"];
 
 const normalize = (pathname) => (pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname);
 

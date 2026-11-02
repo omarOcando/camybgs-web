@@ -112,13 +112,13 @@ function FaqItem({ question, children }) {
 
 // ─── PÁGINA ──────────────────────────────────────────────────────────────────
 
-// active: false mientras está el Loader, para que la animación no empiece detrás
+// active: la página va sin Loader (config/routes.js), así que es true desde el inicio
 function DiscoverBond({ active = true }) {
   const { t } = useTranslation();
   const { lang, path } = useLocalePath();
   const list = (key) => t(key, { returnObjects: true });
 
-  // Se descarga durante el Loader, para que esté lista cuando este termine
+  // Se descarga cuanto antes; mientras llega, BondHeroSlot reserva su sitio
   useEffect(() => {
     if (BondHero) loadBondHero();
   }, []);

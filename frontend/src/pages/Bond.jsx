@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { FaShieldAlt } from "react-icons/fa";
 import Button from "../components/Button";
+import Reveal from "../components/Reveal";
 import Seo from "../components/Seo";
 import { useLocalePath } from "../config/routes";
 
@@ -61,9 +62,7 @@ function Bond({ active = true }) {
   const { t } = useTranslation();
   const list = (key) => t(key, { returnObjects: true });
 
-  const { ref: audienceRef, visible: audienceVisible } = useVisible(0.2);
   const { ref: featuresRef, visible: featuresVisible } = useVisible(0.1);
-  const { ref: pricingRef,  visible: pricingVisible  } = useVisible(0.25);
 
   return (
     <div className={`bond-site${active ? " bond-site--active" : ""}`}>
@@ -92,53 +91,47 @@ function Bond({ active = true }) {
 
       {/* 02 — PARA QUIÉN ES */}
       <section className="bond-audience">
-        <div
-          ref={audienceRef}
-          className={`bond-section-inner bond-audience__inner${audienceVisible ? " bond-audience__inner--visible" : ""}`}
-        >
-          <h2 className="bond-section-title">{t("bondSite.audience.title")}</h2>
-          <p className="bond-audience__text">
+        <div className="bond-section-inner bond-audience__inner">
+          <Reveal as="h2" className="bond-section-title">{t("bondSite.audience.title")}</Reveal>
+          <Reveal as="p" className="bond-audience__text">
             <span className="bond-audience__text-line">{t("bondSite.audience.textLine1")}</span>{" "}
             <span className="bond-audience__text-line">{t("bondSite.audience.textLine2")}</span>
-          </p>
-          <p className="bond-audience__pain">{t("bondSite.audience.pain")}</p>
+          </Reveal>
+          <Reveal as="p" className="bond-audience__pain">{t("bondSite.audience.pain")}</Reveal>
         </div>
       </section>
 
       {/* 03 — QUÉ HACE BOND */}
       <section className="bond-features">
         <div className="bond-section-inner">
-          <h2 className="bond-section-title bond-section-title--light">{t("bondSite.features.title")}</h2>
+          <Reveal as="h2" className="bond-section-title bond-section-title--light">{t("bondSite.features.title")}</Reveal>
           <div ref={featuresRef} className={`bond-features__grid${featuresVisible ? " bond-features__grid--visible" : ""}`}>
             <FeatureList title={t("bondSite.features.forYou.title")}     items={list("bondSite.features.forYou.items")} />
             <FeatureList title={t("bondSite.features.forClients.title")} items={list("bondSite.features.forClients.items")} />
           </div>
-          <p className="bond-features__trust">
+          <Reveal as="p" base="srv-slide" className="bond-features__trust">
             <FaShieldAlt aria-hidden="true" />
             <span>{t("bondSite.features.trust")}</span>
-          </p>
+          </Reveal>
         </div>
       </section>
 
       {/* 04 — PRECIO Y CIERRE */}
       <section className="bond-pricing">
-        <div
-          ref={pricingRef}
-          className={`bond-section-inner bond-pricing__inner${pricingVisible ? " bond-pricing__inner--visible" : ""}`}
-        >
-          <h2 className="bond-section-title">{t("bondSite.pricing.title")}</h2>
-          <ul className="bond-pricing__price">
+        <div className="bond-section-inner bond-pricing__inner">
+          <Reveal as="h2" className="bond-section-title">{t("bondSite.pricing.title")}</Reveal>
+          <Reveal as="ul" base="srv-slide" className="bond-pricing__price">
             {list("bondSite.pricing.price").map((line) => (
               <li key={line.label}>
                 <strong>{line.label}</strong> {line.value}
               </li>
             ))}
-          </ul>
-          <p className="bond-pricing__text">
+          </Reveal>
+          <Reveal as="p" className="bond-pricing__text">
             <span className="bond-pricing__text-line">{t("bondSite.pricing.textLine1")}</span>{" "}
             <span className="bond-pricing__text-line">{t("bondSite.pricing.textLine2")}</span>
-          </p>
-          <DiscoverButton />
+          </Reveal>
+          <Reveal base="srv-slide"><DiscoverButton /></Reveal>
         </div>
       </section>
 
