@@ -46,7 +46,7 @@ function App() {
     home:        () => <Home active={!loading} />,
     services:    () => <Services />,
     // En local (npm run dev) las dos se ven aunque su interruptor sea false
-    bond:        (lang) => (SHOW_BOND || import.meta.env.DEV ? <Bond /> : <Navigate to={ROUTES.home[lang]} replace />),
+    bond:        (lang) => (SHOW_BOND || import.meta.env.DEV ? <Bond active={!loading} /> : <Navigate to={ROUTES.home[lang]} replace />),
     discoverBond: (lang) => (SHOW_BOND_PAGE || import.meta.env.DEV ? <DiscoverBond active={!loading} /> : <Navigate to={ROUTES.home[lang]} replace />),
     projects:    () => <Projects />,
     about:       () => <About />,

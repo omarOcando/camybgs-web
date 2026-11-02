@@ -48,15 +48,16 @@
   flex-direction: column;
   align-items: center;
 
-  > * { animation: bond-site-rise 1.1s cubic-bezier(0.22, 1, 0.36, 1) both; }
-  > :nth-child(2) { animation-delay: 0.15s; }
-  > :nth-child(3) { animation-delay: 0.35s; }
-  > :nth-child(4) { animation-delay: 0.55s; }
-  > :nth-child(5) { animation-delay: 0.75s; }
+  > * { opacity: 0; } // hasta que termina el Loader (.bond-site--active)
+}
 
-  // Título y subtítulo: la entrada común de los heros
-  > .bond-hero__title    { animation: $hero-title-anim; }
-  > .bond-hero__subtitle { animation: $hero-sub-anim; }
+// La entrada común de los heros: etiqueta y título primero, y después el resto.
+// Empieza al terminar el Loader: a /bond se puede entrar directamente y, si no,
+// la entrada ocurriría detrás de él.
+.bond-site--active .bond-hero__inner {
+  > * { animation: $hero-sub-anim; }
+  > .bond-hero__tag,
+  > .bond-hero__title { animation: $hero-title-anim; }
 }
 
 .bond-hero__title {
@@ -331,6 +332,7 @@
 @media (prefers-reduced-motion: reduce) {
 
   .bond-hero__inner > *,
+  .bond-site--active .bond-hero__inner > *,
   .bond-audience__inner,
   .bond-features__card,
   .bond-pricing__inner {

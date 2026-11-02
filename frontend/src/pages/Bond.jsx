@@ -56,7 +56,8 @@ function FeatureList({ title, items }) {
 
 // ─── PÁGINA ──────────────────────────────────────────────────────────────────
 
-function Bond() {
+// active: false mientras está el Loader, para que la entrada no ocurra detrás
+function Bond({ active = true }) {
   const { t } = useTranslation();
   const list = (key) => t(key, { returnObjects: true });
 
@@ -65,7 +66,7 @@ function Bond() {
   const { ref: pricingRef,  visible: pricingVisible  } = useVisible(0.25);
 
   return (
-    <div className="bond-site">
+    <div className={`bond-site${active ? " bond-site--active" : ""}`}>
       <Seo
         title={t("seo.bondSite.title")}
         description={t("seo.bondSite.description")}

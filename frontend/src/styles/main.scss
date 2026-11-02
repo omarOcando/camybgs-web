@@ -44,6 +44,19 @@
   &--hidden {
     opacity: 0;
     overflow: hidden;
+
+    // Entrada de los heros: espera a que termine el Loader. Sin Loader (al
+    // llegar desde el menú) esta clase no está y empieza en cuanto se monta.
+    .srv-hero__title,
+    .srv-hero__sub,
+    .abt-hero__title,
+    .abt-hero__sub,
+    .proj-hero__title,
+    .proj-hero__sub,
+    .ctc-hero__title,
+    .ctc-hero__sub {
+      animation: none;
+    }
   }
 }
 
