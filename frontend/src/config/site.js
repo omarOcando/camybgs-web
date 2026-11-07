@@ -29,6 +29,14 @@ export const SHOW_BOND = false;
 // de /bond llevan aquí y, con false, acabarían en la Home.
 export const SHOW_BOND_PAGE = false;
 
+// Versión en inglés de la página de ventas (/en/discover-bond), oculta hasta
+// tener sus túneles en inglés. Con false: /en/discover-bond redirige a /en/bond,
+// /en/bond no muestra los botones "Discover Bond in detail", el selector de
+// idioma de /descubre-bond lleva a /en/bond y no se prerenderiza (añadir también
+// su rewrite en render.yaml al activarlo). En npm run dev se ve siempre.
+// Los textos en inglés se conservan en en.json.
+export const SHOW_BOND_PAGE_EN = false;
+
 // Partes de la página de ventas ocultas hasta confirmarlas: el caso real
 // (sección 6), la línea del contrato de tratamiento de datos, AVV (sección 10),
 // el marketing con Systeme (línea de la sección 9, y Systeme como proveedor en
@@ -50,5 +58,5 @@ export const NAV_LINKS = [
   { key: "contact" },
 ].filter((link) => SHOW_BOND || link.key !== "bond");
 
-export const BOND_SALES_URL = "#PENDIENTE-pago";
-export const BOND_DEMO_URL  = "#PENDIENTE-demo";
+export const BOND_SALES_URL = "https://shop.camybgs.com/bond-montaje";
+export const BOND_DEMO_URL  = "https://my.camybgs.com/demo-bond";

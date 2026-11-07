@@ -112,9 +112,11 @@ services:
       - type: rewrite
         source: /en/services
         destination: /en/services/index.html
-      - type: rewrite
-        source: /en/discover-bond
-        destination: /en/discover-bond/index.html
+      # /en/discover-bond: sin rewrite mientras SHOW_BOND_PAGE_EN sea false (no
+      # se prerenderiza). Al activarlo, volver a añadir aquí:
+      #   - type: rewrite
+      #     source: /en/discover-bond
+      #     destination: /en/discover-bond/index.html
       - type: rewrite
         source: /en/projects
         destination: /en/projects/index.html

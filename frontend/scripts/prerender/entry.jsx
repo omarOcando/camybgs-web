@@ -5,7 +5,7 @@ import { initReactI18next } from "react-i18next";
 import es from "../../src/locales/es.json";
 import en from "../../src/locales/en.json";
 import { LANGS, ROUTES } from "../../src/config/routes";
-import { SHOW_BOND } from "../../src/config/site";
+import { SHOW_BOND, SHOW_BOND_PAGE_EN } from "../../src/config/site";
 import Home from "../../src/pages/Home";
 import Services from "../../src/pages/Services";
 import Bond from "../../src/pages/Bond";
@@ -20,7 +20,8 @@ import { takeCaptured } from "./helmet-capture";
 
 // Páginas que se prerenderizan: las del sitemap y la de ventas de Bond, que está
 // fuera de él pero necesita su noindex en el HTML inicial. Fuera quedan la
-// confirmación de suscripción (noindex) y /bond mientras SHOW_BOND sea false.
+// confirmación de suscripción (noindex), /bond mientras SHOW_BOND sea false y
+// /en/discover-bond mientras SHOW_BOND_PAGE_EN sea false.
 const PAGES = {
   home: Home,
   services: Services,
@@ -69,6 +70,7 @@ export async function renderPages() {
   for (const lang of LANGS) {
     await i18n.changeLanguage(lang);
     for (const [page, Page] of Object.entries(PAGES)) {
+      if (page === "discoverBond" && lang === "en" && !SHOW_BOND_PAGE_EN) continue;
       const path = ROUTES[page][lang];
       takeCaptured();
       renderToStaticMarkup(

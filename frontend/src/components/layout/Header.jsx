@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import logoSrc       from "../../assets/images/LogoCamyDarkBG.png";
 import logoMobileSrc from "../../assets/images/LogoCamySoloDarkBG.png";
 import audioSrc from "../../assets/audios/leberch-ambient-electronics-524300.mp3";
-import { NAV_LINKS } from "../../config/site";
+import { NAV_LINKS, SHOW_BOND_PAGE_EN } from "../../config/site";
 import { useLocalePath, pageFromPath, pathFor } from "../../config/routes";
 
 // Gotas irregulares — parte inferior, clusters y tamaños muy variados
@@ -121,7 +121,10 @@ function Header() {
   // Selector de idioma: la misma página en el otro idioma (con su ?…, que usa
   // la página de confirmación de suscripción)
   const otherLang = lang === "es" ? "en" : "es";
-  const otherPath = pathFor(pageFromPath(pathname) ?? "home", otherLang) + search;
+  // (sin /en/discover-bond mientras SHOW_BOND_PAGE_EN sea false: va a /en/bond)
+  const page = pageFromPath(pathname) ?? "home";
+  const hideDiscoverEn = page === "discoverBond" && otherLang === "en" && !SHOW_BOND_PAGE_EN && !import.meta.env.DEV;
+  const otherPath = pathFor(hideDiscoverEn ? "bond" : page, otherLang) + search;
   const [menuState, setMenuState] = useState("closed");
   const [isPlaying, setIsPlaying] = useState(false);
   const isOpen = menuState === "open";

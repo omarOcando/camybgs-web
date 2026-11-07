@@ -5,6 +5,7 @@ import Button from "../components/Button";
 import Reveal from "../components/Reveal";
 import Seo from "../components/Seo";
 import { useLocalePath } from "../config/routes";
+import { SHOW_BOND_PAGE_EN } from "../config/site";
 
 // ─── HOOK ────────────────────────────────────────────────────────────────────
 
@@ -26,10 +27,12 @@ function useVisible(threshold = 0.15) {
 
 // ─── COMPONENTES ─────────────────────────────────────────────────────────────
 
-// Lleva a la página de ventas, siempre en pestaña nueva
+// Lleva a la página de ventas, siempre en pestaña nueva. En inglés, oculto
+// mientras SHOW_BOND_PAGE_EN sea false (en npm run dev se ve siempre)
 function DiscoverButton({ className = "" }) {
   const { t } = useTranslation();
-  const { path } = useLocalePath();
+  const { lang, path } = useLocalePath();
+  if (lang === "en" && !SHOW_BOND_PAGE_EN && !import.meta.env.DEV) return null;
   return (
     <div className={`bond-buttons ${className}`}>
       <Button href={path("discoverBond")} target="_blank" variant="primary" size="lg">

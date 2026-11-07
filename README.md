@@ -51,7 +51,7 @@ El español va sin prefijo; el inglés, bajo `/en`. Fuente única de las direcci
 | Política de privacidad | `/privacidad` | `/en/privacy` |
 | Condiciones generales | `/condiciones` | `/en/terms` |
 | Bond, página del sitio (redirige a la Home mientras `SHOW_BOND` sea `false`) | `/bond` | `/en/bond` |
-| Bond, página de ventas oculta (noindex, fuera del menú y del sitemap; redirige a la Home mientras `SHOW_BOND_PAGE` sea `false`) | `/descubre-bond` | `/en/discover-bond` |
+| Bond, página de ventas oculta (noindex, fuera del menú y del sitemap; redirige a la Home mientras `SHOW_BOND_PAGE` sea `false`; la inglesa redirige a `/en/bond` mientras `SHOW_BOND_PAGE_EN` sea `false`) | `/descubre-bond` | `/en/discover-bond` |
 | Confirmación del doble opt-in (noindex, fuera del sitemap) | `/confirmar-suscripcion` | `/en/confirm-subscription` |
 
 **Redirecciones** (direcciones antiguas, en `render.yaml` y en `App.jsx`):
@@ -164,8 +164,9 @@ Las de la API, descritas en `frontend/.env.example`. En Render van en el servici
 
 `/descubre-bond` y `/en/discover-bond` son una página oculta: sin menú ni footer de la web, noindex y fuera del sitemap. Con `false` redirigen a la Home. Antes de ponerlo en `true`:
 
-1. Rellenar `BOND_SALES_URL` (pago en Systeme) y `BOND_DEMO_URL` (calendario de la demo) en `config/site.js` (hoy son marcadores `#PENDIENTE-`).
+1. Comprobar que funcionan los destinos de los botones, en `config/site.js`: `BOND_DEMO_URL` (`https://my.camybgs.com/demo-bond`) y `BOND_SALES_URL` (`https://shop.camybgs.com/bond-montaje`).
 2. Decidir, también en `config/site.js`: `SHOW_BOND_CASE` (sección 6, caso real), `SHOW_BOND_AVV` (línea del contrato AVV), `SHOW_BOND_MARKETING` (línea de marketing con Systeme y Systeme como proveedor) y `SHOW_BOND_VIDEO_EN` (vídeo de `/en/discover-bond`; antes hay que añadir el vídeo en inglés y usarlo en `pages/DiscoverBond.jsx`, que hoy solo tiene el español).
+3. **Versión en inglés (`SHOW_BOND_PAGE_EN`):** se queda en `false` hasta que estén los túneles en inglés. Con `false`, `/en/discover-bond` redirige a `/en/bond`, `/en/bond` no muestra los botones "Discover Bond in detail", el selector de idioma de `/descubre-bond` lleva a `/en/bond` y la página no se prerenderiza. Cuando estén los túneles en inglés: ponerlo en `true` y volver a añadir el rewrite de `/en/discover-bond` en `render.yaml` (está comentado). Los textos en inglés siguen en `en.json`; no hay que tocarlos.
 
 **`SHOW_BOND` y `SHOW_BOND_PAGE` se activan a la vez.** Los botones "Descubre Bond en detalle" de `/bond` llevan a esta página; si solo se activa `SHOW_BOND`, acaban en la Home.
 

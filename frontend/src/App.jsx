@@ -22,7 +22,7 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import AuditPopup from "./components/AuditPopup";
 import AuditFloatBtn from "./components/AuditFloatBtn";
-import { SHOW_LEAD_POPUP, SHOW_LEAD_FLOAT_BTN, SHOW_BOND, SHOW_BOND_PAGE } from "./config/site";
+import { SHOW_LEAD_POPUP, SHOW_LEAD_FLOAT_BTN, SHOW_BOND, SHOW_BOND_PAGE, SHOW_BOND_PAGE_EN } from "./config/site";
 
 function App() {
   const { pathname } = useLocation();
@@ -47,7 +47,8 @@ function App() {
     services:    () => <Services />,
     // En local (npm run dev) las dos se ven aunque su interruptor sea false
     bond:        (lang) => (SHOW_BOND || import.meta.env.DEV ? <Bond active={!loading} /> : <Navigate to={ROUTES.home[lang]} replace />),
-    discoverBond: (lang) => (SHOW_BOND_PAGE || import.meta.env.DEV ? <DiscoverBond active={!loading} /> : <Navigate to={ROUTES.home[lang]} replace />),
+    discoverBond: (lang) => (lang === "en" && !SHOW_BOND_PAGE_EN && !import.meta.env.DEV ? <Navigate to={ROUTES.bond.en} replace />
+      : SHOW_BOND_PAGE || import.meta.env.DEV ? <DiscoverBond active={!loading} /> : <Navigate to={ROUTES.home[lang]} replace />),
     projects:    () => <Projects />,
     about:       () => <About />,
     contact:     () => <Contact />,
