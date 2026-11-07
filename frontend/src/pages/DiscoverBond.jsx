@@ -7,7 +7,7 @@ import Reveal from "../components/Reveal";
 import Seo from "../components/Seo";
 import {
   BOND_SALES_URL, BOND_DEMO_URL, SHOW_BOND_PAGE, SHOW_BOND_CASE, SHOW_BOND_AVV,
-  SHOW_BOND_MARKETING, SHOW_BOND_VIDEO_EN,
+  SHOW_BOND_MARKETING, SHOW_BOND_VIDEO_EN, BOND_SHARE_IMAGE_ES,
 } from "../config/site";
 import { useLocalePath } from "../config/routes";
 import { PROJECTS } from "../data/projects";
@@ -147,6 +147,7 @@ function DiscoverBond({ active = true }) {
         description={t("seo.bond.description")}
         page="discoverBond"
         noindex
+        {...(lang === "es" && BOND_SHARE_IMAGE_ES)}
       />
 
       {/* 00 — HERO ANIMADA */}

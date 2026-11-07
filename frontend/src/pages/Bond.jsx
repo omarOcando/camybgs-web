@@ -5,7 +5,7 @@ import Button from "../components/Button";
 import Reveal from "../components/Reveal";
 import Seo from "../components/Seo";
 import { useLocalePath } from "../config/routes";
-import { SHOW_BOND_PAGE_EN } from "../config/site";
+import { SHOW_BOND_PAGE_EN, BOND_SHARE_IMAGE_ES } from "../config/site";
 
 // ─── HOOK ────────────────────────────────────────────────────────────────────
 
@@ -63,6 +63,7 @@ function FeatureList({ title, items }) {
 // active: false mientras está el Loader, para que la entrada no ocurra detrás
 function Bond({ active = true }) {
   const { t } = useTranslation();
+  const { lang } = useLocalePath();
   const list = (key) => t(key, { returnObjects: true });
 
   const { ref: featuresRef, visible: featuresVisible } = useVisible(0.1);
@@ -73,6 +74,7 @@ function Bond({ active = true }) {
         title={t("seo.bondSite.title")}
         description={t("seo.bondSite.description")}
         page="bond"
+        {...(lang === "es" && BOND_SHARE_IMAGE_ES)}
       />
 
       {/* 01 — HERO */}

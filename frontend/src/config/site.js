@@ -60,3 +60,11 @@ export const NAV_LINKS = [
 
 export const BOND_SALES_URL = "https://shop.camybgs.com/bond-montaje";
 export const BOND_DEMO_URL  = "https://my.camybgs.com/demo-bond";
+
+// Imagen al compartir /bond y /descubre-bond (props de <Seo />). Lleva el texto
+// en español: las versiones en inglés siguen con og-image.jpg. Mide 1200×630,
+// como og-image.jpg; og:image:width y og:image:height vienen de index.html.
+export const BOND_SHARE_IMAGE_ES = {
+  image: "https://www.camybgs.com/bond-ventas-redes.jpg",
+  imageAlt: "Bond, la plataforma de gestión para coaches",
+};

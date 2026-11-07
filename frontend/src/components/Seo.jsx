@@ -9,7 +9,8 @@ const OG_LOCALE = { es: "es_ES", en: "en_GB" };
 // actual, con enlaces hreflang a la otra versión (x-default: español).
 // noindex: páginas que no deben salir en buscadores (tampoco van al sitemap);
 // sin canonical ni hreflang. Siempre queda un solo robots y un solo title.
-function Seo({ title, description, page = "home", image = DEFAULT_IMAGE, noindex = false }) {
+// imageAlt: texto alternativo de la imagen al compartir (solo si se pasa).
+function Seo({ title, description, page = "home", image = DEFAULT_IMAGE, imageAlt, noindex = false }) {
   const { lang } = useLocalePath();
   const url = `${SITE_URL}${pathFor(page, lang)}`;
 
@@ -29,11 +30,13 @@ function Seo({ title, description, page = "home", image = DEFAULT_IMAGE, noindex
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
       <meta property="og:image" content={image} />
+      {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
       <meta property="og:locale" content={OG_LOCALE[lang]} />
 
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+      {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
     </Helmet>
   );
 }
