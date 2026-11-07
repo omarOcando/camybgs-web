@@ -42,8 +42,9 @@ function PrivacyEs() {
         <h2 className="legal__h2">2. Resumen</h2>
         <p className="legal__p">
           Trato tus datos personales solo cuando es necesario para mostrarte este sitio web,
-          para responder a tus consultas o porque tú me has dado tu consentimiento. Este sitio
-          no utiliza cookies, ni herramientas de análisis o seguimiento, ni publicidad. Las
+          para responder a tus consultas, para organizar la demo de Bond que reservas o
+          tramitar una compra, o porque tú me has dado tu consentimiento. Este sitio web
+          (camybgs.com) no utiliza cookies, ni herramientas de análisis o seguimiento, ni publicidad. Las
           fuentes tipográficas, las imágenes, los vídeos y la música se alojan en el propio
           sitio, sin cargarse desde servidores de terceros.
         </p>
@@ -98,11 +99,21 @@ function PrivacyEs() {
       <section className="legal__section">
         <h2 className="legal__h2">4. Cookies y almacenamiento en tu navegador</h2>
         <p className="legal__p">
-          Este sitio web no utiliza cookies ni tecnologías similares de seguimiento, y no
+          Este sitio web (<strong>camybgs.com</strong>) no utiliza cookies ni tecnologías
+          similares de seguimiento, y no
           guarda ni lee información en tu dispositivo más allá de lo técnicamente necesario
           para mostrarte las páginas que solicitas (§&nbsp;25, apartado 2, n.º 2, de la TDDDG, ley
           alemana de protección de datos en telecomunicaciones y servicios digitales). Por eso
-          no necesitas aceptar ningún aviso de cookies.
+          no necesitas aceptar ningún aviso de cookies en camybgs.com.
+        </p>
+        <p className="legal__p">
+          Las páginas de reserva de la demo (<strong>my.camybgs.com</strong>) y de compra
+          (<strong>shop.camybgs.com</strong>) están alojadas en Systeme.io (apartados 8 y 9).
+          Pueden usar cookies técnicamente necesarias para funcionar, por ejemplo para mantener
+          tu sesión o tu pedido. En la página de pago, Stripe y PayPal usan además cookies para
+          prevenir el fraude. Ninguna de estas páginas usa cookies de análisis ni de
+          publicidad. La base legal es la misma: son cookies imprescindibles para el servicio
+          que pides (§&nbsp;25, apartado 2, n.º 2, de la TDDDG).
         </p>
       </section>
 
@@ -233,18 +244,143 @@ function PrivacyEs() {
       {/* ── 8 ── */}
       <hr className="legal__divider" />
       <section className="legal__section">
-        <h2 className="legal__h2">8. Enlaces externos</h2>
+        <h2 className="legal__h2">8. Reserva de la demo de Bond y videollamada</h2>
         <p className="legal__p">
-          Este sitio contiene enlaces a otros sitios web, como las webs de mis clientes o
-          páginas alojadas en Systeme.io. Al pulsarlos sales de mi sitio, y el operador de la
-          web de destino es responsable del tratamiento de tus datos allí.
+          Si reservas una demo de Bond a través de mi calendario en my.camybgs.com, trato los
+          datos que introduces: nombre, apellido, correo electrónico, teléfono, a qué te
+          dedicas y cuántos clientes atiendes al mes (aproximadamente), junto con la fecha y la
+          hora que eliges.
+        </p>
+        <p className="legal__p">
+          <strong>Finalidad y base legal:</strong> organizar la demo, enviarte por correo
+          electrónico la confirmación de la cita y dos recordatorios, y preparar la llamada
+          para que se ajuste a tu negocio. El teléfono solo lo uso para contactarte si hay
+          algún problema con la cita. La base legal es la aplicación de medidas
+          precontractuales a petición tuya (art. 6, apartado 1, letra b, del RGPD).
+        </p>
+        <p className="legal__p">
+          <strong>Destinatarios:</strong> el calendario funciona con <strong>Systeme.io</strong>{" "}
+          (ITACWT Limited, Dublín, Irlanda), que trata los datos en mi nombre como encargado
+          del tratamiento (art. 28 del RGPD) y con quien he celebrado un contrato de encargo de
+          tratamiento. Según el contrato de encargo, los datos se alojan en servidores de
+          Amazon Web Services en regiones de la Unión Europea.
+        </p>
+        <p className="legal__p">
+          <strong>Conservación:</strong> igual que las consultas del formulario (apartado 5).
+          Si no llegamos a colaborar, elimino tus datos como máximo 24 meses después de
+          nuestro último contacto. Si contratas, se aplican los plazos del apartado 9.
+        </p>
+
+        <h3 className="legal__h3">Videollamada por Google Meet</h3>
+        <p className="legal__p">
+          La demo se hace por videollamada en <strong>Google Meet</strong>. Durante la llamada
+          se tratan tu nombre, tu correo electrónico y, si activas la cámara y el micrófono, tu
+          imagen y tu voz. No grabo las llamadas. Google Meet es un servicio de Google Ireland
+          Limited (Dublín, Irlanda), que trata los datos de la videollamada según su propia
+          política de privacidad (
+          <a className="legal__link" href="https://policies.google.com/privacy" {...ext}>
+            policies.google.com/privacy
+          </a>). La base legal es la misma que la de la reserva (art. 6, apartado 1, letra b,
+          del RGPD).
+        </p>
+        <p className="legal__p">
+          <strong>Transferencia a terceros países:</strong> Google puede tratar datos en
+          EE. UU. Google LLC está certificada en el Marco de Privacidad de Datos UE-EE. UU.
+          (EU-U.S. Data Privacy Framework), para el que la Comisión Europea ha adoptado una
+          decisión de adecuación (art. 45 del RGPD).
+        </p>
+        <p className="legal__p">
+          Para crear el enlace de la videollamada, la cita (tu nombre, tu correo electrónico,
+          la fecha y la hora) se guarda también en mi calendario de Google, un servicio de
+          Google Ireland Limited, con la misma base legal y la misma transferencia a EE. UU.
+          descrita en el párrafo anterior.
         </p>
       </section>
 
       {/* ── 9 ── */}
       <hr className="legal__divider" />
       <section className="legal__section">
-        <h2 className="legal__h2">9. Cifrado SSL/TLS</h2>
+        <h2 className="legal__h2">9. Compra del montaje de Bond y pagos</h2>
+        <p className="legal__p">
+          Si compras el montaje de Bond en mi tienda (shop.camybgs.com), trato tu nombre, tu
+          correo electrónico, tu dirección de facturación, el producto que compras, el importe
+          y la forma de pago que eliges.
+        </p>
+        <p className="legal__p">
+          <strong>Finalidad y base legal:</strong> tramitar la compra, emitir la factura y
+          enviarte el email de bienvenida con lo que necesito para preparar el montaje. La base
+          legal es la ejecución del contrato (art. 6, apartado 1, letra b, del RGPD) y el
+          cumplimiento de mis obligaciones fiscales y contables (art. 6, apartado 1, letra c,
+          del RGPD).
+        </p>
+        <p className="legal__p">
+          <strong>Destinatarios:</strong> la tienda funciona con <strong>Systeme.io</strong>{" "}
+          (ITACWT Limited, Dublín, Irlanda), como encargado del tratamiento y con contrato de
+          encargo (apartado 8).
+        </p>
+        <p className="legal__p">
+          <strong>Pagos:</strong> según la forma de pago que elijas, tus datos de pago los
+          trata:
+        </p>
+        <ul className="legal__list">
+          <li>
+            <strong>Stripe</strong> (Stripe Payments Europe, Ltd., Dublín, Irlanda): pagos con
+            tarjeta, Apple Pay y Klarna.
+          </li>
+          <li>
+            <strong>Klarna</strong> (Klarna Bank AB, Estocolmo, Suecia), si eliges Klarna.
+          </li>
+          <li>
+            <strong>PayPal</strong> (PayPal (Europe) S.à r.l. et Cie, S.C.A., Luxemburgo), si
+            eliges PayPal.
+          </li>
+        </ul>
+        <p className="legal__p">
+          Estos proveedores tratan los datos de pago como responsables independientes, según
+          sus propias políticas de privacidad. Yo no veo los datos completos de tu tarjeta ni
+          de tu cuenta: solo recibo la confirmación del pago.
+        </p>
+        <p className="legal__p">
+          <strong>Conservación:</strong> conservo las facturas y los documentos de la compra
+          durante los plazos legales de conservación de la normativa fiscal y mercantil
+          alemana (§&nbsp;147 de la AO, ordenanza tributaria alemana, y §&nbsp;257 del HGB,
+          código de comercio alemán). Después los elimino.
+        </p>
+      </section>
+
+      {/* ── 10 ── */}
+      <hr className="legal__divider" />
+      <section className="legal__section">
+        <h2 className="legal__h2">10. Si contratas Bond: los datos de tus clientes</h2>
+        <p className="legal__p">
+          Si contratas Bond, los datos de tus propios clientes que se guardan en la plataforma
+          no los trato como responsable, sino como encargado del tratamiento por cuenta tuya
+          (art. 28 del RGPD). Tú eres el responsable de esos datos, y yo solo los trato
+          siguiendo tus instrucciones, según el contrato de encargado del tratamiento (AVV)
+          que firmamos antes de empezar. Ese tratamiento no se rige por esta política, sino
+          por el AVV.
+        </p>
+      </section>
+
+      {/* ── 11 ── */}
+      <hr className="legal__divider" />
+      <section className="legal__section">
+        <h2 className="legal__h2">11. Enlaces externos</h2>
+        <p className="legal__p">
+          Este sitio contiene enlaces a otros sitios web, como las webs de mis clientes. Al
+          pulsarlos sales de mi sitio, y el operador de la web de destino es responsable del
+          tratamiento de tus datos allí. Las páginas de reserva (my.camybgs.com) y de compra
+          (shop.camybgs.com) no son externas en este sentido: aunque están alojadas en
+          Systeme.io, las gestiono yo y se rigen por esta política (apartados 4, 8 y 9). La
+          demo de Bond (demo.camybgs.com) tiene su propia política de privacidad, enlazada al
+          pie de esta página.
+        </p>
+      </section>
+
+      {/* ── 12 ── */}
+      <hr className="legal__divider" />
+      <section className="legal__section">
+        <h2 className="legal__h2">12. Cifrado SSL/TLS</h2>
         <p className="legal__p">
           Por motivos de seguridad, este sitio utiliza cifrado SSL/TLS. Lo reconoces porque la
           dirección empieza por «https://» y aparece un candado en la barra del navegador. Así,
@@ -252,10 +388,10 @@ function PrivacyEs() {
         </p>
       </section>
 
-      {/* ── 10 ── */}
+      {/* ── 13 ── */}
       <hr className="legal__divider" />
       <section className="legal__section">
-        <h2 className="legal__h2">10. Tus derechos</h2>
+        <h2 className="legal__h2">13. Tus derechos</h2>
         <p className="legal__p">
           En relación con tus datos personales, tienes derecho a:
         </p>
@@ -290,20 +426,20 @@ function PrivacyEs() {
         </p>
       </section>
 
-      {/* ── 11 ── */}
+      {/* ── 14 ── */}
       <hr className="legal__divider" />
       <section className="legal__section">
-        <h2 className="legal__h2">11. Decisiones automatizadas</h2>
+        <h2 className="legal__h2">14. Decisiones automatizadas</h2>
         <p className="legal__p">
           No tomo decisiones automatizadas ni elaboro perfiles en el sentido del art. 22 del
           RGPD.
         </p>
       </section>
 
-      {/* ── 12 ── */}
+      {/* ── 15 ── */}
       <hr className="legal__divider" />
       <section className="legal__section">
-        <h2 className="legal__h2">12. Cambios en esta política</h2>
+        <h2 className="legal__h2">15. Cambios en esta política</h2>
         <p className="legal__p">
           Actualizo esta política cuando cambian los servicios que utilizo o la normativa
           aplicable. La versión vigente es siempre la publicada en esta página.

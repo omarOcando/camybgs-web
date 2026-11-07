@@ -13,4 +13,4 @@ export const PROVIDER = {
 export const PHONE_DISPLAY = "+49 177 858 7715";
 
 // Fecha de la última revisión de los textos legales
-export const LEGAL_UPDATED = { es: "octubre de 2026", en: "October 2026" };
+export const LEGAL_UPDATED = { es: "noviembre de 2026", en: "November 2026" };

@@ -42,8 +42,9 @@ function PrivacyEn() {
         <h2 className="legal__h2">2. Summary</h2>
         <p className="legal__p">
           I only process your personal data when it is necessary to show you this website, to
-          answer your enquiries, or because you have given me your consent. This website does
-          not use cookies, analytics or tracking tools, or advertising. Fonts, images, videos
+          answer your enquiries, to organise the Bond demo you book or process a purchase, or
+          because you have given me your consent. This website (camybgs.com) does not use
+          cookies, analytics or tracking tools, or advertising. Fonts, images, videos
           and music are hosted on the website itself and are not loaded from third-party
           servers.
         </p>
@@ -96,11 +97,20 @@ function PrivacyEn() {
       <section className="legal__section">
         <h2 className="legal__h2">4. Cookies and storage in your browser</h2>
         <p className="legal__p">
-          This website does not use cookies or similar tracking technologies, and it does not
-          store or read information on your device beyond what is technically necessary to
-          display the pages you request (§&nbsp;25 (2) no. 2 TDDDG, the German Telecommunications
-          and Digital Services Data Protection Act). You therefore do not need to accept any
-          cookie notice.
+          This website (<strong>camybgs.com</strong>) does not use cookies or similar tracking
+          technologies, and it does not store or read information on your device beyond what
+          is technically necessary to display the pages you request (§&nbsp;25 (2) no. 2 TDDDG,
+          the German Telecommunications and Digital Services Data Protection Act). You
+          therefore do not need to accept any cookie notice on camybgs.com.
+        </p>
+        <p className="legal__p">
+          The demo booking page (<strong>my.camybgs.com</strong>) and the shop
+          (<strong>shop.camybgs.com</strong>) are hosted on Systeme.io (sections 8 and 9). They
+          may use technically necessary cookies in order to work, for example to keep your
+          session or your order. On the payment page, Stripe and PayPal also use cookies to
+          prevent fraud. None of these pages use analytics or advertising cookies. The legal
+          basis is the same: these cookies are essential for the service you request
+          (§&nbsp;25 (2) no. 2 TDDDG).
         </p>
       </section>
 
@@ -227,18 +237,138 @@ function PrivacyEn() {
       {/* ── 8 ── */}
       <hr className="legal__divider" />
       <section className="legal__section">
-        <h2 className="legal__h2">8. External links</h2>
+        <h2 className="legal__h2">8. Booking a Bond demo and video call</h2>
         <p className="legal__p">
-          This website contains links to other websites, such as my clients' websites or pages
-          hosted on Systeme.io. When you click them you leave my website, and the operator of
-          the destination website is responsible for processing your data there.
+          If you book a Bond demo through my calendar at my.camybgs.com, I process the data you
+          enter: first name, last name, email address, phone number, what you do and roughly
+          how many clients you see per month, together with the date and time you choose.
+        </p>
+        <p className="legal__p">
+          <strong>Purpose and legal basis:</strong> organising the demo, sending you the
+          booking confirmation and two reminders by email, and preparing the call so that it
+          fits your business. I only use your phone number to contact you if there is a
+          problem with the appointment. The legal basis is taking steps at your request prior
+          to entering into a contract (Art. 6 (1) (b) GDPR).
+        </p>
+        <p className="legal__p">
+          <strong>Recipients:</strong> the calendar runs on <strong>Systeme.io</strong>{" "}
+          (ITACWT Limited, Dublin, Ireland), which processes the data on my behalf as a
+          processor (Art. 28 GDPR) and with which I have concluded a data processing
+          agreement. According to that agreement, the data is hosted on Amazon Web Services
+          servers in regions within the European Union.
+        </p>
+        <p className="legal__p">
+          <strong>Retention:</strong> the same as for enquiries sent through the form
+          (section 5). If we do not end up working together, I delete your data no later than
+          24 months after our last contact. If you sign up, the periods in section 9 apply.
+        </p>
+
+        <h3 className="legal__h3">Video call via Google Meet</h3>
+        <p className="legal__p">
+          The demo takes place as a video call on <strong>Google Meet</strong>. During the call,
+          your name, your email address and, if you turn on your camera and microphone, your
+          image and voice are processed. I do not record calls. Google Meet is a service of
+          Google Ireland Limited (Dublin, Ireland), which processes the video call data
+          according to its own privacy policy (
+          <a className="legal__link" href="https://policies.google.com/privacy" {...ext}>
+            policies.google.com/privacy
+          </a>). The legal basis is the same as for the booking (Art. 6 (1) (b) GDPR).
+        </p>
+        <p className="legal__p">
+          <strong>Transfers to third countries:</strong> Google may process data in the USA.
+          Google LLC is certified under the EU-U.S. Data Privacy Framework, for which the
+          European Commission has adopted an adequacy decision (Art. 45 GDPR).
+        </p>
+        <p className="legal__p">
+          To create the video call link, the appointment (your name, your email address, the
+          date and the time) is also saved in my Google Calendar, a service of Google Ireland
+          Limited, on the same legal basis and with the same transfer to the USA described in
+          the previous paragraph.
         </p>
       </section>
 
       {/* ── 9 ── */}
       <hr className="legal__divider" />
       <section className="legal__section">
-        <h2 className="legal__h2">9. SSL/TLS encryption</h2>
+        <h2 className="legal__h2">9. Purchasing the Bond setup and payments</h2>
+        <p className="legal__p">
+          If you buy the Bond setup in my shop (shop.camybgs.com), I process your name, your
+          email address, your billing address, the product you buy, the amount and the payment
+          method you choose.
+        </p>
+        <p className="legal__p">
+          <strong>Purpose and legal basis:</strong> processing your purchase, issuing the
+          invoice and sending you the welcome email with what I need to prepare the setup.
+          The legal basis is the performance of the contract (Art. 6 (1) (b) GDPR) and
+          compliance with my tax and accounting obligations (Art. 6 (1) (c) GDPR).
+        </p>
+        <p className="legal__p">
+          <strong>Recipients:</strong> the shop runs on <strong>Systeme.io</strong> (ITACWT
+          Limited, Dublin, Ireland), as a processor under a data processing agreement
+          (section 8).
+        </p>
+        <p className="legal__p">
+          <strong>Payments:</strong> depending on the payment method you choose, your payment
+          data is processed by:
+        </p>
+        <ul className="legal__list">
+          <li>
+            <strong>Stripe</strong> (Stripe Payments Europe, Ltd., Dublin, Ireland): card,
+            Apple Pay and Klarna payments.
+          </li>
+          <li>
+            <strong>Klarna</strong> (Klarna Bank AB, Stockholm, Sweden), if you choose Klarna.
+          </li>
+          <li>
+            <strong>PayPal</strong> (PayPal (Europe) S.à r.l. et Cie, S.C.A., Luxembourg), if
+            you choose PayPal.
+          </li>
+        </ul>
+        <p className="legal__p">
+          These providers process payment data as independent controllers, according to their
+          own privacy policies. I do not see your full card or account details: I only
+          receive confirmation of the payment.
+        </p>
+        <p className="legal__p">
+          <strong>Retention:</strong> I keep invoices and purchase records for the statutory
+          retention periods under German tax and commercial law (§&nbsp;147 AO, the German
+          Fiscal Code, and §&nbsp;257 HGB, the German Commercial Code). After that, I delete
+          them.
+        </p>
+      </section>
+
+      {/* ── 10 ── */}
+      <hr className="legal__divider" />
+      <section className="legal__section">
+        <h2 className="legal__h2">10. If you sign up for Bond: your clients' data</h2>
+        <p className="legal__p">
+          If you sign up for Bond, I do not process your own clients' data stored on the
+          platform as a controller, but as a processor on your behalf (Art. 28 GDPR). You are
+          the controller of that data, and I only process it on your instructions, under the
+          data processing agreement (DPA) we sign before we start. That processing is governed
+          by the DPA, not by this policy.
+        </p>
+      </section>
+
+      {/* ── 11 ── */}
+      <hr className="legal__divider" />
+      <section className="legal__section">
+        <h2 className="legal__h2">11. External links</h2>
+        <p className="legal__p">
+          This website contains links to other websites, such as my clients' websites. When
+          you click them you leave my website, and the operator of the destination website is
+          responsible for processing your data there. The booking page (my.camybgs.com) and
+          the shop (shop.camybgs.com) are not external in this sense: although they are hosted
+          on Systeme.io, I manage them and they are covered by this policy (sections 4, 8 and
+          9). The Bond demo (demo.camybgs.com) has its own privacy policy, linked at the bottom
+          of this page.
+        </p>
+      </section>
+
+      {/* ── 12 ── */}
+      <hr className="legal__divider" />
+      <section className="legal__section">
+        <h2 className="legal__h2">12. SSL/TLS encryption</h2>
         <p className="legal__p">
           For security reasons, this website uses SSL/TLS encryption. You can recognise it by
           the address starting with "https://" and the padlock in your browser bar. This way,
@@ -246,10 +376,10 @@ function PrivacyEn() {
         </p>
       </section>
 
-      {/* ── 10 ── */}
+      {/* ── 13 ── */}
       <hr className="legal__divider" />
       <section className="legal__section">
-        <h2 className="legal__h2">10. Your rights</h2>
+        <h2 className="legal__h2">13. Your rights</h2>
         <p className="legal__p">
           Regarding your personal data, you have the right to:
         </p>
@@ -284,20 +414,20 @@ function PrivacyEn() {
         </p>
       </section>
 
-      {/* ── 11 ── */}
+      {/* ── 14 ── */}
       <hr className="legal__divider" />
       <section className="legal__section">
-        <h2 className="legal__h2">11. Automated decision-making</h2>
+        <h2 className="legal__h2">14. Automated decision-making</h2>
         <p className="legal__p">
           I do not use automated decision-making or profiling within the meaning of
           Art. 22 GDPR.
         </p>
       </section>
 
-      {/* ── 12 ── */}
+      {/* ── 15 ── */}
       <hr className="legal__divider" />
       <section className="legal__section">
-        <h2 className="legal__h2">12. Changes to this policy</h2>
+        <h2 className="legal__h2">15. Changes to this policy</h2>
         <p className="legal__p">
           I update this policy when the services I use or the applicable law change. The
           version published on this page is always the one in force.
