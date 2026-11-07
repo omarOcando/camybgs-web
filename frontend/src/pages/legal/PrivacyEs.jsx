@@ -147,8 +147,8 @@ function PrivacyEs() {
           <li>
             <strong>Systeme.io</strong> (ITACWT Limited, Dublín, Irlanda): mi sistema de gestión
             de contactos (CRM). Recibe tu nombre, tu correo electrónico y una etiqueta con el
-            servicio que te interesa. Según su política de privacidad, sus servidores están en
-            Irlanda (UE).
+            servicio que te interesa. Según el contrato de encargo, los datos se alojan en
+            servidores de Amazon Web Services en regiones de la Unión Europea.
           </li>
           <li>
             <strong>Resend</strong> (Resend, Inc., EE. UU.): envía a mi correo un aviso con el

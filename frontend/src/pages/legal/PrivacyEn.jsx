@@ -142,8 +142,9 @@ function PrivacyEn() {
           <li>
             <strong>Systeme.io</strong> (ITACWT Limited, Dublin, Ireland): my contact
             management system (CRM). It receives your name, your email address and a tag with
-            the service you are interested in. According to its privacy policy, its servers
-            are located in Ireland (EU).
+            the service you are interested in. According to the data processing agreement,
+            the data is hosted on Amazon Web Services servers in regions within the European
+            Union.
           </li>
           <li>
             <strong>Resend</strong> (Resend, Inc., USA): sends me an email notification with
