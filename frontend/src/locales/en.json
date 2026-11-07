@@ -582,7 +582,7 @@
     "data": {
       "title": "Your data and your clients' data, protected.",
       "hosting": { "lead": "Hosted in Europe:", "text": "Bond runs in Germany and backups are stored in France. Only email delivery goes through the United States, with the safeguards the GDPR requires." },
-      "avv": { "lead": "GDPR-ready:", "text": "we sign a data processing agreement (AVV) with you." },
+      "avv": { "lead": "GDPR-ready:", "text": "before any of your clients' data goes in, I sign a data processing agreement (DPA) with you." },
       "items": [
         { "lead": "Your data is yours.", "text": "If you ever leave Bond, I hand it over as an export and then delete it." },
         { "lead": "Your clients stay in control:", "text": "each one can download or delete their own data from their portal." }

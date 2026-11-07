@@ -582,7 +582,7 @@
     "data": {
       "title": "Tus datos y los de tus clientes, protegidos.",
       "hosting": { "lead": "Alojados en Europa:", "text": "Bond funciona en Alemania y las copias de seguridad se guardan en Francia. Solo el envío de emails pasa por Estados Unidos, con las garantías que exige el RGPD." },
-      "avv": { "lead": "Preparado para el RGPD:", "text": "firmamos contigo un contrato de tratamiento de datos (AVV)." },
+      "avv": { "lead": "Preparado para el RGPD:", "text": "antes de pasar ningún dato de tus clientes, firmo contigo un contrato de encargado del tratamiento (AVV)." },
       "items": [
         { "lead": "Tus datos son tuyos.", "text": "Si un día dejas Bond, te los entrego exportados y después los borro." },
         { "lead": "Tus clientes, con control:", "text": "cada uno puede descargar o borrar sus propios datos desde su portal." }

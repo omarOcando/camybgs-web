@@ -38,12 +38,12 @@ export const SHOW_BOND_PAGE = false;
 export const SHOW_BOND_PAGE_EN = false;
 
 // Partes de la página de ventas ocultas hasta confirmarlas: el caso real
-// (sección 6), la línea del contrato de tratamiento de datos, AVV (sección 10),
-// el marketing con Systeme (línea de la sección 9, y Systeme como proveedor en
+// (sección 6), el marketing con Systeme (línea de la sección 9, y Systeme como proveedor en
 // la pregunta "¿Quién más trata los datos?") y el vídeo de /en/discover-bond,
 // hasta tener la versión en inglés (en /descubre-bond se ve siempre).
 export const SHOW_BOND_CASE      = false;
-export const SHOW_BOND_AVV       = false;
+// Línea del contrato de encargado del tratamiento, AVV/DPA (sección 10): activada
+export const SHOW_BOND_AVV       = true;
 export const SHOW_BOND_MARKETING = false;
 export const SHOW_BOND_VIDEO_EN  = false;
 
