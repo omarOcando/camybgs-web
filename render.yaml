@@ -81,10 +81,13 @@ services:
         destination: https://camybgs-api.onrender.com/api/*
       # Páginas prerenderizadas (scripts/prerender.js): cada una con su HTML.
       # Las mismas del sitemap, más la página de ventas de Bond (oculta, pero con
-      # su noindex en el HTML). Si se activa Bond (SHOW_BOND), añadir /bond y /en/bond.
+      # su noindex en el HTML). /bond y /en/bond, con SHOW_BOND en true.
       - type: rewrite
         source: /servicios
         destination: /servicios/index.html
+      - type: rewrite
+        source: /bond
+        destination: /bond/index.html
       - type: rewrite
         source: /descubre-bond
         destination: /descubre-bond/index.html
@@ -112,6 +115,9 @@ services:
       - type: rewrite
         source: /en/services
         destination: /en/services/index.html
+      - type: rewrite
+        source: /en/bond
+        destination: /en/bond/index.html
       # /en/discover-bond: sin rewrite mientras SHOW_BOND_PAGE_EN sea false (no
       # se prerenderiza). Al activarlo, volver a añadir aquí:
       #   - type: rewrite

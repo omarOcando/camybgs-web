@@ -21,13 +21,13 @@ export const CONTACT = {
 // formulario; /bond redirige a la Home. Al cambiarlo, actualizar también a
 // mano public/sitemap.xml y el serviceType del JSON-LD de index.html
 // (README.md, "Activar Bond").
-export const SHOW_BOND = false;
+export const SHOW_BOND = true;
 
 // Página de ventas de Bond (/descubre-bond y /en/discover-bond): es una página
 // oculta, sin menú, noindex y fuera del sitemap. Con false redirige a la Home
 // (en npm run dev se ve siempre). Se activa a la vez que SHOW_BOND: los botones
 // de /bond llevan aquí y, con false, acabarían en la Home.
-export const SHOW_BOND_PAGE = false;
+export const SHOW_BOND_PAGE = true;
 
 // Versión en inglés de la página de ventas (/en/discover-bond), oculta hasta
 // tener sus túneles en inglés. Con false: /en/discover-bond redirige a /en/bond,
